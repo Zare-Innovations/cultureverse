@@ -1,0 +1,52 @@
+/* Shared pieces of the event pages (05 to 09): top line, back link, hero block, CTA row, definition lists. */
+.top {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.topLine { font-size: 11px; }
+.sep { opacity: 0.6; margin: 0 8px; }
+.back {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent, #fff);
+  padding-bottom: 3px;
+  white-space: nowrap;
+}
+.hero {
+  position: relative;
+  margin-top: 50px;
+  max-width: 820px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.h { margin: 0; }
+.mark { width: 420px; height: auto; }
+.title { font-size: calc(54 * var(--u)); line-height: 0.95; }
+.copy { font-size: 19px; line-height: 1.5; max-width: 620px; font-weight: 600; }
+.ctaRow { display: flex; gap: 14px; align-items: center; margin-top: 6px; }
+.ctaNote { opacity: 0.8; max-width: 280px; }
+.dl { margin: 0; display: grid; gap: 24px; }
+.dlItem { border-top: 2px solid #fff; padding-top: 10px; }
+.dd { margin: 4px 0 0; font-size: 18px; font-weight: 700; }
+.photos { position: relative; display: grid; gap: 16px; }
+.photos img { width: 100%; height: var(--photo-h, 300px); object-fit: cover; }
+
+/* Mobile variants */
+.topM { position: relative; }
+.topM span { opacity: 0.75; }
+.markM { width: 260px; height: auto; }
+.tag { position: relative; margin-top: 14px; display: flex; }
+.copyM { position: relative; font-size: 16px; line-height: 1.5; font-weight: 600; }
+.dlM { position: relative; margin: 26px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.dlItemM { border-top: 1px solid rgba(255, 255, 255, 0.4); padding-top: 8px; }
+.ddM { margin: 4px 0 0; font-size: 16px; font-weight: 700; }
+.photosM { position: relative; margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.photosM img { width: 100%; height: 130px; object-fit: cover; }
+.photosM .wide { grid-column: 1 / -1; height: var(--wide-h, 170px); }
+.ctaM { position: relative; margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+.ctaM .btn { width: 100%; }
+.noteM { opacity: 0.8; font-size: 9px; }
+.backM { align-self: flex-start; margin-top: 6px; }
