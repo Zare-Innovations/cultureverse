@@ -17,8 +17,8 @@ main { display: block; }
   position: relative;
   overflow: hidden;
   container-type: inline-size;
-  --u: min(1px, 100cqw / 1440);
-  --um: min(1.4px, 100cqw / 390);
+  --u: min(1px, round(100cqw / 1440, 0.001px));
+  --um: min(1.4px, round(100cqw / 390, 0.001px));
 }
 
 /* Centered content frame: 1312px of content inside 64px margins at 1440. */

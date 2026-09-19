@@ -15,7 +15,7 @@
   filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.6));
 }
 .white { color: #fff; }
-.wrap { padding-top: 48px; padding-bottom: 76px; }
+.wrap { padding-top: 48px; padding-bottom: 75.578px; /* section height 980 */ }
 .hero { position: relative; margin-top: 40px; max-width: 900px; display: flex; flex-direction: column; gap: 24px; }
 .mark { height: 120px; width: auto; }
 .title { font-size: calc(48 * var(--u)); line-height: 0.95; }

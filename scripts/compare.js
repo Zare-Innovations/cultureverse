@@ -16,41 +16,7 @@ const OUT = path.join(SCRATCH, 'compare');
 fs.mkdirSync(OUT, { recursive: true });
 
 // id, artboard file, board clip [x,y,w,h], route, route anchor selector (clip starts at its top) or number, viewport width, extra route options
-const M = [
-  { id: 'nav-rest', board: '00-Nav-States-D.dc.html', bw: 1440, bh: 760, clip: [0, 60, 1440, 72], route: '/about', anchor: 0, w: 1440, h: 72, dim: 'd' },
-  { id: 'nav-compact', board: '00-Nav-States-D.dc.html', bw: 1440, bh: 760, clip: [0, 200, 1440, 60], route: '/about', anchor: 0, w: 1440, h: 60, dim: 'd', scroll: 400, fixedTop: true },
-  { id: 'nav-dd', board: '00-Nav-States-D.dc.html', bw: 1440, bh: 760, clip: [0, 324, 1440, 420], route: '/about', anchor: 0, w: 1440, h: 420, dim: 'd', dd: true },
-  { id: 'home-d', board: 'Main.dc.html', bw: 1440, bh: 900, route: '/', anchor: 0, w: 1440, h: 900, dim: 'd' },
-  { id: 'home-m', board: '01-Home-M.dc.html', bw: 390, bh: 844, route: '/', anchor: 0, w: 390, h: 844, dim: 'm' },
-  { id: 'menu-m', board: '01-Home-Menu-M.dc.html', bw: 390, bh: 844, route: '/', anchor: 0, w: 390, h: 844, dim: 'm', menu: true, fixedTop: true },
-  { id: 'announced-d', board: '02-Home-Announced-D.dc.html', bw: 1440, bh: 900, route: '/', anchor: 0, w: 1440, h: 900, dim: 'd', announced: true },
-  { id: 'about-d', board: '03-About-D.dc.html', bw: 1440, bh: 1100, route: '/about', anchor: 'main', w: 1440, h: 1100, dim: 'd' },
-  { id: 'about-m', board: '03-About-M.dc.html', bw: 390, bh: 1300, route: '/about', anchor: 'main', w: 390, h: 1300, dim: 'm' },
-  { id: 'cultureverse-d', board: '04-Cultureverse-D.dc.html', bw: 1440, bh: 1300, route: '/cultureverse', anchor: 'main', w: 1440, h: 1300, dim: 'd' },
-  { id: 'cultureverse-m', board: '04-Cultureverse-M.dc.html', bw: 390, bh: 1800, route: '/cultureverse', anchor: 'main', w: 390, h: 1800, dim: 'm' },
-  { id: 'culturelive-d', board: '05-CultureLive-D.dc.html', bw: 1440, bh: 1260, route: '/culturelive', anchor: 'main', w: 1440, h: 1260, dim: 'd' },
-  { id: 'culturelive-m', board: '05-CultureLive-M.dc.html', bw: 390, bh: 1360, route: '/culturelive', anchor: 'main', w: 390, h: 1360, dim: 'm' },
-  { id: 'cultureexpo-d', board: '06-CultureExpo-D.dc.html', bw: 1440, bh: 1180, route: '/cultureexpo', anchor: 'main', w: 1440, h: 1180, dim: 'd' },
-  { id: 'cultureexpo-m', board: '06-CultureExpo-M.dc.html', bw: 390, bh: 1160, route: '/cultureexpo', anchor: 'main', w: 390, h: 1160, dim: 'm' },
-  { id: 'exchnge-d', board: '07-EXCHNGE-D.dc.html', bw: 1440, bh: 980, route: '/exchnge', anchor: 'main', w: 1440, h: 980, dim: 'd' },
-  { id: 'exchnge-m', board: '07-EXCHNGE-M.dc.html', bw: 390, bh: 1330, route: '/exchnge', anchor: 'main', w: 390, h: 1330, dim: 'm' },
-  { id: 'biggive-d', board: '08-BigGive-D.dc.html', bw: 1440, bh: 980, route: '/biggive', anchor: 'main', w: 1440, h: 980, dim: 'd' },
-  { id: 'biggive-m', board: '08-BigGive-M.dc.html', bw: 390, bh: 1400, route: '/biggive', anchor: 'main', w: 390, h: 1400, dim: 'm' },
-  { id: 'iconhonors-d', board: '09-IconHonors-D.dc.html', bw: 1440, bh: 1580, route: '/iconhonors', anchor: 'main', w: 1440, h: 1580, dim: 'd' },
-  { id: 'iconhonors-m', board: '09-IconHonors-M.dc.html', bw: 390, bh: 1920, route: '/iconhonors', anchor: 'main', w: 390, h: 1920, dim: 'm' },
-  { id: 'reunion-d', board: '10-ComingWorlds-D.dc.html', bw: 1440, bh: 900, route: '/cultureunion', anchor: 'main', w: 1440, h: 900, dim: 'd', world: 'reunion' },
-  { id: 'reunion-m', board: '10-ComingWorlds-M.dc.html', bw: 390, bh: 1000, route: '/cultureunion', anchor: 'main', w: 390, h: 1000, dim: 'm', world: 'reunion' },
-  { id: 'coming-d', board: '10-ComingWorlds-D.dc.html', bw: 1440, bh: 900, route: '/culturecoming', anchor: 'main', w: 1440, h: 900, dim: 'd', world: 'coming' },
-  { id: 'coming-m', board: '10-ComingWorlds-M.dc.html', bw: 390, bh: 1000, route: '/culturecoming', anchor: 'main', w: 390, h: 1000, dim: 'm', world: 'coming' },
-  { id: 'games-d', board: '10-ComingWorlds-D.dc.html', bw: 1440, bh: 900, route: '/culturegames', anchor: 'main', w: 1440, h: 900, dim: 'd', world: 'games' },
-  { id: 'games-m', board: '10-ComingWorlds-M.dc.html', bw: 390, bh: 1000, route: '/culturegames', anchor: 'main', w: 390, h: 1000, dim: 'm', world: 'games' },
-  { id: 'tapin-d', board: '11-StayTappedIn-D.dc.html', bw: 1440, bh: 820, route: '/tap-in', anchor: 'main', w: 1440, h: 820, dim: 'd' },
-  { id: 'tapin-m', board: '11-StayTappedIn-M.dc.html', bw: 390, bh: 900, route: '/tap-in', anchor: 'main', w: 390, h: 900, dim: 'm' },
-  { id: 'home-band-d', board: '11-StayTappedIn-D.dc.html', bw: 1440, bh: 820, route: '/', anchor: '#join', w: 1440, h: 820, dim: 'd' },
-  { id: 'cv-band-m', board: '11-StayTappedIn-M.dc.html', bw: 390, bh: 900, route: '/cultureverse', anchor: '#join', w: 390, h: 900, dim: 'm' },
-  { id: 'footer-d', board: '12-Footer-D.dc.html', bw: 1440, bh: 640, route: '/about', anchor: 'footer', w: 1440, h: 640, dim: 'd' },
-  { id: 'footer-m', board: '12-Footer-M.dc.html', bw: 390, bh: 1000, route: '/about', anchor: 'footer', w: 390, h: 1000, dim: 'm' },
-];
+const M = require('./manifest');
 
 function sbs(a, r, d) {
   const out = new PNG({ width: a.width * 3 + 20, height: a.height });

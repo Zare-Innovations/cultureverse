@@ -5,7 +5,7 @@
   color: #fff;
   font-family: var(--f-text);
   container-type: inline-size;
-  --u: min(1px, 100cqw / 1440);
+  --u: min(1px, round(100cqw / 1440, 0.001px));
 }
 .red {
   position: absolute;
@@ -35,7 +35,7 @@
 .iheart { width: 240px; height: auto; }
 .contact { font-size: 14px; line-height: 1.5; opacity: 0.85; max-width: 300px; }
 .mail { color: #fff; }
-.navcol { display: flex; flex-direction: column; align-items: flex-start; }
+.navcol { display: flex; flex-direction: column; }
 .navhead { margin-bottom: 8px; opacity: 0.7; }
 .fl {
   color: #fff;
@@ -69,8 +69,8 @@
   .top { height: auto; padding-top: 40px; }
   .head { position: static; gap: 0; }
   .calling { font-size: 48px; line-height: 0.88; }
-  .tag { font-size: 10px; margin-top: 16px; }
-  .ctas { position: static; flex-direction: column; gap: 10px; margin-top: 24px; }
+  .tag { font-size: 10px; margin-top: 15.52px; /* artboard row 140 */ }
+  .ctas { position: static; flex-direction: column; gap: 10px; margin-top: 24.5px; /* artboard row 178 */ }
   .ctas > * { width: 100%; }
   .mobile { display: flex; flex-direction: column; gap: 24px; margin-top: 72px; }
   .logos { display: flex; align-items: center; gap: 18px; }

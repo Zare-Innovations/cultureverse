@@ -25,14 +25,13 @@
   display: flex;
   align-items: center;
   gap: 36px;
-  border-bottom: 1px solid transparent;
   transition: height var(--t-fast) var(--ease-snap);
 }
 .compact .inner {
   height: 60px;
-  border-bottom-color: rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
-.ddOpen .inner { border-bottom-color: transparent; }
+.ddOpen .inner { border-bottom: 0; }
 
 .logoLink { display: block; }
 .logo { width: 92px; height: auto; display: block; transition: width var(--t-fast) var(--ease-snap); }
@@ -112,7 +111,7 @@
 
 @media (max-width: 1023.98px) {
   .inner { height: 64px; padding: 0 12px 0 16px; gap: 8px; }
-  .compact .inner { height: 64px; border-bottom-color: transparent; }
+  .compact .inner { height: 64px; border-bottom: 0; }
   .logo, .compact .logo { width: 76px; }
   .links, .cd, .tapin, .ticketsD { display: none !important; }
   .burger { display: flex; }

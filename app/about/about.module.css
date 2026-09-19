@@ -13,8 +13,11 @@
   background: #f6003a;
 }
 .shade { position: absolute; inset: 0; background: linear-gradient(rgba(17, 24, 33, 0.2), rgba(17, 24, 33, 0.55)); }
-.wrap { padding-top: 48px; padding-bottom: 37px; }
+.wrap { padding-top: 48px; padding-bottom: 36.562px; /* section height 1100 */ }
 .eyebrow { position: relative; }
+@media (min-width: 1024px) {
+  .eyebrow { line-height: 15px; } /* integer line box so the intro lands on the artboard row */
+}
 .intro {
   position: relative;
   margin-top: 57px;
@@ -30,7 +33,7 @@
 
 .grid {
   position: relative;
-  margin-top: 57px;
+  margin-top: 56.63px; /* 57px less the fractional height of the intro block, so the grid lands on the artboard row */
   display: grid;
   grid-template-columns: minmax(0, 640fr) minmax(0, 608fr);
   gap: 64px;
@@ -62,9 +65,9 @@
   .shade { background: linear-gradient(rgba(17, 24, 33, 0.2), rgba(17, 24, 33, 0.6)); }
   .wrap { padding-top: 40px; padding-bottom: 79px; }
   .intro { margin-top: 40px; gap: 0; max-width: none; }
-  .logo { width: 220px; }
+  .logo { width: 220px; height: auto; }
   .lede { font-size: 28px; line-height: 0.9; margin-top: 20px; max-width: none; }
-  .mcf { width: 200px; margin-top: 18px; }
+  .mcf { width: 200px; height: auto; margin-top: 18px; }
   .mobile { position: relative; display: block; }
   .bodyM { font-size: 17px; line-height: 1.5; font-weight: 500; margin-top: 60px; }
   .builtM { font-size: 26px; margin-top: 24px; }

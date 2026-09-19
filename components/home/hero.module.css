@@ -266,6 +266,7 @@
   align-items: center;
   gap: 12px;
   z-index: 5;
+  pointer-events: none;
 }
 .logoM { width: 270px; height: auto; }
 .iheartM { width: 190px; height: auto; }

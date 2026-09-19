@@ -63,7 +63,7 @@
   .field { clip-path: polygon(0 0, 100% 0, 100% 330px, 0 370px); height: 380px; inset: auto; top: 0; left: 0; right: 0; }
   .wrap { min-height: 900px; display: block; padding-top: 40px; padding-bottom: 104px; }
   .left { padding-top: 0; max-width: none; gap: 0; }
-  .logo { width: 200px; }
+  .logo { width: 200px; height: auto; }
   .br { display: none; }
   .title { font-size: 44px; margin-top: 18px; }
   .copy { font-size: 16px; margin-top: 12px; max-width: none; }

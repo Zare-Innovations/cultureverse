@@ -3,7 +3,7 @@
 .wrap { padding-top: 48px; padding-bottom: 60px; min-height: 900px; }
 .top { position: relative; display: flex; justify-content: flex-end; }
 .back { color: #fff; text-decoration: none; border-bottom: 2px solid #fff; padding-bottom: 3px; }
-.block { position: relative; margin-top: 132px; max-width: 760px; display: flex; flex-direction: column; gap: 26px; }
+.block { position: relative; margin-top: 132.15px; /* artboard row 200 below the back link line box */ max-width: 760px; display: flex; flex-direction: column; gap: 26px; }
 .when { align-self: flex-start; }
 .h { margin: 0; }
 .mark { max-width: 100%; height: auto; }

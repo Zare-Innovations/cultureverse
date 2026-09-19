@@ -1,3 +1,5 @@
+/* Wrapped in a cascade layer so page CSS modules always win over these base rules, whatever the bundle order. */
+@layer cb2 {
 /* CultureBowl 2026 launch system, pass 2. Tokens from the PMM brand guide. */
 :root{
   --red:#F6003A; --red-press:#CF0030; --navy:#111821; --navy-2:#0F2655; --grey:#3E404B; --white:#FFFFFF; --teal:#0F8A80;
@@ -101,3 +103,5 @@ p,h1,h2,h3,h4{margin:0}
 .redact{display:inline-block;height:.78em;background:currentColor;vertical-align:baseline}
 .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .star{display:inline-block;width:1em;height:1em;vertical-align:-.1em}
+
+}

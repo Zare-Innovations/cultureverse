@@ -1,5 +1,6 @@
 .live { background: #111821; color: #fff; font-family: var(--f-text); }
 .bgBox { position: absolute; left: 0; top: 0; width: 100%; height: 640px; overflow: hidden; }
+.bg { object-position: 50% 40%; }
 .shade {
   position: absolute;
   inset: 0;
@@ -15,10 +16,10 @@
   transform: rotate(12deg);
   filter: drop-shadow(0 0 40px rgba(255, 111, 0, 0.5)) drop-shadow(0 30px 40px rgba(0, 0, 0, 0.6));
 }
-.wrap { padding-top: 48px; padding-bottom: 50px; }
+.wrap { padding-top: 48px; padding-bottom: 50.047px; /* section height 1260 */ }
 .talent {
   position: relative;
-  margin-top: 14px;
+  margin-top: 14.36px; /* artboard row 650 after the fractional hero block */
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
@@ -30,10 +31,11 @@
 .plus { font-size: 24px; margin-top: 8px; }
 .pending { opacity: 0.7; font-size: 10px; margin-top: 6px; }
 .dl { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.photos { margin-top: 66px; grid-template-columns: minmax(0, 640fr) minmax(0, 328fr) minmax(0, 328fr); }
+.photos { margin-top: 66.45px; /* artboard row 910 */ grid-template-columns: minmax(0, 640fr) minmax(0, 320fr) minmax(0, 320fr); }
 
 @media (max-width: 1023.98px) {
   .bgBox { height: 520px; }
+  .bg { object-position: 60% 40%; }
   .shade { background: linear-gradient(rgba(17, 24, 33, 0.55), rgba(17, 24, 33, 0.4) 50%, #111821 100%); }
   .stone { left: auto; right: -2px; top: 60px; width: 130px; filter: drop-shadow(0 0 24px rgba(255, 111, 0, 0.5)); }
   .wrapM { padding-top: 40px; padding-bottom: 58px; }

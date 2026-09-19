@@ -23,7 +23,7 @@
   gap: 24px;
 }
 .h { margin: 0; }
-.mark { width: 420px; height: auto; }
+.mark { width: 420px; height: var(--mark-h, auto); }
 .title { font-size: calc(54 * var(--u)); line-height: 0.95; }
 .copy { font-size: 19px; line-height: 1.5; max-width: 620px; font-weight: 600; }
 .ctaRow { display: flex; gap: 14px; align-items: center; margin-top: 6px; }

@@ -1,5 +1,5 @@
 .give { background: #03301b; color: #fff; font-family: var(--f-text); }
-.wrap { padding-top: 64px; padding-bottom: 64px; }
+.wrap { padding-top: 64px; padding-bottom: 64.406px; /* section height 980 */ }
 .grid {
   position: relative;
   display: grid;
@@ -25,7 +25,7 @@
 .keyart {
   position: relative;
   display: block;
-  margin-top: 121px;
+  margin-top: 121.41px; /* artboard row 660 below the fractional form height */
   width: 390px;
   max-width: 100%;
   height: 256px;

@@ -19,7 +19,7 @@ export default function CultureLivePage() {
   return (
     <section id="live" className={`page ${s.live}`} style={{ '--accent': '#FF6F00' } as CSSProperties}>
       <div className={s.bgBox}>
-        <Image className="bgimg" src="/assets/bg-culturelive.webp" alt="" fill priority sizes="100vw" style={{ objectPosition: '50% 40%' }} />
+        <Image className={`bgimg ${s.bg}`} src="/assets/bg-culturelive.webp" alt="" fill priority sizes="100vw" />
         <div aria-hidden="true" className={s.shade} />
       </div>
       <img aria-hidden="true" className={s.stone} src="/assets/stone-obsidian.webp" alt="" width={896} height={900} />
