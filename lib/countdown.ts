@@ -6,8 +6,8 @@ import { useSyncExternalStore } from 'react';
 let listeners = new Set<() => void>();
 let timer: ReturnType<typeof setInterval> | null = null;
 let now = Math.floor(Date.now() / 1000);
-/** Build time, inlined by next.config so server HTML and the hydration pass agree. Corrected right after hydration. */
-const SERVER_NOW = Math.floor(Number(process.env.NEXT_PUBLIC_BUILD_TIME || Date.now()) / 1000);
+/** Server snapshot: no time at all. The static HTML renders blank digits and the first client render fills them. */
+const SERVER_NOW = 0;
 
 function subscribe(cb: () => void) {
   listeners.add(cb);
@@ -41,8 +41,11 @@ export function useNow(): number {
 export type Countdown = { d: string; h: string; m: string; s: string };
 
 const p = (n: number) => String(n).padStart(2, '0');
+/** Two figure spaces (U+2007): non-breaking, and exactly the width of two tabular digits. */
+export const BLANK_DIGITS = '\u2007\u2007';
 
 export function countdownTo(targetMs: number, nowSec: number): Countdown {
+  if (!nowSec) return { d: BLANK_DIGITS, h: BLANK_DIGITS, m: BLANK_DIGITS, s: BLANK_DIGITS };
   let s = Math.max(0, Math.floor(targetMs / 1000) - nowSec);
   const d = Math.floor(s / 86400);
   s %= 86400;

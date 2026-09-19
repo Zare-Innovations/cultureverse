@@ -4,6 +4,7 @@ import Link from 'next/link';
 import type { CSSProperties } from 'react';
 import { pageTitle } from '@/lib/site';
 import TicketLink from '@/components/TicketLink';
+import EventJsonLd from '@/components/EventJsonLd';
 import { srcSet, LOGO_WIDTHS, STONE_WIDTHS } from '@/lib/img';
 import e from '@/components/event/event.module.css';
 import s from './cultureexpo.module.css';
@@ -18,6 +19,7 @@ const NOTE = 'Tickets on Ticketmaster. Opens in a new tab. Day and weekend optio
 export default function CultureExpoPage() {
   return (
     <section id="expo" className={`page ${s.expo}`} style={{ '--accent': '#ffffff' } as CSSProperties}>
+      <EventJsonLd name="CultureExpo™" description={metadata.description as string} path="/cultureexpo" startDate="2026-10-23" endDate="2026-10-25" venue="Central Park Atlanta" ticketed />
       <Image className="bgimg" src="/assets/bg-expo.webp" alt="" fill priority sizes="100vw" style={{ opacity: 0.8 }} />
       <div aria-hidden="true" className={s.shade} />
       <img aria-hidden="true" className={s.stone} src="/assets/stone-blue.webp" srcSet={srcSet("/assets/stone-blue.webp", STONE_WIDTHS, 900)} sizes="(min-width: 1024px) 1400px, 130px" alt="" width={900} height={705}  style={{ aspectRatio: '900 / 705' }} />

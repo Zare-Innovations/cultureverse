@@ -5,6 +5,7 @@ import type { CSSProperties } from 'react';
 import { pageTitle } from '@/lib/site';
 import { HEADLINER, SUPPORTING } from '@/lib/hero';
 import TicketLink from '@/components/TicketLink';
+import EventJsonLd from '@/components/EventJsonLd';
 import { srcSet, LOGO_WIDTHS, STONE_WIDTHS } from '@/lib/img';
 import e from '@/components/event/event.module.css';
 import s from './culturelive.module.css';
@@ -19,6 +20,7 @@ const NOTE = 'Tickets on Ticketmaster. Opens in a new tab. Day and weekend optio
 export default function CultureLivePage() {
   return (
     <section id="live" className={`page ${s.live}`} style={{ '--accent': '#FF6F00' } as CSSProperties}>
+      <EventJsonLd name="CultureLive™" description={metadata.description as string} path="/culturelive" startDate="2026-10-24" endDate="2026-10-25" venue="StarJourney Stage, Central Park Atlanta" ticketed />
       <div className={s.bgBox}>
         <Image className={`bgimg ${s.bg}`} src="/assets/bg-culturelive.webp" alt="" fill priority sizes="100vw" />
         <div aria-hidden="true" className={s.shade} />

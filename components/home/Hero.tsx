@@ -61,10 +61,10 @@ export function DesktopHero() {
       <div className={`a-wipe ${s.band}`} style={{ '--d': '300ms' } as CSSProperties}>
         <div className={s.bandInner}>
           <div role="timer" aria-label="Time until opening night" className={s.timer}>
-            <div className={s.unit}><span className={`d num ${s.big}`} suppressHydrationWarning>{cd.d}</span><span className={`hud ${s.unitLbl}`}>Days</span></div>
-            <div className={s.unit}><span className={`d num ${s.big}`} suppressHydrationWarning>{cd.h}</span><span className={`hud ${s.unitLbl}`}>Hrs</span></div>
-            <div className={s.unit}><span className={`d num ${s.big}`} suppressHydrationWarning>{cd.m}</span><span className={`hud ${s.unitLbl}`}>Min</span></div>
-            <div className={s.unit}><span className={`d num ${s.big} ${s.red}`} suppressHydrationWarning>{cd.s}</span><span className={`hud ${s.unitLbl}`}>Sec</span></div>
+            <div className={s.unit}><span className={`d num ${s.big}`}>{cd.d}</span><span className={`hud ${s.unitLbl}`}>Days</span></div>
+            <div className={s.unit}><span className={`d num ${s.big}`}>{cd.h}</span><span className={`hud ${s.unitLbl}`}>Hrs</span></div>
+            <div className={s.unit}><span className={`d num ${s.big}`}>{cd.m}</span><span className={`hud ${s.unitLbl}`}>Min</span></div>
+            <div className={s.unit}><span className={`d num ${s.big} ${s.red}`}>{cd.s}</span><span className={`hud ${s.unitLbl}`}>Sec</span></div>
           </div>
           <div className={`hud ${s.until}`}>
             Until opening night
@@ -188,9 +188,9 @@ export function MobileHero() {
         <div className={s.bandInnerM}>
           <div role="timer" aria-label="Time until opening night" className={s.timerM}>
             <div className={s.timerRowM}>
-              <span className={`d num ${s.bigM}`} suppressHydrationWarning>{cd.d}<span className={`hud ${s.unitM}`}>D</span></span>
-              <span className={`d num ${s.bigM}`} suppressHydrationWarning>{cd.h}<span className={`hud ${s.unitM}`}>H</span></span>
-              <span className={`d num ${s.bigM} ${s.red}`} suppressHydrationWarning>{cd.m}<span className={`hud ${s.unitM}`}>M</span></span>
+              <span className={`d num ${s.bigM}`}>{cd.d}<span className={`hud ${s.unitM}`}>D</span></span>
+              <span className={`d num ${s.bigM}`}>{cd.h}<span className={`hud ${s.unitM}`}>H</span></span>
+              <span className={`d num ${s.bigM} ${s.red}`}>{cd.m}<span className={`hud ${s.unitM}`}>M</span></span>
             </div>
             <span className={`hud ${s.untilM}`}>Until opening night, Wed Oct 21</span>
           </div>

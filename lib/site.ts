@@ -14,6 +14,9 @@ export const OPENING_NIGHT_UTC = Date.UTC(2026, 9, 21, 4, 0, 0);
 /** The announced hero counts to the CultureLive show. */
 export const ANNOUNCED_SHOW_UTC = Date.UTC(2026, 9, 24, 22, 0, 0);
 
+/** Every indexable route, used by the sitemap. */
+export const ROUTES = ['/', '/about', '/cultureverse', '/culturelive', '/cultureexpo', '/exchnge', '/biggive', '/iconhonors', '/cultureunion', '/culturecoming', '/culturegames', '/tap-in'] as const;
+
 export function pageTitle(page: string): string {
   return `${page} — ${SITE_NAME}`;
 }

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { pageTitle } from '@/lib/site';
 import HonorsForm from '@/components/forms/HonorsForm';
+import EventJsonLd from '@/components/EventJsonLd';
 import { srcSet, LOGO_WIDTHS, STONE_WIDTHS } from '@/lib/img';
 import s from './iconhonors.module.css';
 
@@ -46,6 +47,7 @@ function Logos({ list, cols, mobile }: { list: readonly (readonly [string, numbe
 export default function IconHonorsPage() {
   return (
     <section id="honors" className={`page ${s.honors}`}>
+      <EventJsonLd name="The Culture's Coldest™ ICON HONORS" description={metadata.description as string} path="/iconhonors" startDate="2026-10-21" venue="Flourish, Atlanta" />
       <div className={s.bgBox}>
         <Image className="bgimg" src="/assets/bg-honors.webp" alt="" fill priority sizes="100vw" style={{ objectPosition: '50% 0%' }} />
       </div>

@@ -117,7 +117,7 @@ const { chromium } = require('playwright');
   for (const route of ['/', '/about', '/cultureverse', '/culturelive', '/cultureexpo', '/exchnge', '/biggive', '/iconhonors', '/cultureunion', '/culturecoming', '/culturegames', '/tap-in']) {
     await page.goto(`http://localhost:4200${route}`, { waitUntil: 'domcontentloaded' });
     const meta = await page.evaluate(() => ({ title: document.title, desc: document.querySelector('meta[name="description"]')?.content, og: document.querySelector('meta[property="og:image"]')?.content, h1: document.querySelectorAll('h1').length }));
-    check(`metadata ${route}`, /— All Things CultureBowl™$/.test(meta.title) && !!meta.desc && /logo-culturebowl\.png$/.test(meta.og || ''), `${meta.title} | h1s=${meta.h1}`);
+    check(`metadata ${route}`, /— All Things CultureBowl™$/.test(meta.title) && !!meta.desc && /og-image\.png$/.test(meta.og || ''), `${meta.title} | h1s=${meta.h1}`);
   }
   await ctx.close();
   await browser.close();

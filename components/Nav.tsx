@@ -159,7 +159,7 @@ export default function Nav() {
             <div className={`hud ${s.cd}`}>
               Opening night in
               <br />
-              <span suppressHydrationWarning>{cd}</span>
+              <span>{cd}</span>
             </div>
             <Link className={`btn btn-line btn-sm ${s.tapin}`} href="/tap-in">
               Tap in

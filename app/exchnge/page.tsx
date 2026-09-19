@@ -4,6 +4,7 @@ import Link from 'next/link';
 import type { CSSProperties } from 'react';
 import { pageTitle } from '@/lib/site';
 import ExchngeForm from '@/components/forms/ExchngeForm';
+import EventJsonLd from '@/components/EventJsonLd';
 import { srcSet, LOGO_WIDTHS, STONE_WIDTHS } from '@/lib/img';
 import e from '@/components/event/event.module.css';
 import s from './exchnge.module.css';
@@ -20,6 +21,7 @@ const COPY =
 export default function ExchngePage() {
   return (
     <section id="exchnge" className={`page ${s.ex}`} style={{ '--accent': '#3971FF' } as CSSProperties}>
+      <EventJsonLd name="The Culture EXCHNGE™" description={metadata.description as string} path="/exchnge" startDate="2026-10-22" venue="RETREAT by The Gathering Spot" />
       <div className={s.bgBox}>
         <Image className="bgimg" src="/assets/bg-exchnge.webp" alt="" fill priority sizes="100vw" style={{ objectPosition: '50% 40%', opacity: 0.5 }} />
         <div aria-hidden="true" className={s.shade} />

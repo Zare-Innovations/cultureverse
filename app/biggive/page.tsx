@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { pageTitle } from '@/lib/site';
 import BigGiveForm from '@/components/forms/BigGiveForm';
+import EventJsonLd from '@/components/EventJsonLd';
 import { srcSet, LOGO_WIDTHS, STONE_WIDTHS } from '@/lib/img';
 import s from './biggive.module.css';
 
@@ -23,6 +24,7 @@ const PARTNERS = [
 export default function BigGivePage() {
   return (
     <section id="give" className={`page ${s.give}`}>
+      <EventJsonLd name="The Culture's BIG GIVE™" description={metadata.description as string} path="/biggive" startDate="2026-10-24" free />
       <Image className="bgimg" src="/assets/bg-biggive.webp" alt="" fill priority sizes="100vw" />
 
       {/* Desktop */}

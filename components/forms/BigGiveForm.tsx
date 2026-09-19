@@ -13,9 +13,9 @@ const GROUPS = [
 ] as const;
 type GroupId = (typeof GROUPS)[number]['id'];
 
-/** 08-BigGive signup. The artboards preselect "Just me" on desktop and "With friends" on mobile. */
+/** 08-BigGive signup. "Just me" is preselected on both layouts. */
 export default function BigGiveForm({ variant }: { variant: 'd' | 'm' }) {
-  const [g, setG] = useState<GroupId>(variant === 'd' ? 'me' : 'friends');
+  const [g, setG] = useState<GroupId>('me');
   const extra = useCallback(() => ({ comingAs: g }), [g]);
   const { onSubmit, done, sending, error } = useJsonForm('biggive', extra);
   const p = variant === 'd' ? 'bg' : 'bgm';
