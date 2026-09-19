@@ -1,0 +1,37 @@
+.world { color: #fff; font-family: var(--f-text); min-height: 900px; }
+.shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(17, 24, 33, 0.55), rgba(17, 24, 33, 0.1)); }
+.wrap { padding-top: 48px; padding-bottom: 60px; min-height: 900px; }
+.top { position: relative; display: flex; justify-content: flex-end; }
+.back { color: #fff; text-decoration: none; border-bottom: 2px solid #fff; padding-bottom: 3px; }
+.block { position: relative; margin-top: 132px; max-width: 760px; display: flex; flex-direction: column; gap: 26px; }
+.when { align-self: flex-start; }
+.h { margin: 0; }
+.mark { max-width: 100%; height: auto; }
+.line { font-size: calc(54 * var(--u)); line-height: 0.95; }
+.copy { font-size: 19px; line-height: 1.5; max-width: 560px; }
+.sub { font-size: 18px; }
+.btns { display: flex; gap: 14px; align-items: center; }
+.door {
+  position: absolute;
+  right: 80px;
+  top: 200px;
+  width: 420px;
+  height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shard { width: 400px; height: 420px; object-fit: contain; opacity: 1; }
+
+@media (max-width: 1023.98px) {
+  .world { min-height: 1000px; }
+  .shade { background: linear-gradient(rgba(17, 24, 33, 0.2), rgba(17, 24, 33, 0.7)); }
+  .wrapM { padding-top: 85px; padding-bottom: 40px; min-height: 1000px; }
+  .doorM { position: relative; margin: 0 auto; width: 260px; height: 240px; display: flex; align-items: center; justify-content: center; }
+  .shardM { width: 250px; height: 230px; object-fit: contain; opacity: 1; }
+  .blockM { position: relative; margin-top: 30px; display: flex; flex-direction: column; gap: 18px; }
+  .lineM { font-size: 32px; line-height: 0.95; }
+  .copyM { font-size: 16px; line-height: 1.5; }
+  .subM { font-size: 15px; }
+  .full { width: 100%; }
+}
