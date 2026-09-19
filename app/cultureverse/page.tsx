@@ -1,0 +1,145 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import type { CSSProperties } from 'react';
+import { pageTitle } from '@/lib/site';
+import { EVENT_HREF, WORLDS } from '@/lib/worlds';
+import StayTappedIn from '@/components/StayTappedIn';
+import s from './cultureverse.module.css';
+
+export const metadata: Metadata = {
+  title: pageTitle('The Cultureverse™'),
+  description:
+    'Welcome to CultureVerse™—the connected world of CultureBowl™, where music, community, creativity, competition, commerce, and culture come together in one shared experience.',
+};
+
+type Live = { name: string; mark: string; mw: number; mh: number; mhM: number; shard: string; sw: number; sh: number; glow: string; when: string; status: string; statusM: string; href: string; rot: number };
+
+const LIVE: Live[] = [
+  { name: "The Culture's Coldest™ ICON HONORS", mark: '/assets/logo-iconhonors.png', mw: 1000, mh: 144, mhM: 30, shard: '/assets/stone-ice.webp', sw: 625, sh: 900, glow: '#17A2BE', when: 'Wed Oct 21', status: 'Where the culture honors our stars', statusM: 'By invitation', href: EVENT_HREF.honors, rot: -6 },
+  { name: 'The Culture EXCHNGE', mark: '/assets/logo-exchnge.png', mw: 1000, mh: 271, mhM: 40, shard: '/assets/obj-satellite.webp', sw: 900, sh: 530, glow: '#3971FF', when: 'Thu Oct 22', status: 'Request to attend', statusM: 'Request to attend', href: EVENT_HREF.exchnge, rot: 6 },
+  { name: 'CultureExpo™', mark: '/assets/logo-cultureexpo.png', mw: 1000, mh: 535, mhM: 48, shard: '/assets/stone-blue.webp', sw: 900, sh: 705, glow: '#3971FF', when: 'Fri Oct 23 to Sun Oct 25', status: 'Ticketed', statusM: 'Ticketed', href: EVENT_HREF.expo, rot: 8 },
+  { name: "The Culture's BIG GIVE™", mark: '/assets/logo-biggive.png', mw: 1000, mh: 477, mhM: 48, shard: '/assets/stone-green.webp', sw: 900, sh: 668, glow: '#D7F26A', when: 'Sat Oct 24', status: 'Free, community', statusM: 'Free', href: EVENT_HREF.give, rot: -12 },
+  { name: 'CultureLive™', mark: '/assets/logo-culturelive.png', mw: 1000, mh: 502, mhM: 48, shard: '/assets/stone-obsidian.webp', sw: 896, sh: 900, glow: '#FF6F00', when: 'Sat Oct 24 and Sun Oct 25', status: 'Ticketed', statusM: 'Ticketed', href: EVENT_HREF.live, rot: -10 },
+];
+const MARK_H_D = [40, 60, 70, 70, 70];
+
+const COMING = [
+  { ...WORLDS.reunion, whenLine: 'Family over everything. Coming 2027', rot: 20 },
+  { ...WORLDS.coming, whenLine: 'The culture’s biggest homecoming', rot: -18 },
+  { ...WORLDS.games, whenLine: 'Coming 2027', rot: -24 },
+];
+
+const WELCOME =
+  'Welcome to CultureVerse™—the connected world of CultureBowl™, where music, community, creativity, competition, commerce, and culture come together in one shared experience.';
+const TAP = 'Get first access to CultureBowl™ announcements, artist lineups, ticket updates, exclusive experiences, merch drops, CultureVerse™ news, and so much more.';
+
+export default function CultureversePage() {
+  return (
+    <>
+      <section id="cultureverse" className={`page ${s.cv}`}>
+        <Image className="bgimg" src="/assets/bg-cultureverse.webp" alt="" fill priority sizes="100vw" />
+        <img aria-hidden="true" className={s.globe} src="/assets/obj-globe.webp" alt="" width={900} height={541} />
+
+        {/* Desktop */}
+        <div className={`wrap ${s.wrap} only-d`}>
+          <div className={s.head}>
+            <h1 className={s.h}><img className={s.logo} src="/assets/logo-cultureverse.png" alt="The Cultureverse" width={1400} height={711} /></h1>
+            <div className={s.headCopy}>
+              <p className={`d ${s.choose}`}>Choose your world</p>
+              <p className={s.welcome}>{WELCOME}</p>
+              <p className={`d8 ${s.lane}`}>The culture doesn’t just live in one lane, it thrives.</p>
+            </div>
+          </div>
+
+          <div className={s.liveSec}>
+            <p className={`d8 ${s.rule}`}><span>In Atlanta, October 21 to 25, 2026</span><span className="hud">First home. Built to travel.</span></p>
+            <div className={s.liveGrid}>
+              {LIVE.map((p, i) => (
+                <Link key={p.href} className={s.world} href={p.href}>
+                  <div className={`door lit ${s.doorBox}`} style={{ '--glow': p.glow } as CSSProperties}>
+                    <img src={p.shard} alt="" width={p.sw} height={p.sh} className={s.shard} style={{ transform: `rotate(${p.rot}deg)` }} />
+                  </div>
+                  <img src={p.mark} alt={p.name} width={p.mw} height={p.mh} className={s.mark} style={{ height: MARK_H_D[i] }} />
+                  <span className={`hud ${s.when}`}>{p.when}<br /><span className={s.status}>{p.status}</span></span>
+                  <span className={`hud ${s.cta}`}>Explore</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className={s.comingSec}>
+            <p className={`d8 ${s.rule} ${s.ruleSoft}`}>Coming to the Cultureverse</p>
+            <div className={s.comingGrid}>
+              {COMING.map((w) => (
+                <Link key={w.key} className={`${s.world} ${s.worldRow}`} href={w.route}>
+                  <div className={`dormant ${s.dormantBox}`}>
+                    <img src={w.shard} alt="" width={w.shardW} height={w.shardH} className={s.dormantImg} style={{ transform: `rotate(${w.rot}deg)` }} />
+                  </div>
+                  <div className={s.comingCopy}>
+                    <img src={w.mark} alt={w.name} width={w.markW} height={w.markH} className={s.comingMark} />
+                    <span className={`hud ${s.comingWhen}`}>{w.whenLine}</span>
+                    <span className={`hud ${s.cta}`}>Explore</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className={s.tapRow}>
+            <p className={`d ${s.tapTitle}`}>Stay tapped in</p>
+            <p className={s.tapCopy}>{TAP}</p>
+            <div className={s.grow} />
+            <Link className="btn btn-red" href="/tap-in">Tap in</Link>
+          </div>
+        </div>
+
+        {/* Mobile */}
+        <div className={`wrap ${s.wrapM} only-m`}>
+          <h1 className={s.hM}><img className={s.logoM} src="/assets/logo-cultureverse.png" alt="The Cultureverse" width={1400} height={711} /></h1>
+          <p className={`d ${s.chooseM}`}>Choose your world</p>
+          <p className={s.welcomeM}>{WELCOME}</p>
+          <p className={`d8 ${s.laneM}`}>The culture doesn’t just live in one lane, it thrives.</p>
+
+          <p className={`d8 ${s.ruleM}`}>In Atlanta, October 21 to 25, 2026</p>
+          <div className={s.listM}>
+            {LIVE.map((p) => (
+              <Link key={p.href} className={s.worldM} href={p.href}>
+                <div className={`door lit ${s.doorBoxM}`} style={{ '--glow': p.glow } as CSSProperties}>
+                  <img src={p.shard} alt="" width={p.sw} height={p.sh} className={s.shardM} />
+                </div>
+                <div className={s.copyM}>
+                  <img src={p.mark} alt={p.name} width={p.mw} height={p.mh} className={s.markM} style={{ height: p.mhM }} />
+                  <span className={`hud ${s.whenM}`}>{p.when} <span className={s.status}>/ {p.statusM}</span></span>
+                  <span className={`hud ${s.cta} ${s.ctaM}`}>Explore</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <p className={`d8 ${s.ruleM} ${s.ruleSoft}`}>Coming</p>
+          <div className={s.listM}>
+            {COMING.map((w) => (
+              <Link key={w.key} className={s.worldM} href={w.route}>
+                <div className={`dormant ${s.dormantBoxM}`}>
+                  <img src={w.shard} alt="" width={w.shardW} height={w.shardH} className={s.dormantImgM} style={{ transform: `rotate(${w.rot}deg)` }} />
+                </div>
+                <div className={s.copyM}>
+                  <img src={w.mark} alt={w.name} width={w.markW} height={w.markH} className={s.comingMarkM} />
+                  <span className={`hud ${s.comingWhenM}`}>{w.whenLine}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className={s.tapM}>
+            <p className={`d ${s.tapTitleM}`}>Stay tapped in</p>
+            <p className={s.tapCopyM}>{TAP}</p>
+            <Link className="btn btn-red" href="/tap-in">Tap in</Link>
+          </div>
+        </div>
+      </section>
+      <StayTappedIn />
+    </>
+  );
+}
