@@ -3,7 +3,27 @@
   background: #111821;
   color: #fff;
   font-family: var(--f-text);
-  height: calc(900 * var(--u));
+  min-height: calc(900 * var(--u));
+}
+/* The 1440-wide frame, centered: above 1440 the backgrounds keep bleeding while the composition stays put. */
+.stage {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: calc(1440 * var(--u));
+  height: 100%;
+  margin-left: calc(-720 * var(--u));
+}
+/* Flow column for the block at the bottom of the frame, so the hero grows when the copy and buttons need more room. */
+.col {
+  position: relative;
+  z-index: 5;
+  box-sizing: border-box;
+  width: calc(1440 * var(--u));
+  margin: 0 auto;
+  padding: calc(728 * var(--u)) 0 calc(32 * var(--u)) calc(64 * var(--u));
+  /* The column is a full-frame box: only its content may take the pointer, so the stones and band stay hoverable. */
+  pointer-events: none;
 }
 .glow {
   position: absolute;
@@ -17,7 +37,8 @@
   position: absolute;
   inset: 0;
   background: #f6003a;
-  clip-path: polygon(0 80.444%, 100% 66.222%, 100% 100%, 0 100%);
+  /* (0, 724) to (1440, 596) on the frame, extended at the same slope across any width. */
+  clip-path: polygon(0 calc(660 * var(--u) + 4.4444cqw), 100% calc(660 * var(--u) - 4.4444cqw), 100% 100%, 0 100%);
 }
 .tagline {
   position: absolute;
@@ -46,18 +67,19 @@
 
 .band {
   position: absolute;
-  left: calc(-130 * var(--u));
+  left: 50%;
   top: calc(522 * var(--u));
-  width: calc(1700 * var(--u));
+  /* 1700 wide on the frame; wider viewports get the same strip continued to both edges. */
+  width: max(calc(1700 * var(--u)), calc(100cqw + 260 * var(--u)));
   height: calc(104 * var(--u));
   background: #fff;
   color: #111821;
-  transform: rotate(-6deg);
+  transform: translateX(-50%) rotate(-6deg);
   z-index: 2;
 }
 .bandInner {
   height: calc(104 * var(--u));
-  padding-left: calc(200 * var(--u));
+  padding-left: calc(200 * var(--u) + max(0px, (100cqw - 1440 * var(--u)) / 2));
   display: flex;
   align-items: center;
   gap: calc(28 * var(--u));
@@ -89,14 +111,11 @@
 .labelName { font-size: 14px; font-weight: 800; }
 
 .what {
-  position: absolute;
-  left: calc(64 * var(--u));
-  top: calc(712 * var(--u));
+  pointer-events: auto;
   width: calc(520 * var(--u));
   display: flex;
   flex-direction: column;
   gap: calc(10 * var(--u));
-  z-index: 5;
   color: #111821;
 }
 .whatHud { color: #111821; }
@@ -133,7 +152,7 @@
 .aglow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse calc(700 * var(--u)) calc(520 * var(--u)) at 80% 45%, var(--aglow), rgba(17, 24, 33, 0) 70%);
+  background: radial-gradient(ellipse calc(700 * var(--u)) calc(520 * var(--u)) at calc(50% + 432 * var(--u)) 45%, var(--aglow), rgba(17, 24, 33, 0) 70%);
 }
 .cutout {
   position: absolute;

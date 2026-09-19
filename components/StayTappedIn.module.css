@@ -8,7 +8,8 @@
   position: absolute;
   inset: 0;
   background: #f6003a;
-  clip-path: polygon(0 0, 43.056% 0, 36.111% 100%, 0 100%);
+  /* 620px wide at the top and 520px at the bottom of the 1440 column, whatever the viewport width. */
+  clip-path: polygon(0 0, calc(50% - 100 * var(--u)) 0, calc(50% - 200 * var(--u)) 100%, 0 100%);
 }
 .wrap {
   min-height: 820px;

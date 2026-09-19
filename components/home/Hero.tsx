@@ -46,90 +46,96 @@ export function DesktopHero() {
       <div aria-hidden="true" className={s.glow} />
       <div aria-hidden="true" className={`a-field ${s.fieldD}`} />
 
-      <p className={`hud a-in ${s.tagline}`} style={{ '--d': '1300ms' } as CSSProperties}>
-        A worldwide celebration of culture <span className={s.slash}>/</span> Oct 21 to 25, 2026 <span className={s.slash}>/</span> First home: Atlanta
-      </p>
-
-      <div className={s.logoBlock}>
-        <h1 className={s.h1}>
-          <img className={`cb-logo a-lock ${s.logo}`} src="/assets/logo-culturebowl-white.svg" alt="CultureBowl 2026" width={2115} height={1023} />
-        </h1>
-        <img className={`a-in ${s.iheart}`} src="/assets/logo-powered-by-iheart.png" alt="Powered by iHeartMedia" width={1000} height={61} style={{ '--d': '1500ms' } as CSSProperties} />
-        <img className={`a-in ${s.mcf}`} src="/assets/logo-moving-culture-forward.png" alt="Moving Culture Forward" width={1000} height={54} style={{ '--d': '1700ms' } as CSSProperties} />
-      </div>
-
-      <div className={`a-wipe ${s.band}`} style={{ '--d': '300ms' } as CSSProperties}>
-        <div className={s.bandInner}>
-          <div role="timer" aria-label="Time until opening night" className={s.timer}>
-            <div className={s.unit}><span className={`d num ${s.big}`}>{cd.d}</span><span className={`hud ${s.unitLbl}`}>Days</span></div>
-            <div className={s.unit}><span className={`d num ${s.big}`}>{cd.h}</span><span className={`hud ${s.unitLbl}`}>Hrs</span></div>
-            <div className={s.unit}><span className={`d num ${s.big}`}>{cd.m}</span><span className={`hud ${s.unitLbl}`}>Min</span></div>
-            <div className={s.unit}><span className={`d num ${s.big} ${s.red}`}>{cd.s}</span><span className={`hud ${s.unitLbl}`}>Sec</span></div>
-          </div>
-          <div className={`hud ${s.until}`}>
-            Until opening night
-            <br />
-            Wed Oct 21, ICON HONORS
-          </div>
-          <div aria-hidden="true" className={s.divider} />
-          <div className={s.liveBlock}>
-            <span className={`d ${s.liveName}`}>CultureLive™</span>
-            <span className={`d8 ${s.liveDate}`}>Sat Oct 24 and Sun Oct 25</span>
-          </div>
-          <TicketLink className={`btn btn-red btn-sm ${s.bandBtn}`}>Get tickets</TicketLink>
-        </div>
-      </div>
-
-      {SHARDS_D.map((sh) => {
-        const on = active === sh.id;
-        return (
-          <div
-            key={sh.id}
-            className={`par ${s.par}`}
-            style={{ left: u(sh.x), top: u(sh.y), width: u(sh.w), '--dp': sh.dp } as CSSProperties}
-          >
-            <div className="a-assemble" style={{ '--fx': u(sh.fx), '--fy': u(sh.fy), '--fr': `${sh.fr}deg`, '--d': `${sh.d}ms` } as CSSProperties}>
-              <Link
-                className={`door ${on ? 'lit' : ''} ${s.door}`}
-                href={sh.href}
-                aria-label={`${sh.name}, ${sh.day}, ${sh.status}`}
-                onMouseEnter={() => setActive(sh.id)}
-                onFocus={() => setActive(sh.id)}
-                style={{ width: u(sh.w), transform: `rotate(${sh.rot}deg)`, '--glow': sh.glow } as CSSProperties}
-              >
-                <img src={sh.src} srcSet={srcSet(sh.src, STONE_WIDTHS, sh.iw)} sizes="(min-width: 1024px) 1400px, 1400px" alt="" width={sh.iw} height={sh.ih} className={s.stoneImg} loading="lazy"  style={{ aspectRatio: `${sh.iw} / ${sh.ih}` }} />
-              </Link>
-              {on && (
-                <div className={`hud ${s.label}`} style={{ left: u(sh.lx), top: u(sh.ly), borderLeftColor: sh.glow }}>
-                  {sh.day}
-                  <br />
-                  <span className={s.labelName}>{sh.name}</span>
-                  <br />
-                  {sh.status}
-                </div>
-              )}
-            </div>
-          </div>
-        );
-      })}
-
-      <div className={s.what}>
-        <p className={`hud a-in ${s.whatHud}`} style={{ '--d': '1500ms' } as CSSProperties}>What is CultureBowl?</p>
-        <p className={`a-in ${s.whatCopy}`} style={{ '--d': '1600ms' } as CSSProperties}>
-          A worldwide celebration of the culture shaping today and tomorrow. See y’all there.
+      {/* Everything placed on the 1440 x 900 frame sits on a centered stage; the backgrounds above stay full-bleed. */}
+      <div className={s.stage}>
+        <p className={`hud a-in ${s.tagline}`} style={{ '--d': '1300ms' } as CSSProperties}>
+          A worldwide celebration of culture <span className={s.slash}>/</span> Oct 21 to 25, 2026 <span className={s.slash}>/</span> First home: Atlanta
         </p>
-        <div className={s.whatBtns}>
-          <TicketLink className="btn btn-white">Get tickets</TicketLink>
-          <Link className="btn btn-navy" href="/about">Learn more</Link>
+
+        <div className={s.logoBlock}>
+          <h1 className={s.h1}>
+            <img className={`cb-logo a-lock ${s.logo}`} src="/assets/logo-culturebowl-white.svg" alt="CultureBowl 2026" width={2115} height={1023} />
+          </h1>
+          <img className={`a-in ${s.iheart}`} src="/assets/logo-powered-by-iheart.png" alt="Powered by iHeartMedia" width={1000} height={61} style={{ '--d': '1500ms' } as CSSProperties} />
+          <img className={`a-in ${s.mcf}`} src="/assets/logo-moving-culture-forward.png" alt="Moving Culture Forward" width={1000} height={54} style={{ '--d': '1700ms' } as CSSProperties} />
+        </div>
+
+        <div className={`a-wipe ${s.band}`} style={{ '--d': '300ms' } as CSSProperties}>
+          <div className={s.bandInner}>
+            <div role="timer" aria-label="Time until opening night" className={s.timer}>
+              <div className={s.unit}><span className={`d num ${s.big}`}>{cd.d}</span><span className={`hud ${s.unitLbl}`}>Days</span></div>
+              <div className={s.unit}><span className={`d num ${s.big}`}>{cd.h}</span><span className={`hud ${s.unitLbl}`}>Hrs</span></div>
+              <div className={s.unit}><span className={`d num ${s.big}`}>{cd.m}</span><span className={`hud ${s.unitLbl}`}>Min</span></div>
+              <div className={s.unit}><span className={`d num ${s.big} ${s.red}`}>{cd.s}</span><span className={`hud ${s.unitLbl}`}>Sec</span></div>
+            </div>
+            <div className={`hud ${s.until}`}>
+              Until opening night
+              <br />
+              Wed Oct 21, ICON HONORS
+            </div>
+            <div aria-hidden="true" className={s.divider} />
+            <div className={s.liveBlock}>
+              <span className={`d ${s.liveName}`}>CultureLive™</span>
+              <span className={`d8 ${s.liveDate}`}>Sat Oct 24 and Sun Oct 25</span>
+            </div>
+            <TicketLink className={`btn btn-red btn-sm ${s.bandBtn}`}>Get tickets</TicketLink>
+          </div>
+        </div>
+
+        {SHARDS_D.map((sh) => {
+          const on = active === sh.id;
+          return (
+            <div
+              key={sh.id}
+              className={`par ${s.par}`}
+              style={{ left: u(sh.x), top: u(sh.y), width: u(sh.w), '--dp': sh.dp } as CSSProperties}
+            >
+              <div className="a-assemble" style={{ '--fx': u(sh.fx), '--fy': u(sh.fy), '--fr': `${sh.fr}deg`, '--d': `${sh.d}ms` } as CSSProperties}>
+                <Link
+                  className={`door ${on ? 'lit' : ''} ${s.door}`}
+                  href={sh.href}
+                  aria-label={`${sh.name}, ${sh.day}, ${sh.status}`}
+                  onMouseEnter={() => setActive(sh.id)}
+                  onFocus={() => setActive(sh.id)}
+                  style={{ width: u(sh.w), transform: `rotate(${sh.rot}deg)`, '--glow': sh.glow } as CSSProperties}
+                >
+                  <img src={sh.src} srcSet={srcSet(sh.src, STONE_WIDTHS, sh.iw)} sizes="(min-width: 1024px) 1400px, 1400px" alt="" width={sh.iw} height={sh.ih} className={s.stoneImg} loading="lazy"  style={{ aspectRatio: `${sh.iw} / ${sh.ih}` }} />
+                </Link>
+                {on && (
+                  <div className={`hud ${s.label}`} style={{ left: u(sh.lx), top: u(sh.ly), borderLeftColor: sh.glow }}>
+                    {sh.day}
+                    <br />
+                    <span className={s.labelName}>{sh.name}</span>
+                    <br />
+                    {sh.status}
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        })}
+
+        <div className={s.headliner}>
+          <span className={`hud ${s.navyText}`}>Headlining CultureLive™</span>
+          <span className={`d ${s.headName}`}>{HEADLINER}</span>
+          <span className={`d8 ${s.headPlus}`}>Plus {SUPPORTING}</span>
+          <Link href="/tap-in" className={`hud ${s.headLink}`}>Full lineup to the list first</Link>
+          <span className={`hud ${s.pending}`}>[ARTIST NAMES PENDING CONFIRMATION]</span>
         </div>
       </div>
 
-      <div className={s.headliner}>
-        <span className={`hud ${s.navyText}`}>Headlining CultureLive™</span>
-        <span className={`d ${s.headName}`}>{HEADLINER}</span>
-        <span className={`d8 ${s.headPlus}`}>Plus {SUPPORTING}</span>
-        <Link href="/tap-in" className={`hud ${s.headLink}`}>Full lineup to the list first</Link>
-        <span className={`hud ${s.pending}`}>[ARTIST NAMES PENDING CONFIRMATION]</span>
+      {/* In flow, so the hero grows past the frame when the copy and buttons need the room at narrow desktop widths. */}
+      <div className={s.col}>
+        <div className={s.what}>
+          <p className={`hud a-in ${s.whatHud}`} style={{ '--d': '1500ms' } as CSSProperties}>What is CultureBowl?</p>
+          <p className={`a-in ${s.whatCopy}`} style={{ '--d': '1600ms' } as CSSProperties}>
+            A worldwide celebration of the culture shaping today and tomorrow. See y’all there.
+          </p>
+          <div className={s.whatBtns}>
+            <TicketLink className="btn btn-white">Get tickets</TicketLink>
+            <Link className="btn btn-navy" href="/about">Learn more</Link>
+          </div>
+        </div>
       </div>
     </div>
   );

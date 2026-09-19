@@ -13,7 +13,15 @@ const OUT = path.join(process.argv[2] || path.join(ROOT, 'preview'), 'site');
 
 // The click/observer runtime is rendered by the layout when NEXT_PUBLIC_RELATIVE_PREVIEW=true.
 
-const UNUSED_ASSETS = new Set(['render-culturegames.webp', 'render-expo.webp', 'bg-home.webp', 'bg-red-navy.webp', 'bg-red-satin.webp', 'bg-crowd-red.webp', 'bg-navy-fragments.webp', 'logo-iconhonors-mcf.png', 'button-back-to-cultureverse.png', 'logo-culturebowl-navy.svg', 'cb2.css', 'cardi-b-cutout.png']);
+// Only assets some exported page references are copied (cb2.css is bundled, and a hero variant may use others).
+function referencedAssets(dir) {
+  const refs = new Set();
+  for (const file of walk(dir)) {
+    if (!/\.(html|css)$/.test(file)) continue;
+    for (const m of fs.readFileSync(file, 'utf8').matchAll(/assets\/[A-Za-z0-9._\/-]+/g)) refs.add(m[0].split('/').slice(1).join(path.sep));
+  }
+  return refs;
+}
 
 function walk(dir, list = []) {
   for (const f of fs.readdirSync(dir)) {
@@ -24,13 +32,14 @@ function walk(dir, list = []) {
 }
 
 fs.rmSync(OUT, { recursive: true, force: true });
+const USED = referencedAssets(SRC);
 let n = 0, bytes = 0;
 for (const file of walk(SRC)) {
   const rel = path.relative(SRC, file);
   if (rel.endsWith('.txt') || rel === 'sitemap.xml' || rel === 'robots.txt') continue;
   // The nomodule polyfill bundle is only fetched by legacy browsers and contains U+FFFD literals some hosts reject.
   if (/polyfills-[a-f0-9]+\.js$/.test(rel)) continue;
-  if (rel.startsWith('assets' + path.sep) && UNUSED_ASSETS.has(path.basename(rel))) continue;
+  if (rel.startsWith('assets' + path.sep) && !USED.has(rel.slice(('assets' + path.sep).length))) continue;
   const dest = path.join(OUT, rel);
   fs.mkdirSync(path.dirname(dest), { recursive: true });
   if (rel.endsWith('.html')) {
