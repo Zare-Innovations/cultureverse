@@ -1,0 +1,105 @@
+.honors { background: #081425; color: #fff; font-family: var(--f-text); }
+.bgBox { position: absolute; left: 0; top: 0; width: 100%; height: 760px; }
+.fade { position: absolute; left: 0; top: 420px; width: 100%; height: 360px; background: linear-gradient(rgba(8, 20, 37, 0), #081425); }
+.ice { color: #17a2be; }
+.wrap { padding-top: 48px; padding-bottom: 107px; }
+.top { position: relative; display: flex; justify-content: space-between; align-items: flex-start; }
+.topRight { text-align: right; }
+.center { position: relative; margin-top: 55px; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.h { margin: 0; }
+.mark { width: 900px; max-width: 100%; height: auto; }
+.tagline { font-size: 34px; font-style: italic; }
+.invite { margin-top: 6px; }
+.inner { position: relative; padding: 0 32px; }
+.grid { margin-top: 29px; display: grid; grid-template-columns: minmax(0, 500fr) minmax(0, 660fr); gap: 88px; }
+.left { display: flex; flex-direction: column; }
+.eveningHead { font-size: 22px; font-style: italic; color: #17a2be; margin-bottom: 14px; }
+.evening { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.item { font-size: calc(38 * var(--u)); line-height: 1; padding: 15px 0; border-top: 1px solid rgba(82, 127, 155, 0.6); }
+.itemLast { border-bottom: 1px solid rgba(82, 127, 155, 0.6); display: flex; justify-content: space-between; align-items: baseline; }
+.after { font-size: 20px; font-style: italic; color: #17a2be; }
+.dl { margin: 26px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.ddBig { margin: 2px 0 0; font-size: 42px; }
+.ddMid { margin: 2px 0 0; font-size: 28px; padding-top: 8px; }
+.right { display: flex; flex-direction: column; gap: 22px; }
+.frameBox { position: relative; width: 660px; max-width: 100%; height: 372px; }
+.frame { position: absolute; left: 16px; top: 16px; width: 100%; height: 100%; border: 1px solid #17a2be; }
+.render { position: relative; width: 100%; height: 372px; object-fit: cover; object-position: 60% 40%; }
+.stone { position: absolute; right: -36px; bottom: -44px; width: 150px; height: auto; transform: rotate(18deg); filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5)); }
+.celebrate { display: flex; flex-direction: column; gap: 14px; margin-top: 26px; }
+.celebrateH { margin: 0; font-size: calc(52 * var(--u)); line-height: 1; font-weight: 400; }
+.honorees { display: flex; gap: 18px; align-items: flex-end; flex-wrap: wrap; }
+.portraitCol { width: 150px; display: flex; flex-direction: column; gap: 8px; }
+.portrait {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #17a2be;
+  background: radial-gradient(circle at 35% 30%, rgba(23, 162, 190, 0.45), rgba(8, 20, 37, 0.95) 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.portraitText { text-align: center; }
+.name { font-size: 22px; line-height: 1.1; }
+.portal {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px dashed #527f9b;
+  margin-bottom: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.portalText { color: #527f9b; text-align: center; }
+.more { font-size: 24px; font-style: italic; color: #17a2be; margin-bottom: 76px; }
+.partners { margin-top: 75px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; }
+.partnersHead { margin-bottom: 10px; }
+.logos { display: grid; gap: 8px; }
+.plogo { height: 96px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(82, 127, 155, 0.45); padding: 18px 22px; }
+.plogo img { max-width: 100%; max-height: 52px; width: auto; height: auto; object-fit: contain; }
+.partial { color: #527f9b; margin-top: 25px; }
+
+@media (max-width: 1023.98px) {
+  .bgBox { height: 520px; }
+  .fade { top: 300px; height: 220px; }
+  .wrapM { padding-top: 40px; padding-bottom: 34px; }
+  .topM { position: relative; display: flex; justify-content: space-between; }
+  .hM { position: relative; margin: 44px 0 0; }
+  .markM { width: 100%; height: auto; }
+  .taglineM { position: relative; font-size: 24px; font-style: italic; margin-top: 18px; line-height: 1.2; }
+  .inviteM { position: relative; margin-top: 16px; display: flex; }
+  .frameBoxM { position: relative; margin-top: 36px; width: 100%; height: 210px; }
+  .frameM { position: absolute; left: 10px; top: 10px; width: 100%; height: 100%; border: 1px solid #17a2be; }
+  .renderM { position: relative; width: 100%; height: 210px; object-fit: cover; object-position: 60% 40%; }
+  .dlM { position: relative; margin: 30px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .ddBigM { margin: 0; font-size: 40px; }
+  .ddMidM { margin: 0; font-size: 26px; padding-top: 8px; }
+  .eveningHeadM { position: relative; font-size: 20px; font-style: italic; color: #17a2be; margin-top: 34px; }
+  .eveningM { position: relative; list-style: none; margin: 8px 0 0; padding: 0; }
+  .itemM { font-size: 28px; padding: 11px 0; border-top: 1px solid rgba(82, 127, 155, 0.6); }
+  .itemLastM { border-bottom: 1px solid rgba(82, 127, 155, 0.6); }
+  .afterM { font-size: 17px; font-style: italic; color: #17a2be; }
+  .celebrateHM { position: relative; margin: 40px 0 0; font-size: 42px; line-height: 1; font-weight: 400; }
+  .honoreesM { position: relative; margin-top: 16px; display: flex; gap: 14px; align-items: flex-start; }
+  .portraitColM { width: 110px; display: flex; flex-direction: column; gap: 6px; flex: none; }
+  .portraitM {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 2px solid #17a2be;
+    background: radial-gradient(circle at 35% 30%, rgba(23, 162, 190, 0.45), rgba(8, 20, 37, 0.95) 70%);
+  }
+  .nameM { font-size: 18px; line-height: 1.1; }
+  .pendingM { font-size: 9px; }
+  .portalM { width: 90px; height: 90px; border-radius: 50%; border: 1px dashed #527f9b; display: flex; align-items: center; justify-content: center; flex: none; }
+  .moreM { position: relative; font-size: 22px; font-style: italic; color: #17a2be; margin-top: 12px; }
+  .partnersHeadM { position: relative; margin-top: 36px; }
+  .partnersHeadM2 { position: relative; margin-top: 16px; }
+  .logosM { position: relative; display: grid; gap: 6px; margin-top: 8px; }
+  .plogoM { height: 64px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(82, 127, 155, 0.45); padding: 12px; }
+  .plogoM img { max-width: 100%; max-height: 34px; width: auto; height: auto; object-fit: contain; }
+  .partialM { position: relative; color: #527f9b; margin-top: 10px; }
+}
