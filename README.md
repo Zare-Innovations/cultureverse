@@ -93,6 +93,8 @@ node scripts/fluid.js              # horizontal overflow check across viewport w
 `NEXT_PUBLIC_RELATIVE_PREVIEW=true npm run build` followed by `node scripts/preview-export.js <dir>`
 produces a copy of the export that runs from any folder or base path without server routing
 (page links load their `.html` files, all URLs relative). It is for hosted previews only.
+Building again with `NEXT_PUBLIC_HEADLINER_ANNOUNCED=true` and running the script with `--announced`
+merges that home page in as `index-announced.html` and adds a hero switch to both home pages.
 
 `scripts/support.js` is a small stand-in for the design tool's template runtime so the
 artboards render their `renderVals()` data during comparison. It is never shipped.
