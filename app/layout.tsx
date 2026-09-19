@@ -7,6 +7,7 @@ import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import TicketBar from '@/components/TicketBar';
 import Analytics from '@/components/Analytics';
+import { PREVIEW_RUNTIME, RELATIVE_PREVIEW } from '@/lib/previewRuntime';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${golos.variable} ${cormorant.variable}`}>
       <body>
+        {RELATIVE_PREVIEW && <script dangerouslySetInnerHTML={{ __html: PREVIEW_RUNTIME }} />}
         <a className="skip" href="#main">Skip to content</a>
         <Nav />
         <main id="main">{children}</main>

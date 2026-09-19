@@ -90,5 +90,9 @@ node scripts/forms.js              # form submissions against a build with NEXT_
 node scripts/fluid.js              # horizontal overflow check across viewport widths
 ```
 
+`NEXT_PUBLIC_RELATIVE_PREVIEW=true npm run build` followed by `node scripts/preview-export.js <dir>`
+produces a copy of the export that runs from any folder or base path without server routing
+(page links load their `.html` files, all URLs relative). It is for hosted previews only.
+
 `scripts/support.js` is a small stand-in for the design tool's template runtime so the
 artboards render their `renderVals()` data during comparison. It is never shipped.

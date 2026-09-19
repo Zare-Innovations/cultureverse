@@ -22,9 +22,12 @@ function Chevron({ up }: { up?: boolean }) {
 
 export default function Nav() {
   const pathname = usePathname() || '/';
-  const isHome = pathname === '/';
-  const isAbout = pathname.startsWith('/about');
-  const isCv = CV_ROUTES.some((r) => pathname.startsWith(r));
+  // Current page by its last path segment, so the same markup hydrates on the real routes and on
+  // relocated previews (/preview/site/about.html).
+  const page = (pathname.split('/').pop() || '').replace(/\.html$/, '');
+  const isHome = page === '' || page === 'index';
+  const isAbout = page === 'about';
+  const isCv = CV_ROUTES.some((r) => r.slice(1) === page);
   const [scrolled, setScrolled] = useState(false);
   const [ddOpen, setDdOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -90,7 +93,7 @@ export default function Nav() {
                 <Link
                   className={`navlink${isCv ? ' is-on' : ''}`}
                   href="/cultureverse"
-                  aria-current={pathname === '/cultureverse' ? 'page' : undefined}
+                  aria-current={page === 'cultureverse' ? 'page' : undefined}
                   aria-expanded={ddOpen}
                   aria-controls="cultureverse-menu"
                 >

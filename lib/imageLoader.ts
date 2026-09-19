@@ -19,11 +19,14 @@ const VARIANTS: Record<string, number[]> = {
   'bg-red-fragments': [640, 828, 1200],
 };
 
+const RELATIVE = process.env.NEXT_PUBLIC_RELATIVE_PREVIEW === 'true';
+
 export default function imageLoader({ src, width }: { src: string; width: number; quality?: number }): string {
-  const m = src.match(/^\/assets\/([^/]+)\.(webp|png|jpg)$/);
-  if (!m) return src;
+  const m = src.match(/^\/?assets\/([^/]+)\.(webp|png|jpg)$/);
+  const rel = (p: string) => (RELATIVE ? p.replace(/^\//, '') : p);
+  if (!m) return rel(src);
   const widths = VARIANTS[m[1]];
-  if (!widths) return src;
+  if (!widths) return rel(src);
   const pick = widths.find((w) => w >= width);
-  return pick ? `/assets/r/${m[1]}-${pick}.webp` : src;
+  return rel(pick ? `/assets/r/${m[1]}-${pick}.webp` : src);
 }
