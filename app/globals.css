@@ -1,4 +1,78 @@
+/* Site-level rules layered on top of cb2.css (the design system). */
 :root {
   --f-display: var(--font-golos), 'Golos Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --f-serif: var(--font-cormorant), 'Cormorant Garamond', 'Times New Roman', serif;
+  --nav-h: 72px;
+  --bar-h: 96px;
+  /* Desktop scale unit: 1px at 1440 and above, shrinks proportionally below. */
+  --u: 1px;
 }
+
+html { -webkit-text-size-adjust: 100%; }
+body { min-width: 320px; overflow-x: clip; }
+main { display: block; }
+
+/* Every page section is a container so cqw units track the real layout width (no scrollbar drift). */
+.page {
+  position: relative;
+  overflow: hidden;
+  container-type: inline-size;
+  --u: min(1px, 0.069444cqw);   /* 100cqw / 1440 */
+  --um: min(1.4px, 0.256410cqw); /* 100cqw / 390, capped */
+}
+
+/* Centered content frame: 1312px of content inside 64px margins at 1440. */
+.wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+/* Mobile / desktop trees. */
+.only-m { display: none; }
+
+@media (max-width: 1023.98px) {
+  :root { --nav-h: 64px; }
+  body { padding-bottom: var(--bar-h); }
+  .wrap { padding: 0 24px; }
+  .only-d { display: none !important; }
+  .only-m { display: block; }
+}
+
+/* Reduced motion: no smooth scroll either. */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* Screen reader only text (cb2 has .sr for absolute contexts; this one is safe anywhere). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Form error line, shown only when a submission fails. */
+.form-error { font-size: 13px; line-height: 1.4; color: #fff; }
+
+/* Skip link: visible only when focused. */
+.skip {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 100;
+  background: #fff;
+  color: #111821;
+  padding: 12px 16px;
+  font-family: var(--f-display);
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip:focus { top: 16px; }
