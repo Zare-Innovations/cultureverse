@@ -5,6 +5,7 @@ import type { CSSProperties } from 'react';
 import { pageTitle } from '@/lib/site';
 import { HEADLINER, SUPPORTING } from '@/lib/hero';
 import TicketLink from '@/components/TicketLink';
+import { srcSet, LOGO_WIDTHS, STONE_WIDTHS } from '@/lib/img';
 import e from '@/components/event/event.module.css';
 import s from './culturelive.module.css';
 
@@ -22,7 +23,7 @@ export default function CultureLivePage() {
         <Image className={`bgimg ${s.bg}`} src="/assets/bg-culturelive.webp" alt="" fill priority sizes="100vw" />
         <div aria-hidden="true" className={s.shade} />
       </div>
-      <img aria-hidden="true" className={s.stone} src="/assets/stone-obsidian.webp" alt="" width={896} height={900} />
+      <img aria-hidden="true" className={s.stone} src="/assets/stone-obsidian.webp" srcSet={srcSet("/assets/stone-obsidian.webp", STONE_WIDTHS, 896)} sizes="(min-width: 1024px) 1400px, 130px" alt="" width={896} height={900}  style={{ aspectRatio: '896 / 900' }} />
 
       {/* Desktop */}
       <div className={`wrap ${s.wrap} only-d`}>
@@ -34,7 +35,7 @@ export default function CultureLivePage() {
           <Link href="/cultureverse" className={`hud ${e.back}`}>Back to the Cultureverse</Link>
         </div>
         <div className={e.hero}>
-          <h1 className={e.h}><img className={e.mark} src="/assets/logo-culturelive.png" alt="Culture Live" width={1000} height={502} /></h1>
+          <h1 className={e.h}><img className={e.mark} src="/assets/logo-culturelive.png" srcSet={srcSet("/assets/logo-culturelive.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 420px" alt="Culture Live" width={1000} height={502}  style={{ aspectRatio: '1000 / 502' }} /></h1>
           <p className={`d ${e.title}`}>The culture goes live</p>
           <p className={e.copy}>CultureLive™ is where the energy lives. We bring the icons, the sound, and unforgettable performances.</p>
           <p className={e.copy}>Don’t follow the moment--let’s make it.</p>
@@ -68,7 +69,7 @@ export default function CultureLivePage() {
         <p className={`hud ${e.topM}`}>
           Sat Oct 24 and Sun Oct 25, 2026<br /><span>StarJourney Stage, Central Park Atlanta</span>
         </p>
-        <h1 className={s.hM}><img className={e.markM} src="/assets/logo-culturelive.png" alt="Culture Live" width={1000} height={502} /></h1>
+        <h1 className={s.hM}><img className={e.markM} src="/assets/logo-culturelive.png" srcSet={srcSet("/assets/logo-culturelive.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 260px" alt="Culture Live" width={1000} height={502}  style={{ aspectRatio: '1000 / 502' }} /></h1>
         <p className={`d ${s.titleM}`}>The culture goes live</p>
         <div className={e.tag}><span className="st st-ticket">Ticketed</span></div>
         <p className={`${e.copyM} ${s.copyM1}`}>CultureLive™ is where the energy lives. We bring the icons, the sound, and unforgettable performances.</p>

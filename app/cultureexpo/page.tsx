@@ -4,6 +4,7 @@ import Link from 'next/link';
 import type { CSSProperties } from 'react';
 import { pageTitle } from '@/lib/site';
 import TicketLink from '@/components/TicketLink';
+import { srcSet, LOGO_WIDTHS, STONE_WIDTHS } from '@/lib/img';
 import e from '@/components/event/event.module.css';
 import s from './cultureexpo.module.css';
 
@@ -19,7 +20,7 @@ export default function CultureExpoPage() {
     <section id="expo" className={`page ${s.expo}`} style={{ '--accent': '#ffffff' } as CSSProperties}>
       <Image className="bgimg" src="/assets/bg-expo.webp" alt="" fill priority sizes="100vw" style={{ opacity: 0.8 }} />
       <div aria-hidden="true" className={s.shade} />
-      <img aria-hidden="true" className={s.stone} src="/assets/stone-blue.webp" alt="" width={900} height={705} />
+      <img aria-hidden="true" className={s.stone} src="/assets/stone-blue.webp" srcSet={srcSet("/assets/stone-blue.webp", STONE_WIDTHS, 900)} sizes="(min-width: 1024px) 1400px, 130px" alt="" width={900} height={705}  style={{ aspectRatio: '900 / 705' }} />
 
       {/* Desktop */}
       <div className={`wrap ${s.wrap} only-d`}>
@@ -31,7 +32,7 @@ export default function CultureExpoPage() {
           <Link href="/cultureverse" className={`hud ${e.back}`}>Back to the Cultureverse</Link>
         </div>
         <div className={e.hero}>
-          <h1 className={e.h}><img className={e.mark} src="/assets/logo-cultureexpo.png" alt="Culture Expo" width={1000} height={535} /></h1>
+          <h1 className={e.h}><img className={e.mark} src="/assets/logo-cultureexpo.png" srcSet={srcSet("/assets/logo-cultureexpo.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 420px" alt="Culture Expo" width={1000} height={535}  style={{ aspectRatio: '1000 / 535' }} /></h1>
           <p className={`d ${e.title}`}>Welcome to the Expo</p>
           <p className={`d8 ${s.soon}`}>Coming soon</p>
           <div className={e.ctaRow}>
@@ -57,7 +58,7 @@ export default function CultureExpoPage() {
         <p className={`hud ${e.topM}`}>
           Fri Oct 23 to Sun Oct 25, 2026<br /><span>Central Park Atlanta</span>
         </p>
-        <h1 className={s.hM}><img className={e.markM} src="/assets/logo-cultureexpo.png" alt="Culture Expo" width={1000} height={535} /></h1>
+        <h1 className={s.hM}><img className={e.markM} src="/assets/logo-cultureexpo.png" srcSet={srcSet("/assets/logo-cultureexpo.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 260px" alt="Culture Expo" width={1000} height={535}  style={{ aspectRatio: '1000 / 535' }} /></h1>
         <p className={`d ${s.titleM}`}>Welcome to the Expo</p>
         <div className={e.tag}><span className="st st-ticket">Ticketed</span></div>
         <p className={`d8 ${s.soonM}`}>Coming soon</p>

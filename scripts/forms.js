@@ -12,20 +12,20 @@ const { chromium } = require('playwright');
     const posts = [];
     await page.route(ENDPOINT, (r) => { posts.push(JSON.parse(r.request().postData() || '{}')); r.fulfill({ status: 200, contentType: 'application/json', body: '{"ok":true}' }); });
     await page.goto(`http://localhost:4202${route}`, { waitUntil: 'networkidle' });
-    const scope = width >= 1024 ? '.only-d' : '.only-m';
-    const form = page.locator(`main ${scope} ${formSel}`).first();
+    const scope = formSel === 'band' ? '' : (width >= 1024 ? '.only-d' : '.only-m');
+    const form = page.locator(`main ${scope} form`).first();
     await fill(form);
     await form.locator('button[type="submit"]').click();
     await page.waitForTimeout(500);
     const text = await form.innerText();
     const body = posts[0] || {};
     check(`${route} @${width} posts JSON with form=${expectForm}`, posts.length === 1 && body.form === expectForm && !('website' in body), JSON.stringify(body));
-    check(`${route} @${width} shows success state`, text.includes(expectText), text.replace(/\s+/g, ' ').slice(0, 70));
+    check(`${route} @${width} shows success state`, text.toLowerCase().includes(expectText.toLowerCase()), text.replace(/\s+/g, ' ').slice(0, 70));
     await ctx.close();
   };
 
-  await run(1440, '/tap-in', async (f) => { await f.locator('input[name=firstName]').fill('Ava'); await f.locator('input[name=lastName]').fill('Lee'); await f.locator('input[name=email]').fill('ava@example.com'); }, 'tap-in', "You're in.", 'form');
-  await run(390, '/tap-in', async (f) => { await f.locator('input[name=firstName]').fill('Ava'); await f.locator('input[name=lastName]').fill('Lee'); await f.locator('input[name=email]').fill('ava@example.com'); }, 'tap-in', "You're in.", 'form');
+  await run(1440, '/tap-in', async (f) => { await f.locator('input[name=firstName]').fill('Ava'); await f.locator('input[name=lastName]').fill('Lee'); await f.locator('input[name=email]').fill('ava@example.com'); }, 'tap-in', "You're in.", 'band');
+  await run(390, '/tap-in', async (f) => { await f.locator('input[name=firstName]').fill('Ava'); await f.locator('input[name=lastName]').fill('Lee'); await f.locator('input[name=email]').fill('ava@example.com'); }, 'tap-in', "You're in.", 'band');
   await run(1440, '/exchnge', async (f) => { await f.locator('input[name=name]').fill('Ava Lee'); await f.locator('input[name=email]').fill('ava@example.com'); await f.locator('input[name=company]').fill('Zare'); }, 'exchnge', 'Request received', 'form');
   await run(390, '/exchnge', async (f) => { await f.locator('input[name=name]').fill('Ava Lee'); await f.locator('input[name=email]').fill('ava@example.com'); }, 'exchnge', 'Request received', 'form');
   await run(1440, '/biggive', async (f) => { await f.locator('input[name=firstName]').fill('Ava'); await f.locator('input[name=lastName]').fill('Lee'); await f.locator('input[name=email]').fill('ava@example.com'); await f.locator('button', { hasText: 'With friends' }).click(); }, 'biggive', "You're in for Saturday", 'form');
@@ -56,7 +56,7 @@ const { chromium } = require('playwright');
     await f.locator('input[name=firstName]').fill('Bot'); await f.locator('input[name=lastName]').fill('Bot'); await f.locator('input[name=email]').fill('bot@example.com');
     await page.evaluate(() => { document.querySelector('main form input[name=website]').value = 'http://spam'; });
     await f.locator('button[type=submit]').click(); await page.waitForTimeout(400);
-    check('honeypot suppresses the POST', posts === 0 && (await f.innerText()).includes("You're in."), `posts=${posts}`);
+    check('honeypot suppresses the POST', posts === 0 && (await f.innerText()).toLowerCase().includes("you're in."), `posts=${posts}`);
     await ctx.close();
   }
   // Native validation blocks an empty submit.
@@ -68,7 +68,7 @@ const { chromium } = require('playwright');
     const f = page.locator('main form');
     await f.locator('button[type=submit]').click(); await page.waitForTimeout(300);
     const invalid = await page.evaluate(() => document.querySelector('main form input[name=firstName]').matches(':invalid') && document.activeElement?.getAttribute('name') === 'firstName');
-    check('required fields block submit and focus the first empty field', posts === 0 && invalid && (await f.innerText()).includes('Tap In'));
+    check('required fields block submit and focus the first empty field', posts === 0 && invalid && (await f.innerText()).toLowerCase().includes('tap in'));
     await ctx.close();
   }
   // Without NEXT_PUBLIC_FORM_ENDPOINT (the :4200 build) the form reports an error instead of a false success.

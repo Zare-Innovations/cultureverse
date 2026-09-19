@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
 import type { World } from '@/lib/worlds';
+import { srcSet, LOGO_WIDTHS, STONE_WIDTHS } from '@/lib/img';
 import s from './world.module.css';
 
 /** 10-ComingWorlds template: one page per coming world. */
@@ -18,7 +19,7 @@ export default function WorldPage({ w }: { w: World }) {
         </div>
         <div className={s.block}>
           <span className={`st st-tba ${s.when}`}>{w.when}</span>
-          <h1 className={s.h}><img src={w.mark} alt={w.name} width={w.markW} height={w.markH} className={s.mark} style={{ width: w.mw }} /></h1>
+          <h1 className={s.h}><img src={w.mark} srcSet={srcSet(w.mark, LOGO_WIDTHS, w.markW)} sizes={`(min-width: 1024px) 1400px, ${w.mw}px`} alt={w.name} width={w.markW} height={w.markH} className={s.mark} style={{ width: w.mw, aspectRatio: `${w.markW} / ${w.markH}` }} /></h1>
           <p className={`d ${s.line}`}>{w.line}</p>
           <p className={s.copy}>{w.copy}</p>
           <p className={`d8 ${s.sub}`}>{w.sub}</p>
@@ -28,18 +29,18 @@ export default function WorldPage({ w }: { w: World }) {
           </div>
         </div>
         <div className={`door lit ${s.door}`}>
-          <img src={w.shard} alt="" width={w.shardW} height={w.shardH} className={s.shard} style={{ transform: `rotate(${w.rot}deg)` }} />
+          <img src={w.shard} srcSet={srcSet(w.shard, STONE_WIDTHS, w.shardW)} sizes="(min-width: 1024px) 1400px, 400px" alt="" width={w.shardW} height={w.shardH} className={s.shard} style={{ transform: `rotate(${w.rot}deg)` }} loading="lazy" />
         </div>
       </div>
 
       {/* Mobile */}
       <div className={`wrap ${s.wrapM} only-m`}>
         <div className={`door lit ${s.doorM}`}>
-          <img src={w.shard} alt="" width={w.shardW} height={w.shardH} className={s.shardM} style={{ transform: `rotate(${w.rot}deg)` }} />
+          <img src={w.shard} srcSet={srcSet(w.shard, STONE_WIDTHS)} sizes="250px" alt="" width={w.shardW} height={w.shardH} className={s.shardM} style={{ transform: `rotate(${w.rot}deg)` }} />
         </div>
         <div className={s.blockM}>
           <span className={`st st-tba ${s.when}`}>{w.when}</span>
-          <h1 className={s.h}><img src={w.mark} alt={w.name} width={w.markW} height={w.markH} className={s.mark} style={{ width: w.mwM }} /></h1>
+          <h1 className={s.h}><img src={w.mark} srcSet={srcSet(w.mark, LOGO_WIDTHS, w.markW)} sizes={`(min-width: 1024px) 1400px, ${w.mwM}px`} alt={w.name} width={w.markW} height={w.markH} className={s.mark} style={{ width: w.mwM, aspectRatio: `${w.markW} / ${w.markH}` }} /></h1>
           <p className={`d ${s.lineM}`}>{w.line}</p>
           <p className={s.copyM}>{w.copy}</p>
           <p className={`d8 ${s.subM}`}>{w.sub}</p>

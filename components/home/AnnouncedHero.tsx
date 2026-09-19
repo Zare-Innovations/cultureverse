@@ -41,9 +41,9 @@ export default function AnnouncedHero() {
         <Link className="btn btn-line" href="/culturelive">CultureLive™</Link>
         <div className={s.grow} />
         <div role="timer" aria-label="Time until the show" className={s.aTimer}>
-          <span className={`d num ${s.aBig}`}>{cd.d}</span><span className={`hud ${s.aUnit}`}>Days</span>
-          <span className={`d num ${s.aBig}`}>{cd.h}</span><span className={`hud ${s.aUnit}`}>Hrs</span>
-          <span className={`d num ${s.aBig} ${s.aAccent}`}>{cd.m}</span><span className={`hud ${s.aUnit}`}>Min</span>
+          <span className={`d num ${s.aBig}`} suppressHydrationWarning>{cd.d}</span><span className={`hud ${s.aUnit}`}>Days</span>
+          <span className={`d num ${s.aBig}`} suppressHydrationWarning>{cd.h}</span><span className={`hud ${s.aUnit}`}>Hrs</span>
+          <span className={`d num ${s.aBig} ${s.aAccent}`} suppressHydrationWarning>{cd.m}</span><span className={`hud ${s.aUnit}`}>Min</span>
         </div>
       </div>
     </div>

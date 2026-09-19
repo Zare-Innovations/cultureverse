@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { pageTitle } from '@/lib/site';
 import HonorsForm from '@/components/forms/HonorsForm';
+import { srcSet, LOGO_WIDTHS, STONE_WIDTHS } from '@/lib/img';
 import s from './iconhonors.module.css';
 
 export const metadata: Metadata = {
@@ -57,7 +58,7 @@ export default function IconHonorsPage() {
           <div className={`hud ${s.topRight}`}>Flourish, Atlanta<br />Part of The Culture&apos;s Coldest</div>
         </div>
         <div className={s.center}>
-          <h1 className={s.h}><img className={s.mark} src="/assets/logo-iconhonors.png" alt="The Culture's Coldest ICON HONORS" width={1000} height={144} /></h1>
+          <h1 className={s.h}><img className={s.mark} src="/assets/logo-iconhonors.png" srcSet={srcSet("/assets/logo-iconhonors.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 900px" alt="The Culture's Coldest ICON HONORS" width={1000} height={144}  style={{ aspectRatio: '1000 / 144' }} /></h1>
           <p className={`serif ${s.tagline}`}>Honoring the culture’s brightest stars</p>
           <span className={`st st-invite ${s.invite}`}>Private, by invitation</span>
         </div>
@@ -81,8 +82,8 @@ export default function IconHonorsPage() {
             <div className={s.right}>
               <div className={s.frameBox}>
                 <div aria-hidden="true" className={s.frame} />
-                <Image className={s.render} src="/assets/render-honors-gala.webp" alt="Rendering of the ICON HONORS gala room, tables facing the stage" width={1800} height={930} sizes="660px" />
-                <img className={s.stone} src="/assets/stone-ice.webp" alt="" width={625} height={900} />
+                <Image className={s.render} src="/assets/render-honors-gala.webp" alt="Rendering of the ICON HONORS gala room, tables facing the stage" width={1800} height={930} sizes="(min-width: 1024px) 1400px, 660px" />
+                <img className={s.stone} src="/assets/stone-ice.webp" srcSet={srcSet("/assets/stone-ice.webp", STONE_WIDTHS, 625)} sizes="(min-width: 1024px) 1400px, 150px" alt="" width={625} height={900} loading="lazy"  style={{ aspectRatio: '625 / 900' }} />
               </div>
               <div className={s.celebrate}>
                 <h2 className={`serif ${s.celebrateH}`}>Celebrating the culture’s coldest</h2>
@@ -117,7 +118,7 @@ export default function IconHonorsPage() {
           <span className="hud">Wed Oct 21, 2026</span>
           <span className="hud">Flourish, Atlanta</span>
         </div>
-        <h1 className={s.hM}><img className={s.markM} src="/assets/logo-iconhonors.png" alt="The Culture's Coldest ICON HONORS" width={1000} height={144} /></h1>
+        <h1 className={s.hM}><img className={s.markM} src="/assets/logo-iconhonors.png" srcSet={srcSet("/assets/logo-iconhonors.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 342px" alt="The Culture's Coldest ICON HONORS" width={1000} height={144}  style={{ aspectRatio: '1000 / 144' }} /></h1>
         <p className={`serif ${s.taglineM}`}>Honoring the culture’s brightest stars</p>
         <div className={s.inviteM}><span className="st st-invite">Private, by invitation</span></div>
         <div className={s.frameBoxM}>

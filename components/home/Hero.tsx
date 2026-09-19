@@ -8,6 +8,7 @@ import { useCountdown } from '@/lib/countdown';
 import { HEADLINER, SHARDS_D, SHARDS_M, SUPPORTING } from '@/lib/hero';
 import type { EventKey } from '@/lib/worlds';
 import TicketLink from '@/components/TicketLink';
+import { srcSet, STONE_WIDTHS } from '@/lib/img';
 import s from './hero.module.css';
 
 const u = (n: number) => `calc(${n} * var(--u))`;
@@ -60,10 +61,10 @@ export function DesktopHero() {
       <div className={`a-wipe ${s.band}`} style={{ '--d': '300ms' } as CSSProperties}>
         <div className={s.bandInner}>
           <div role="timer" aria-label="Time until opening night" className={s.timer}>
-            <div className={s.unit}><span className={`d num ${s.big}`}>{cd.d}</span><span className={`hud ${s.unitLbl}`}>Days</span></div>
-            <div className={s.unit}><span className={`d num ${s.big}`}>{cd.h}</span><span className={`hud ${s.unitLbl}`}>Hrs</span></div>
-            <div className={s.unit}><span className={`d num ${s.big}`}>{cd.m}</span><span className={`hud ${s.unitLbl}`}>Min</span></div>
-            <div className={s.unit}><span className={`d num ${s.big} ${s.red}`}>{cd.s}</span><span className={`hud ${s.unitLbl}`}>Sec</span></div>
+            <div className={s.unit}><span className={`d num ${s.big}`} suppressHydrationWarning>{cd.d}</span><span className={`hud ${s.unitLbl}`}>Days</span></div>
+            <div className={s.unit}><span className={`d num ${s.big}`} suppressHydrationWarning>{cd.h}</span><span className={`hud ${s.unitLbl}`}>Hrs</span></div>
+            <div className={s.unit}><span className={`d num ${s.big}`} suppressHydrationWarning>{cd.m}</span><span className={`hud ${s.unitLbl}`}>Min</span></div>
+            <div className={s.unit}><span className={`d num ${s.big} ${s.red}`} suppressHydrationWarning>{cd.s}</span><span className={`hud ${s.unitLbl}`}>Sec</span></div>
           </div>
           <div className={`hud ${s.until}`}>
             Until opening night
@@ -96,7 +97,7 @@ export function DesktopHero() {
                 onFocus={() => setActive(sh.id)}
                 style={{ width: u(sh.w), transform: `rotate(${sh.rot}deg)`, '--glow': sh.glow } as CSSProperties}
               >
-                <img src={sh.src} alt="" width={sh.iw} height={sh.ih} className={s.stoneImg} />
+                <img src={sh.src} srcSet={srcSet(sh.src, STONE_WIDTHS, sh.iw)} sizes="(min-width: 1024px) 1400px, 1400px" alt="" width={sh.iw} height={sh.ih} className={s.stoneImg} loading="lazy"  style={{ aspectRatio: `${sh.iw} / ${sh.ih}` }} />
               </Link>
               {on && (
                 <div className={`hud ${s.label}`} style={{ left: u(sh.lx), top: u(sh.ly), borderLeftColor: sh.glow }}>
@@ -177,7 +178,7 @@ export function MobileHero() {
               onClick={() => pick(sh.id)}
               style={{ width: sh.w, transform: `rotate(${sh.rot}deg)`, '--glow': sh.glow } as CSSProperties}
             >
-              <img src={sh.src} alt="" width={sh.iw} height={sh.ih} className={s.stoneImg} />
+              <img src={sh.src} srcSet={srcSet(sh.src, STONE_WIDTHS, sh.iw)} sizes={`(min-width: 1024px) 1400px, ${sh.w}px`} alt="" width={sh.iw} height={sh.ih} className={s.stoneImg}  style={{ aspectRatio: `${sh.iw} / ${sh.ih}` }} />
             </button>
           </div>
         );
@@ -187,9 +188,9 @@ export function MobileHero() {
         <div className={s.bandInnerM}>
           <div role="timer" aria-label="Time until opening night" className={s.timerM}>
             <div className={s.timerRowM}>
-              <span className={`d num ${s.bigM}`}>{cd.d}<span className={`hud ${s.unitM}`}>D</span></span>
-              <span className={`d num ${s.bigM}`}>{cd.h}<span className={`hud ${s.unitM}`}>H</span></span>
-              <span className={`d num ${s.bigM} ${s.red}`}>{cd.m}<span className={`hud ${s.unitM}`}>M</span></span>
+              <span className={`d num ${s.bigM}`} suppressHydrationWarning>{cd.d}<span className={`hud ${s.unitM}`}>D</span></span>
+              <span className={`d num ${s.bigM}`} suppressHydrationWarning>{cd.h}<span className={`hud ${s.unitM}`}>H</span></span>
+              <span className={`d num ${s.bigM} ${s.red}`} suppressHydrationWarning>{cd.m}<span className={`hud ${s.unitM}`}>M</span></span>
             </div>
             <span className={`hud ${s.untilM}`}>Until opening night, Wed Oct 21</span>
           </div>

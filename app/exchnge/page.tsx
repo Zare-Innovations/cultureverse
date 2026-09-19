@@ -4,6 +4,7 @@ import Link from 'next/link';
 import type { CSSProperties } from 'react';
 import { pageTitle } from '@/lib/site';
 import ExchngeForm from '@/components/forms/ExchngeForm';
+import { srcSet, LOGO_WIDTHS, STONE_WIDTHS } from '@/lib/img';
 import e from '@/components/event/event.module.css';
 import s from './exchnge.module.css';
 
@@ -23,7 +24,7 @@ export default function ExchngePage() {
         <Image className="bgimg" src="/assets/bg-exchnge.webp" alt="" fill priority sizes="100vw" style={{ objectPosition: '50% 40%', opacity: 0.5 }} />
         <div aria-hidden="true" className={s.shade} />
       </div>
-      <img aria-hidden="true" className={s.sat} src="/assets/obj-satellite.webp" alt="" width={900} height={530} />
+      <img aria-hidden="true" className={s.sat} src="/assets/obj-satellite.webp" srcSet={srcSet("/assets/obj-satellite.webp", STONE_WIDTHS, 900)} sizes="(min-width: 1024px) 1400px, 180px" alt="" width={900} height={530}  style={{ aspectRatio: '900 / 530' }} />
 
       {/* Desktop */}
       <div className={`wrap ${s.wrap} only-d`}>
@@ -35,7 +36,7 @@ export default function ExchngePage() {
           <Link href="/cultureverse" className={`hud ${e.back}`}>Back to the Cultureverse</Link>
         </div>
         <div className={s.hero}>
-          <h1 className={e.h}><img className={s.mark} src="/assets/logo-exchnge.png" alt="The Culture EXCHNGE" width={1000} height={271} /></h1>
+          <h1 className={e.h}><img className={s.mark} src="/assets/logo-exchnge.png" srcSet={srcSet("/assets/logo-exchnge.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 443px" alt="The Culture EXCHNGE" width={1000} height={271}  style={{ aspectRatio: '1000 / 271' }} /></h1>
           <p className={`d ${s.title}`}>FORWRD Summit<br />at the RETREAT</p>
           <p className={`hud ${s.confirm}`}>[CONFIRM WITH MILES: FORWRD and The Culture EXCHNGE, one event or two on the same day]</p>
         </div>
@@ -54,7 +55,7 @@ export default function ExchngePage() {
         <p className={`hud ${e.topM}`}>
           Thu Oct 22, 2026<br /><span>RETREAT by The Gathering Spot</span>
         </p>
-        <h1 className={s.hM}><img className={s.markM} src="/assets/logo-exchnge.png" alt="The Culture EXCHNGE" width={1000} height={271} /></h1>
+        <h1 className={s.hM}><img className={s.markM} src="/assets/logo-exchnge.png" srcSet={srcSet("/assets/logo-exchnge.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 300px" alt="The Culture EXCHNGE" width={1000} height={271}  style={{ aspectRatio: '1000 / 271' }} /></h1>
         <p className={`d ${s.titleM}`}>FORWRD Summit at the RETREAT</p>
         <div className={e.tag}><span className={`st st-request ${s.white}`}>Request to attend</span></div>
         <p className={`hud ${s.confirmM}`}>[CONFIRM: FORWRD and EXCHNGE, one event or two]</p>

@@ -5,6 +5,7 @@ import type { CSSProperties } from 'react';
 import { pageTitle } from '@/lib/site';
 import { EVENT_HREF, WORLDS } from '@/lib/worlds';
 import StayTappedIn from '@/components/StayTappedIn';
+import { srcSet, LOGO_WIDTHS, STONE_WIDTHS } from '@/lib/img';
 import s from './cultureverse.module.css';
 
 export const metadata: Metadata = {
@@ -39,12 +40,12 @@ export default function CultureversePage() {
     <>
       <section id="cultureverse" className={`page ${s.cv}`}>
         <Image className="bgimg" src="/assets/bg-cultureverse.webp" alt="" fill priority sizes="100vw" />
-        <img aria-hidden="true" className={s.globe} src="/assets/obj-globe.webp" alt="" width={900} height={541} />
+        <img aria-hidden="true" className={s.globe} src="/assets/obj-globe.webp" alt="" width={900} height={541} loading="lazy" />
 
         {/* Desktop */}
         <div className={`wrap ${s.wrap} only-d`}>
           <div className={s.head}>
-            <h1 className={s.h}><img className={s.logo} src="/assets/logo-cultureverse.png" alt="The Cultureverse" width={1400} height={711} /></h1>
+            <h1 className={s.h}><img className={s.logo} src="/assets/logo-cultureverse.png" srcSet={srcSet("/assets/logo-cultureverse.png", LOGO_WIDTHS, 1400)} sizes="(min-width: 1024px) 1400px, 380px" alt="The Cultureverse" width={1400} height={711}  style={{ aspectRatio: '1400 / 711' }} /></h1>
             <div className={s.headCopy}>
               <p className={`d ${s.choose}`}>Choose your world</p>
               <p className={s.welcome}>{WELCOME}</p>
@@ -58,9 +59,9 @@ export default function CultureversePage() {
               {LIVE.map((p, i) => (
                 <Link key={p.href} className={s.world} href={p.href}>
                   <div className={`door lit ${s.doorBox}`} style={{ '--glow': p.glow } as CSSProperties}>
-                    <img src={p.shard} alt="" width={p.sw} height={p.sh} className={s.shard} style={{ transform: `rotate(${p.rot}deg)` }} />
+                    <img src={p.shard} srcSet={srcSet(p.shard, STONE_WIDTHS, p.sw)} sizes="(min-width: 1024px) 1400px, 180px" alt="" width={p.sw} height={p.sh} className={s.shard} style={{ transform: `rotate(${p.rot}deg)` }} loading="lazy" />
                   </div>
-                  <img src={p.mark} alt={p.name} width={p.mw} height={p.mh} className={s.mark} style={{ height: MARK_H_D[i] }} />
+                  <img src={p.mark} srcSet={srcSet(p.mark, LOGO_WIDTHS, p.mw)} sizes="(min-width: 1024px) 1400px, 200px" alt={p.name} width={p.mw} height={p.mh} className={s.mark} style={{ height: MARK_H_D[i] }} loading="lazy" />
                   <span className={`hud ${s.when}`}>{p.when}<br /><span className={s.status}>{p.status}</span></span>
                   <span className={`hud ${s.cta}`}>Explore</span>
                 </Link>
@@ -74,10 +75,10 @@ export default function CultureversePage() {
               {COMING.map((w) => (
                 <Link key={w.key} className={`${s.world} ${s.worldRow}`} href={w.route}>
                   <div className={`dormant ${s.dormantBox}`}>
-                    <img src={w.shard} alt="" width={w.shardW} height={w.shardH} className={s.dormantImg} style={{ transform: `rotate(${w.rot}deg)` }} />
+                    <img src={w.shard} srcSet={srcSet(w.shard, STONE_WIDTHS, w.shardW)} sizes="(min-width: 1024px) 1400px, 130px" alt="" width={w.shardW} height={w.shardH} className={s.dormantImg} style={{ transform: `rotate(${w.rot}deg)` }} loading="lazy" />
                   </div>
                   <div className={s.comingCopy}>
-                    <img src={w.mark} alt={w.name} width={w.markW} height={w.markH} className={s.comingMark} />
+                    <img src={w.mark} srcSet={srcSet(w.mark, LOGO_WIDTHS, w.markW)} sizes="(min-width: 1024px) 1400px, 200px" alt={w.name} width={w.markW} height={w.markH} className={s.comingMark} loading="lazy"  style={{ aspectRatio: `${w.markW} / ${w.markH}` }} />
                     <span className={`hud ${s.comingWhen}`}>{w.whenLine}</span>
                     <span className={`hud ${s.cta}`}>Explore</span>
                   </div>
@@ -96,7 +97,7 @@ export default function CultureversePage() {
 
         {/* Mobile */}
         <div className={`wrap ${s.wrapM} only-m`}>
-          <h1 className={s.hM}><img className={s.logoM} src="/assets/logo-cultureverse.png" alt="The Cultureverse" width={1400} height={711} /></h1>
+          <h1 className={s.hM}><img className={s.logoM} src="/assets/logo-cultureverse.png" srcSet={srcSet("/assets/logo-cultureverse.png", LOGO_WIDTHS, 1400)} sizes="(min-width: 1024px) 1400px, 220px" alt="The Cultureverse" width={1400} height={711}  style={{ aspectRatio: '1400 / 711' }} /></h1>
           <p className={`d ${s.chooseM}`}>Choose your world</p>
           <p className={s.welcomeM}>{WELCOME}</p>
           <p className={`d8 ${s.laneM}`}>The culture doesn’t just live in one lane, it thrives.</p>
@@ -106,10 +107,10 @@ export default function CultureversePage() {
             {LIVE.map((p) => (
               <Link key={p.href} className={s.worldM} href={p.href}>
                 <div className={`door lit ${s.doorBoxM}`} style={{ '--glow': p.glow } as CSSProperties}>
-                  <img src={p.shard} alt="" width={p.sw} height={p.sh} className={s.shardM} />
+                  <img src={p.shard} srcSet={srcSet(p.shard, STONE_WIDTHS, p.sw)} sizes="(min-width: 1024px) 1400px, 84px" alt="" width={p.sw} height={p.sh} className={s.shardM} loading="lazy"  style={{ aspectRatio: `${p.sw} / ${p.sh}` }} />
                 </div>
                 <div className={s.copyM}>
-                  <img src={p.mark} alt={p.name} width={p.mw} height={p.mh} className={s.markM} style={{ height: p.mhM }} />
+                  <img src={p.mark} srcSet={srcSet(p.mark, LOGO_WIDTHS, p.mw)} sizes="(min-width: 1024px) 1400px, 170px" alt={p.name} width={p.mw} height={p.mh} className={s.markM} style={{ height: p.mhM }} loading="lazy" />
                   <span className={`hud ${s.whenM}`}>{p.when} <span className={s.status}>/ {p.statusM}</span></span>
                   <span className={`hud ${s.cta} ${s.ctaM}`}>Explore</span>
                 </div>
@@ -122,10 +123,10 @@ export default function CultureversePage() {
             {COMING.map((w) => (
               <Link key={w.key} className={s.worldM} href={w.route}>
                 <div className={`dormant ${s.dormantBoxM}`}>
-                  <img src={w.shard} alt="" width={w.shardW} height={w.shardH} className={s.dormantImgM} style={{ transform: `rotate(${w.rot}deg)` }} />
+                  <img src={w.shard} srcSet={srcSet(w.shard, STONE_WIDTHS, w.shardW)} sizes="(min-width: 1024px) 1400px, 84px" alt="" width={w.shardW} height={w.shardH} className={s.dormantImgM} style={{ transform: `rotate(${w.rot}deg)` }} loading="lazy" />
                 </div>
                 <div className={s.copyM}>
-                  <img src={w.mark} alt={w.name} width={w.markW} height={w.markH} className={s.comingMarkM} />
+                  <img src={w.mark} srcSet={srcSet(w.mark, LOGO_WIDTHS, w.markW)} sizes="(min-width: 1024px) 1400px, 170px" alt={w.name} width={w.markW} height={w.markH} className={s.comingMarkM} loading="lazy"  style={{ aspectRatio: `${w.markW} / ${w.markH}` }} />
                   <span className={`hud ${s.comingWhenM}`}>{w.whenLine}</span>
                 </div>
               </Link>

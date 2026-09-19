@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { pageTitle } from '@/lib/site';
 import BigGiveForm from '@/components/forms/BigGiveForm';
+import { srcSet, LOGO_WIDTHS, STONE_WIDTHS } from '@/lib/img';
 import s from './biggive.module.css';
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ export default function BigGivePage() {
         <div className={s.grid}>
           <div className={s.left}>
             <p className={`hud ${s.eyebrow}`}>Sat Oct 24, 2026. Free. Community.</p>
-            <h1 className={s.h}><img className={s.mark} src="/assets/logo-biggive.png" alt="The Culture's Big Give" width={1000} height={477} /></h1>
+            <h1 className={s.h}><img className={s.mark} src="/assets/logo-biggive.png" srcSet={srcSet("/assets/logo-biggive.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 440px" alt="The Culture's Big Give" width={1000} height={477}  style={{ aspectRatio: '1000 / 477' }} /></h1>
             <p className={`d ${s.title}`}>When all of us give.<br />All of us grow</p>
             <p className={s.copy}>{COPY}</p>
             <ol className={s.steps}>
@@ -50,17 +51,17 @@ export default function BigGivePage() {
           </div>
           <div className={s.right}>
             <BigGiveForm variant="d" />
-            <Image className={s.keyart} src="/assets/keyart-biggive-billboard.webp" alt="The Culture's Big Give key art" width={1600} height={823} sizes="390px" />
-            <img aria-hidden="true" className={s.stone} src="/assets/stone-green.webp" alt="" width={900} height={668} />
+            <Image className={s.keyart} src="/assets/keyart-biggive-billboard.webp" alt="The Culture's Big Give key art" width={1600} height={823} sizes="(min-width: 1024px) 1400px, 390px" />
+            <img aria-hidden="true" className={s.stone} src="/assets/stone-green.webp" srcSet={srcSet("/assets/stone-green.webp", STONE_WIDTHS, 900)} sizes="(min-width: 1024px) 1400px, 210px" alt="" width={900} height={668} loading="lazy"  style={{ aspectRatio: '900 / 668' }} />
           </div>
         </div>
       </div>
 
       {/* Mobile */}
       <div className={`wrap ${s.wrapM} only-m`}>
-        <img aria-hidden="true" className={s.stoneM} src="/assets/stone-green.webp" alt="" width={900} height={668} />
+        <img aria-hidden="true" className={s.stoneM} src="/assets/stone-green.webp" srcSet={srcSet("/assets/stone-green.webp", STONE_WIDTHS, 900)} sizes="(min-width: 1024px) 1400px, 150px" alt="" width={900} height={668}  style={{ aspectRatio: '900 / 668' }} />
         <p className={`hud ${s.eyebrowM}`}>Sat Oct 24, 2026. Free.</p>
-        <h1 className={s.hM}><img className={s.markM} src="/assets/logo-biggive.png" alt="The Culture's Big Give" width={1000} height={477} /></h1>
+        <h1 className={s.hM}><img className={s.markM} src="/assets/logo-biggive.png" srcSet={srcSet("/assets/logo-biggive.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 280px" alt="The Culture's Big Give" width={1000} height={477}  style={{ aspectRatio: '1000 / 477' }} /></h1>
         <p className={`d ${s.titleM}`}>When all of us give. All of us grow</p>
         <p className={s.copyM}>{COPY}</p>
         <ol className={s.stepsM}>
