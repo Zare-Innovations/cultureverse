@@ -28,6 +28,8 @@ let n = 0, bytes = 0;
 for (const file of walk(SRC)) {
   const rel = path.relative(SRC, file);
   if (rel.endsWith('.txt') || rel === 'sitemap.xml' || rel === 'robots.txt') continue;
+  // The nomodule polyfill bundle is only fetched by legacy browsers and contains U+FFFD literals some hosts reject.
+  if (/polyfills-[a-f0-9]+\.js$/.test(rel)) continue;
   if (rel.startsWith('assets' + path.sep) && UNUSED_ASSETS.has(path.basename(rel))) continue;
   const dest = path.join(OUT, rel);
   fs.mkdirSync(path.dirname(dest), { recursive: true });
@@ -35,6 +37,7 @@ for (const file of walk(SRC)) {
     let html = fs.readFileSync(file, 'utf8');
     html = html.replace(/"\/(_next|assets|favicon\.ico|icon\.png|apple-icon\.png|og-image\.png)/g, '"$1');
     html = html.replace(/,\s*\/(assets|_next)\//g, ', $1/');
+    html = html.replace(/<script[^>]*polyfills-[a-f0-9]+\.js"[^>]*><\/script>/, '');
     fs.writeFileSync(dest, html);
   } else if (rel.endsWith('.js') && rel.includes('_next' + path.sep + 'static' + path.sep + 'chunks')) {
     // webpack public path and the router's asset prefix: relative so runtime chunk loads and hoisted scripts resolve next to the page.
