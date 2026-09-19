@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Menu open, mobile</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/assets/cb2.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0}.ml{display:flex;justify-content:space-between;align-items:center;min-height:54px;color:#fff;text-decoration:none;border-top:2px solid #111821}.ml:focus-visible{outline:3px solid #fff;outline-offset:-3px}.sub{display:flex;align-items:center;gap:10px;min-height:44px;color:#fff;text-decoration:none;font-family:'Golos Text',sans-serif;font-weight:600;font-size:14px}.sub img{height:18px;width:52px;object-fit:contain;object-position:left}</style>
+</helmet>
+<div role="dialog" aria-modal="true" aria-label="Menu" style="width: 390px; height: 844px; position: relative; overflow: hidden; background: #F6003A; color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+  <img class="bgimg" src="/assets/bg-red-fragments.webp" alt="" style="opacity: .35; object-position: 50% 20%;">
+  <div aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 390px; height: 844px; background: #111821; clip-path: polygon(0 760px, 390px 720px, 390px 844px, 0 844px);"></div>
+
+  <div style="position: absolute; left: 0; top: 0; width: 390px; height: 64px; padding: 0 12px 0 16px; display: flex; align-items: center; gap: 8px;">
+    <img class="cb-logo-sm" src="/assets/logo-culturebowl-white.svg" alt="CultureBowl" style="width: 76px; height: auto;">
+    <div style="flex-grow: 1;"></div>
+    <a class="btn btn-white btn-sm" href="https://www.ticketmaster.com/[CULTUREBOWL EVENT URL]" target="_blank" rel="noopener">Tickets</a>
+    <a href="01-Home-M.dc.html" aria-label="Close menu" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: #ffffff;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22" stroke="currentColor" stroke-width="3.2"><path d="M2 2l18 18M20 2L2 20"></path></svg></a>
+  </div>
+
+  <nav aria-label="Primary" style="position: absolute; left: 24px; top: 84px; width: 342px; display: flex; flex-direction: column;">
+    <a class="ml" href="01-Home-M.dc.html"><span class="d" style="font-size: 30px;">Home</span></a>
+    <a class="ml" href="03-About-M.dc.html"><span class="d" style="font-size: 30px;">About</span></a>
+    <div style="border-top: 2px solid #111821; padding: 12px 0 10px;">
+      <a href="04-Cultureverse-M.dc.html" style="color: #ffffff; text-decoration: none; display: flex; justify-content: space-between; align-items: center;"><span class="d" style="font-size: 30px;">The Cultureverse™</span><span class="hud" style="color: #111821;">About</span></a>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 12px; margin-top: 8px;">
+        <a class="sub" href="09-IconHonors-M.dc.html"><img src="/assets/logo-iconhonors.png" alt="">ICON HONORS</a>
+        <a class="sub" href="07-EXCHNGE-M.dc.html"><img src="/assets/logo-exchnge.png" alt="">The Culture EXCHNGE™</a>
+        <a class="sub" href="06-CultureExpo-M.dc.html"><img src="/assets/logo-cultureexpo.png" alt="">CultureExpo™</a>
+        <a class="sub" href="08-BigGive-M.dc.html"><img src="/assets/logo-biggive.png" alt="">The Culture's BIG GIVE™</a>
+        <a class="sub" href="05-CultureLive-M.dc.html"><img src="/assets/logo-culturelive.png" alt="">CultureLive™</a>
+        <a class="sub" href="10-ComingWorlds-M.dc.html"><img src="/assets/logo-cultureunion.png" alt="">CultuReunion™</a>
+        <a class="sub" href="10-ComingWorlds-M.dc.html"><img src="/assets/logo-culturecoming.png" alt="">CultureComing™</a>
+        <a class="sub" href="10-ComingWorlds-M.dc.html"><img src="/assets/logo-culturegames.png" alt="">CultureGames™</a>
+      </div>
+    </div>
+    <a class="ml" href="https://www.allthingsculturebowl.com/shop" style="border-bottom: 2px solid #111821;"><span class="d" style="font-size: 30px;">Shop</span></a>
+  </nav>
+
+  <div style="position: absolute; left: 24px; top: 640px; width: 342px; display: flex; flex-direction: column; gap: 10px;">
+    <a class="btn btn-white" href="https://www.ticketmaster.com/[CULTUREBOWL EVENT URL]" target="_blank" rel="noopener" style="width: 100%;">Get tickets</a>
+    <a class="btn btn-line" href="11-StayTappedIn-M.dc.html" style="width: 100%;">Tap in</a>
+  </div>
+  <div class="hud" style="position: absolute; left: 24px; bottom: 44px; color: #ffffff;">Opening night in {{cd}}</div>
+  <div class="hud" style="position: absolute; left: 24px; bottom: 24px; color: #ffffff; opacity: .7;">team@allthingsculturebowl.com</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    let s = Math.max(0, Math.floor((Date.UTC(2026, 9, 21, 4) - Date.now()) / 1000));
+    const p = (n) => String(n).padStart(2, '0');
+    return { cd: p(Math.floor(s / 86400)) + 'D ' + p(Math.floor(s % 86400 / 3600)) + 'H' };
+  }
+}
+</script>
+</body>
+</html>

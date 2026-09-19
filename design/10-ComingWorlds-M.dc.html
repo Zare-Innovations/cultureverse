@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Coming world, mobile</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/assets/cb2.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#111821}.wtab{appearance:none;border:0;background:transparent;color:#fff;font:700 11px 'Golos Text',sans-serif;padding:8px 8px;cursor:pointer;border-bottom:2px solid transparent}.wtab[aria-selected="true"]{border-bottom-color:#fff}</style>
+</helmet>
+<section style="width: 390px; height: 1000px; position: relative; overflow: hidden; background: {{w.bgc}}; color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding: 24px 24px 0;">
+  <img class="bgimg" src="{{w.bg}}" alt="" style="opacity: .85;">
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(rgba(17,24,33,.2), rgba(17,24,33,.7));"></div>
+
+  <div role="tablist" aria-label="Preview which world" style="position: relative; display: flex; gap: 2px; background: rgba(17,24,33,.7); padding: 0 4px; align-self: flex-start;">
+    <sc-for list="{{tabs}}" as="t" hint-placeholder-count="3"><button class="wtab" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.name}}</button></sc-for>
+  </div>
+
+  <div class="door lit" style="position: relative; margin: 30px auto 0; width: 260px; height: 240px; display: flex; align-items: center; justify-content: center; --glow: {{w.glow}};">
+    <img src="{{w.shard}}" alt="" style="width: 250px; height: 230px; object-fit: contain; transform: rotate({{w.rot}}deg); opacity: 1;">
+  </div>
+  <div style="position: relative; margin-top: 30px; display: flex; flex-direction: column; gap: 18px;">
+    <span class="st st-tba" style="align-self: flex-start;">{{w.when}}</span>
+    <h2 style="margin: 0;"><img src="{{w.mark}}" alt="{{w.name}}" style="width: {{w.mw}}px; height: auto;"></h2>
+    <p class="d" style="font-size: 32px; line-height: .95;">{{w.line}}</p>
+    <p style="font-size: 16px; line-height: 1.5;">{{w.copy}}</p>
+    <p class="d8" style="font-size: 15px;">{{w.sub}}</p>
+    <a class="btn btn-white" href="11-StayTappedIn-M.dc.html" style="width: 100%;">Notify me</a>
+    <a class="btn btn-line" href="04-Cultureverse-M.dc.html" style="width: 100%;">Back to the Cultureverse</a>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1000},"world":{"editor":"select","default":"reunion","options":["reunion","coming","games"]}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { w: null }; }
+  renderVals() {
+    const B = '/assets/';
+    const W = {
+      reunion: { name: 'CultuReunion™', mark: '/assets/logo-cultureunion.png', mw: 300, shard: '/assets/stone-red.webp', glow: '#F6003A', bg: '/assets/bg-cultureunion.webp', bgc: '#8a0020', when: 'Coming 2027', line: 'Reunited and right at home', copy: 'CultuReunion™ brings family, friends, and community together for music, food, games, local vendors, and moments that give back. Part cookout. Part celebration. All love.', sub: 'One big family', rot: 16 },
+      coming: { name: 'CultureComing™', mark: '/assets/logo-culturecoming.png', mw: 300, shard: '/assets/stone-orange.webp', glow: '#FF6F00', bg: '/assets/bg-culturecoming.webp', bgc: '#111821', when: 'The culture’s biggest homecoming', line: 'All eyes on us', copy: 'CultureComing™ brings the spirit of an HBCU homecoming to CultureBowl™ through National Pan-Hellenic Council–led activations, games, and live experiences.', sub: 'Rep your school. Celebrate the culture. Be the first to know when dates drop.', rot: -14 },
+      games: { name: 'CultureGames™', mark: '/assets/logo-culturegames.png', mw: 240, shard: '/assets/stone-purple.webp', glow: '#9B4DFF', bg: '/assets/bg-culturegames.webp', bgc: '#03301B', when: 'Coming 2027', line: 'Play hard. Bring your game. Win it all.', copy: 'Stay tuned.', sub: '', rot: -20 }
+    };
+    const key = this.state.w || this.props.world || 'reunion';
+    return { w: W[key] || W.reunion, tabs: Object.keys(W).map((k) => ({ name: W[k].name, on: k === key, pick: () => this.setState({ w: k }) })) };
+  }
+}
+</script>
+</body>
+</html>

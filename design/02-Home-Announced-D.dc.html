@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hero, headliner announced</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/assets/cb2.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#111821}</style>
+</helmet>
+<div style="width: 1440px; height: 900px; position: relative; overflow: hidden; background: #111821; color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+  <img class="bgimg" src="/assets/bg-navy-graffiti.webp" alt="" style="opacity: .45;">
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(rgba(17,24,33,.1), rgba(17,24,33,.75));"></div>
+  <div aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 1440px; height: 900px; background: radial-gradient(ellipse 700px 520px at 80% 45%, {{glow}}, rgba(17,24,33,0) 70%);"></div>
+
+  <img src="/assets/cardi-b-cutout.png" alt="Cardi B" style="position: absolute; left: 960px; top: 30px; height: 702px; width: auto; z-index: 2; filter: drop-shadow(0 30px 60px rgba(0,0,0,.6));">
+  <nav aria-label="Primary" style="position: absolute; left: 0; top: 0; width: 1440px; height: 72px; padding: 0 40px; display: flex; align-items: center; gap: 36px; z-index: 6;">
+    <a href="Main.dc.html" aria-label="CultureBowl home"><img class="cb-logo-sm" src="/assets/logo-culturebowl-white.svg" alt="CultureBowl" style="width: 92px; height: auto;"></a>
+    <div style="display: flex; gap: 26px; align-items: center;">
+      <a class="navlink" href="03-About-D.dc.html">About</a><a class="navlink" href="04-Cultureverse-D.dc.html">The Cultureverse™</a><a class="navlink" href="https://www.allthingsculturebowl.com/shop">Shop</a>
+    </div>
+    <div style="flex-grow: 1;"></div>
+    <a class="btn btn-red btn-sm" href="https://www.ticketmaster.com/[CULTUREBOWL EVENT URL]" target="_blank" rel="noopener">Get tickets</a>
+  </nav>
+
+  <div style="position: absolute; left: 64px; top: 120px; width: 700px; z-index: 3; display: flex; flex-direction: column; gap: 18px;">
+    <img src="/assets/logo-culturelive.png" alt="Culture Live" style="width: 220px; height: auto;">
+    <p class="hud" style="font-size: 12px; letter-spacing: .12em;">The culture goes live</p>
+  </div>
+
+  <div style="position: absolute; left: 0; top: 250px; width: 1440px; z-index: 3; display: flex; flex-direction: column; gap: 0; padding: 0 64px; pointer-events: none;">
+    <p class="d" style="font-size: 170px; line-height: .82; color: {{accent}}; text-shadow: 0 0 60px rgba(252,5,165,.35); max-width: 760px;">{{headliner}}</p>
+    <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 18px; position: relative; z-index: 3; max-width: 760px;">
+      <p class="d" style="font-size: 54px;">Headlining CultureLive™</p>
+      <p class="d8" style="font-size: 20px;">StarJourney Stage, Central Park Atlanta. {{when}}.</p>
+      <p class="d8" style="font-size: 22px; margin-top: 10px;">Plus {{supporting}}</p>
+      <p class="hud" style="opacity: .85;">Full lineup to the list first</p>
+      <p class="hud" style="opacity: .6; font-size: 10px;">[ARTIST NAMES PENDING CONFIRMATION]</p>
+    </div>
+  </div>
+
+  <div aria-hidden="true" style="position: absolute; left: 64px; top: 730px; width: 1312px; height: 2px; background: #ffffff;"></div>
+  <div style="position: absolute; left: 64px; top: 760px; width: 1312px; display: flex; align-items: center; gap: 16px; z-index: 5;">
+    <a class="btn btn-red" href="https://www.ticketmaster.com/[CULTUREBOWL EVENT URL]" target="_blank" rel="noopener" style="height: 64px; font-size: 22px; padding: 0 36px;">Get tickets</a>
+    <a class="btn btn-line" href="05-CultureLive-D.dc.html">CultureLive™</a>
+    <div style="flex-grow: 1;"></div>
+    <div role="timer" aria-label="Time until the show" style="display: flex; align-items: flex-end; gap: 14px;">
+      <span class="d num" style="font-size: 56px;">{{cd.d}}</span><span class="hud" style="padding-bottom: 8px;">Days</span>
+      <span class="d num" style="font-size: 56px;">{{cd.h}}</span><span class="hud" style="padding-bottom: 8px;">Hrs</span>
+      <span class="d num" style="font-size: 56px; color: {{accent}};">{{cd.m}}</span><span class="hud" style="padding-bottom: 8px;">Min</span>
+    </div>
+  </div>
+  <div class="hud" style="position: absolute; left: 64px; top: 846px; opacity: .75; z-index: 5;">Announced state. Each headliner takes the Culture Live palette that matches their artwork. Names are placeholders until confirmed.</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900},"headliner":{"editor":"text","default":"Cardi B"},"supporting":{"editor":"text","default":"Lil Wayne, 2 Chainz and more"},"when":{"editor":"text","default":"Sat Oct 24"},"accent":{"editor":"color","default":"#FC05A5","options":["#FC05A5","#FF6F00","#0F8A80","#3971FF"]}}'>
+class Component extends DCLogic {
+  componentDidMount() { this.t = setInterval(() => this.forceUpdate(), 1000); }
+  componentWillUnmount() { clearInterval(this.t); }
+  renderVals() {
+    let s = Math.max(0, Math.floor((Date.UTC(2026, 9, 24, 22, 0, 0) - Date.now()) / 1000));
+    const p = (n) => String(n).padStart(2, '0');
+    return { headliner: this.props.headliner ?? 'Cardi B', supporting: this.props.supporting ?? 'Lil Wayne, 2 Chainz and more', glow: (this.props.accent ?? '#FC05A5') + '30', when: this.props.when ?? 'Sat Oct 24', accent: this.props.accent ?? '#FC05A5', cd: { d: p(Math.floor(s / 86400)), h: p(Math.floor(s % 86400 / 3600)), m: p(Math.floor(s % 3600 / 60)) } };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>About, desktop</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/assets/cb2.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#111821}</style>
+</helmet>
+<section id="about" style="width: 1440px; height: 1100px; position: relative; overflow: hidden; background: #111821; color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+  <div style="position: absolute; left: 0; top: 0; width: 1440px; height: 520px; overflow: hidden; background: #F6003A;">
+    <img class="bgimg" src="/assets/bg-about.webp" alt="" style="opacity: .9; object-position: 50% 30%;">
+    <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(rgba(17,24,33,.2), rgba(17,24,33,.55));"></div>
+  </div>
+
+  <p class="hud" style="position: absolute; left: 64px; top: 48px;">About CultureBowl™</p>
+  <div style="position: absolute; left: 64px; top: 120px; width: 900px; display: flex; flex-direction: column; gap: 24px;">
+    <h2 style="margin: 0;"><img src="/assets/logo-culturebowl-white.svg" alt="CultureBowl" style="width: 360px; height: auto;"></h2>
+    <p class="d" style="font-size: 44px; line-height: .95; max-width: 860px;">CultureBowl™ is a multi-day experience created with the belief that culture is meant to be shared, celebrated, and honored.</p>
+    <img src="/assets/logo-moving-culture-forward.png" alt="Moving Culture Forward" style="width: 260px; height: auto;">
+  </div>
+
+  <div style="position: absolute; left: 64px; top: 580px; width: 1312px; display: grid; grid-template-columns: 640px 1fr; gap: 64px; align-items: start;">
+    <div style="display: flex; flex-direction: column; gap: 22px;">
+      <p style="font-size: 22px; line-height: 1.45; font-weight: 500;">CultureBowl™ is a global platform built to celebrate what has shaped us and champion what’s next. Bringing together music, community, creativity, commerce, and live experience, it offers one shared space to connect, grow, and keep Moving Culture Forward™.</p>
+      <div style="display: flex; align-items: center; gap: 18px; margin-top: 6px;">
+        <img src="/assets/logo-powered-by-iheart.png" alt="Powered by iHeartMedia" style="width: 260px; height: auto;">
+      </div>
+      <div style="display: flex; gap: 14px; margin-top: 6px;">
+        <a class="btn btn-red" href="04-Cultureverse-D.dc.html">Explore the Cultureverse</a>
+        <a class="btn btn-line" href="mailto:team@allthingsculturebowl.com">Contact</a>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+      <img src="/assets/photo-about-1.webp" alt="Guests together at an event" style="grid-column: 1 / -1; width: 100%; height: 260px; object-fit: cover;">
+      <img src="/assets/photo-about-2.webp" alt="Portrait at an event" style="width: 100%; height: 190px; object-fit: cover; object-position: 50% 60%;">
+      <div style="background: #F6003A; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px;">
+        <span class="d" style="font-size: 30px;">Built in Atlanta</span>
+        <span style="font-size: 14px; line-height: 1.45; font-weight: 600;">Atlanta has always been a city of culture. From music and entertainment, to business and community, its influence is global—making it the perfect first home.</span>
+      </div>
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic { renderVals() { return {}; } }
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Stay tapped in, mobile</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/assets/cb2.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#111821}</style>
+</helmet>
+<section style="width: 390px; height: 900px; position: relative; overflow: hidden; background: #111821; color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding: 40px 24px 0;">
+  <img class="bgimg" src="/assets/bg-cultureverse.webp" alt="" style="opacity: .8;">
+  <div aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 390px; height: 380px; background: #F6003A; clip-path: polygon(0 0, 390px 0, 390px 330px, 0 370px);"></div>
+
+  <img src="/assets/logo-cultureverse.png" alt="The Cultureverse" style="position: relative; width: 200px; height: auto;">
+  <p class="d" style="position: relative; font-size: 44px; margin-top: 18px;">Stay tapped in</p>
+  <p style="position: relative; font-size: 16px; line-height: 1.5; margin-top: 12px;">Get first access to CultureBowl™ announcements, artist lineups, ticket updates, exclusive experiences, merch drops, CultureVerse™ news, and so much more.</p>
+
+  <form onSubmit="{{submit}}" style="position: relative; margin-top: 36px; display: flex; flex-direction: column; gap: 16px;">
+    <sc-if value="{{notDone}}" hint-placeholder-val="{{true}}">
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+        <div><label class="lbl" for="jnm-first">First name (required)</label><input id="jnm-first" class="field field-sm" type="text" autocomplete="given-name"></div>
+        <div><label class="lbl" for="jnm-last">Last name (required)</label><input id="jnm-last" class="field field-sm" type="text" autocomplete="family-name"></div>
+      </div>
+      <div><label class="lbl" for="jnm-email">Email (required)</label><input id="jnm-email" class="field field-sm" type="email" placeholder="you@email.com" autocomplete="email"></div>
+      <button class="btn btn-red" type="submit" style="width: 100%; margin-top: 6px;">Tap In</button>
+      <p style="font-size: 12px; line-height: 1.4; opacity: .8;">By joining you agree to the [TERMS] and [PRIVACY POLICY]. Unsubscribe any time.</p>
+    </sc-if>
+    <sc-if value="{{done}}" hint-placeholder-val="{{false}}">
+      <h2 class="d" style="font-size: 40px; margin: 0;">You're in.</h2>
+      <p style="font-size: 16px; line-height: 1.5;">Lineups, tickets and Cultureverse news will reach you first. Watch your inbox for a confirmation.</p>
+      <a class="btn btn-red" href="https://www.ticketmaster.com/[CULTUREBOWL EVENT URL]" target="_blank" rel="noopener" style="width: 100%;">Get tickets</a>
+      <a class="btn btn-line" href="04-Cultureverse-M.dc.html" style="width: 100%;">Explore the Cultureverse</a>
+    </sc-if>
+  </form>
+  <div style="position: absolute; left: 24px; bottom: 30px; display: flex; gap: 10px;">
+    <img src="/assets/stone-ice.webp" alt="" style="width: 44px; height: 44px; object-fit: contain;">
+    <img src="/assets/stone-obsidian.webp" alt="" style="width: 44px; height: 44px; object-fit: contain;">
+    <img src="/assets/stone-blue.webp" alt="" style="width: 44px; height: 44px; object-fit: contain;">
+    <img src="/assets/stone-green.webp" alt="" style="width: 44px; height: 44px; object-fit: contain;">
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { done: false }; }
+  renderVals() {
+    return { done: this.state.done, notDone: !this.state.done, submit: (e) => { e.preventDefault(); this.setState({ done: true }); } };
+  }
+}
+</script>
+</body>
+</html>

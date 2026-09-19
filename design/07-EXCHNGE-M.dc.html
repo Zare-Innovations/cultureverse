@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Culture EXCHNGE, mobile</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/assets/cb2.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#111821}</style>
+</helmet>
+<section style="width: 390px; height: 1330px; position: relative; overflow: hidden; background: #111821; color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding: 40px 24px 0;">
+  <img class="bgimg" src="/assets/bg-exchnge.webp" alt="" style="height: 460px; object-position: 50% 40%; opacity: .5;">
+  <div aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 390px; height: 460px; background: linear-gradient(rgba(17,24,33,.6), #111821);"></div>
+  <img aria-hidden="true" src="/assets/obj-satellite.webp" alt="" style="position: absolute; left: 230px; top: 24px; width: 180px; height: auto; transform: rotate(-10deg); filter: drop-shadow(0 20px 30px rgba(0,0,0,.6));">
+
+  <p class="hud" style="position: relative;">Thu Oct 22, 2026<br><span style="opacity: .75;">RETREAT by The Gathering Spot</span></p>
+  <h2 style="position: relative; margin: 110px 0 0;"><img src="/assets/logo-exchnge.png" alt="The Culture EXCHNGE" style="width: 300px; height: auto;"></h2>
+  <p class="d" style="position: relative; font-size: 34px; margin-top: 18px;">FORWRD Summit at the RETREAT</p>
+  <span class="st st-request" style="position: relative; margin-top: 14px; color: #ffffff;">Request to attend</span>
+  <p class="hud" style="position: relative; color: #3971FF; font-size: 9px; margin-top: 12px;">[CONFIRM: FORWRD and EXCHNGE, one event or two]</p>
+
+  <p class="d" style="position: relative; font-size: 28px; margin-top: 34px;">Connection creates change</p>
+  <p style="position: relative; font-size: 16px; line-height: 1.5; margin-top: 12px;">At RETREAT by The Gathering Spot, The Culture EXCHANGE™ brings leaders, creators, entrepreneurs, and cultural voices together for meaningful conversation, connection, and ideas that keep us Moving Culture Forward™.</p>
+  <img src="/assets/photo-exchnge.webp" alt="Guests in conversation at a summit" style="position: relative; width: 342px; height: 180px; object-fit: cover; margin-top: 20px;">
+
+  <form onSubmit="{{submit}}" style="position: relative; margin-top: 28px; display: flex; flex-direction: column; gap: 14px; border-top: 2px solid #ffffff; padding-top: 20px;">
+    <sc-if value="{{notDone}}" hint-placeholder-val="{{true}}">
+      <h3 class="d" style="font-size: 30px;">Request to attend</h3>
+      <div><label class="lbl" for="fwm-name">Name</label><input id="fwm-name" class="field field-sm" type="text" autocomplete="name"></div>
+      <div><label class="lbl" for="fwm-email">Email</label><input id="fwm-email" class="field field-sm" type="email" autocomplete="email"></div>
+      <div><label class="lbl" for="fwm-co">Company or project</label><input id="fwm-co" class="field field-sm" type="text" autocomplete="organization"></div>
+      <button class="btn btn-red" type="submit" style="width: 100%; margin-top: 4px;">Send request</button>
+      <p style="font-size: 13px; opacity: .8;">Every request is reviewed. Speakers to be announced.</p>
+    </sc-if>
+    <sc-if value="{{done}}" hint-placeholder-val="{{false}}">
+      <h3 class="d" style="font-size: 30px;">Request received</h3>
+      <p style="font-size: 16px; line-height: 1.5;">Watch your inbox once review is complete.</p>
+    </sc-if>
+  </form>
+  <a href="04-Cultureverse-M.dc.html" class="hud" style="position: relative; display: inline-block; margin-top: 24px; color: #ffffff; text-decoration: none; border-bottom: 2px solid #3971FF; padding-bottom: 3px;">Back to the Cultureverse</a>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1330}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { done: false }; }
+  renderVals() {
+    return { done: this.state.done, notDone: !this.state.done, submit: (e) => { e.preventDefault(); this.setState({ done: true }); } };
+  }
+}
+</script>
+</body>
+</html>

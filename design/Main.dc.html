@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hero, desktop</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/assets/cb2.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#111821}.door:not(.lit) img{opacity:1}</style>
+</helmet>
+<div ref="{{rootRef}}" onMouseMove="{{move}}" onMouseLeave="{{leave}}" class="{{fieldCls}}" style="width: 1440px; height: 900px; position: relative; overflow: hidden; background: #111821; color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+  <img class="bgimg" src="/assets/bg-navy-graffiti.webp" alt="" style="opacity: .55;">
+  <div aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 1440px; height: 620px; background: radial-gradient(ellipse 700px 420px at 50% 34%, rgba(246,0,58,.22), rgba(246,0,58,0) 70%);"></div>
+  <div aria-hidden="true" class="a-field" style="position: absolute; left: 0; top: 0; width: 1440px; height: 900px; background: #F6003A; clip-path: polygon(0 724px, 1440px 596px, 1440px 900px, 0 900px);"></div>
+
+  <nav aria-label="Primary" style="position: absolute; left: 0; top: 0; width: 1440px; height: 72px; padding: 0 40px; display: flex; align-items: center; gap: 36px; z-index: 6;">
+    <a href="Main.dc.html" aria-label="CultureBowl home" style="display: block;"><img class="cb-logo-sm" src="/assets/logo-culturebowl-white.svg" alt="CultureBowl" style="width: 92px; height: auto;"></a>
+    <div style="display: flex; gap: 26px; align-items: center;">
+      <a class="navlink" href="03-About-D.dc.html">About</a>
+      <a class="navlink" href="04-Cultureverse-D.dc.html">The Cultureverse™ <svg aria-hidden="true" width="10" height="7" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"></path></svg></a>
+      <a class="navlink" href="https://www.allthingsculturebowl.com/shop">Shop</a>
+    </div>
+    <div style="flex-grow: 1;"></div>
+    <a class="btn btn-red btn-sm" href="https://www.ticketmaster.com/[CULTUREBOWL EVENT URL]" target="_blank" rel="noopener">Get tickets</a>
+  </nav>
+
+  <p class="hud a-in" style="position: absolute; left: 40px; top: 96px; font-size: 12px; letter-spacing: .12em; z-index: 4; --d: 1300ms;">A worldwide celebration of culture <span style="opacity: .6; margin: 0 8px;">/</span> Oct 21 to 25, 2026 <span style="opacity: .6; margin: 0 8px;">/</span> First home: Atlanta</p>
+
+  <div style="position: absolute; left: 380px; top: 118px; width: 680px; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+    <h1 style="margin: 0;"><img class="cb-logo a-lock" src="/assets/logo-culturebowl-white.svg" alt="CultureBowl 2026" style="width: 560px; height: auto;"></h1>
+    <img class="a-in" src="/assets/logo-powered-by-iheart.png" alt="Powered by iHeartMedia" style="width: 320px; height: auto; --d: 1500ms;">
+    <img class="a-in" src="/assets/logo-moving-culture-forward.png" alt="Moving Culture Forward" style="width: 230px; height: auto; --d: 1700ms;">
+  </div>
+
+  <div class="a-wipe" style="position: absolute; left: -130px; top: 522px; width: 1700px; height: 104px; background: #ffffff; color: #111821; transform: rotate(-6deg); z-index: 2; --d: 300ms;">
+    <div style="height: 104px; padding-left: 200px; display: flex; align-items: center; gap: 28px;">
+      <div role="timer" aria-label="Time until opening night" style="display: flex; align-items: flex-end; gap: 18px;">
+        <div style="display: flex; align-items: flex-end; gap: 6px;"><span class="d num" style="font-size: 58px;">{{cd.d}}</span><span class="hud" style="font-size: 12px; padding-bottom: 8px;">Days</span></div>
+        <div style="display: flex; align-items: flex-end; gap: 6px;"><span class="d num" style="font-size: 58px;">{{cd.h}}</span><span class="hud" style="font-size: 12px; padding-bottom: 8px;">Hrs</span></div>
+        <div style="display: flex; align-items: flex-end; gap: 6px;"><span class="d num" style="font-size: 58px;">{{cd.m}}</span><span class="hud" style="font-size: 12px; padding-bottom: 8px;">Min</span></div>
+        <div style="display: flex; align-items: flex-end; gap: 6px;"><span class="d num" style="font-size: 58px; color: #F6003A;">{{cd.s}}</span><span class="hud" style="font-size: 12px; padding-bottom: 8px;">Sec</span></div>
+      </div>
+      <div class="hud" style="font-size: 12px; padding-top: 4px;">Until opening night<br>Wed Oct 21, ICON HONORS</div>
+      <div aria-hidden="true" style="width: 3px; height: 68px; background: #111821;"></div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <span class="d" style="font-size: 28px;">CultureLive™</span>
+        <span class="d8" style="font-size: 15px;">Sat Oct 24 and Sun Oct 25</span>
+      </div>
+      <a class="btn btn-red btn-sm" href="https://www.ticketmaster.com/[CULTUREBOWL EVENT URL]" target="_blank" rel="noopener" style="margin-left: 6px;">Get tickets</a>
+    </div>
+  </div>
+
+  <sc-for list="{{shards}}" as="s" hint-placeholder-count="5">
+    <div class="par" style="position: absolute; left: {{s.x}}px; top: {{s.y}}px; width: {{s.w}}px; z-index: 4; --dp: {{s.dp}};">
+      <div class="a-assemble" style="--fx: {{s.fx}}px; --fy: {{s.fy}}px; --fr: {{s.fr}}deg; --d: {{s.d}}ms;">
+        <a class="door {{s.lit}}" href="{{s.href}}" aria-label="{{s.label}}" onMouseEnter="{{s.on}}" onFocus="{{s.on}}" style="position: relative; width: {{s.w}}px; transform: rotate({{s.rot}}deg); --glow: {{s.glow}};">
+          <img src="{{s.src}}" alt="" style="width: 100%; height: auto;">
+        </a>
+        <sc-if value="{{s.isOn}}" hint-placeholder-val="{{false}}">
+          <div class="hud" style="position: absolute; left: {{s.lx}}px; top: {{s.ly}}px; background: #111821; color: #ffffff; padding: 9px 12px 10px; border-left: 3px solid {{s.glow}}; white-space: nowrap; font-size: 12px;">{{s.day}}<br><span style="font-size: 14px; font-weight: 800;">{{s.name}}</span><br>{{s.status}}</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-for>
+
+  <div style="position: absolute; left: 64px; top: 712px; width: 520px; display: flex; flex-direction: column; gap: 10px; z-index: 5; color: #111821;">
+    <p class="hud a-in" style="--d: 1500ms; color: #111821;">What is CultureBowl?</p>
+    <p class="a-in" style="font-size: 17px; line-height: 1.4; font-weight: 600; max-width: 470px; --d: 1600ms;">A worldwide celebration of the culture shaping today and tomorrow. See y’all there.</p>
+    <div style="display: flex; gap: 14px; align-items: center;">
+      <a class="btn btn-white" href="https://www.ticketmaster.com/[CULTUREBOWL EVENT URL]" target="_blank" rel="noopener">Get tickets</a>
+      <a class="btn btn-navy" href="03-About-D.dc.html">Learn more</a>
+    </div>
+  </div>
+  <div style="position: absolute; right: 64px; top: 700px; width: 520px; display: flex; flex-direction: column; gap: 6px; align-items: flex-end; z-index: 5; text-align: right;">
+    <span class="hud" style="color: #111821;">Headlining CultureLive™</span>
+    <span class="d" style="font-size: 60px; color: #ffffff;">Cardi B</span>
+    <span class="d8" style="font-size: 20px; color: #111821;">Plus Lil Wayne, 2 Chainz and more</span>
+    <a href="11-StayTappedIn-D.dc.html" class="hud" style="color: #111821; font-size: 11px; border-bottom: 2px solid #111821; padding-bottom: 3px; text-decoration: none; margin-top: 4px;">Full lineup to the list first</a>
+    <span class="hud" style="color: #111821; opacity: .7; font-size: 10px; margin-top: 6px;">[ARTIST NAMES PENDING CONFIRMATION]</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { active: 'live' }; }
+  componentDidMount() { this.t = setInterval(() => this.forceUpdate(), 1000); }
+  componentWillUnmount() { clearInterval(this.t); }
+  cd() {
+    const T = Date.UTC(2026, 9, 21, 4, 0, 0);
+    let s = Math.max(0, Math.floor((T - Date.now()) / 1000));
+    const p = (n) => String(n).padStart(2, '0');
+    const d = Math.floor(s / 86400); s %= 86400;
+    const h = Math.floor(s / 3600); s %= 3600;
+    return { d: p(d), h: p(h), m: p(Math.floor(s / 60)), s: p(s % 60) };
+  }
+  renderVals() {
+    const B = '/assets/';
+    const list = [
+      { id: 'honors', src: '/assets/stone-ice.webp', x: 100, y: 120, w: 180, rot: -14, dp: 18, fx: -520, fy: -260, fr: -60, d: 150, glow: '#17A2BE', href: 'D-Honors.dc.html', day: 'Wed Oct 21', name: 'ICON HONORS', venue: 'Flourish', status: 'Private, by invitation', lx: 10, ly: 270 },
+      { id: 'exchnge', src: '/assets/obj-satellite.webp', x: 80, y: 455, w: 200, rot: -8, dp: 10, fx: -640, fy: 120, fr: 20, d: 260, glow: '#3971FF', href: 'D-Forwrd.dc.html', day: 'Thu Oct 22', name: 'The Culture EXCHNGE', venue: 'FORWRD Summit at the RETREAT', status: 'Request to attend', lx: 210, ly: 6 },
+      { id: 'live', src: '/assets/stone-obsidian.webp', x: 1090, y: 70, w: 240, rot: 12, dp: 16, fx: 560, fy: -280, fr: 70, d: 200, glow: '#FF6F00', href: 'D-Live.dc.html', day: 'Sat Oct 24 and Sun Oct 25', name: 'CultureLive™', venue: 'StarJourney Stage, Central Park Atlanta', status: 'Ticketed', lx: -50, ly: 244 },
+      { id: 'expo', src: '/assets/stone-blue.webp', x: 1240, y: 280, w: 200, rot: -10, dp: 12, fx: 600, fy: 60, fr: -45, d: 320, glow: '#3971FF', href: 'D-Expo.dc.html', day: 'Fri Oct 23 to Sun Oct 25', name: 'CultureExpo™', venue: 'Central Park Atlanta', status: 'Ticketed', lx: -240, ly: 60 },
+      { id: 'give', src: '/assets/stone-green.webp', x: 640, y: 668, w: 170, rot: 16, dp: 8, fx: 0, fy: 420, fr: 40, d: 380, glow: '#D7F26A', href: 'D-Give.dc.html', day: 'Sat Oct 24', name: "The Culture's BIG GIVE™", venue: 'Sites to be announced', status: 'Free, community', lx: 180, ly: -50 }
+    ];
+    const a = this.state.active;
+    return {
+      cd: this.cd(),
+      fieldCls: '',
+      rootRef: (el) => { this.el = el; },
+      move: (e) => {
+        if (!this.el) return;
+        const r = this.el.getBoundingClientRect();
+        this.el.style.setProperty('--mx', (((e.clientX - r.left) / r.width) - 0.5).toFixed(3));
+        this.el.style.setProperty('--my', (((e.clientY - r.top) / r.height) - 0.5).toFixed(3));
+      },
+      leave: () => { if (this.el) { this.el.style.setProperty('--mx', 0); this.el.style.setProperty('--my', 0); } },
+      shards: list.map((s) => ({ ...s, label: s.name + ', ' + s.day + ', ' + s.status, isOn: a === s.id, lit: a === s.id ? 'lit' : '', on: () => this.setState({ active: s.id }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+:root {
+  --f-display: var(--font-golos), 'Golos Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --f-serif: var(--font-cormorant), 'Cormorant Garamond', 'Times New Roman', serif;
+}

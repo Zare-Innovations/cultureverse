@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Culture EXCHNGE, desktop</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/assets/cb2.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#111821}</style>
+</helmet>
+<section id="exchnge" style="width: 1440px; height: 980px; position: relative; overflow: hidden; background: #111821; color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+  <img class="bgimg" src="/assets/bg-exchnge.webp" alt="" style="object-position: 50% 40%; opacity: .5;">
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(17,24,33,.94) 0%, rgba(17,24,33,.85) 55%, rgba(17,24,33,.7) 100%);"></div>
+  <img aria-hidden="true" src="/assets/obj-satellite.webp" alt="" style="position: absolute; left: 1020px; top: 120px; width: 380px; height: auto; transform: rotate(-10deg); filter: drop-shadow(0 30px 50px rgba(0,0,0,.6));">
+
+  <div class="hud" style="position: absolute; left: 64px; top: 48px;">Thu Oct 22, 2026 <span style="opacity: .6; margin: 0 8px;">/</span> RETREAT by The Gathering Spot <span style="opacity: .6; margin: 0 8px;">/</span> <span class="st st-request" style="color: #ffffff;">Request to attend</span></div>
+  <a href="04-Cultureverse-D.dc.html" class="hud" style="position: absolute; right: 64px; top: 48px; color: #ffffff; text-decoration: none; border-bottom: 2px solid #3971FF; padding-bottom: 3px;">Back to the Cultureverse</a>
+
+  <div style="position: absolute; left: 64px; top: 120px; width: 900px; display: flex; flex-direction: column; gap: 24px;">
+    <h2 style="margin: 0;"><img src="/assets/logo-exchnge.png" alt="The Culture EXCHNGE" style="height: 120px; width: auto;"></h2>
+    <p class="d" style="font-size: 48px; line-height: .95;">FORWRD Summit<br>at the RETREAT</p>
+    <p class="hud" style="color: #3971FF; font-size: 11px;">[CONFIRM WITH MILES: FORWRD and The Culture EXCHNGE, one event or two on the same day]</p>
+  </div>
+
+  <div style="position: absolute; left: 64px; top: 470px; width: 1312px; display: grid; grid-template-columns: 700px 1fr; gap: 88px; align-items: start;">
+    <div style="display: flex; flex-direction: column; gap: 22px;">
+      <p class="d" style="font-size: 40px;">Connection creates change</p>
+      <p style="font-size: 19px; line-height: 1.5; max-width: 640px;">At RETREAT by The Gathering Spot, The Culture EXCHANGE™ brings leaders, creators, entrepreneurs, and cultural voices together for meaningful conversation, connection, and ideas that keep us Moving Culture Forward™.</p>
+      <img src="/assets/photo-exchnge.webp" alt="Guests in conversation at a summit" style="width: 640px; height: 220px; object-fit: cover; object-position: 50% 40%; margin-top: 8px;">
+    </div>
+    <form onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 16px; background: rgba(17,24,33,.9); padding: 32px 32px 36px; clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%); box-shadow: inset 0 0 0 1px rgba(255,255,255,.15);">
+      <sc-if value="{{notDone}}" hint-placeholder-val="{{true}}">
+        <h3 class="d" style="font-size: 36px;">Request to attend</h3>
+        <div><label class="lbl" for="fw-name">Name</label><input id="fw-name" class="field field-sm" type="text" autocomplete="name"></div>
+        <div><label class="lbl" for="fw-email">Email</label><input id="fw-email" class="field field-sm" type="email" autocomplete="email"></div>
+        <div><label class="lbl" for="fw-co">Company or project</label><input id="fw-co" class="field field-sm" type="text" autocomplete="organization"></div>
+        <div style="display: flex; gap: 16px; align-items: center; margin-top: 4px;">
+          <button class="btn btn-red" type="submit">Send request</button>
+          <span style="font-size: 14px; opacity: .8; max-width: 200px;">Every request is reviewed. Speakers to be announced.</span>
+        </div>
+      </sc-if>
+      <sc-if value="{{done}}" hint-placeholder-val="{{false}}">
+        <h3 class="d" style="font-size: 36px;">Request received</h3>
+        <p style="font-size: 18px; line-height: 1.5;">Watch your inbox once review is complete.</p>
+      </sc-if>
+    </form>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":980}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { done: false }; }
+  renderVals() {
+    return {
+      done: this.state.done, notDone: !this.state.done,
+      submit: (e) => { e.preventDefault(); this.setState({ done: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

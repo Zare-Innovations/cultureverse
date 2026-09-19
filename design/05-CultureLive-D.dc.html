@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Culture Live, desktop</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/assets/cb2.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#111821}</style>
+</helmet>
+<section id="live" style="width: 1440px; height: 1260px; position: relative; overflow: hidden; background: #111821; color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+  <div style="position: absolute; left: 0; top: 0; width: 1440px; height: 640px; overflow: hidden;">
+    <img class="bgimg" src="/assets/bg-culturelive.webp" alt="" style="object-position: 50% 40%;">
+    <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(17,24,33,.9) 0%, rgba(17,24,33,.55) 55%, rgba(17,24,33,.2) 100%), linear-gradient(rgba(17,24,33,0) 60%, #111821 100%);"></div>
+  </div>
+  <img aria-hidden="true" src="/assets/stone-obsidian.webp" alt="" style="position: absolute; left: 1080px; top: 90px; width: 300px; height: auto; transform: rotate(12deg); filter: drop-shadow(0 0 40px rgba(255,111,0,.5)) drop-shadow(0 30px 40px rgba(0,0,0,.6));">
+
+  <div class="hud" style="position: absolute; left: 64px; top: 48px;">Sat Oct 24 and Sun Oct 25, 2026 <span style="opacity: .6; margin: 0 8px;">/</span> StarJourney Stage, Central Park Atlanta <span style="opacity: .6; margin: 0 8px;">/</span> <span class="st st-ticket">Ticketed</span></div>
+  <a href="04-Cultureverse-D.dc.html" class="hud" style="position: absolute; right: 64px; top: 48px; color: #ffffff; text-decoration: none; border-bottom: 2px solid #FF6F00; padding-bottom: 3px;">Back to the Cultureverse</a>
+
+  <div style="position: absolute; left: 64px; top: 130px; width: 820px; display: flex; flex-direction: column; gap: 24px;">
+    <h2 style="margin: 0;"><img src="/assets/logo-culturelive.png" alt="Culture Live" style="width: 420px; height: auto;"></h2>
+    <p class="d" style="font-size: 54px; line-height: .95;">The culture goes live</p>
+    <p style="font-size: 19px; line-height: 1.5; max-width: 620px; font-weight: 600;">CultureLive™ is where the energy lives. We bring the icons, the sound, and unforgettable performances.</p>
+    <p style="font-size: 19px; line-height: 1.5; max-width: 620px; font-weight: 600;">Don’t follow the moment--let’s make it.</p>
+    <div style="display: flex; gap: 14px; align-items: center; margin-top: 6px;">
+      <a class="btn btn-red" href="https://www.ticketmaster.com/[CULTUREBOWL EVENT URL]" target="_blank" rel="noopener">Get tickets</a>
+      <span class="hud" style="opacity: .8; max-width: 280px;">Tickets on Ticketmaster. Opens in a new tab. Day and weekend options to be announced.</span>
+    </div>
+  </div>
+
+  <div style="position: absolute; left: 64px; top: 650px; width: 1312px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: end;">
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <span class="hud" style="color: #FF6F00;">Talent announcement</span>
+      <span class="d" style="font-size: 120px; line-height: .85;">{{headliner}}</span>
+      <span class="d8" style="font-size: 24px; margin-top: 8px;">Plus {{supporting}}</span>
+      <span class="hud" style="opacity: .7; font-size: 10px; margin-top: 6px;">[ARTIST NAMES PENDING CONFIRMATION]</span>
+    </div>
+    <dl style="margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;">
+      <div style="border-top: 2px solid #ffffff; padding-top: 10px;"><dt class="hud">Nights</dt><dd style="margin: 4px 0 0; font-size: 18px; font-weight: 700;">Saturday and Sunday</dd></div>
+      <div style="border-top: 2px solid #ffffff; padding-top: 10px;"><dt class="hud">Stage</dt><dd style="margin: 4px 0 0; font-size: 18px; font-weight: 700;">StarJourney Stage</dd></div>
+      <div style="border-top: 2px solid #ffffff; padding-top: 10px;"><dt class="hud">Set times</dt><dd style="margin: 4px 0 0; font-size: 18px; font-weight: 700;">To be announced</dd></div>
+    </dl>
+  </div>
+
+  <div style="position: absolute; left: 64px; top: 910px; width: 1312px; display: grid; grid-template-columns: 640px 1fr 1fr; gap: 16px;">
+    <img src="/assets/render-starjourney-stage.jpg" alt="Rendering of the StarJourney Stage" style="width: 640px; height: 300px; object-fit: cover; object-position: 50% 30%;">
+    <img src="/assets/photo-live-1.webp" alt="Crowd at a live show" style="width: 100%; height: 300px; object-fit: cover;">
+    <img src="/assets/photo-live-2.webp" alt="Performer on stage" style="width: 100%; height: 300px; object-fit: cover; object-position: 50% 30%;">
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1260},"headliner":{"editor":"text","default":"Cardi B"},"supporting":{"editor":"text","default":"Lil Wayne, 2 Chainz and more"}}'>
+class Component extends DCLogic {
+  renderVals() { return { headliner: this.props.headliner ?? 'Cardi B', supporting: this.props.supporting ?? 'Lil Wayne, 2 Chainz and more' }; }
+}
+</script>
+</body>
+</html>

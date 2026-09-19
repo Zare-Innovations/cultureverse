@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Cultureverse, mobile</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/assets/cb2.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#0b0f16}.world{color:#fff;text-decoration:none;display:flex;align-items:center;gap:16px;padding:14px 16px;background:rgba(17,24,33,.55);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,0 100%)}.world .cta{border-bottom:2px solid #F6003A;align-self:flex-start;padding-bottom:2px}.door:not(.lit) img{opacity:1}</style>
+</helmet>
+<section style="width: 390px; height: 1800px; position: relative; overflow: hidden; background: #0b0f16; color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding: 44px 24px 0;">
+  <img class="bgimg" src="/assets/bg-cultureverse.webp" alt="">
+  <img aria-hidden="true" src="/assets/obj-globe.webp" alt="" style="position: absolute; left: -100px; bottom: -30px; width: 600px; height: auto; opacity: .8;">
+  <h2 style="position: relative; margin: 0;"><img src="/assets/logo-cultureverse.png" alt="The Cultureverse" style="width: 220px; height: auto;"></h2>
+  <p class="d" style="position: relative; font-size: 38px; margin-top: 22px;">Choose your world</p>
+  <p style="position: relative; font-size: 16px; line-height: 1.5; margin-top: 12px;">Welcome to CultureVerse™—the connected world of CultureBowl™, where music, community, creativity, competition, commerce, and culture come together in one shared experience.</p>
+  <p class="d8" style="position: relative; font-size: 14px; margin-top: 12px;">The culture doesn’t just live in one lane, it thrives.</p>
+
+  <p class="d8" style="position: relative; font-size: 13px; border-top: 3px solid #ffffff; padding-top: 10px; margin-top: 28px;">In Atlanta, October 21 to 25, 2026</p>
+  <div style="position: relative; display: flex; flex-direction: column; gap: 10px; margin-top: 12px;">
+    <sc-for list="{{live}}" as="p" hint-placeholder-count="5">
+      <a class="world" href="{{p.href}}">
+        <div class="door lit" style="position: relative; width: 84px; height: 74px; flex: none; display: flex; align-items: center; justify-content: center; --glow: {{p.glow}};"><img src="{{p.shard}}" alt="" style="width: 84px; height: 74px; object-fit: contain;"></div>
+        <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+          <img src="{{p.mark}}" alt="{{p.name}}" style="height: {{p.mh}}px; width: 170px; object-fit: contain; object-position: left center;">
+          <span class="hud" style="font-size: 10px;">{{p.when}} <span style="opacity: .7;">/ {{p.status}}</span></span>
+          <span class="hud cta" style="font-size: 10px;">{{p.cta}}</span>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+
+  <p class="d8" style="position: relative; font-size: 13px; border-top: 3px solid rgba(255,255,255,.5); padding-top: 10px; margin-top: 28px;">Coming</p>
+  <div style="position: relative; display: flex; flex-direction: column; gap: 10px; margin-top: 12px;">
+    <sc-for list="{{coming}}" as="p" hint-placeholder-count="3">
+      <a class="world" href="{{p.href}}">
+        <div class="dormant" style="width: 84px; height: 74px; flex: none; display: flex; align-items: center; justify-content: center;"><img src="{{p.shard}}" alt="" style="width: 84px; height: 70px; object-fit: contain; transform: rotate({{p.rot}}deg);"></div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <img src="{{p.mark}}" alt="{{p.name}}" style="height: 30px; width: 170px; object-fit: contain; object-position: left center;">
+          <span class="hud" style="font-size: 10px; opacity: .8;">{{p.when}}</span>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+
+  <div style="position: relative; margin-top: 30px; border-top: 1px solid rgba(255,255,255,.35); padding-top: 18px; display: flex; flex-direction: column; gap: 12px;">
+    <p class="d" style="font-size: 28px;">Stay tapped in</p>
+    <p style="font-size: 15px; line-height: 1.4;">Get first access to CultureBowl™ announcements, artist lineups, ticket updates, exclusive experiences, merch drops, CultureVerse™ news, and so much more.</p>
+    <a class="btn btn-red" href="11-StayTappedIn-M.dc.html" style="width: 100%;">Tap in</a>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const B = '/assets/';
+    const S = { orange: '/assets/stone-orange.webp', obsidian: '/assets/stone-obsidian.webp', blue: '/assets/stone-blue.webp', purple: '/assets/stone-purple.webp', ice: '/assets/stone-ice.webp', red: '/assets/stone-red.webp', green: '/assets/stone-green.webp', sat: '/assets/obj-satellite.webp' };
+    return {
+      live: [
+        { name: "The Culture's Coldest™ ICON HONORS", mark: '/assets/logo-iconhonors.png', mh: 30, shard: S.ice, glow: '#17A2BE', when: 'Wed Oct 21', status: 'By invitation', cta: 'Explore', href: 'M-Honors.dc.html' },
+        { name: 'The Culture EXCHNGE', mark: '/assets/logo-exchnge.png', mh: 40, shard: S.sat, glow: '#3971FF', when: 'Thu Oct 22', status: 'Request to attend', cta: 'Explore', href: 'M-Forwrd.dc.html' },
+        { name: 'CultureExpo™', mark: '/assets/logo-cultureexpo.png', mh: 48, shard: S.blue, glow: '#3971FF', when: 'Fri Oct 23 to Sun Oct 25', status: 'Ticketed', cta: 'Explore', href: 'M-Expo.dc.html' },
+        { name: "The Culture's BIG GIVE™", mark: '/assets/logo-biggive.png', mh: 48, shard: S.green, glow: '#D7F26A', when: 'Sat Oct 24', status: 'Free', cta: 'Explore', href: 'M-Give.dc.html' },
+        { name: 'CultureLive™', mark: '/assets/logo-culturelive.png', mh: 48, shard: S.obsidian, glow: '#FF6F00', when: 'Sat Oct 24 and Sun Oct 25', status: 'Ticketed', cta: 'Explore', href: 'M-Live.dc.html' }
+      ],
+      coming: [
+        { name: 'CultuReunion™', mark: '/assets/logo-cultureunion.png', shard: S.red, rot: 20, when: 'Family over everything. Coming 2027', href: 'M-World.dc.html' },
+        { name: 'CultureComing™', mark: '/assets/logo-culturecoming.png', shard: S.orange, rot: -18, when: 'The culture’s biggest homecoming', href: 'M-World.dc.html' },
+        { name: 'CultureGames™', mark: '/assets/logo-culturegames.png', shard: S.purple, rot: -24, when: 'Coming 2027', href: 'M-World.dc.html' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

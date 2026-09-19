@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Culture's Big Give, desktop</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/assets/cb2.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#03301B}.plogo{height:84px;display:flex;align-items:center;justify-content:center;background:#ffffff;padding:16px 20px}.plogo img{max-width:100%;max-height:48px;width:auto;height:auto;object-fit:contain}.gtog{appearance:none;cursor:pointer;display:inline-flex;align-items:center;min-height:48px;padding:0 18px;border:2px solid #D7F26A;background:transparent;color:#ffffff;font-family:'Golos Text',sans-serif;font-weight:600;font-size:15px}.gtog.on{background:#D7F26A;color:#03301B}.gtog:focus-visible{outline:3px solid #fff;outline-offset:3px}</style>
+</helmet>
+<section id="give" style="width: 1440px; height: 980px; position: relative; overflow: hidden; background: #03301B; color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+  <img class="bgimg" src="/assets/bg-biggive.webp" alt="">
+
+  <div style="position: absolute; left: 64px; top: 64px; width: 620px; display: flex; flex-direction: column; gap: 24px;">
+    <p class="hud" style="font-size: 12px; color: #D7F26A;">Sat Oct 24, 2026. Free. Community.</p>
+    <h2 style="margin: 0;"><img src="/assets/logo-biggive.png" alt="The Culture's Big Give" style="width: 440px; height: auto;"></h2>
+    <p class="d" style="font-size: 44px;">When all of us give.<br>All of us grow</p>
+    <p style="font-size: 18px; line-height: 1.5; max-width: 560px;">In partnership with the City of Atlanta, Atlanta Housing Authority, and Goodr, Inc., The Culture’s BIG GIVE™ serves as a defining CultureBowl™ week experience—showcasing culture through meaningful community investment, collaboration and impact all in service of Moving Culture Forward™.</p>
+    <ol style="list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px;">
+      <li style="display: flex; gap: 16px; align-items: baseline;"><span class="d" style="font-size: 28px; color: #D7F26A; width: 30px;">1</span><span style="font-size: 17px; font-weight: 600;">Sign up here.</span></li>
+      <li style="display: flex; gap: 16px; align-items: baseline;"><span class="d" style="font-size: 28px; color: #D7F26A; width: 30px;">2</span><span style="font-size: 17px; font-weight: 600;">Get your site and shift by email once they are set.</span></li>
+      <li style="display: flex; gap: 16px; align-items: baseline;"><span class="d" style="font-size: 28px; color: #D7F26A; width: 30px;">3</span><span style="font-size: 17px; font-weight: 600;">Show up Saturday, October 24.</span></li>
+    </ol>
+    <div>
+      <p class="hud" style="margin-bottom: 10px; color: #D7F26A;">In partnership with</p>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 560px;">
+        <a class="plogo" href="https://www.atlantaga.gov/government/mayor-s-office"><img src="/assets/partner-office-of-the-mayor.png" alt="City of Atlanta, Office of the Mayor"></a>
+        <a class="plogo" href="https://www.atlantahousing.org/"><img src="/assets/partner-atlanta-housing.png" alt="Atlanta Housing"></a>
+        <a class="plogo" href="https://goodr.co/"><img src="/assets/partner-goodr.png" alt="Goodr"></a>
+      </div>
+    </div>
+  </div>
+
+  <img aria-hidden="true" src="/assets/stone-green.webp" alt="" style="position: absolute; left: 1190px; top: 660px; width: 210px; height: auto; transform: rotate(-16deg); z-index: 2; filter: drop-shadow(0 24px 30px rgba(0,0,0,.5));">
+  <img src="/assets/keyart-biggive-billboard.webp" alt="The Culture's Big Give key art" style="position: absolute; left: 780px; top: 660px; width: 390px; height: 256px; object-fit: cover; object-position: 50% 40%; z-index: 1;">
+
+  <form onSubmit="{{submit}}" style="position: absolute; left: 780px; top: 64px; width: 596px; padding: 40px 40px 40px; background: #111821; color: #ffffff; clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 36px 100%, 0 calc(100% - 36px)); display: flex; flex-direction: column; gap: 20px; z-index: 3;">
+    <sc-if value="{{notDone}}" hint-placeholder-val="{{true}}">
+      <h3 class="d" style="font-size: 44px;">Count me in</h3>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+        <div><label class="lbl" for="bg-first">First name</label><input id="bg-first" class="field field-sm" type="text" autocomplete="given-name"></div>
+        <div><label class="lbl" for="bg-last">Last name</label><input id="bg-last" class="field field-sm" type="text" autocomplete="family-name"></div>
+      </div>
+      <div><label class="lbl" for="bg-email">Email</label><input id="bg-email" class="field field-sm" type="email" autocomplete="email"></div>
+      <fieldset style="border: 0; margin: 0; padding: 0;">
+        <legend class="lbl" style="padding: 0;">Coming as</legend>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
+          <sc-for list="{{groups}}" as="g" hint-placeholder-count="3"><button type="button" class="gtog {{g.cls}}" aria-pressed="{{g.on}}" onClick="{{g.pick}}">{{g.label}}</button></sc-for>
+        </div>
+      </fieldset>
+      <button class="btn btn-lime" type="submit" style="align-self: flex-start; margin-top: 4px;">Sign me up</button>
+    </sc-if>
+    <sc-if value="{{done}}" hint-placeholder-val="{{false}}">
+      <h3 class="d" style="font-size: 44px;">You're in for Saturday</h3>
+      <p style="font-size: 18px; line-height: 1.5;">Signed up {{groupLabel}}. Your site and shift arrive by email once they are set.</p>
+      <a class="btn btn-line" href="11-StayTappedIn-D.dc.html" style="align-self: flex-start;">Tap in</a>
+    </sc-if>
+  </form>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":980}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { g: 'me', done: false }; }
+  renderVals() {
+    const G = [{ id: 'me', label: 'Just me', txt: 'just you' }, { id: 'friends', label: 'With friends', txt: 'with friends' }, { id: 'org', label: 'With my organization', txt: 'with your organization' }];
+    return {
+      done: this.state.done, notDone: !this.state.done,
+      groupLabel: G.find((x) => x.id === this.state.g).txt,
+      submit: (e) => { e.preventDefault(); this.setState({ done: true }); },
+      groups: G.map((x) => ({ ...x, on: this.state.g === x.id, cls: this.state.g === x.id ? 'on' : '', pick: () => this.setState({ g: x.id }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

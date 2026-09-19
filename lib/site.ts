@@ -1,0 +1,19 @@
+export const SITE_NAME = 'All Things CultureBowl™';
+export const SITE_URL = 'https://www.allthingsculturebowl.com';
+
+export const TICKET_URL =
+  process.env.NEXT_PUBLIC_TICKETMASTER_URL || 'https://www.ticketmaster.com/[CULTUREBOWL EVENT URL]';
+export const SHOP_URL = process.env.NEXT_PUBLIC_SHOP_URL || 'https://www.allthingsculturebowl.com/shop';
+export const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT || '';
+export const HEADLINER_ANNOUNCED = process.env.NEXT_PUBLIC_HEADLINER_ANNOUNCED === 'true';
+export const CONTACT_EMAIL = 'team@allthingsculturebowl.com';
+export const CONTACT_MAILTO = `mailto:${CONTACT_EMAIL}`;
+
+/** Wed Oct 21, 2026, 12:00 am Eastern. */
+export const OPENING_NIGHT_UTC = Date.UTC(2026, 9, 21, 4, 0, 0);
+/** The announced hero counts to the CultureLive show. */
+export const ANNOUNCED_SHOW_UTC = Date.UTC(2026, 9, 24, 22, 0, 0);
+
+export function pageTitle(page: string): string {
+  return `${page} — ${SITE_NAME}`;
+}

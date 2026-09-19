@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Global nav states, desktop</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/assets/cb2.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>body{margin:0}.dd{display:flex;align-items:center;gap:14px;color:#fff;text-decoration:none;font-family:'Golos Text',sans-serif;font-weight:700;font-size:15px;min-height:52px;padding:0 12px;border-bottom:1px solid rgba(255,255,255,.12)}.dd:hover{background:rgba(255,255,255,.06)}.dd img{height:26px;width:72px;object-fit:contain;object-position:left}.dd .hud{margin-left:auto;opacity:.6}</style>
+</helmet>
+<div style="width: 1440px; height: 760px; position: relative; overflow: hidden; background: #f2f2f2; color: #111821; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+  <p class="hud" style="position: absolute; left: 40px; top: 36px; color: #3E404B;">At rest, over the hero</p>
+  <nav aria-label="Primary" style="position: absolute; left: 0; top: 60px; width: 1440px; height: 72px; padding: 0 40px; display: flex; align-items: center; gap: 36px; background: #111821; color: #ffffff;">
+    <img class="cb-logo-sm" src="/assets/logo-culturebowl-white.svg" alt="CultureBowl" style="width: 92px; height: auto;">
+    <div style="display: flex; gap: 26px;"><a class="navlink" href="03-About-D.dc.html">About</a><a class="navlink" href="04-Cultureverse-D.dc.html">The Cultureverse™ <svg aria-hidden="true" width="10" height="7" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"></path></svg></a><a class="navlink" href="https://www.allthingsculturebowl.com/shop">Shop</a></div>
+    <div style="flex-grow: 1;"></div>
+    <a class="btn btn-red btn-sm" href="https://www.ticketmaster.com/[CULTUREBOWL EVENT URL]" target="_blank" rel="noopener">Get tickets</a>
+  </nav>
+
+  <p class="hud" style="position: absolute; left: 40px; top: 176px; color: #3E404B;">Scrolled, compact, current page underlined</p>
+  <nav aria-label="Primary" style="position: absolute; left: 0; top: 200px; width: 1440px; height: 60px; padding: 0 40px; display: flex; align-items: center; gap: 36px; background: rgba(17,24,33,.96); color: #ffffff; border-bottom: 1px solid rgba(255,255,255,.15);">
+    <img class="cb-logo-sm" src="/assets/logo-culturebowl-white.svg" alt="CultureBowl" style="width: 72px; height: auto;">
+    <div style="display: flex; gap: 26px;"><a class="navlink" href="03-About-D.dc.html">About</a><a class="navlink is-on" href="04-Cultureverse-D.dc.html" aria-current="true">The Cultureverse™ <svg aria-hidden="true" width="10" height="7" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"></path></svg></a><a class="navlink" href="https://www.allthingsculturebowl.com/shop">Shop</a></div>
+    <div style="flex-grow: 1;"></div>
+    <div class="hud" style="opacity: .8; text-align: right;">Opening night in<br><span style="font-size: 13px;">{{cd}}</span></div>
+    <a class="btn btn-line btn-sm" href="11-StayTappedIn-D.dc.html">Tap in</a>
+    <a class="btn btn-red btn-sm" href="https://www.ticketmaster.com/[CULTUREBOWL EVENT URL]" target="_blank" rel="noopener">Get tickets</a>
+  </nav>
+
+  <p class="hud" style="position: absolute; left: 40px; top: 300px; color: #3E404B;">Cultureverse dropdown open</p>
+  <div style="position: absolute; left: 0; top: 324px; width: 1440px; height: 420px; background: #111821; color: #ffffff;">
+    <nav aria-label="Primary" style="height: 72px; padding: 0 40px; display: flex; align-items: center; gap: 36px;">
+      <img class="cb-logo-sm" src="/assets/logo-culturebowl-white.svg" alt="CultureBowl" style="width: 92px; height: auto;">
+      <div style="display: flex; gap: 26px;"><a class="navlink" href="03-About-D.dc.html">About</a><a class="navlink is-on" href="04-Cultureverse-D.dc.html" aria-expanded="true">The Cultureverse™ <svg aria-hidden="true" width="10" height="7" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 5l4-4 4 4"></path></svg></a><a class="navlink" href="https://www.allthingsculturebowl.com/shop">Shop</a></div>
+      <div style="flex-grow: 1;"></div>
+      <a class="btn btn-red btn-sm" href="https://www.ticketmaster.com/[CULTUREBOWL EVENT URL]" target="_blank" rel="noopener">Get tickets</a>
+    </nav>
+    <div style="margin: 0 40px; border-top: 2px solid #F6003A; padding: 18px 0 0; display: grid; grid-template-columns: 300px 1fr 1fr; gap: 40px;">
+      <div style="display: flex; flex-direction: column; gap: 14px; padding-right: 20px;">
+        <img src="/assets/logo-cultureverse.png" alt="The Cultureverse" style="width: 170px; height: auto;">
+        <p style="font-size: 14px; line-height: 1.5; opacity: .85;">Welcome to CultureVerse™—the connected world of CultureBowl™, where music, community, creativity, competition, commerce, and culture come together in one shared experience.</p>
+        <a class="hud" href="04-Cultureverse-D.dc.html" style="color: #ffffff; text-decoration: none; border-bottom: 2px solid #F6003A; align-self: flex-start; padding-bottom: 3px;">About the CultureVerse™</a>
+      </div>
+      <div>
+        <p class="hud" style="opacity: .6; padding: 0 12px 8px;">October 2026, Atlanta</p>
+        <a class="dd" href="09-IconHonors-D.dc.html"><img src="/assets/logo-iconhonors.png" alt="">The Culture's Coldest™ ICON HONORS<span class="hud">Wed 21</span></a>
+        <a class="dd" href="07-EXCHNGE-D.dc.html"><img src="/assets/logo-exchnge.png" alt="">The Culture EXCHNGE™<span class="hud">Thu 22</span></a>
+        <a class="dd" href="06-CultureExpo-D.dc.html"><img src="/assets/logo-cultureexpo.png" alt="">CultureExpo™<span class="hud">Fri 23 to Sun 25</span></a>
+        <a class="dd" href="08-BigGive-D.dc.html"><img src="/assets/logo-biggive.png" alt="">The Culture's BIG GIVE™<span class="hud">Sat 24</span></a>
+        <a class="dd" href="05-CultureLive-D.dc.html" style="border-bottom: 0;"><img src="/assets/logo-culturelive.png" alt="">CultureLive™<span class="hud">Sat 24, Sun 25</span></a>
+      </div>
+      <div>
+        <p class="hud" style="opacity: .6; padding: 0 12px 8px;">Coming</p>
+        <a class="dd" href="10-ComingWorlds-D.dc.html"><img src="/assets/logo-cultureunion.png" alt="">CultuReunion™<span class="hud">2027</span></a>
+        <a class="dd" href="10-ComingWorlds-D.dc.html"><img src="/assets/logo-culturecoming.png" alt="">CultureComing™<span class="hud">To be announced</span></a>
+        <a class="dd" href="10-ComingWorlds-D.dc.html" style="border-bottom: 0;"><img src="/assets/logo-culturegames.png" alt="">CultureGames™<span class="hud">2027</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":760}}'>
+class Component extends DCLogic {
+  renderVals() {
+    let s = Math.max(0, Math.floor((Date.UTC(2026, 9, 21, 4) - Date.now()) / 1000));
+    const p = (n) => String(n).padStart(2, '0');
+    return { cd: p(Math.floor(s / 86400)) + 'D ' + p(Math.floor(s % 86400 / 3600)) + 'H' };
+  }
+}
+</script>
+</body>
+</html>
