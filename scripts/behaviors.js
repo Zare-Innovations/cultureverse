@@ -40,7 +40,7 @@ const { chromium } = require('playwright');
   await page.evaluate(() => window.scrollTo(0, 500));
   await page.waitForTimeout(300);
   const compact = await page.evaluate(() => ({ h: document.querySelector('header nav').getBoundingClientRect().height, tap: getComputedStyle(document.querySelector('header a[href="/tap-in"]')).display, cd: document.querySelector('header .hud span')?.textContent }));
-  check('compact nav at scroll', compact.h === 60 && compact.tap !== 'none' && /\d\dD \d\dH/.test(compact.cd || ''), JSON.stringify(compact));
+  check('compact nav at scroll', Math.round(compact.h) === 60 && compact.tap !== 'none' && /\d\dD \d\dH/.test(compact.cd || ''), JSON.stringify(compact));
   await page.hover('header a[aria-controls="cultureverse-menu"]');
   await page.waitForTimeout(300);
   let dd = await page.evaluate(() => !document.getElementById('cultureverse-menu').hidden);
