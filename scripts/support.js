@@ -45,7 +45,9 @@
         if (v) renderNodes(node.childNodes, scope, out);
         continue;
       }
-      const el = document.createElement(tag);
+      const svgNS = 'http://www.w3.org/2000/svg';
+      const inSvg = tag === 'svg' || (out.namespaceURI === svgNS);
+      const el = inSvg ? document.createElementNS(svgNS, tag) : document.createElement(tag);
       for (const attr of node.attributes) {
         const name = attr.name, val = attr.value;
         if (name.startsWith('hint-')) continue;

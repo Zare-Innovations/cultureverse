@@ -5,7 +5,7 @@
   color: #fff;
   font-family: var(--f-text);
   container-type: inline-size;
-  --u: min(1px, 0.069444cqw);
+  --u: min(1px, 100cqw / 1440);
 }
 .red {
   position: absolute;
@@ -18,10 +18,10 @@
 }
 .wrap { min-height: 640px; }
 .top { position: relative; height: 300px; }
-.head { position: absolute; left: 64px; top: 64px; display: flex; flex-direction: column; gap: 14px; }
+.head { position: absolute; left: 0; top: 64px; display: flex; flex-direction: column; gap: 14px; }
 .calling { font-size: calc(88 * var(--u)); line-height: 0.86; }
 .tag { font-size: 12px; letter-spacing: 0.12em; }
-.ctas { position: absolute; right: 64px; top: 80px; display: flex; gap: 14px; }
+.ctas { position: absolute; right: 0; top: 80px; display: flex; gap: 14px; }
 
 .grid {
   margin-top: 56px;
