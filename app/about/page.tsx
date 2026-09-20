@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CONTACT_MAILTO, pageTitle } from '@/lib/site';
+import BgVideo from '@/components/BgVideo';
 import s from './about.module.css';
 
 export const metadata: Metadata = {
@@ -14,6 +15,8 @@ export default function AboutPage() {
     <section id="about" className={`page ${s.about}`}>
       <div className={s.band}>
         <Image className="bgimg" src="/assets/bg-about.webp" alt="" fill priority sizes="100vw" style={{ opacity: 0.9, objectPosition: '50% 30%' }} />
+        {/* Aerial pass over Atlanta, the city the story below is built in; the still above stays as the first paint and the fallback. */}
+        <BgVideo className={`bgimg ${s.video}`} desktop="/assets/video/atlanta-aerial-1280.mp4" mobile="/assets/video/atlanta-aerial-720.mp4" style={{ objectPosition: '50% 30%' }} />
         <div aria-hidden="true" className={s.shade} />
       </div>
 

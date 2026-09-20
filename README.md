@@ -75,6 +75,15 @@ on the plain `<img>` elements, and phone-sized hero backgrounds that `lib/imageL
 (the `next/image` custom loader for the static export) serves below 1440px. Desktop always
 gets the original files. Re-run the script after replacing any of those source images.
 
+## Video
+
+The About hero plays an aerial pass over Atlanta behind the design's still image:
+`public/assets/video/atlanta-aerial-1280.mp4` (3.2 MB) on desktop and the 720px cut (1 MB) on
+phones, both encoded from the delivered 16 MB master with ffmpeg (H.264, CRF 33, no audio,
+faststart). `components/BgVideo.tsx` starts it after the page's load event, skips it under
+prefers-reduced-motion or Save-Data, and fades it in once it is actually playing, so the still
+remains the first paint and the fallback.
+
 ## Verification scripts (`scripts/`)
 
 They need the design folder and the export served locally:

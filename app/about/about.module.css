@@ -12,6 +12,11 @@
   overflow: hidden;
   background: #f6003a;
 }
+.video { opacity: 0; transition: opacity 900ms ease; }
+.video[data-playing] { opacity: 0.9; }
+@media (prefers-reduced-motion: reduce) {
+  .video { display: none; }
+}
 .shade { position: absolute; inset: 0; background: linear-gradient(rgba(17, 24, 33, 0.2), rgba(17, 24, 33, 0.55)); }
 .wrap { padding-top: 48px; padding-bottom: 36.562px; /* section height 1100 */ }
 .eyebrow { position: relative; }
