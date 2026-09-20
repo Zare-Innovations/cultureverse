@@ -1,0 +1,57 @@
+/* Light strip with the white mark ghosted behind a continuous ticker of categories. */
+.band {
+  height: 96px;
+  display: flex;
+  align-items: center;
+  background: #f2f2f2 url('/assets/logo-culturebowl-white.svg') repeat-x;
+  background-size: auto 300px;
+  background-position: 40% 44%;
+  color: #111821;
+}
+/* Fixed window over the moving track: the ends fade into the strip's own grey. */
+.viewport {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+/* Two identical rows; moving the track by half its width loops seamlessly. */
+.track {
+  display: flex;
+  width: max-content;
+  animation: ticker 60s linear infinite;
+}
+.row {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.item {
+  display: flex;
+  align-items: center;
+  font-size: 27px;
+  line-height: 1;
+}
+.sep {
+  margin: 0 24px;
+  font-weight: 700;
+}
+@keyframes ticker {
+  to { transform: translateX(-50%); }
+}
+.band:hover .track,
+.band:focus-within .track { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .track { animation: none; }
+  .viewport { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .row[aria-hidden='true'] { display: none; }
+}
+
+@media (max-width: 1023.98px) {
+  .band { height: 64px; background-size: auto 200px; }
+  .item { font-size: 18px; }
+  .sep { margin: 0 14px; }
+  .track { animation-duration: 40s; }
+}
