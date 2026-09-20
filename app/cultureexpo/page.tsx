@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
-import { pageTitle } from '@/lib/site';
+import { EXPO_TICKETS_ON_SALE, pageTitle } from '@/lib/site';
 import TicketLink from '@/components/TicketLink';
 import EventJsonLd from '@/components/EventJsonLd';
 import { srcSet, LOGO_WIDTHS, STONE_WIDTHS } from '@/lib/img';
@@ -11,15 +11,26 @@ import s from './cultureexpo.module.css';
 
 export const metadata: Metadata = {
   title: pageTitle('CultureExpo™'),
-  description: 'Welcome to the Expo. Fri Oct 23 to Sun Oct 25, 2026, Central Park Atlanta. Ticketed. Coming soon.',
+  description: `Welcome to the Expo. Fri Oct 23 to Sun Oct 25, 2026, Central Park Atlanta. ${EXPO_TICKETS_ON_SALE ? 'Ticketed.' : 'Tickets coming soon.'} Coming soon.`,
 };
 
-const NOTE = 'Tickets on Ticketmaster. Opens in a new tab. Day and weekend options to be announced.';
+const NOTE = EXPO_TICKETS_ON_SALE
+  ? 'Tickets on Ticketmaster. Opens in a new tab. Day and weekend options to be announced.'
+  : 'Tickets are not on sale yet. Day and weekend options to be announced.';
+
+/** Primary call to action: tickets once they are on sale, the Tap In list until then. */
+function ExpoCta({ className }: { className?: string }) {
+  return EXPO_TICKETS_ON_SALE ? (
+    <TicketLink className={`btn btn-red ${className ?? ''}`}>Get weekend tickets</TicketLink>
+  ) : (
+    <Link className={`btn btn-red ${className ?? ''}`} href="/tap-in">Notify me</Link>
+  );
+}
 
 export default function CultureExpoPage() {
   return (
     <section id="expo" className={`page ${s.expo}`} style={{ '--accent': '#ffffff' } as CSSProperties}>
-      <EventJsonLd name="CultureExpo™" description={metadata.description as string} path="/cultureexpo" startDate="2026-10-23" endDate="2026-10-25" venue="Central Park Atlanta" ticketed />
+      <EventJsonLd name="CultureExpo™" description={metadata.description as string} path="/cultureexpo" startDate="2026-10-23" endDate="2026-10-25" venue="Central Park Atlanta" ticketed={EXPO_TICKETS_ON_SALE} />
       <Image className="bgimg" src="/assets/bg-expo.webp" alt="" fill priority sizes="100vw" style={{ opacity: 0.8 }} />
       <div aria-hidden="true" className={s.shade} />
       <img aria-hidden="true" className={s.stone} src="/assets/stone-blue.webp" srcSet={srcSet("/assets/stone-blue.webp", STONE_WIDTHS, 900)} sizes="(min-width: 1024px) 1400px, 130px" alt="" width={900} height={705}  style={{ aspectRatio: '900 / 705' }} />
@@ -38,7 +49,7 @@ export default function CultureExpoPage() {
           <p className={`d ${e.title}`}>Welcome to the Expo</p>
           <p className={`d8 ${s.soon}`}>Coming soon</p>
           <div className={e.ctaRow}>
-            <TicketLink className="btn btn-red">Get weekend tickets</TicketLink>
+            <ExpoCta />
             <span className={`hud ${e.ctaNote}`}>{NOTE}</span>
           </div>
         </div>
@@ -76,7 +87,7 @@ export default function CultureExpoPage() {
           <Image src="/assets/photo-expo-2.webp" alt="Guest at an expo" width={1440} height={1800} sizes="50vw" style={{ objectPosition: '50% 20%' }} />
         </div>
         <div className={e.ctaM}>
-          <TicketLink className="btn btn-red">Get weekend tickets</TicketLink>
+          <ExpoCta />
           <p className={`hud ${e.noteM}`}>{NOTE}</p>
           <Link href="/cultureverse" className={`hud ${e.back} ${e.backM}`}>Back to the Cultureverse</Link>
         </div>

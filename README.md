@@ -28,9 +28,10 @@ does not read, run the build with `NODE_USE_ENV_PROXY=1`.
 | `NEXT_PUBLIC_FORM_ENDPOINT` | Receives the four forms as JSON `POST` bodies with a `form` field: `tap-in`, `exchnge`, `biggive`, `iconhonors`. Unset: the forms show their error line instead of a false success. |
 | `NEXT_PUBLIC_SHOP_URL` | Shop links. Defaults to the Squarespace shop. |
 | `NEXT_PUBLIC_HEADLINER_ANNOUNCED` | `true` switches the desktop Home hero to the announced variant (02-Home-Announced). Default off. |
+| `NEXT_PUBLIC_EXPO_TICKETS_ON_SALE` | `true` once CultureExpo tickets go on sale: the Expo page swaps "Notify me" for "Get weekend tickets" and adds ticket offers to its Event schema. Default off. |
 | `NEXT_PUBLIC_GA_ID` | GA4 measurement ID. `components/Analytics.tsx` renders the tag only when this is set. |
 
-All five are read at build time, so a change needs a new build.
+All six are read at build time, so a change needs a new build.
 
 ## Launch files
 
