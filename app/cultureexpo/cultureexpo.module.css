@@ -11,7 +11,6 @@
 }
 .wrap { padding-top: 48px; padding-bottom: 50px; }
 .soon { font-size: 22px; }
-.dl { position: relative; margin-top: 76.9px; /* artboard row 640 */ grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .photos { --photo-h: 360px; margin-top: 78.2px; /* artboard row 770 */ grid-template-columns: minmax(0, 720fr) minmax(0, 280fr) minmax(0, 280fr); }
 
 @media (max-width: 1023.98px) {

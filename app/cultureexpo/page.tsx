@@ -11,12 +11,12 @@ import s from './cultureexpo.module.css';
 
 export const metadata: Metadata = {
   title: pageTitle('CultureExpo™'),
-  description: `Welcome to the Expo. Fri Oct 23 to Sun Oct 25, 2026, Central Park Atlanta. ${EXPO_TICKETS_ON_SALE ? 'Ticketed.' : 'Tickets coming soon.'} Coming soon.`,
+  description: `Welcome to the Expo. Fri Oct 23 to Sun Oct 25, 2026, Central Park Atlanta. ${EXPO_TICKETS_ON_SALE ? 'Ticketed. ' : ''}Coming soon.`,
 };
 
 const NOTE = EXPO_TICKETS_ON_SALE
   ? 'Tickets on Ticketmaster. Opens in a new tab. Day and weekend options to be announced.'
-  : 'Tickets are not on sale yet. Day and weekend options to be announced.';
+  : 'Details to be announced. Join the list to hear first.';
 
 /** Primary call to action: tickets once they are on sale, the Tap In list until then. */
 function ExpoCta({ className }: { className?: string }) {
@@ -39,8 +39,12 @@ export default function CultureExpoPage() {
       <div className={`wrap ${s.wrap} only-d`}>
         <div className={e.top}>
           <div className={`hud ${e.topLine}`}>
-            Fri Oct 23 to Sun Oct 25, 2026 <span className={e.sep}>/</span> Central Park Atlanta <span className={e.sep}>/</span>{' '}
-            <span className="st st-ticket">Ticketed</span>
+            Fri Oct 23 to Sun Oct 25, 2026 <span className={e.sep}>/</span> Central Park Atlanta
+            {EXPO_TICKETS_ON_SALE && (
+              <>
+                {' '}<span className={e.sep}>/</span> <span className="st st-ticket">Ticketed</span>
+              </>
+            )}
           </div>
           <Link href="/cultureverse" className={`hud ${e.back}`}>Back to the Cultureverse</Link>
         </div>
@@ -53,12 +57,6 @@ export default function CultureExpoPage() {
             <span className={`hud ${e.ctaNote}`}>{NOTE}</span>
           </div>
         </div>
-        <dl className={`${e.dl} ${s.dl}`}>
-          <div className={e.dlItem}><dt className="hud">Days</dt><dd className={e.dd}>Friday, Saturday, Sunday</dd></div>
-          <div className={e.dlItem}><dt className="hud">Where</dt><dd className={e.dd}>Central Park Atlanta</dd></div>
-          <div className={e.dlItem}><dt className="hud">Expected</dt><dd className={e.dd}>15,000+</dd></div>
-          <div className={e.dlItem}><dt className="hud">Hours</dt><dd className={e.dd}>To be announced</dd></div>
-        </dl>
         <div className={`${e.photos} ${s.photos}`}>
           <Image src="/assets/render-expo-entrance.webp" alt="Rendering of the Culture Expo entrance" width={1800} height={1012} sizes="(min-width: 1024px) 720px, 100vw" />
           <Image src="/assets/photo-expo-1.webp" alt="Guest at an expo" width={1240} height={1800} sizes="(min-width: 1024px) 280px, 50vw" style={{ objectPosition: '50% 20%' }} />
@@ -73,14 +71,8 @@ export default function CultureExpoPage() {
         </p>
         <h1 className={s.hM}><img className={e.markM} src="/assets/logo-cultureexpo.png" srcSet={srcSet("/assets/logo-cultureexpo.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 260px" alt="Culture Expo" width={1000} height={535}  style={{ aspectRatio: '1000 / 535' }} /></h1>
         <p className={`d ${s.titleM}`}>Welcome to the Expo</p>
-        <div className={e.tag}><span className="st st-ticket">Ticketed</span></div>
+        {EXPO_TICKETS_ON_SALE && <div className={e.tag}><span className="st st-ticket">Ticketed</span></div>}
         <p className={`d8 ${s.soonM}`}>Coming soon</p>
-        <dl className={e.dlM}>
-          <div className={e.dlItemM}><dt className="hud">Days</dt><dd className={e.ddM}>Fri, Sat, Sun</dd></div>
-          <div className={e.dlItemM}><dt className="hud">Expected</dt><dd className={e.ddM}>15,000+</dd></div>
-          <div className={e.dlItemM}><dt className="hud">Where</dt><dd className={e.ddM}>Central Park Atlanta</dd></div>
-          <div className={e.dlItemM}><dt className="hud">Hours</dt><dd className={e.ddM}>To be announced</dd></div>
-        </dl>
         <div className={e.photosM} style={{ '--wide-h': '180px' } as CSSProperties}>
           <Image className={e.wide} src="/assets/render-expo-entrance.webp" alt="Rendering of the Culture Expo entrance" width={1800} height={1012} sizes="100vw" />
           <Image src="/assets/photo-expo-1.webp" alt="Guest at an expo" width={1240} height={1800} sizes="50vw" style={{ objectPosition: '50% 20%' }} />

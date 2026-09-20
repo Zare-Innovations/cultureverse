@@ -8,6 +8,8 @@ export const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT || '';
 export const HEADLINER_ANNOUNCED = process.env.NEXT_PUBLIC_HEADLINER_ANNOUNCED === 'true';
 /** CultureExpo tickets are not on sale yet: the page shows Notify me until this is "true". */
 export const EXPO_TICKETS_ON_SALE = process.env.NEXT_PUBLIC_EXPO_TICKETS_ON_SALE === 'true';
+/** How the Expo is labelled wherever the events are listed: it is not a ticketed event until sales open. */
+export const EXPO_STATUS = EXPO_TICKETS_ON_SALE ? 'Ticketed' : 'Coming soon';
 export const CONTACT_EMAIL = 'team@allthingsculturebowl.com';
 export const CONTACT_MAILTO = `mailto:${CONTACT_EMAIL}`;
 
