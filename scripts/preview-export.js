@@ -72,7 +72,8 @@ for (const file of walk(SRC)) {
     // webpack public path and the router's asset prefix: relative so runtime chunk loads and hoisted scripts resolve next to the page.
     fs.writeFileSync(dest, fs.readFileSync(file, 'utf8').split('"/_next/"').join('"_next/"'));
   } else if (rel.endsWith('.css')) {
-    fs.writeFileSync(dest, fs.readFileSync(file, 'utf8').replace(/url\(\/_next\/static\/media\//g, 'url(../media/'));
+    // Stylesheets live in _next/static/css: fonts sit next door in media, public assets three levels up.
+    fs.writeFileSync(dest, fs.readFileSync(file, 'utf8').replace(/url\(\/_next\/static\/media\//g, 'url(../media/').replace(/url\(('|")?\/assets\//g, 'url($1../../../assets/'));
   } else {
     fs.copyFileSync(file, dest);
   }
