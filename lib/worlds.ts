@@ -32,6 +32,8 @@ export type World = {
   copy: string;
   sub: string;
   rot: number;
+  /** Optional portrait: a panel beside the copy on desktop, full width under it on mobile. */
+  photo?: { src: string; w: number; h: number; alt: string; pos: string };
 };
 
 export const WORLDS: Record<WorldKey, World> = {
@@ -97,5 +99,6 @@ export const WORLDS: Record<WorldKey, World> = {
     copy: 'Stay tuned.',
     sub: '',
     rot: -20,
+    photo: { src: '/assets/photo-culturegames.webp', w: 1000, h: 1574, alt: 'Player wearing CultureGames™ headphones', pos: '50% 18%' },
   },
 };
