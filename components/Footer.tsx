@@ -94,8 +94,6 @@ export default function Footer() {
             <p className={`hud ${s.navhead}`}>CultureBowl</p>
             <Link className={s.fl} href="/about">About</Link>
             <a className={s.fl} href={SHOP_URL}>Shop</a>
-            <TicketLink className={s.fl}>Tickets</TicketLink>
-            <a className={s.fl} href={CONTACT_MAILTO}>Contact</a>
           </nav>
         </div>
         <div className={`${s.bar} only-d`}>
@@ -127,8 +125,6 @@ export default function Footer() {
               <p className={`hud ${s.navheadM}`}>CultureBowl</p>
               <Link className={s.flM} href="/about">About</Link>
               <a className={s.flM} href={SHOP_URL}>Shop</a>
-              <TicketLink className={s.flM}>Tickets</TicketLink>
-              <a className={s.flM} href={CONTACT_MAILTO}>Contact</a>
             </nav>
           </div>
           <ContactLine />
