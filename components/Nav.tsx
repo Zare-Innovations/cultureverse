@@ -113,41 +113,41 @@ export default function Nav() {
                         </Link>
                       </div>
                       <div>
-                        <p className={`hud ${s.ddHead}`}>October 2026, Atlanta</p>
+                        <p className={`hud ${s.ddHead}`}>Atlanta</p>
                         <Link className={s.dditem} href="/iconhonors">
                           <img src="/assets/logo-iconhonors.png" srcSet={srcSet("/assets/logo-iconhonors.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={144} loading="lazy"  style={{ aspectRatio: '1000 / 144' }} />
-                          The Culture&apos;s Coldest™ ICON HONORS<span className="hud">Wed 21</span>
+                          The Culture&apos;s Coldest™ ICON HONORS
                         </Link>
                         <Link className={s.dditem} href="/exchnge">
                           <img src="/assets/logo-exchnge.png" srcSet={srcSet("/assets/logo-exchnge.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={271} loading="lazy"  style={{ aspectRatio: '1000 / 271' }} />
-                          The Culture EXCHNGE™<span className="hud">Thu 22</span>
+                          The Culture EXCHNGE™
                         </Link>
                         <Link className={s.dditem} href="/cultureexpo">
                           <img src="/assets/logo-cultureexpo.png" srcSet={srcSet("/assets/logo-cultureexpo.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={535} loading="lazy"  style={{ aspectRatio: '1000 / 535' }} />
-                          CultureExpo™<span className="hud">Fri 23 to Sun 25</span>
+                          CultureExpo™
                         </Link>
                         <Link className={s.dditem} href="/biggive">
                           <img src="/assets/logo-biggive.png" srcSet={srcSet("/assets/logo-biggive.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={477} loading="lazy"  style={{ aspectRatio: '1000 / 477' }} />
-                          The Culture&apos;s BIG GIVE™<span className="hud">Sat 24</span>
+                          The Culture&apos;s BIG GIVE™
                         </Link>
                         <Link className={`${s.dditem} ${s.ddLast}`} href="/culturelive">
                           <img src="/assets/logo-culturelive.png" srcSet={srcSet("/assets/logo-culturelive.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={502} loading="lazy"  style={{ aspectRatio: '1000 / 502' }} />
-                          CultureLive™<span className="hud">Sat 24, Sun 25</span>
+                          CultureLive™
                         </Link>
                       </div>
                       <div>
                         <p className={`hud ${s.ddHead}`}>Coming</p>
                         <Link className={s.dditem} href="/cultureunion">
                           <img src="/assets/logo-cultureunion.png" srcSet={srcSet("/assets/logo-cultureunion.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={216} loading="lazy"  style={{ aspectRatio: '1000 / 216' }} />
-                          CultuReunion™<span className="hud">2027</span>
+                          CultuReunion™
                         </Link>
                         <Link className={s.dditem} href="/culturecoming">
                           <img src="/assets/logo-culturecoming.png" srcSet={srcSet("/assets/logo-culturecoming.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={122} loading="lazy"  style={{ aspectRatio: '1000 / 122' }} />
-                          CultureComing™<span className="hud">To be announced</span>
+                          CultureComing™
                         </Link>
                         <Link className={`${s.dditem} ${s.ddLast}`} href="/culturegames">
                           <img src="/assets/logo-culturegames.png" srcSet={srcSet("/assets/logo-culturegames.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={567} loading="lazy"  style={{ aspectRatio: '1000 / 567' }} />
-                          CultureGames™<span className="hud">2027</span>
+                          CultureGames™
                         </Link>
                       </div>
                     </div>
