@@ -29,7 +29,7 @@ export default function WorldPage({ w }: { w: World }) {
           </div>
         </div>
         {w.photo && (
-          <Image className={s.photo} src={w.photo.src} alt={w.photo.alt} width={w.photo.w} height={w.photo.h} sizes="(min-width: 1024px) 400px, 100vw" style={{ objectPosition: w.photo.pos }} />
+          <Image className={s.photo} src={w.photo.src} alt={w.photo.alt} width={w.photo.w} height={w.photo.h} sizes="(min-width: 1024px) 680px, 100vw" style={{ objectPosition: w.photo.pos }} />
         )}
         <div className={`door lit ${s.door} ${w.photo ? s.doorPhoto : ''}`}>
           <img src={w.shard} srcSet={srcSet(w.shard, STONE_WIDTHS, w.shardW)} sizes="(min-width: 1024px) 1400px, 400px" alt="" width={w.shardW} height={w.shardH} className={s.shard} style={{ transform: `rotate(${w.rot}deg)` }} loading="lazy" />
