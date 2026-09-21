@@ -1,5 +1,7 @@
 /*
- * Writes vercel.json with the security headers. The Content-Security-Policy allows the site itself,
+ * Writes vercel.json with the security headers, plus a noindex header for any *.vercel.app host so the
+ * placeholder site stays out of search engines until the real domain is attached.
+ * The Content-Security-Policy allows the site itself,
  * Google Fonts, the host of NEXT_PUBLIC_FORM_ENDPOINT and, when NEXT_PUBLIC_GA_ID is set, Google Analytics.
  * Vercel reads vercel.json from the repository before the build, so run this after changing either
  * variable and commit the result:  npm run vercel-config
@@ -55,6 +57,12 @@ const config = {
         { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()' },
         { key: 'Content-Security-Policy', value: csp },
       ],
+    },
+    {
+      // The deployment's own vercel.app address is public but not the launch domain: keep it unindexed.
+      source: '/(.*)',
+      has: [{ type: 'host', value: '(.*)\\.vercel\\.app' }],
+      headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
     },
   ],
 };
