@@ -12,6 +12,18 @@
 .h { margin: 0; }
 .mark { width: 440px; max-width: 100%; height: auto; }
 .title { font-size: calc(44 * var(--u)); }
+/* Headline marker sweep. The span is the positioning context so the stroke tracks
+   the width of the words rather than the paragraph. */
+.grow { position: relative; display: inline-block; white-space: nowrap; }
+.stroke {
+  position: absolute;
+  left: 0;
+  bottom: -0.13em;
+  width: 100%;
+  height: 0.2em;
+  color: #d7f26a;
+  pointer-events: none;
+}
 .copy { font-size: 18px; line-height: 1.5; max-width: 560px; }
 .steps { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
 .step { display: flex; gap: 16px; align-items: baseline; }
