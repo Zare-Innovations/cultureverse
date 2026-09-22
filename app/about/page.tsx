@@ -47,7 +47,7 @@ export default function AboutPage() {
           </div>
           <div className={s.photos}>
             <Image className={s.photo1} src="/assets/photo-about-1.webp" alt="Guests together at an event" width={1800} height={1200} sizes="(min-width: 1024px) 608px, 100vw" />
-            <Image className={s.photo2} src="/assets/photo-about-skyline.webp" alt="The downtown Atlanta skyline" width={1280} height={720} sizes="(min-width: 1024px) 296px, 50vw" />
+            <Image className={s.photo2} src="/assets/photo-about-skyline.webp" alt="The downtown Atlanta skyline at sunset" width={565} height={353} sizes="(min-width: 1024px) 296px, 50vw" />
             <div className={s.redbox}>
               <span className={`d ${s.builtD}`}>Built in Atlanta</span>
               <span className={s.builtCopy}>
