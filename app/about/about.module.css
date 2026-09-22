@@ -51,7 +51,7 @@
 .btns { display: flex; gap: 14px; margin-top: 6px; }
 .photos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .photo1 { grid-column: 1 / -1; width: 100%; height: 260px; object-fit: cover; }
-.photo2 { width: 100%; height: 190px; object-fit: cover; object-position: 50% 60%; }
+.photo2 { width: 100%; height: 190px; object-fit: cover; }
 .redbox {
   background: #f6003a;
   padding: 20px;
