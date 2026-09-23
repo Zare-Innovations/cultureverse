@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import type { CSSProperties } from 'react';
 import Image from 'next/image';
 import { pageTitle } from '@/lib/site';
 import BigGiveForm from '@/components/forms/BigGiveForm';
@@ -22,10 +23,12 @@ const PARTNERS = [
 ];
 
 /* Marker sweep under the headline's closing phrase. Decorative, so it is hidden from
-   assistive tech; it takes its colour from .stroke and stretches to the phrase width. */
+   assistive tech; it takes its colour from .stroke and stretches to the phrase width.
+   a-wipe draws it on left to right once the words have landed, and is already a no-op
+   under prefers-reduced-motion. */
 function Underline() {
   return (
-    <svg className={s.stroke} viewBox="0 0 300 10" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <svg className={`a-wipe ${s.stroke}`} style={{ '--d': '600ms' } as CSSProperties} viewBox="0 0 300 10" preserveAspectRatio="none" aria-hidden="true" focusable="false">
       <path d="M2 6.2 C 46 3.2 116 1.8 194 2.2 C 238 2.4 272 3.2 298 4.4 C 272 5.9 238 5.2 194 5 C 115 4.6 46 6.4 2.5 8.2 Z" fill="currentColor" />
     </svg>
   );

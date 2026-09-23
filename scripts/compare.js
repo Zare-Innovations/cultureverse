@@ -18,6 +18,12 @@ fs.mkdirSync(OUT, { recursive: true });
 // id, artboard file, board clip [x,y,w,h], route, route anchor selector (clip starts at its top) or number, viewport width, extra route options
 const M = require('./manifest');
 
+// The load sequence must not be caught mid-flight. A full-page screenshot resizes the
+// page, which restarts these animations while the capture is in progress. Pin them to
+// their finished state on BOTH pages: the artboards run the same classes, so freezing
+// only the route would compare a settled page against an animating one.
+const FREEZE_ANIM = '.a-assemble,.a-lock,.a-wipe,.a-field,.a-in,.a-star{animation:none!important}';
+
 function sbs(a, r, d) {
   const out = new PNG({ width: a.width * 3 + 20, height: a.height });
   out.data.fill(80);
@@ -41,6 +47,7 @@ function sbs(a, r, d) {
     if (m.world) await ap.addInitScript((wk) => { window.__DC_PROPS = { world: wk }; }, m.world);
     await ap.goto(`http://localhost:4100/${m.board}`, { waitUntil: 'networkidle' });
     await settle(ap);
+    await ap.addStyleTag({ content: FREEZE_ANIM });
     const clip = m.clip ? { x: m.clip[0], y: m.clip[1], width: m.clip[2], height: m.clip[3] } : { x: 0, y: 0, width: m.bw, height: m.bh };
     const aBuf = await ap.screenshot({ clip });
     await ap.context().close();
@@ -48,12 +55,12 @@ function sbs(a, r, d) {
     // Route
     const viewportShot = m.fixedTop || m.anchor === 0;
     const rp = await newPage(browser, { width: m.w, height: viewportShot ? m.h : Math.max(m.h, 900) });
-    await rp.addInitScript(() => { document.documentElement.classList.add('is-capture'); });
     await rp.goto(`http://localhost:${m.announced ? 4201 : 4200}${m.route}`, { waitUntil: 'networkidle' });
     if (m.scroll) { await rp.evaluate((y) => window.scrollTo(0, y), m.scroll); await rp.waitForTimeout(300); }
     if (m.menu) { await rp.click('button[aria-label="Open menu"]'); await rp.waitForTimeout(300); }
     if (m.dd) { await rp.hover('a[aria-controls="cultureverse-menu"]'); await rp.waitForTimeout(400); }
     await settle(rp);
+    await rp.addStyleTag({ content: FREEZE_ANIM });
     let top = 0;
     if (typeof m.anchor === 'string') top = await rp.evaluate((sel) => { const el = document.querySelector(sel); return el ? Math.round(el.getBoundingClientRect().top + window.scrollY) : 0; }, m.anchor);
     else top = m.anchor;
