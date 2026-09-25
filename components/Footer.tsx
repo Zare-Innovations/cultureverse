@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { CONTACT_EMAIL, CONTACT_MAILTO, SHOP_URL } from '@/lib/site';
+import { CONTACT_EMAIL, CONTACT_MAILTO } from '@/lib/site';
+import ShopLink from '@/components/ShopLink';
 import TicketLink from './TicketLink';
 import s from './Footer.module.css';
 
@@ -93,7 +94,7 @@ export default function Footer() {
           <nav aria-label="CultureBowl" className={s.navcol}>
             <p className={`hud ${s.navhead}`}>CultureBowl</p>
             <Link className={s.fl} href="/about">About</Link>
-            <a className={s.fl} href={SHOP_URL}>Shop</a>
+            <ShopLink className={s.fl}>Shop</ShopLink>
           </nav>
         </div>
         <div className={`${s.bar} only-d`}>
@@ -124,7 +125,7 @@ export default function Footer() {
             <nav aria-label="CultureBowl">
               <p className={`hud ${s.navheadM}`}>CultureBowl</p>
               <Link className={s.flM} href="/about">About</Link>
-              <a className={s.flM} href={SHOP_URL}>Shop</a>
+              <ShopLink className={s.flM}>Shop</ShopLink>
             </nav>
           </div>
           <ContactLine />

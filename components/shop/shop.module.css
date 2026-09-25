@@ -1,0 +1,72 @@
+/* Shop controls: the bag disclosure and the add-to-bag block. Page layout lives in the route modules. */
+
+/* Add to bag */
+.buy { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; margin-top: 28px; }
+.sizes { border: 0; padding: 0; margin: 0; }
+.sizesLegend { padding: 0; margin-bottom: 10px; }
+.sizeRow { display: flex; flex-wrap: wrap; gap: 10px; }
+.size { min-width: 64px; justify-content: center; }
+.size:disabled { opacity: 0.4; cursor: not-allowed; text-decoration: line-through; }
+.sizeOut { font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+/* Reserves its line so adding to the bag never shifts the button under the pointer. */
+.added { min-height: 20px; font-size: 14px; line-height: 1.4; margin: 0; }
+.sold { font-family: var(--f-display); font-weight: 700; font-size: 18px; margin-top: 28px; }
+
+/* Bag */
+.bagWrap { position: relative; }
+.bagBtn { min-width: 128px; }
+.bagPanel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  z-index: 20;
+  width: min(400px, calc(100vw - 48px));
+  background: var(--navy);
+  color: #fff;
+  box-shadow: inset 0 0 0 2px #fff, 0 24px 48px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+.bagPanel[hidden] { display: none; }
+.bagEmpty { font-size: 15px; margin: 0; }
+.bagList { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+.bagLine { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.bagInfo { min-width: 0; }
+.bagName { font-size: 17px; }
+.bagVariant { opacity: 0.75; margin-top: 4px; }
+.bagPrice { font-size: 15px; margin-top: 6px; }
+.qty { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.qtyInput {
+  width: 62px;
+  background: transparent;
+  color: inherit;
+  border: 2px solid currentColor;
+  border-radius: 0;
+  padding: 6px 8px;
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+}
+.remove {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: underline;
+}
+.remove:hover { color: var(--red); }
+.bagFoot { margin-top: 20px; padding-top: 16px; border-top: 2px solid rgba(255, 255, 255, 0.25); display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.bagTotal { font-size: 18px; display: flex; gap: 10px; }
+.bagNote { font-size: 13px; line-height: 1.4; opacity: 0.75; margin: 0; }
+
+@media (max-width: 1023.98px) {
+  .bagPanel { width: calc(100vw - 48px); }
+  .buy { margin-top: 22px; }
+}

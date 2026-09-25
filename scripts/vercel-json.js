@@ -2,10 +2,13 @@
  * Writes vercel.json with the security headers, plus a noindex header for any *.vercel.app host so the
  * placeholder site stays out of search engines until the real domain is attached.
  * The Content-Security-Policy allows the site itself,
- * Google Fonts, the host of NEXT_PUBLIC_FORM_ENDPOINT and, when NEXT_PUBLIC_GA_ID is set, Google Analytics.
+ * Google Fonts, the host of NEXT_PUBLIC_FORM_ENDPOINT, the Shopify storefront named by
+ * NEXT_PUBLIC_SHOPIFY_DOMAIN (its API for the bag, its CDN for product images) and, when
+ * NEXT_PUBLIC_GA_ID is set, Google Analytics.
  * Vercel reads vercel.json from the repository before the build, so run this after changing either
  * variable and commit the result:  npm run vercel-config
- * Values come from the environment, then .env.local, then .env; flags --endpoint=<url> --ga=<id> override.
+ * Values come from the environment, then .env.local, then .env; flags --endpoint=<url> --ga=<id>
+ * --shopify=<store.myshopify.com> override.
  */
 const fs = require('fs');
 const path = require('path');
@@ -27,6 +30,7 @@ const fileEnv = { ...readEnvFile('.env'), ...readEnvFile('.env.local') };
 const flags = Object.fromEntries(process.argv.slice(2).map((a) => { const m = a.match(/^--([^=]+)=(.*)$/); return m ? [m[1], m[2]] : [a, true]; }));
 const endpoint = flags.endpoint || process.env.NEXT_PUBLIC_FORM_ENDPOINT || fileEnv.NEXT_PUBLIC_FORM_ENDPOINT || '';
 const gaId = flags.ga || process.env.NEXT_PUBLIC_GA_ID || fileEnv.NEXT_PUBLIC_GA_ID || '';
+const shopDomain = flags.shopify || process.env.NEXT_PUBLIC_SHOPIFY_DOMAIN || fileEnv.NEXT_PUBLIC_SHOPIFY_DOMAIN || '';
 
 let formOrigin = '';
 if (endpoint) {
@@ -34,13 +38,22 @@ if (endpoint) {
 }
 const ga = /^G-[A-Z0-9]+$/.test(gaId);
 
+// A bare host, not a URL: it goes straight into the CSP, so anything else is a typo worth failing on.
+if (shopDomain && !/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(shopDomain)) {
+  console.error(`NEXT_PUBLIC_SHOPIFY_DOMAIN should be a bare host like my-store.myshopify.com, got: ${shopDomain}`);
+  process.exit(1);
+}
+// The Storefront API answers on the store host; product images come off Shopify's CDN.
+const shopApi = shopDomain ? ` https://${shopDomain}` : '';
+const shopImg = shopDomain ? ' https://cdn.shopify.com' : '';
+
 const csp = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${ga ? ' https://www.googletagmanager.com' : ''}`,
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' https://fonts.gstatic.com data:",
-  `img-src 'self' data:${ga ? ' https://www.google-analytics.com https://www.googletagmanager.com' : ''}`,
-  `connect-src 'self'${formOrigin ? ' ' + formOrigin : ''}${ga ? ' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net' : ''}`,
+  `img-src 'self' data:${shopImg}${ga ? ' https://www.google-analytics.com https://www.googletagmanager.com' : ''}`,
+  `connect-src 'self'${formOrigin ? ' ' + formOrigin : ''}${shopApi}${ga ? ' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net' : ''}`,
   "object-src 'none'",
   "base-uri 'self'",
   `form-action 'self'${formOrigin ? ' ' + formOrigin : ''}`,
@@ -68,4 +81,4 @@ const config = {
 };
 
 fs.writeFileSync(path.join(ROOT, 'vercel.json'), JSON.stringify(config, null, 2) + '\n');
-console.log(`vercel.json written. Form endpoint origin: ${formOrigin || '(none: set NEXT_PUBLIC_FORM_ENDPOINT and run again)'}; analytics: ${ga ? gaId : 'off'}.`);
+console.log(`vercel.json written. Form endpoint origin: ${formOrigin || '(none: set NEXT_PUBLIC_FORM_ENDPOINT and run again)'}; shop: ${shopDomain || 'off'}; analytics: ${ga ? gaId : 'off'}.`);

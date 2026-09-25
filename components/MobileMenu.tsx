@@ -2,7 +2,8 @@
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { CONTACT_EMAIL, CONTACT_MAILTO, SHOP_URL } from '@/lib/site';
+import { CONTACT_EMAIL, CONTACT_MAILTO } from '@/lib/site';
+import ShopLink from '@/components/ShopLink';
 import TicketLink from './TicketLink';
 import { srcSet, LOGO_WIDTHS } from '@/lib/img';
 import s from './MobileMenu.module.css';
@@ -99,9 +100,9 @@ export default function MobileMenu({ countdown, onClose }: { countdown: string; 
             </Link>
           </div>
         </div>
-        <a className={`${s.ml} ${s.last}`} href={SHOP_URL}>
+        <ShopLink className={`${s.ml} ${s.last}`} onClick={onClose}>
           <span className="d">Shop</span>
-        </a>
+        </ShopLink>
       </nav>
 
       <div className={s.bottom}>
