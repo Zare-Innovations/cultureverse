@@ -7,8 +7,8 @@
 }
 .sat {
   position: absolute;
-  left: calc(50% + 300px);
-  top: 120px;
+  left: calc(50% + 350px);
+  top: 96px;
   width: 380px;
   height: auto;
   transform: rotate(-10deg);
@@ -16,13 +16,13 @@
 }
 .white { color: #fff; }
 .wrap { padding-top: 48px; padding-bottom: 75.578px; /* section height 980 */ }
-.hero { position: relative; margin-top: 40px; max-width: 900px; display: flex; flex-direction: column; gap: 24px; }
+.hero { position: relative; margin-top: 40px; display: flex; flex-direction: column; align-items: center; gap: 24px; }
 .mark { height: 120px; width: auto; }
 .title { font-size: calc(48 * var(--u)); line-height: 0.95; }
 .confirm { color: #3971ff; font-size: 11px; }
 .grid {
   position: relative;
-  margin-top: 76px;
+  margin-top: 84px;
   display: grid;
   grid-template-columns: minmax(0, 700fr) minmax(0, 524fr);
   gap: 88px;
@@ -38,11 +38,11 @@
   .shade { background: linear-gradient(rgba(17, 24, 33, 0.6), #111821); }
   .sat { left: auto; right: -20px; top: 24px; width: 180px; filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.6)); }
   .wrapM { padding-top: 40px; padding-bottom: 27px; }
-  .hM { position: relative; margin: 110px 0 0; }
+  .hM { position: relative; margin: 110px auto 0; display: block; width: max-content; }
   .markM { width: 300px; height: auto; }
   .titleM { position: relative; font-size: 34px; margin-top: 18px; }
   .confirmM { position: relative; color: #3971ff; font-size: 9px; margin-top: 12px; }
-  .connectM { position: relative; font-size: 28px; margin-top: 34px; }
+  .connectM { position: relative; font-size: 28px; margin-top: 40px; }
   .copyM { position: relative; font-size: 16px; line-height: 1.5; margin-top: 12px; }
   .photoM { position: relative; width: 100%; height: 180px; object-fit: cover; margin-top: 20px; }
   .backM { position: relative; display: inline-block; margin-top: 24px; }

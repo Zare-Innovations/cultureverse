@@ -12,11 +12,11 @@ import s from './exchnge.module.css';
 export const metadata: Metadata = {
   title: pageTitle('The Culture EXCHNGE™'),
   description:
-    'At RETREAT by The Gathering Spot, The Culture EXCHANGE™ brings leaders, creators, entrepreneurs, and cultural voices together for meaningful conversation, connection, and ideas that keep us Moving Culture Forward™.',
+    'At RETREAT by The Gathering Spot, The Culture EXCHNGE™ brings leaders, creators, entrepreneurs, and cultural voices together for meaningful conversation, connection, and ideas that keep us Moving Culture Forward™.',
 };
 
 const COPY =
-  'At RETREAT by The Gathering Spot, The Culture EXCHANGE™ brings leaders, creators, entrepreneurs, and cultural voices together for meaningful conversation, connection, and ideas that keep us Moving Culture Forward™.';
+  'At RETREAT by The Gathering Spot, The Culture EXCHNGE™ brings leaders, creators, entrepreneurs, and cultural voices together for meaningful conversation, connection, and ideas that keep us Moving Culture Forward™.';
 
 export default function ExchngePage() {
   return (
@@ -39,8 +39,6 @@ export default function ExchngePage() {
         </div>
         <div className={s.hero}>
           <h1 className={e.h}><img className={s.mark} src="/assets/logo-exchnge.png" srcSet={srcSet("/assets/logo-exchnge.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 443px" alt="The Culture EXCHNGE" width={1000} height={271}  style={{ aspectRatio: '1000 / 271' }} /></h1>
-          <p className={`d ${s.title}`}>FORWRD Summit<br />at the RETREAT</p>
-          <p className={`hud ${s.confirm}`}>[CONFIRM WITH MILES: FORWRD and The Culture EXCHNGE, one event or two on the same day]</p>
         </div>
         <div className={s.grid}>
           <div className={s.col}>
@@ -58,9 +56,7 @@ export default function ExchngePage() {
           Thu Oct 22, 2026<br /><span>RETREAT by The Gathering Spot</span>
         </p>
         <h1 className={s.hM}><img className={s.markM} src="/assets/logo-exchnge.png" srcSet={srcSet("/assets/logo-exchnge.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 300px" alt="The Culture EXCHNGE" width={1000} height={271}  style={{ aspectRatio: '1000 / 271' }} /></h1>
-        <p className={`d ${s.titleM}`}>FORWRD Summit at the RETREAT</p>
         <div className={e.tag}><span className={`st st-request ${s.white}`}>Request to attend</span></div>
-        <p className={`hud ${s.confirmM}`}>[CONFIRM: FORWRD and EXCHNGE, one event or two]</p>
         <p className={`d ${s.connectM}`}>Connection creates change</p>
         <p className={s.copyM}>{COPY}</p>
         <Image className={s.photoM} src="/assets/photo-exchnge.webp" alt="Guests in conversation at a summit" width={1800} height={1200} sizes="100vw" />
