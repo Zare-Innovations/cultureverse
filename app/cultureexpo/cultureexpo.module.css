@@ -1,23 +1,36 @@
 .expo { background: #0f2655; color: #fff; font-family: var(--f-text); }
 .shade { position: absolute; inset: 0; background: linear-gradient(rgba(15, 38, 85, 0.2), rgba(15, 38, 85, 0.75)); }
-.stone {
+.door {
   position: absolute;
-  left: calc(50% + 370px);
-  top: 60px;
-  width: 300px;
-  height: auto;
-  transform: rotate(-10deg);
-  filter: drop-shadow(0 0 40px rgba(57, 113, 255, 0.5)) drop-shadow(0 30px 40px rgba(0, 0, 0, 0.6));
+  left: calc(50% + 240px);
+  top: 190px;
+  width: 440px;
+  height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.wrap { padding-top: 48px; padding-bottom: 50px; }
+/* Halo behind the stone, so the glow reads against the blue ground rather than being lost in it. */
+.door::before {
+  content: '';
+  position: absolute;
+  inset: -8%;
+  background: radial-gradient(circle at 50% 50%, rgba(57, 113, 255, 0.55) 0%, transparent 65%);
+  pointer-events: none;
+}
+.stone { position: relative; width: 400px; height: 400px; object-fit: contain; transform: rotate(-10deg); }
+.copy { font-size: 19px; line-height: 1.5; max-width: 620px; margin-top: 4px; }
+.wrap { padding-top: 48px; padding-bottom: 120px; min-height: 780px; }
 .soon { font-size: 22px; }
-.photos { --photo-h: 360px; margin-top: 78.2px; /* artboard row 770 */ grid-template-columns: minmax(0, 720fr) minmax(0, 280fr) minmax(0, 280fr); }
+
 
 @media (max-width: 1023.98px) {
   .shade { background: linear-gradient(rgba(15, 38, 85, 0.2), rgba(15, 38, 85, 0.8)); }
-  .stone { left: auto; right: -2px; top: 60px; width: 130px; filter: drop-shadow(0 0 24px rgba(57, 113, 255, 0.5)); }
-  .wrapM { padding-top: 40px; padding-bottom: 42px; }
-  .hM { position: relative; margin: 120px 0 0; }
+  .door { position: relative; left: auto; top: auto; margin: 0 auto; width: 260px; height: 240px; }
+  .stone { width: 250px; height: 230px; }
+  .copyM { position: relative; font-size: 16px; line-height: 1.5; margin-top: 14px; }
+  .wrapM { padding-top: 40px; padding-bottom: 60px; }
+  .hM { position: relative; margin: 26px 0 0; }
   .titleM { position: relative; font-size: 36px; margin-top: 18px; }
   .soonM { position: relative; font-size: 18px; margin-top: 16px; }
 }

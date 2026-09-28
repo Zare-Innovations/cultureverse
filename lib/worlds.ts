@@ -32,6 +32,8 @@ export type World = {
   copy: string;
   sub: string;
   rot: number;
+  /** How far the stone's glow washes across the right of the backdrop, 0 to 1. */
+  wash?: number;
   /** Optional portrait: a panel beside the copy on desktop, full width under it on mobile. */
   photo?: { src: string; w: number; h: number; alt: string; pos: string };
 };
@@ -57,6 +59,7 @@ export const WORLDS: Record<WorldKey, World> = {
     copy: 'CultuReunion™ brings family, friends, and community together for music, food, games, local vendors, and moments that give back. Part cookout. Part celebration. All love.',
     sub: 'One big family',
     rot: 16,
+    wash: 0.3,
   },
   coming: {
     key: 'coming',
@@ -78,6 +81,7 @@ export const WORLDS: Record<WorldKey, World> = {
     copy: 'CultureComing™ brings the spirit of an HBCU homecoming to CultureBowl™ through National Pan-Hellenic Council–led activations, games, and live experiences.',
     sub: 'Rep your school. Celebrate the culture. Be the first to know when dates drop.',
     rot: -14,
+    wash: 0.85,
   },
   games: {
     key: 'games',
@@ -99,6 +103,5 @@ export const WORLDS: Record<WorldKey, World> = {
     copy: 'Stay tuned.',
     sub: '',
     rot: -20,
-    photo: { src: '/assets/photo-culturegames.webp', w: 1000, h: 1574, alt: 'Player wearing CultureGames™ headphones', pos: '50% 12%' },
   },
 };

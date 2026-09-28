@@ -1,5 +1,18 @@
 .world { color: #fff; font-family: var(--f-text); min-height: 900px; }
 .shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(17, 24, 33, 0.55), rgba(17, 24, 33, 0.1)); }
+/* The stone's own glow carried across the right of the backdrop. Screen lifts the photo
+   rather than covering it, so the art underneath stays readable. */
+.wash {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 72%;
+  height: 100%;
+  background: radial-gradient(ellipse 58% 52% at 68% 42%, var(--glow) 0%, transparent 72%);
+  opacity: var(--wash, 0);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
 .wrap { padding-top: 48px; padding-bottom: 60px; min-height: 900px; }
 .top { position: relative; display: flex; justify-content: flex-end; }
 .back { color: #fff; text-decoration: none; border-bottom: 2px solid #fff; padding-bottom: 3px; }

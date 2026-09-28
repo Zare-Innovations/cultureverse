@@ -11,6 +11,7 @@ export default function WorldPage({ w }: { w: World }) {
     <section className={`page ${s.world}`} style={{ background: w.bgc, '--glow': w.glow } as CSSProperties}>
       <Image className="bgimg" src={w.bg} alt="" fill priority sizes="100vw" style={{ opacity: 0.85 }} />
       <div aria-hidden="true" className={s.shade} />
+      {w.wash ? <div aria-hidden="true" className={s.wash} style={{ '--wash': w.wash } as CSSProperties} /> : null}
 
       {/* Desktop */}
       <div className={`wrap ${s.wrap} only-d`}>
