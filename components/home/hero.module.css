@@ -62,6 +62,7 @@
 }
 .h1 { margin: 0; }
 .logo { width: calc(560 * var(--u)); height: auto; }
+.aboveLogo { text-align: center; margin-bottom: calc(14 * var(--u)); }
 .iheart { width: calc(320 * var(--u)); height: auto; }
 .mcf { width: calc(230 * var(--u)); height: auto; }
 
@@ -118,8 +119,8 @@
   gap: calc(10 * var(--u));
   color: #111821;
 }
-.whatHud { color: #111821; }
-.whatCopy { font-size: max(13px, calc(17 * var(--u))); line-height: 1.4; font-weight: 600; max-width: calc(470 * var(--u)); }
+.whatHud { color: #fff; }
+.whatCopy { font-size: max(12px, calc(15 * var(--u))); line-height: 1.4; font-weight: 600; max-width: calc(440 * var(--u)); color: #fff; }
 .whatBtns { display: flex; gap: 14px; align-items: center; }
 
 .headliner {
@@ -134,9 +135,9 @@
   z-index: 5;
   text-align: right;
 }
-.navyText { color: #111821; }
+.navyText { color: #fff; }
 .headName { font-size: calc(60 * var(--u)); color: #fff; }
-.headPlus { font-size: max(14px, calc(20 * var(--u))); color: #111821; }
+.headPlus { font-size: max(12px, calc(16 * var(--u))); color: #fff; }
 .headLink {
   color: #111821;
   font-size: 11px;

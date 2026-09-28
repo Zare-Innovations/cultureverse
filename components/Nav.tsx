@@ -167,6 +167,7 @@ export default function Nav() {
             <Link className={`btn btn-line btn-sm ${s.tapin}`} href="/tap-in">
               Tap in
             </Link>
+            <img className={s.mcf} src="/assets/logo-moving-culture-forward.png" alt="Moving Culture Forward" width={1000} height={54} />
             <TicketLink className={`btn btn-red btn-sm ${s.ticketsD}`}>Get tickets</TicketLink>
             <TicketLink className={`btn btn-red btn-sm ${s.ticketsM}`}>Tickets</TicketLink>
             <button

@@ -53,11 +53,11 @@ export function DesktopHero() {
         </p>
 
         <div className={s.logoBlock}>
+          <p className={`hud a-in ${s.aboveLogo}`} style={{ '--d': '1200ms' } as CSSProperties}>A worldwide celebration of culture</p>
           <h1 className={s.h1}>
             <img className={`cb-logo a-lock ${s.logo}`} src="/assets/logo-culturebowl-white.svg" alt="CultureBowl 2026" width={2115} height={1023} />
           </h1>
           <img className={`a-in ${s.iheart}`} src="/assets/logo-powered-by-iheart.png" alt="Powered by iHeartMedia" width={1000} height={61} style={{ '--d': '1500ms' } as CSSProperties} />
-          <img className={`a-in ${s.mcf}`} src="/assets/logo-moving-culture-forward.png" alt="Moving Culture Forward" width={1000} height={54} style={{ '--d': '1700ms' } as CSSProperties} />
         </div>
 
         <div className={`a-wipe ${s.band}`} style={{ '--d': '300ms' } as CSSProperties}>
