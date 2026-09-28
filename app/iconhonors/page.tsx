@@ -4,15 +4,41 @@ import type { CSSProperties } from 'react';
 import { pageTitle } from '@/lib/site';
 import HonorsForm from '@/components/forms/HonorsForm';
 import EventJsonLd from '@/components/EventJsonLd';
+import Reveal from '@/components/Reveal';
 import { srcSet, LOGO_WIDTHS, STONE_WIDTHS, HONORS_WIDTHS } from '@/lib/img';
 import s from './iconhonors.module.css';
 
 export const metadata: Metadata = {
   title: pageTitle("The Culture's Coldest™ ICON HONORS"),
-  description: 'Honoring the culture’s brightest stars. Wed Oct 21, 2026, Flourish, Atlanta. Private, by invitation.',
+  description:
+    'An iconic evening honoring achievement across business, the arts, creator economy, philanthropy, sports, entertainment, education, public policy, tech, and global impact. Wed Oct 21, 2026, Flourish, Atlanta. Private, by invitation.',
 };
 
-const EVENING = ['Red carpet', 'Honors presentations', 'Performances', 'Cocktail reception'];
+const HOSTED = 'Hosted by Marsai Martin with The Culture’s Coldest™ Sounds by DJ D-NICE';
+
+const ABOUT =
+  'The Culture’s Coldest™ ICON HONORS is an iconic evening honoring achievement across business, the arts, creator economy, philanthropy, sports, entertainment, education, public policy, tech, and global impact.';
+
+const PILLARS = ['Achievement', 'Excellence', 'Impact'];
+
+const EVENING = ['Red carpet', 'Honors presentations', 'Performances', 'Cocktail reception', 'The After Glow'];
+
+/** One confirmed honoree; the rest of the class lands with headshots and bios once approved. */
+const HONOREES = [
+  {
+    name: '[Taylor Townsend]',
+    honor: 'Legacy in Motion Honoree',
+    bio: 'Bio to follow with approval.',
+    note: 'Pending approval',
+  },
+] as const;
+
+const FACTS = [
+  ['Date', 'Wed Oct 21, 2026'],
+  ['Venue', 'Flourish, Atlanta'],
+  ['Guests', '750+'],
+  ['Access', 'By invitation'],
+] as const;
 
 const PARTNERS = {
   honors: [
@@ -45,6 +71,32 @@ function Logos({ list, cols, mobile }: { list: readonly (readonly [string, numbe
   );
 }
 
+/** The honoree grid: one approved name and three slots waiting on the class. */
+function Honorees({ mobile }: { mobile?: boolean }) {
+  const slots = mobile ? [0, 1] : [0, 1, 2];
+  return (
+    <div className={mobile ? s.honoreesM : s.honorees}>
+      {HONOREES.map((h) => (
+        <article key={h.name} className={s.honoree}>
+          <div className={s.portrait}><span className={`hud ${s.portraitText}`}>Headshot<br />pending</span></div>
+          <p className={`serif ${s.name}`}>{h.name}</p>
+          <p className={`hud ${s.honor}`}>{h.honor}</p>
+          <p className={s.bio}>{h.bio}</p>
+          <p className={`hud ${s.muted}`}>{h.note}</p>
+        </article>
+      ))}
+      {slots.map((i) => (
+        <article key={i} aria-hidden="true" className={s.honoree}>
+          <div className={`${s.portrait} ${s.portal}`}><span className={`hud ${s.portalText}`}>To be<br />announced</span></div>
+          <p className={`serif ${s.name} ${s.nameTba}`}>To be announced</p>
+          <p className={`hud ${s.honor}`}>Honoree</p>
+          <p className={s.bio}>Bio to follow.</p>
+        </article>
+      ))}
+    </div>
+  );
+}
+
 export default function IconHonorsPage() {
   return (
     <section id="honors" className={`page ${s.honors}`}>
@@ -53,12 +105,14 @@ export default function IconHonorsPage() {
         <Image className="bgimg" src="/assets/bg-honors.webp" alt="" fill priority sizes="100vw" style={{ objectPosition: '50% 0%' }} />
       </div>
       <div aria-hidden="true" className={s.fade} />
+      {/* Silver sweeps layered behind the lockup: pure CSS, no asset and no request. */}
+      <div aria-hidden="true" className={s.silver} />
 
       {/* Desktop */}
       <div className={`wrap ${s.wrap} only-d`}>
         <div className={s.top}>
-          <div className="hud">Wed Oct 21, 2026</div>
-          <div className={`hud ${s.topRight}`}>Flourish, Atlanta<br />Part of The Culture&apos;s Coldest</div>
+          <div className={`hud ${s.gold}`}>Wed Oct 21, 2026</div>
+          <div className={`hud ${s.topRight}`}>Flourish, Atlanta<br />Part of The Culture&rsquo;s Coldest&trade;</div>
         </div>
         <div className={s.center}>
           {/* Decorative objects flanking the lockup. Purely ornamental, so they are hidden from
@@ -68,55 +122,64 @@ export default function IconHonorsPage() {
           <img aria-hidden="true" className={`a-in ${s.orb} ${s.orbCoil}`} style={{ '--d': '1100ms' } as CSSProperties} src="/assets/obj-coil.webp" srcSet={srcSet("/assets/obj-coil.webp", STONE_WIDTHS, 691)} sizes="(min-width: 1024px) 140px, 90px" alt="" width={691} height={700} loading="lazy" />
           <img aria-hidden="true" className={`a-in ${s.orb} ${s.orbShell}`} style={{ '--d': '1200ms' } as CSSProperties} src="/assets/obj-shell.webp" srcSet={srcSet("/assets/obj-shell.webp", STONE_WIDTHS, 631)} sizes="(min-width: 1024px) 125px, 80px" alt="" width={631} height={700} loading="lazy" />
           <h1 className={s.h}><img className={s.mark} src="/assets/logo-iconhonors.png" srcSet={srcSet("/assets/logo-iconhonors.png", HONORS_WIDTHS, 2000)} sizes="(min-width: 1024px) 1400px, 900px" alt="The Culture's Coldest ICON HONORS" width={2000} height={355}  style={{ aspectRatio: '2000 / 355' }} /></h1>
-          <p className={`serif ${s.tagline}`}>Honoring the culture’s brightest stars</p>
+          <p className={`hud ${s.hosted}`}>{HOSTED}</p>
           <span className={`st st-invite ${s.invite}`}>Private, by invitation</span>
+          <img className={s.mcf} src="/assets/logo-moving-culture-forward.png" alt="Moving Culture Forward" width={1000} height={54} />
         </div>
 
         <div className={s.inner}>
-          <div className={s.grid}>
-            <div className={s.left}>
-              <p className={`serif ${s.eveningHead}`}>The evening</p>
-              <ol className={s.evening}>
-                {EVENING.map((t) => (
-                  <li key={t} className={`serif ${s.item}`}>{t}</li>
-                ))}
-                <li className={`serif ${s.item} ${s.itemLast}`}><span>The After Glow</span><span className={s.after}>after-party</span></li>
-              </ol>
-              <dl className={s.dl}>
-                <div><dt className={`hud ${s.ice}`}>Guests</dt><dd className={`serif ${s.ddBig}`}>750+</dd></div>
-                <div><dt className={`hud ${s.ice}`}>Access</dt><dd className={`serif ${s.ddMid}`}>By invitation</dd></div>
-                <div><dt className={`hud ${s.ice}`}>Times</dt><dd className={`serif ${s.ddMid}`}>To be announced</dd></div>
-              </dl>
-            </div>
-            <div className={s.right}>
-              <div className={s.frameBox}>
-                <div aria-hidden="true" className={s.frame} />
-                <Image className={s.render} src="/assets/render-honors-gala.webp" alt="Rendering of the ICON HONORS gala room, tables facing the stage" width={1800} height={930} sizes="(min-width: 1024px) 1400px, 660px" />
-                <img className={s.stone} src="/assets/stone-ice.webp" srcSet={srcSet("/assets/stone-ice.webp", STONE_WIDTHS, 625)} sizes="(min-width: 1024px) 1400px, 150px" alt="" width={625} height={900} loading="lazy"  style={{ aspectRatio: '625 / 900' }} />
-              </div>
-              <div className={s.celebrate}>
-                <h2 className={`serif ${s.celebrateH}`}>Celebrating the culture’s coldest</h2>
-                <div className={s.honorees}>
-                  <div className={s.portraitCol}>
-                    <div className={s.portrait}><span className={`hud ${s.ice} ${s.portraitText}`}>Portrait<br />pending</span></div>
-                    <p className={`serif ${s.name}`}>[TAYLOR TOWNSEND]</p>
-                    <p className={`hud ${s.ice}`}>Pending approval</p>
-                  </div>
-                  {[0, 1, 2].map((i) => (
-                    <div key={i} aria-hidden="true" className={s.portal}><span className={`hud ${s.portalText}`}>To be<br />announced</span></div>
-                  ))}
-                  <p className={`serif ${s.more}`}>more to be announced</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* 1. The evening, explained */}
+          <Reveal className={s.band}>
+            <p className={`hud ${s.bandHead} ${s.steel}`}>An iconic evening</p>
+            <p className={`serif ${s.about}`}>{ABOUT}</p>
+            <ul className={s.pillars}>
+              {PILLARS.map((p) => (
+                <li key={p} className={`d ${s.pillar}`}>{p}</li>
+              ))}
+            </ul>
+            <dl className={s.facts}>
+              {FACTS.map(([k, v]) => (
+                <div key={k}><dt className={`hud ${s.steel}`}>{k}</dt><dd className={`serif ${s.factV}`}>{v}</dd></div>
+              ))}
+            </dl>
+          </Reveal>
 
-          <div className={s.partners}>
-            <div><p className={`hud ${s.ice} ${s.partnersHead}`}>ICON HONORS partners</p><Logos list={PARTNERS.honors} cols={3} /></div>
-            <div><p className={`hud ${s.ice} ${s.partnersHead}`}>Participants</p><Logos list={PARTNERS.participants} cols={4} /></div>
-            <div><p className={`hud ${s.ice} ${s.partnersHead}`}>Media partners</p><Logos list={PARTNERS.media} cols={3} /></div>
-          </div>
-          <p className={`hud ${s.partial}`}>*Partial listing as confirmed</p>
+          <Reveal className={s.frameBox} delay={80}>
+            <div aria-hidden="true" className={s.frame} />
+            <Image className={s.render} src="/assets/render-honors-gala.webp" alt="Rendering of the ICON HONORS gala room, tables facing the stage" width={1800} height={930} sizes="(min-width: 1024px) 1312px, 660px" />
+          </Reveal>
+
+          {/* 2. The evening, hour by hour */}
+          <Reveal className={s.band}>
+            <p className={`serif ${s.bandTitle}`}>The evening</p>
+            <ol className={s.evening}>
+              {EVENING.map((t, i) => (
+                <li key={t} className={s.item}>
+                  <span className={`hud ${s.itemNum} ${s.steel}`}>{String(i + 1).padStart(2, '0')}</span>
+                  <span className={`serif ${s.itemText}`}>{t}</span>
+                  {i === EVENING.length - 1 && <span className={`hud ${s.after}`}>after-party</span>}
+                </li>
+              ))}
+            </ol>
+          </Reveal>
+
+          {/* 3. The class */}
+          <Reveal className={s.band}>
+            <h2 className={`serif ${s.bandTitle}`}>Celebrating the Culture&rsquo;s Coldest&trade;</h2>
+            <Honorees />
+            <p className={`serif ${s.more}`}>more to be announced</p>
+          </Reveal>
+
+          {/* 4. Partners */}
+          <Reveal className={s.band}>
+            <div className={s.partners}>
+              <div><p className={`hud ${s.steel} ${s.partnersHead}`}>ICON HONORS&trade; partners</p><Logos list={PARTNERS.honors} cols={3} /></div>
+              <div><p className={`hud ${s.steel} ${s.partnersHead}`}>Participants</p><Logos list={PARTNERS.participants} cols={4} /></div>
+              <div><p className={`hud ${s.steel} ${s.partnersHead}`}>Media partners</p><Logos list={PARTNERS.media} cols={3} /></div>
+            </div>
+            <p className={`hud ${s.partial}`}>*Partial listing as confirmed</p>
+          </Reveal>
+
           <HonorsForm variant="d" />
         </div>
       </div>
@@ -124,47 +187,53 @@ export default function IconHonorsPage() {
       {/* Mobile */}
       <div className={`wrap ${s.wrapM} only-m`}>
         <div className={s.topM}>
-          <span className="hud">Wed Oct 21, 2026</span>
+          <span className={`hud ${s.gold}`}>Wed Oct 21, 2026</span>
           <span className="hud">Flourish, Atlanta</span>
         </div>
           {/* One object on mobile: measured, the column has one clear region, right of the
-              invite chip between the tagline and the frame. */}
+              invite chip between the hosted line and the frame. */}
           <img aria-hidden="true" className={`a-in ${s.orb} ${s.orbRingM}`} style={{ '--d': '950ms' } as CSSProperties} src="/assets/obj-ring.webp" srcSet={srcSet("/assets/obj-ring.webp", STONE_WIDTHS, 700)} sizes="90px" alt="" width={700} height={514} loading="lazy" />
         <h1 className={s.hM}><img className={s.markM} src="/assets/logo-iconhonors.png" srcSet={srcSet("/assets/logo-iconhonors.png", HONORS_WIDTHS, 2000)} sizes="(min-width: 1024px) 1400px, 342px" alt="The Culture's Coldest ICON HONORS" width={2000} height={355}  style={{ aspectRatio: '2000 / 355' }} /></h1>
-        <p className={`serif ${s.taglineM}`}>Honoring the culture’s brightest stars</p>
+        <p className={`hud ${s.hostedM}`}>{HOSTED}</p>
         <div className={s.inviteM}><span className="st st-invite">Private, by invitation</span></div>
+        <img className={s.mcfM} src="/assets/logo-moving-culture-forward.png" alt="Moving Culture Forward" width={1000} height={54} />
+
+        <p className={`serif ${s.aboutM}`}>{ABOUT}</p>
+        <ul className={s.pillarsM}>
+          {PILLARS.map((p) => (
+            <li key={p} className={`d ${s.pillarM}`}>{p}</li>
+          ))}
+        </ul>
+        <dl className={s.factsM}>
+          {FACTS.map(([k, v]) => (
+            <div key={k}><dt className={`hud ${s.steel}`}>{k}</dt><dd className={`serif ${s.factVM}`}>{v}</dd></div>
+          ))}
+        </dl>
+
         <div className={s.frameBoxM}>
           <div aria-hidden="true" className={s.frameM} />
           <Image className={s.renderM} src="/assets/render-honors-gala.webp" alt="Rendering of the ICON HONORS gala room" width={1800} height={930} sizes="100vw" />
         </div>
-        <dl className={s.dlM}>
-          <div><dt className={`hud ${s.ice}`}>Guests</dt><dd className={`serif ${s.ddBigM}`}>750+</dd></div>
-          <div><dt className={`hud ${s.ice}`}>Times</dt><dd className={`serif ${s.ddMidM}`}>To be announced</dd></div>
-        </dl>
-        <p className={`serif ${s.eveningHeadM}`}>The evening</p>
+
+        <p className={`serif ${s.bandTitleM}`}>The evening</p>
         <ol className={s.eveningM}>
-          {EVENING.map((t) => (
-            <li key={t} className={`serif ${s.itemM}`}>{t}</li>
+          {EVENING.map((t, i) => (
+            <li key={t} className={s.itemM}>
+              <span className={`hud ${s.itemNum} ${s.steel}`}>{String(i + 1).padStart(2, '0')}</span>
+              <span className={`serif ${s.itemTextM}`}>{t}</span>
+            </li>
           ))}
-          <li className={`serif ${s.itemM} ${s.itemLastM}`}>The After Glow <span className={s.afterM}>after-party</span></li>
         </ol>
-        <h2 className={`serif ${s.celebrateHM}`}>Celebrating the culture’s coldest</h2>
-        <div className={s.honoreesM}>
-          <div className={s.portraitColM}>
-            <div className={s.portraitM} />
-            <p className={`serif ${s.nameM}`}>[TAYLOR TOWNSEND]</p>
-            <p className={`hud ${s.ice} ${s.pendingM}`}>Pending approval</p>
-          </div>
-          {[0, 1].map((i) => (
-            <div key={i} aria-hidden="true" className={s.portalM}><span className={`hud ${s.portalText}`}>To be<br />announced</span></div>
-          ))}
-        </div>
+
+        <h2 className={`serif ${s.bandTitleM}`}>Celebrating the Culture&rsquo;s Coldest&trade;</h2>
+        <Honorees mobile />
         <p className={`serif ${s.moreM}`}>more to be announced</p>
-        <p className={`hud ${s.ice} ${s.partnersHeadM}`}>ICON HONORS partners</p>
+
+        <p className={`hud ${s.steel} ${s.partnersHeadM}`}>ICON HONORS&trade; partners</p>
         <Logos list={PARTNERS.honors} cols={3} mobile />
-        <p className={`hud ${s.ice} ${s.partnersHeadM2}`}>Participants</p>
+        <p className={`hud ${s.steel} ${s.partnersHeadM2}`}>Participants</p>
         <Logos list={PARTNERS.participants} cols={4} mobile />
-        <p className={`hud ${s.ice} ${s.partnersHeadM2}`}>Media partners</p>
+        <p className={`hud ${s.steel} ${s.partnersHeadM2}`}>Media partners</p>
         <Logos list={PARTNERS.media} cols={3} mobile />
         <p className={`hud ${s.partialM}`}>*Partial listing as confirmed</p>
         <HonorsForm variant="m" />
