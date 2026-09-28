@@ -10,6 +10,15 @@
 .mark { width: 900px; max-width: 100%; height: auto; }
 .tagline { font-size: 34px; font-style: italic; }
 .invite { margin-top: 6px; }
+
+/* Decorative 3D objects around the hero lockup. Ornament only: no pointer target, and they sit
+   behind the type. .inner comes later in the DOM and is positioned, so it paints over them. */
+.orb { position: absolute; height: auto; pointer-events: none; z-index: 0; filter: drop-shadow(0 22px 34px rgba(0, 0, 0, 0.55)); }
+.orbLattice { left: -14px; top: -58px; width: 200px; transform: rotate(-8deg); }
+.orbRing { right: -34px; top: -22px; width: 170px; transform: rotate(9deg); }
+.orbCoil { right: 74px; bottom: -58px; width: 140px; transform: rotate(-5deg); }
+.orbShell { left: 104px; bottom: -64px; width: 125px; transform: rotate(13deg); }
+.h, .tagline, .invite { position: relative; z-index: 1; }
 .inner { position: relative; padding: 0 32px; }
 .grid { margin-top: 29.43px; /* artboard row 400 */ display: grid; grid-template-columns: 500px minmax(auto, 1fr); gap: 88px; }
 .left { display: flex; flex-direction: column; }
@@ -73,6 +82,9 @@
   .topM { position: relative; display: flex; justify-content: space-between; }
   .hM { position: relative; margin: 44px 0 0; }
   .markM { width: 100%; height: auto; }
+  /* Only two objects on mobile; the desktop pair is not rendered at all in that tree. */
+  .orbLattice, .orbRing, .orbCoil, .orbShell { display: none; }
+  .orbRingM { position: absolute; right: -18px; top: 206px; width: 98px; height: auto; transform: rotate(12deg); pointer-events: none; z-index: 0; filter: drop-shadow(0 16px 26px rgba(0, 0, 0, 0.55)); }
   .taglineM { position: relative; font-size: 24px; font-style: italic; margin-top: 18px; line-height: 1.2; }
   .inviteM { position: relative; margin-top: 16px; display: flex; }
   .frameBoxM { position: relative; margin-top: 36px; width: 100%; height: 210px; }
@@ -106,4 +118,8 @@
   .plogoM { height: 64px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(82, 127, 155, 0.45); padding: 12px; }
   .plogoM img { max-width: 100%; max-height: 34px; width: auto; height: auto; object-fit: contain; }
   .partialM { position: relative; color: #527f9b; margin-top: 10px; }
+}
+
+@media (min-width: 1024px) {
+  .orbRingM { display: none; }
 }

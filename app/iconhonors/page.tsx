@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import type { CSSProperties } from 'react';
 import { pageTitle } from '@/lib/site';
 import HonorsForm from '@/components/forms/HonorsForm';
 import EventJsonLd from '@/components/EventJsonLd';
@@ -60,6 +61,12 @@ export default function IconHonorsPage() {
           <div className={`hud ${s.topRight}`}>Flourish, Atlanta<br />Part of The Culture&apos;s Coldest</div>
         </div>
         <div className={s.center}>
+          {/* Decorative objects flanking the lockup. Purely ornamental, so they are hidden from
+              assistive tech, lazy, and sit behind the type. a-in is a no-op under reduced motion. */}
+          <img aria-hidden="true" className={`a-in ${s.orb} ${s.orbLattice}`} style={{ '--d': '900ms' } as CSSProperties} src="/assets/obj-lattice.webp" srcSet={srcSet("/assets/obj-lattice.webp", STONE_WIDTHS, 700)} sizes="(min-width: 1024px) 200px, 110px" alt="" width={700} height={697} loading="lazy" />
+          <img aria-hidden="true" className={`a-in ${s.orb} ${s.orbRing}`} style={{ '--d': '1000ms' } as CSSProperties} src="/assets/obj-ring.webp" srcSet={srcSet("/assets/obj-ring.webp", STONE_WIDTHS, 700)} sizes="(min-width: 1024px) 170px, 100px" alt="" width={700} height={514} loading="lazy" />
+          <img aria-hidden="true" className={`a-in ${s.orb} ${s.orbCoil}`} style={{ '--d': '1100ms' } as CSSProperties} src="/assets/obj-coil.webp" srcSet={srcSet("/assets/obj-coil.webp", STONE_WIDTHS, 691)} sizes="(min-width: 1024px) 140px, 90px" alt="" width={691} height={700} loading="lazy" />
+          <img aria-hidden="true" className={`a-in ${s.orb} ${s.orbShell}`} style={{ '--d': '1200ms' } as CSSProperties} src="/assets/obj-shell.webp" srcSet={srcSet("/assets/obj-shell.webp", STONE_WIDTHS, 631)} sizes="(min-width: 1024px) 125px, 80px" alt="" width={631} height={700} loading="lazy" />
           <h1 className={s.h}><img className={s.mark} src="/assets/logo-iconhonors.png" srcSet={srcSet("/assets/logo-iconhonors.png", HONORS_WIDTHS, 2000)} sizes="(min-width: 1024px) 1400px, 900px" alt="The Culture's Coldest ICON HONORS" width={2000} height={355}  style={{ aspectRatio: '2000 / 355' }} /></h1>
           <p className={`serif ${s.tagline}`}>Honoring the culture’s brightest stars</p>
           <span className={`st st-invite ${s.invite}`}>Private, by invitation</span>
@@ -120,6 +127,9 @@ export default function IconHonorsPage() {
           <span className="hud">Wed Oct 21, 2026</span>
           <span className="hud">Flourish, Atlanta</span>
         </div>
+          {/* One object on mobile: measured, the column has one clear region, right of the
+              invite chip between the tagline and the frame. */}
+          <img aria-hidden="true" className={`a-in ${s.orb} ${s.orbRingM}`} style={{ '--d': '950ms' } as CSSProperties} src="/assets/obj-ring.webp" srcSet={srcSet("/assets/obj-ring.webp", STONE_WIDTHS, 700)} sizes="90px" alt="" width={700} height={514} loading="lazy" />
         <h1 className={s.hM}><img className={s.markM} src="/assets/logo-iconhonors.png" srcSet={srcSet("/assets/logo-iconhonors.png", HONORS_WIDTHS, 2000)} sizes="(min-width: 1024px) 1400px, 342px" alt="The Culture's Coldest ICON HONORS" width={2000} height={355}  style={{ aspectRatio: '2000 / 355' }} /></h1>
         <p className={`serif ${s.taglineM}`}>Honoring the culture’s brightest stars</p>
         <div className={s.inviteM}><span className="st st-invite">Private, by invitation</span></div>
