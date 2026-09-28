@@ -13,7 +13,9 @@ fs.mkdirSync(OUT, { recursive: true });
 
 const JOBS = [
   ...['stone-ice', 'stone-obsidian', 'stone-blue', 'stone-green', 'stone-red', 'stone-orange', 'stone-purple', 'obj-satellite'].map((n) => ({ file: `${n}.webp`, widths: [260, 520] })),
-  ...['logo-cultureverse', 'logo-culturelive', 'logo-cultureexpo', 'logo-culturegames', 'logo-cultureunion', 'logo-culturecoming', 'logo-exchnge', 'logo-biggive', 'logo-iconhonors'].map((n) => ({ file: `${n}.png`, widths: [400, 800] })),
+  ...['logo-cultureverse', 'logo-culturelive', 'logo-cultureexpo', 'logo-culturegames', 'logo-cultureunion', 'logo-culturecoming', 'logo-exchnge', 'logo-biggive'].map((n) => ({ file: `${n}.png`, widths: [400, 800] })),
+  // ICON HONORS is the one mark that renders large (900 CSS px), so it carries an extra candidate.
+  { file: 'logo-iconhonors.png', widths: [400, 800, 1200] },
   { file: 'obj-globe.webp', widths: [600] },
   // Hero backgrounds: phone-sized candidates for next/image's srcset (the custom loader in lib/imageLoader.ts picks them).
   ...['bg-navy-graffiti', 'bg-about', 'bg-cultureverse', 'bg-culturelive', 'bg-expo', 'bg-exchnge', 'bg-biggive', 'bg-honors', 'bg-cultureunion', 'bg-culturecoming', 'bg-culturegames', 'bg-red-fragments'].map((n) => ({ file: `${n}.webp`, widths: [640, 828, 1200] })),

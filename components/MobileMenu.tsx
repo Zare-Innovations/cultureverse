@@ -74,7 +74,7 @@ export default function MobileMenu({ countdown, onClose }: { countdown: string; 
           </Link>
           <div className={s.subgrid}>
             <Link className={s.sub} href="/iconhonors" onClick={onClose}>
-              <img src="/assets/logo-iconhonors.png" srcSet={srcSet("/assets/logo-iconhonors.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 52px" alt="" width={1000} height={144}  style={{ aspectRatio: '1000 / 144' }} />ICON HONORS
+              <img src="/assets/logo-iconhonors.png" srcSet={srcSet("/assets/logo-iconhonors.png", LOGO_WIDTHS, 2000)} sizes="(min-width: 1024px) 1400px, 52px" alt="" width={2000} height={355}  style={{ aspectRatio: '2000 / 355' }} />ICON HONORS
             </Link>
             <Link className={s.sub} href="/exchnge" onClick={onClose}>
               <img src="/assets/logo-exchnge.png" srcSet={srcSet("/assets/logo-exchnge.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 52px" alt="" width={1000} height={271}  style={{ aspectRatio: '1000 / 271' }} />The Culture EXCHNGE™

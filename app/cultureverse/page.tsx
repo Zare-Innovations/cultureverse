@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 type Live = { name: string; mark: string; mw: number; mh: number; mhM: number; shard: string; sw: number; sh: number; glow: string; when: string; status: string; statusM: string; href: string; rot: number };
 
 const LIVE: Live[] = [
-  { name: "The Culture's Coldest™ ICON HONORS", mark: '/assets/logo-iconhonors.png', mw: 1000, mh: 144, mhM: 30, shard: '/assets/stone-ice.webp', sw: 625, sh: 900, glow: '#17A2BE', when: 'Wed Oct 21', status: 'Where the culture honors our stars', statusM: 'By invitation', href: EVENT_HREF.honors, rot: -6 },
+  { name: "The Culture's Coldest™ ICON HONORS", mark: '/assets/logo-iconhonors.png', mw: 2000, mh: 355, mhM: 30, shard: '/assets/stone-ice.webp', sw: 625, sh: 900, glow: '#17A2BE', when: 'Wed Oct 21', status: 'Where the culture honors our stars', statusM: 'By invitation', href: EVENT_HREF.honors, rot: -6 },
   { name: 'The Culture EXCHNGE', mark: '/assets/logo-exchnge.png', mw: 1000, mh: 271, mhM: 40, shard: '/assets/obj-satellite.webp', sw: 900, sh: 530, glow: '#3971FF', when: 'Thu Oct 22', status: 'Request to attend', statusM: 'Request to attend', href: EVENT_HREF.exchnge, rot: 6 },
   { name: 'CultureExpo™', mark: '/assets/logo-cultureexpo.png', mw: 1000, mh: 535, mhM: 48, shard: '/assets/stone-blue.webp', sw: 900, sh: 705, glow: '#3971FF', when: 'Fri Oct 23 to Sun Oct 25', status: EXPO_STATUS, statusM: EXPO_STATUS, href: EVENT_HREF.expo, rot: 8 },
   { name: "The Culture's BIG GIVE™", mark: '/assets/logo-biggive.png', mw: 1000, mh: 477, mhM: 48, shard: '/assets/stone-green.webp', sw: 900, sh: 668, glow: '#D7F26A', when: 'Sat Oct 24', status: 'Free, community', statusM: 'Free', href: EVENT_HREF.give, rot: -12 },

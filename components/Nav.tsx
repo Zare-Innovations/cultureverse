@@ -115,7 +115,7 @@ export default function Nav() {
                       <div>
                         <p className={`hud ${s.ddHead}`}>Atlanta</p>
                         <Link className={s.dditem} href="/iconhonors">
-                          <img src="/assets/logo-iconhonors.png" srcSet={srcSet("/assets/logo-iconhonors.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={144} loading="lazy"  style={{ aspectRatio: '1000 / 144' }} />
+                          <img src="/assets/logo-iconhonors.png" srcSet={srcSet("/assets/logo-iconhonors.png", LOGO_WIDTHS, 2000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={2000} height={355} loading="lazy"  style={{ aspectRatio: '2000 / 355' }} />
                           The Culture&apos;s Coldest™ ICON HONORS
                         </Link>
                         <Link className={s.dditem} href="/exchnge">

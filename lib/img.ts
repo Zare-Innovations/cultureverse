@@ -8,3 +8,5 @@ export function srcSet(file: string, widths: number[], originalWidth?: number): 
 
 export const STONE_WIDTHS = [260, 520];
 export const LOGO_WIDTHS = [400, 800];
+/** ICON HONORS renders 900 CSS px on its own page, so it needs a candidate between 800 and the 2000px original. */
+export const HONORS_WIDTHS = [400, 800, 1200];
