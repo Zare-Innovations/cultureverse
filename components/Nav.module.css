@@ -121,7 +121,7 @@
 }
 
 /* Moving Culture Forward, sat beside the ticket button. Hidden on mobile, where the bar is already full. */
-.mcf { width: 150px; height: auto; margin-right: 4px; }
+.mcf { width: 255px; height: auto; margin-right: 10px; }
 @media (max-width: 1023.98px) {
   .mcf { display: none; }
 }

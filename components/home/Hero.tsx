@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react';
+import CbLogo from '@/components/CbLogo';
 import Image from 'next/image';
 import Link from 'next/link';
 import { OPENING_NIGHT_UTC } from '@/lib/site';
@@ -56,7 +57,7 @@ export function DesktopHero() {
         <div className={s.logoBlock}>
           <p className={`hud a-in ${s.aboveLogo}`} style={{ '--d': '1200ms' } as CSSProperties}>A worldwide celebration of culture</p>
           <h1 className={s.h1}>
-            <img className={`cb-logo a-lock ${s.logo}`} src="/assets/logo-culturebowl-white.svg" alt="CultureBowl 2026" width={2115} height={1023} />
+            <CbLogo className={s.logo} stackClassName="a-lock" alt="CultureBowl 2026" />
           </h1>
           <img className={`a-in ${s.iheart}`} src="/assets/logo-powered-by-iheart.png" alt="Powered by iHeartMedia" width={1000} height={61} style={{ '--d': '1500ms' } as CSSProperties} />
         </div>
@@ -162,7 +163,7 @@ export function MobileHero() {
 
       <div className={s.logoBlockM}>
         <h1 className={s.h1}>
-          <img className={`cb-logo a-lock ${s.logoM}`} src="/assets/logo-culturebowl-white.svg" alt="CultureBowl 2026" width={2115} height={1023} />
+          <CbLogo className={s.logoM} stackClassName="a-lock" alt="CultureBowl 2026" />
         </h1>
         <img className={`a-in ${s.iheartM}`} src="/assets/logo-powered-by-iheart.png" alt="Powered by iHeartMedia" width={1000} height={61} style={{ '--d': '1500ms' } as CSSProperties} />
         <img className={`a-in ${s.mcfM}`} src="/assets/logo-moving-culture-forward.png" alt="Moving Culture Forward" width={1000} height={54} style={{ '--d': '1700ms' } as CSSProperties} />

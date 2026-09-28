@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import CbLogo from '@/components/CbLogo';
 import Link from 'next/link';
 import { CONTACT_EMAIL, CONTACT_MAILTO, SHOP_URL } from '@/lib/site';
 import TicketLink from './TicketLink';
@@ -50,7 +51,7 @@ export default function MobileMenu({ countdown, onClose }: { countdown: string; 
       <div aria-hidden="true" className={s.navy} />
 
       <div className={s.top}>
-        <img className={`cb-logo-sm ${s.logo}`} src="/assets/logo-culturebowl-white.svg" alt="CultureBowl" width={2115} height={1023} />
+        <CbLogo className={s.logo} />
         <div className={s.grow} />
         <TicketLink className="btn btn-white btn-sm">Tickets</TicketLink>
         <button ref={closeRef} type="button" className={s.x} aria-label="Close menu" onClick={onClose}>

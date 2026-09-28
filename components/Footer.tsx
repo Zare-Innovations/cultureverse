@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import CbLogo from '@/components/CbLogo';
 import Image from 'next/image';
 import { CONTACT_EMAIL, CONTACT_MAILTO, SHOP_URL } from '@/lib/site';
 import TicketLink from './TicketLink';
@@ -70,7 +71,7 @@ export default function Footer() {
         {/* Desktop columns */}
         <div className={`${s.grid} only-d`}>
           <div className={s.col1}>
-            <img className={`cb-logo-sm ${s.logo}`} src="/assets/logo-culturebowl-white.svg" alt="CultureBowl" width={2115} height={1023} />
+            <CbLogo className={s.logo} />
             <img className={s.iheart} src="/assets/logo-powered-by-iheart.png" alt="Powered by iHeartMedia" width={1000} height={61} />
             <ContactLine />
           </div>
@@ -106,7 +107,7 @@ export default function Footer() {
         {/* Mobile stack */}
         <div className={`${s.mobile} only-m`}>
           <div className={s.logos}>
-            <img className={`cb-logo-sm ${s.logoM}`} src="/assets/logo-culturebowl-white.svg" alt="CultureBowl" width={2115} height={1023} />
+            <CbLogo className={s.logoM} />
             <img className={s.iheartM} src="/assets/logo-powered-by-iheart.png" alt="Powered by iHeartMedia" width={1000} height={61} />
           </div>
           <div className={s.gridM}>

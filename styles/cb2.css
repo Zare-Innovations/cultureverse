@@ -66,6 +66,10 @@ p,h1,h2,h3,h4{margin:0}
 /* Logotype extrude: red then navy, stacked */
 .cb-logo{filter:drop-shadow(0 5px 0 var(--red)) drop-shadow(0 5px 0 var(--navy)) drop-shadow(0 5px 0 var(--red)) drop-shadow(0 5px 0 var(--navy))}
 .cb-logo-sm{filter:drop-shadow(0 2px 0 var(--red)) drop-shadow(0 2px 0 var(--navy))}
+/* Wordmark plus its red outline. The span shrink-wraps the white mark, so the stroke copy tracks
+   whatever width the placement sets without repeating it. */
+.cb-stack{position:relative;display:inline-block;line-height:0}
+.cb-stack-line{position:absolute;left:0;top:0;width:100%;height:auto;transform:translate(var(--cb-x,1.5%),var(--cb-y,3.4%))}
 
 /* Shards: physical objects, react only to the viewer */
 .door{appearance:none;background:none;border:0;padding:0;cursor:pointer;display:block;text-decoration:none;color:inherit}

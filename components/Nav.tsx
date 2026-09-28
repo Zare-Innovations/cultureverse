@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import CbLogo from '@/components/CbLogo';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { OPENING_NIGHT_UTC, SHOP_URL } from '@/lib/site';
@@ -75,7 +76,7 @@ export default function Nav() {
         <div className={s.bar}>
           <nav aria-label="Primary" className={s.inner}>
             <Link href="/" aria-label="CultureBowl home" className={s.logoLink}>
-              <img className={`cb-logo-sm ${s.logo}`} src="/assets/logo-culturebowl-white.svg" alt="CultureBowl" width={2115} height={1023} />
+              <CbLogo className={s.logo} />
             </Link>
             <div className={s.links}>
               <Link className={`navlink${isAbout ? ' is-on' : ''}`} href="/about" aria-current={isAbout ? 'page' : undefined}>
