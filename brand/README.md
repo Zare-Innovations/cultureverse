@@ -44,3 +44,38 @@ a mechanical swap, which is why it has not been done.
 working copies in `public/assets/` but no page references them. `forwrd.png` is worth noting
 against the open question in `PLACEHOLDERS.md` about whether FORWRD and The Culture EXCHNGE are
 one event or two.
+
+## Stone and object renders
+
+`brand/stones/` and `brand/objects/` hold the supplied 3D renders at source resolution
+(2000px). Like the logos, they are reference material and never ship.
+
+`brand/objects/` are the four that `/iconhonors` now uses; `public/assets/obj-*.webp` are the
+trimmed 700px working copies made from them.
+
+`brand/stones/` are **not** in use. The shipping `public/assets/stone-*.webp` are untouched.
+Held pending further changes.
+
+### Why the stones were not swapped
+
+They are the same artwork as the current shards, rendered at a different orientation. Each
+shipping stone matches the new render rotated:
+
+| Stone | Rotation that matches what ships | Error |
+|---|---|---|
+| red | 85° | 1.4% |
+| orange | -35° | 4.9% |
+| blue | -5° | 2.1% |
+| purple | -35° | 1.0% |
+| obsidian | -15° | 4.1% |
+
+So a straight swap would not refresh the art, it would reorient every shard: the current
+diagonal slivers become wide horizontal lozenges across the Cultureverse hub and the event
+pages, each of which has hand-tuned width, height and CSS rotation.
+
+There is also no sharpness to gain. The renders are 2000px against the shipping ~900px, but
+stones display at roughly 300-400px on the hub and 150px on the event pages, so 900px already
+covers a 2x display. This is the opposite of `logo-iconhonors.png`, which was genuinely short.
+
+**Two are missing.** Green and ice were shown but never arrived as files, so
+`brand/stones/` holds five of the seven.
