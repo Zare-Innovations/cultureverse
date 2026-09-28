@@ -12,16 +12,16 @@
   left: 0;
   top: 0;
   width: 100%;
-  height: 300px;
-  background: #f6003a;
+  height: 260px;
+  background: #a8002c;
   overflow: hidden;
 }
 .wrap { min-height: 640px; }
-.top { position: relative; height: 300px; }
-.head { position: absolute; left: 0; top: 64px; display: flex; flex-direction: column; gap: 14px; }
-.calling { font-size: calc(88 * var(--u)); line-height: 0.86; }
-.tag { font-size: 12px; letter-spacing: 0.12em; }
-.ctas { position: absolute; right: 0; top: 80px; display: flex; gap: 14px; }
+.top { position: relative; height: 260px; }
+.head { position: absolute; left: 0; top: 56px; display: flex; flex-direction: column; gap: 14px; }
+.calling { font-size: calc(68 * var(--u)); line-height: 0.88; }
+.tag { font-size: 11px; letter-spacing: 0.12em; }
+.ctas { position: absolute; right: 0; top: 66px; display: flex; gap: 14px; }
 
 .grid {
   margin-top: 56px;
@@ -31,8 +31,7 @@
   gap: 40px;
 }
 .col1 { display: flex; flex-direction: column; gap: 18px; }
-.logo { width: 150px; height: auto; }
-.iheart { width: 240px; height: auto; }
+.cobrand { width: 300px; height: auto; }
 .contact { font-size: 14px; line-height: 1.5; opacity: 0.85; max-width: 300px; }
 .mail { color: #fff; }
 .navcol { display: flex; flex-direction: column; }
@@ -64,19 +63,18 @@
 
 @media (max-width: 1023.98px) {
   .foot { --u: 1px; }
-  .red { height: 330px; }
+  .red { height: 300px; }
   .wrap { min-height: 0; padding-bottom: 29px; }
   .top { height: auto; padding-top: 40px; }
   .head { position: static; gap: 0; }
-  .calling { font-size: 48px; line-height: 0.88; }
-  .tag { font-size: 10px; margin-top: 15.52px; /* artboard row 140 */ }
+  .calling { font-size: 38px; line-height: 0.9; }
+  .tag { font-size: 9px; margin-top: 15.52px; /* artboard row 140 */ }
   .ctas { position: static; flex-direction: column; gap: 10px; margin-top: 24.5px; /* artboard row 178 */ }
   .ctas > * { width: 100%; }
   .mobile { display: flex; flex-direction: column; gap: 24px; margin-top: 72px; }
-  .logos { display: flex; align-items: center; gap: 18px; }
-  .logoM { width: 100px; height: auto; }
-  .iheartM { width: 190px; height: auto; }
-  .gridM { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .cobrandM { width: 240px; height: auto; }
+  .gridM { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; }
+  .navM2 { display: block; margin-top: 20px; }
   .navheadM { opacity: 0.7; }
   .flM {
     color: #fff;

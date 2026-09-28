@@ -1,23 +1,23 @@
 import Link from 'next/link';
-import CbLogo from '@/components/CbLogo';
 import Image from 'next/image';
 import { CONTACT_EMAIL, CONTACT_MAILTO, SHOP_URL } from '@/lib/site';
 import TicketLink from './TicketLink';
 import s from './Footer.module.css';
 
 const CV_LINKS = [
+  ['/cultureverse', 'About the CultureVerse™'],
+  ['/culturelive', 'CultureLive™'],
   ['/iconhonors', "The Culture's Coldest™ ICON HONORS"],
   ['/exchnge', 'The Culture EXCHNGE™'],
-  ['/cultureexpo', 'CultureExpo™'],
   ['/biggive', "The Culture's BIG GIVE™"],
-  ['/culturelive', 'CultureLive™'],
 ] as const;
 
+/** Everything without a fixed 2026 date, CultureExpo included. */
 const COMING_LINKS = [
+  ['/cultureexpo', 'CultureExpo™'],
   ['/cultureunion', 'CultuReunion™'],
   ['/culturecoming', 'CultureComing™'],
   ['/culturegames', 'CultureGames™'],
-  ['/cultureverse', 'About the CultureVerse™'],
 ] as const;
 
 function Legal({ className }: { className?: string }) {
@@ -48,7 +48,7 @@ export default function Footer() {
   return (
     <footer className={s.foot}>
       <div className={s.red}>
-        <Image className="bgimg" src="/assets/bg-red-fragments.webp" alt="" fill sizes="100vw" style={{ objectPosition: '50% 30%', opacity: 0.5 }} />
+        <Image className="bgimg" src="/assets/bg-red-fragments.webp" alt="" fill sizes="100vw" style={{ objectPosition: '50% 30%', opacity: 0.22 }} />
       </div>
       <div className={`wrap ${s.wrap}`}>
         <div className={s.top}>
@@ -61,8 +61,8 @@ export default function Footer() {
             <p className={`hud ${s.tag}`}>A worldwide celebration of culture</p>
           </div>
           <div className={s.ctas}>
-            <TicketLink className="btn btn-white">Get tickets</TicketLink>
-            <Link className="btn btn-navy" href="/tap-in">
+            <TicketLink className="btn btn-white btn-sm">Get tickets</TicketLink>
+            <Link className="btn btn-navy btn-sm" href="/tap-in">
               Tap in
             </Link>
           </div>
@@ -71,20 +71,19 @@ export default function Footer() {
         {/* Desktop columns */}
         <div className={`${s.grid} only-d`}>
           <div className={s.col1}>
-            <CbLogo className={s.logo} />
-            <img className={s.iheart} src="/assets/logo-powered-by-iheart.png" alt="Powered by iHeartMedia" width={1000} height={61} />
+            <img className={s.cobrand} src="/assets/logo-culturebowl-iheart.png" alt="CultureBowl, powered by iHeartMedia" width={1400} height={289} />
             <ContactLine />
           </div>
           <nav aria-label="The CultureVerse" className={s.navcol}>
-            <p className={`hud ${s.navhead}`}>The CultureVerse</p>
+            <p className={`hud ${s.navhead}`}>The 2026 CultureVerse™</p>
             {CV_LINKS.map(([href, label]) => (
               <Link key={href} className={s.fl} href={href}>
                 {label}
               </Link>
             ))}
           </nav>
-          <nav aria-label="Coming" className={s.navcol}>
-            <p className={`hud ${s.navhead}`}>Coming</p>
+          <nav aria-label="Coming soon" className={s.navcol}>
+            <p className={`hud ${s.navhead}`}>Coming soon</p>
             {COMING_LINKS.map(([href, label]) => (
               <Link key={href} className={s.fl} href={href}>
                 {label}
@@ -92,7 +91,7 @@ export default function Footer() {
             ))}
           </nav>
           <nav aria-label="CultureBowl" className={s.navcol}>
-            <p className={`hud ${s.navhead}`}>CultureBowl</p>
+            <p className={`hud ${s.navhead}`}>CultureBowl™</p>
             <Link className={s.fl} href="/about">About</Link>
             <a className={s.fl} href={SHOP_URL}>Shop</a>
           </nav>
@@ -106,27 +105,31 @@ export default function Footer() {
 
         {/* Mobile stack */}
         <div className={`${s.mobile} only-m`}>
-          <div className={s.logos}>
-            <CbLogo className={s.logoM} />
-            <img className={s.iheartM} src="/assets/logo-powered-by-iheart.png" alt="Powered by iHeartMedia" width={1000} height={61} />
-          </div>
+          <img className={s.cobrandM} src="/assets/logo-culturebowl-iheart.png" alt="CultureBowl, powered by iHeartMedia" width={1400} height={289} />
           <div className={s.gridM}>
             <nav aria-label="The CultureVerse">
-              <p className={`hud ${s.navheadM}`}>The CultureVerse</p>
+              <p className={`hud ${s.navheadM}`}>The 2026 CultureVerse™</p>
               {CV_LINKS.map(([href, label]) => (
                 <Link key={href} className={s.flM} href={href}>
                   {label}
                 </Link>
               ))}
-              <Link className={s.flM} href="/cultureverse">
-                About the CultureVerse™
-              </Link>
             </nav>
-            <nav aria-label="CultureBowl">
-              <p className={`hud ${s.navheadM}`}>CultureBowl</p>
-              <Link className={s.flM} href="/about">About</Link>
-              <a className={s.flM} href={SHOP_URL}>Shop</a>
-            </nav>
+            <div>
+              <nav aria-label="Coming soon">
+                <p className={`hud ${s.navheadM}`}>Coming soon</p>
+                {COMING_LINKS.map(([href, label]) => (
+                  <Link key={href} className={s.flM} href={href}>
+                    {label}
+                  </Link>
+                ))}
+              </nav>
+              <nav aria-label="CultureBowl" className={s.navM2}>
+                <p className={`hud ${s.navheadM}`}>CultureBowl™</p>
+                <Link className={s.flM} href="/about">About</Link>
+                <a className={s.flM} href={SHOP_URL}>Shop</a>
+              </nav>
+            </div>
           </div>
           <ContactLine />
           <img className={s.mcfM} src="/assets/logo-moving-culture-forward.png" alt="Moving Culture Forward" width={1000} height={54} />

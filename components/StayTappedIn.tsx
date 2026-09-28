@@ -1,23 +1,21 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useId } from 'react';
 import { useJsonForm } from '@/lib/useJsonForm';
 import Honeypot from './Honeypot';
 import TicketLink from './TicketLink';
-import { srcSet, LOGO_WIDTHS, STONE_WIDTHS } from '@/lib/img';
+import { srcSet, LOGO_WIDTHS } from '@/lib/img';
 import s from './StayTappedIn.module.css';
 
 /** 11-StayTappedIn: the signup band. Used above the footer on Home and CultureVerse and as the /tap-in page. */
-export default function StayTappedIn({ priority = false, headingLevel = 'h2' }: { priority?: boolean; headingLevel?: 'h1' | 'h2' }) {
+export default function StayTappedIn({ headingLevel = 'h2' }: { headingLevel?: 'h1' | 'h2' }) {
   const id = useId();
   const { onSubmit, done, sending, error } = useJsonForm('tap-in');
   const Heading = headingLevel;
 
   return (
     <section id="join" className={`page ${s.band}`} aria-labelledby={`${id}-title`}>
-      <Image className="bgimg" src="/assets/bg-cultureverse.webp" alt="" fill sizes="100vw" priority={priority} style={{ opacity: 0.8 }} />
       <div aria-hidden="true" className={s.field} />
       <div className={`wrap ${s.wrap}`}>
         <div className={s.left}>
@@ -29,6 +27,7 @@ export default function StayTappedIn({ priority = false, headingLevel = 'h2' }: 
             Get first access to CultureBowl™ announcements, artist lineups, ticket updates, exclusive experiences, merch drops, CultureVerse™ news,
             and so much more.
           </p>
+          <img className={s.cobrand} src="/assets/logo-culturebowl-iheart.png" srcSet={srcSet("/assets/logo-culturebowl-iheart.png", LOGO_WIDTHS, 1400)} sizes="(min-width: 1024px) 260px, 200px" alt="CultureBowl, powered by iHeartMedia" width={1400} height={289} loading="lazy" style={{ aspectRatio: '1400 / 289' }} />
         </div>
 
         <form className={s.form} onSubmit={onSubmit} aria-busy={sending}>
@@ -68,12 +67,7 @@ export default function StayTappedIn({ priority = false, headingLevel = 'h2' }: 
           )}
         </form>
 
-        <div className={s.stones} aria-hidden="true">
-          <img src="/assets/stone-ice.webp" srcSet={srcSet("/assets/stone-ice.webp", STONE_WIDTHS, 625)} sizes="(min-width: 1024px) 1400px, 70px" alt="" width={625} height={900} loading="lazy"  style={{ aspectRatio: '625 / 900' }} />
-          <img src="/assets/stone-obsidian.webp" srcSet={srcSet("/assets/stone-obsidian.webp", STONE_WIDTHS, 896)} sizes="(min-width: 1024px) 1400px, 70px" alt="" width={896} height={900} loading="lazy"  style={{ aspectRatio: '896 / 900' }} />
-          <img src="/assets/stone-blue.webp" srcSet={srcSet("/assets/stone-blue.webp", STONE_WIDTHS, 900)} sizes="(min-width: 1024px) 1400px, 70px" alt="" width={900} height={705} loading="lazy"  style={{ aspectRatio: '900 / 705' }} />
-          <img src="/assets/stone-green.webp" srcSet={srcSet("/assets/stone-green.webp", STONE_WIDTHS, 900)} sizes="(min-width: 1024px) 1400px, 70px" alt="" width={900} height={668} loading="lazy"  style={{ aspectRatio: '900 / 668' }} />
-        </div>
+        <img className={s.mcf} src="/assets/logo-moving-culture-forward.png" alt="Moving Culture Forward" width={1000} height={54} loading="lazy" />
       </div>
     </section>
   );

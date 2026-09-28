@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function TapInPage() {
-  return <StayTappedIn priority headingLevel="h1" />;
+  return <StayTappedIn headingLevel="h1" />;
 }
