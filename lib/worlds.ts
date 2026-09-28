@@ -1,4 +1,4 @@
-/** Data shared by the hero stones, the Cultureverse hub, the nav dropdown and the coming-world pages. */
+/** Data shared by the hero stones, the CultureVerse hub, the nav dropdown and the coming-world pages. */
 
 export type EventKey = 'honors' | 'exchnge' | 'expo' | 'give' | 'live';
 

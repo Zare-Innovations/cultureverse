@@ -70,7 +70,7 @@ export default function MobileMenu({ countdown, onClose }: { countdown: string; 
         </Link>
         <div className={s.cv}>
           <Link href="/cultureverse" className={s.cvLink} onClick={onClose}>
-            <span className="d">The Cultureverse™</span>
+            <span className="d">The CultureVerse™</span>
             <span className={`hud ${s.cvAbout}`}>About</span>
           </Link>
           <div className={s.subgrid}>

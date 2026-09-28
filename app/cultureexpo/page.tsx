@@ -46,7 +46,7 @@ export default function CultureExpoPage() {
               </>
             )}
           </div>
-          <Link href="/cultureverse" className={`hud ${e.back}`}>Back to the Cultureverse</Link>
+          <Link href="/cultureverse" className={`hud ${e.back}`}>Back to the CultureVerse</Link>
         </div>
         <div className={e.hero}>
           <h1 className={e.h}><img className={e.mark} src="/assets/logo-cultureexpo.png" srcSet={srcSet("/assets/logo-cultureexpo.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 420px" alt="Culture Expo" width={1000} height={535}  style={{ aspectRatio: '1000 / 535' }} /></h1>
@@ -81,7 +81,7 @@ export default function CultureExpoPage() {
         <div className={e.ctaM}>
           <ExpoCta />
           <p className={`hud ${e.noteM}`}>{NOTE}</p>
-          <Link href="/cultureverse" className={`hud ${e.back} ${e.backM}`}>Back to the Cultureverse</Link>
+          <Link href="/cultureverse" className={`hud ${e.back} ${e.backM}`}>Back to the CultureVerse</Link>
         </div>
       </div>
     </section>

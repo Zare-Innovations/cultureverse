@@ -28,7 +28,7 @@ function Legal({ className }: { className?: string }) {
       <a className={`${s.fl} ${s.small}`} href="#">Facebook</a>
       <a className={`${s.fl} ${s.small}`} href="#">Privacy</a>
       <a className={`${s.fl} ${s.small}`} href="#">Terms</a>
-      <span className={className}>© 2026 [LEGAL ENTITY]. CultureBowl, Cultureverse and all sub-brand names are trademarks.</span>
+      <span className={className}>© 2026 [LEGAL ENTITY]. CultureBowl, CultureVerse and all sub-brand names are trademarks.</span>
     </>
   );
 }
@@ -75,8 +75,8 @@ export default function Footer() {
             <img className={s.iheart} src="/assets/logo-powered-by-iheart.png" alt="Powered by iHeartMedia" width={1000} height={61} />
             <ContactLine />
           </div>
-          <nav aria-label="The Cultureverse" className={s.navcol}>
-            <p className={`hud ${s.navhead}`}>The Cultureverse</p>
+          <nav aria-label="The CultureVerse" className={s.navcol}>
+            <p className={`hud ${s.navhead}`}>The CultureVerse</p>
             {CV_LINKS.map(([href, label]) => (
               <Link key={href} className={s.fl} href={href}>
                 {label}
@@ -111,8 +111,8 @@ export default function Footer() {
             <img className={s.iheartM} src="/assets/logo-powered-by-iheart.png" alt="Powered by iHeartMedia" width={1000} height={61} />
           </div>
           <div className={s.gridM}>
-            <nav aria-label="The Cultureverse">
-              <p className={`hud ${s.navheadM}`}>The Cultureverse</p>
+            <nav aria-label="The CultureVerse">
+              <p className={`hud ${s.navheadM}`}>The CultureVerse</p>
               {CV_LINKS.map(([href, label]) => (
                 <Link key={href} className={s.flM} href={href}>
                   {label}
@@ -136,7 +136,7 @@ export default function Footer() {
             <a className={s.flM} href="#">Facebook</a>
             <a className={s.flM} href="#">Privacy</a>
             <a className={s.flM} href="#">Terms</a>
-            <span className={s.copyM}>© 2026 [LEGAL ENTITY]. CultureBowl, Cultureverse and all sub-brand names are trademarks.</span>
+            <span className={s.copyM}>© 2026 [LEGAL ENTITY]. CultureBowl, CultureVerse and all sub-brand names are trademarks.</span>
           </div>
         </div>
       </div>

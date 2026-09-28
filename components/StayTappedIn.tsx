@@ -9,7 +9,7 @@ import TicketLink from './TicketLink';
 import { srcSet, LOGO_WIDTHS, STONE_WIDTHS } from '@/lib/img';
 import s from './StayTappedIn.module.css';
 
-/** 11-StayTappedIn: the signup band. Used above the footer on Home and Cultureverse and as the /tap-in page. */
+/** 11-StayTappedIn: the signup band. Used above the footer on Home and CultureVerse and as the /tap-in page. */
 export default function StayTappedIn({ priority = false, headingLevel = 'h2' }: { priority?: boolean; headingLevel?: 'h1' | 'h2' }) {
   const id = useId();
   const { onSubmit, done, sending, error } = useJsonForm('tap-in');
@@ -21,7 +21,7 @@ export default function StayTappedIn({ priority = false, headingLevel = 'h2' }: 
       <div aria-hidden="true" className={s.field} />
       <div className={`wrap ${s.wrap}`}>
         <div className={s.left}>
-          <img className={s.logo} src="/assets/logo-cultureverse.png" srcSet={srcSet("/assets/logo-cultureverse.png", LOGO_WIDTHS, 1400)} sizes="(min-width: 1024px) 1400px, 200px" alt="The Cultureverse" width={1400} height={711}  style={{ aspectRatio: '1400 / 711' }} />
+          <img className={s.logo} src="/assets/logo-cultureverse.png" srcSet={srcSet("/assets/logo-cultureverse.png", LOGO_WIDTHS, 1400)} sizes="(min-width: 1024px) 1400px, 200px" alt="The CultureVerse" width={1400} height={711}  style={{ aspectRatio: '1400 / 711' }} />
           <Heading id={`${id}-title`} className={`d ${s.title}`}>
             Stay<br className={s.br} /> tapped in
           </Heading>
@@ -59,10 +59,10 @@ export default function StayTappedIn({ priority = false, headingLevel = 'h2' }: 
           ) : (
             <div className={s.done} role="status">
               <p className={`d ${s.doneTitle}`}>You&apos;re in.</p>
-              <p className={s.doneCopy}>Lineups, tickets and Cultureverse news will reach you first. Watch your inbox for a confirmation.</p>
+              <p className={s.doneCopy}>Lineups, tickets and CultureVerse news will reach you first. Watch your inbox for a confirmation.</p>
               <div className={s.doneBtns}>
                 <TicketLink className="btn btn-red">Get tickets</TicketLink>
-                <Link className="btn btn-line" href="/cultureverse">Explore the Cultureverse</Link>
+                <Link className="btn btn-line" href="/cultureverse">Explore the CultureVerse</Link>
               </div>
             </div>
           )}

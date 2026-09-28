@@ -98,13 +98,13 @@ export default function Nav() {
                   aria-expanded={ddOpen}
                   aria-controls="cultureverse-menu"
                 >
-                  The Cultureverse™ <Chevron up={ddOpen} />
+                  The CultureVerse™ <Chevron up={ddOpen} />
                 </Link>
                 <div id="cultureverse-menu" className={s.dd} hidden={!ddOpen}>
                   <div className={s.ddInner}>
                     <div className={s.ddGrid}>
                       <div className={s.ddIntro}>
-                        <img src="/assets/logo-cultureverse.png" srcSet={srcSet("/assets/logo-cultureverse.png", LOGO_WIDTHS, 1400)} sizes="(min-width: 1024px) 1400px, 170px" alt="The Cultureverse" width={1400} height={711} className={s.ddLogo} loading="lazy"  style={{ aspectRatio: '1400 / 711' }} />
+                        <img src="/assets/logo-cultureverse.png" srcSet={srcSet("/assets/logo-cultureverse.png", LOGO_WIDTHS, 1400)} sizes="(min-width: 1024px) 1400px, 170px" alt="The CultureVerse" width={1400} height={711} className={s.ddLogo} loading="lazy"  style={{ aspectRatio: '1400 / 711' }} />
                         <p className={s.ddCopy}>
                           Welcome to CultureVerse™—the connected world of CultureBowl™, where music, community, creativity, competition, commerce,
                           and culture come together in one shared experience.
@@ -114,7 +114,7 @@ export default function Nav() {
                         </Link>
                       </div>
                       <div>
-                        <p className={`hud ${s.ddHead}`}>Atlanta</p>
+                        <p className={`hud ${s.ddHead}`}>2026 Experiences</p>
                         <Link className={s.dditem} href="/iconhonors">
                           <img src="/assets/logo-iconhonors.png" srcSet={srcSet("/assets/logo-iconhonors.png", LOGO_WIDTHS, 2000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={2000} height={355} loading="lazy"  style={{ aspectRatio: '2000 / 355' }} />
                           The Culture&apos;s Coldest™ ICON HONORS
@@ -122,10 +122,6 @@ export default function Nav() {
                         <Link className={s.dditem} href="/exchnge">
                           <img src="/assets/logo-exchnge.png" srcSet={srcSet("/assets/logo-exchnge.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={271} loading="lazy"  style={{ aspectRatio: '1000 / 271' }} />
                           The Culture EXCHNGE™
-                        </Link>
-                        <Link className={s.dditem} href="/cultureexpo">
-                          <img src="/assets/logo-cultureexpo.png" srcSet={srcSet("/assets/logo-cultureexpo.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={535} loading="lazy"  style={{ aspectRatio: '1000 / 535' }} />
-                          CultureExpo™
                         </Link>
                         <Link className={s.dditem} href="/biggive">
                           <img src="/assets/logo-biggive.png" srcSet={srcSet("/assets/logo-biggive.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={477} loading="lazy"  style={{ aspectRatio: '1000 / 477' }} />
@@ -137,7 +133,7 @@ export default function Nav() {
                         </Link>
                       </div>
                       <div>
-                        <p className={`hud ${s.ddHead}`}>Coming</p>
+                        <p className={`hud ${s.ddHead}`}>Coming soon</p>
                         <Link className={s.dditem} href="/cultureunion">
                           <img src="/assets/logo-cultureunion.png" srcSet={srcSet("/assets/logo-cultureunion.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={216} loading="lazy"  style={{ aspectRatio: '1000 / 216' }} />
                           CultuReunion™
@@ -146,9 +142,13 @@ export default function Nav() {
                           <img src="/assets/logo-culturecoming.png" srcSet={srcSet("/assets/logo-culturecoming.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={122} loading="lazy"  style={{ aspectRatio: '1000 / 122' }} />
                           CultureComing™
                         </Link>
-                        <Link className={`${s.dditem} ${s.ddLast}`} href="/culturegames">
+                        <Link className={s.dditem} href="/culturegames">
                           <img src="/assets/logo-culturegames.png" srcSet={srcSet("/assets/logo-culturegames.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={567} loading="lazy"  style={{ aspectRatio: '1000 / 567' }} />
                           CultureGames™
+                        </Link>
+                        <Link className={`${s.dditem} ${s.ddLast}`} href="/cultureexpo">
+                          <img src="/assets/logo-cultureexpo.png" srcSet={srcSet("/assets/logo-cultureexpo.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={535} loading="lazy"  style={{ aspectRatio: '1000 / 535' }} />
+                          CultureExpo™
                         </Link>
                       </div>
                     </div>

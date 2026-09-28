@@ -35,7 +35,7 @@ export default function ExchngePage() {
             Thu Oct 22, 2026 <span className={e.sep}>/</span> RETREAT by The Gathering Spot <span className={e.sep}>/</span>{' '}
             <span className={`st st-request ${s.white}`}>Request to attend</span>
           </div>
-          <Link href="/cultureverse" className={`hud ${e.back}`}>Back to the Cultureverse</Link>
+          <Link href="/cultureverse" className={`hud ${e.back}`}>Back to the CultureVerse</Link>
         </div>
         <div className={s.hero}>
           <h1 className={e.h}><img className={s.mark} src="/assets/logo-exchnge.png" srcSet={srcSet("/assets/logo-exchnge.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 443px" alt="The Culture EXCHNGE" width={1000} height={271}  style={{ aspectRatio: '1000 / 271' }} /></h1>
@@ -65,7 +65,7 @@ export default function ExchngePage() {
         <p className={s.copyM}>{COPY}</p>
         <Image className={s.photoM} src="/assets/photo-exchnge.webp" alt="Guests in conversation at a summit" width={1800} height={1200} sizes="100vw" />
         <ExchngeForm variant="m" />
-        <Link href="/cultureverse" className={`hud ${e.back} ${s.backM}`}>Back to the Cultureverse</Link>
+        <Link href="/cultureverse" className={`hud ${e.back} ${s.backM}`}>Back to the CultureVerse</Link>
       </div>
     </section>
   );

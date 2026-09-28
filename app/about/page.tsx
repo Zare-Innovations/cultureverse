@@ -27,12 +27,12 @@ export default function AboutPage() {
             <img className={s.logo} src="/assets/logo-culturebowl-white.svg" alt="CultureBowl" width={2115} height={1023} />
           </h1>
           <p className={`d ${s.lede}`}>CultureBowl™ is a multi-day experience created with the belief that culture is meant to be shared, celebrated, and honored.</p>
-          <img className={s.mcf} src="/assets/logo-moving-culture-forward.png" alt="Moving Culture Forward" width={1000} height={54} />
         </div>
 
         {/* Desktop grid */}
         <div className={`${s.grid} only-d`}>
           <div className={s.col}>
+            <img className={s.mcf} src="/assets/logo-moving-culture-forward.png" alt="Moving Culture Forward" width={1000} height={54} />
             <p className={s.body}>
               CultureBowl™ is a global platform built to celebrate what has shaped us and champion what’s next. Bringing together music, community,
               creativity, commerce, and live experience, it offers one shared space to connect, grow, and keep Moving Culture Forward™.
@@ -41,18 +41,17 @@ export default function AboutPage() {
               <img className={s.iheart} src="/assets/logo-powered-by-iheart.png" alt="Powered by iHeartMedia" width={1000} height={61} />
             </div>
             <div className={s.btns}>
-              <Link className="btn btn-red" href="/cultureverse">Explore the Cultureverse</Link>
-              <a className="btn btn-line" href={CONTACT_MAILTO}>Contact</a>
+              <Link className="btn btn-red btn-sm" href="/cultureverse">Explore the CultureVerse</Link>
+              <a className="btn btn-line btn-sm" href={CONTACT_MAILTO}>Contact</a>
             </div>
           </div>
           <div className={s.photos}>
             <Image className={s.photo1} src="/assets/photo-about-1.webp" alt="Guests together at an event" width={1800} height={1200} sizes="(min-width: 1024px) 608px, 100vw" />
             <Image className={s.photo2} src="/assets/photo-about-skyline.webp" alt="The downtown Atlanta skyline at sunset" width={565} height={353} sizes="(min-width: 1024px) 296px, 50vw" />
             <div className={s.redbox}>
-              <span className={`d ${s.builtD}`}>Built in Atlanta</span>
+              <span className={`d ${s.builtD}`}>First Home: Atlanta</span>
               <span className={s.builtCopy}>
-                Atlanta has always been a city of culture. From music and entertainment, to business and community, its influence is global—making it the
-                perfect first home.
+                From music and entertainment, to business and community, Atlanta’s influence is global—making it the perfect first home.
               </span>
             </div>
           </div>
@@ -60,20 +59,20 @@ export default function AboutPage() {
 
         {/* Mobile stack */}
         <div className={`${s.mobile} only-m`}>
+          <img className={s.mcfM} src="/assets/logo-moving-culture-forward.png" alt="Moving Culture Forward" width={1000} height={54} />
           <p className={s.bodyM}>
             CultureBowl™ is a global platform built to celebrate what has shaped us and champion what’s next. Bringing together music, community,
             creativity, commerce, and live experience, it offers one shared space to connect, grow, and keep Moving Culture Forward™.
           </p>
-          <p className={`d ${s.builtM}`}>Built in Atlanta</p>
+          <p className={`d ${s.builtM}`}>First Home: Atlanta</p>
           <p className={s.builtCopyM}>
-            Atlanta has always been a city of culture. From music and entertainment, to business and community, its influence is global—making it the
-            perfect first home.
+            From music and entertainment, to business and community, Atlanta’s influence is global—making it the perfect first home.
           </p>
           <img className={s.iheartM} src="/assets/logo-powered-by-iheart.png" alt="Powered by iHeartMedia" width={1000} height={61} />
           <Image className={s.photoM} src="/assets/photo-about-1.webp" alt="Guests together at an event" width={1800} height={1200} sizes="100vw" />
           <div className={s.btnsM}>
-            <Link className="btn btn-red" href="/cultureverse">Explore the Cultureverse</Link>
-            <a className="btn btn-line" href={CONTACT_MAILTO}>Contact</a>
+            <Link className="btn btn-red btn-sm" href="/cultureverse">Explore the CultureVerse</Link>
+            <a className="btn btn-line btn-sm" href={CONTACT_MAILTO}>Contact</a>
           </div>
         </div>
       </div>

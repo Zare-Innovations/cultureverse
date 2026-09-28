@@ -34,7 +34,7 @@ export default function CultureLivePage() {
             Sat Oct 24 and Sun Oct 25, 2026 <span className={e.sep}>/</span> StarJourney Stage, Central Park Atlanta <span className={e.sep}>/</span>{' '}
             <span className="st st-ticket">Ticketed</span>
           </div>
-          <Link href="/cultureverse" className={`hud ${e.back}`}>Back to the Cultureverse</Link>
+          <Link href="/cultureverse" className={`hud ${e.back}`}>Back to the CultureVerse</Link>
         </div>
         <div className={e.hero}>
           <h1 className={e.h}><img className={e.mark} src="/assets/logo-culturelive.png" srcSet={srcSet("/assets/logo-culturelive.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 420px" alt="Culture Live" width={1000} height={502}  style={{ aspectRatio: '1000 / 502' }} /></h1>
@@ -94,7 +94,7 @@ export default function CultureLivePage() {
         <div className={e.ctaM}>
           <TicketLink className={`btn btn-red ${e.btn}`}>Get tickets</TicketLink>
           <p className={`hud ${e.noteM}`}>{NOTE}</p>
-          <Link href="/cultureverse" className={`hud ${e.back} ${e.backM}`}>Back to the Cultureverse</Link>
+          <Link href="/cultureverse" className={`hud ${e.back} ${e.backM}`}>Back to the CultureVerse</Link>
         </div>
       </div>
     </section>

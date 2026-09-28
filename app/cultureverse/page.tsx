@@ -9,7 +9,7 @@ import { srcSet, LOGO_WIDTHS, STONE_WIDTHS } from '@/lib/img';
 import s from './cultureverse.module.css';
 
 export const metadata: Metadata = {
-  title: pageTitle('The Cultureverse™'),
+  title: pageTitle('The CultureVerse™'),
   description:
     'Welcome to CultureVerse™—the connected world of CultureBowl™, where music, community, creativity, competition, commerce, and culture come together in one shared experience.',
 };
@@ -45,7 +45,7 @@ export default function CultureversePage() {
         {/* Desktop */}
         <div className={`wrap ${s.wrap} only-d`}>
           <div className={s.head}>
-            <h1 className={s.h}><img className={s.logo} src="/assets/logo-cultureverse.png" srcSet={srcSet("/assets/logo-cultureverse.png", LOGO_WIDTHS, 1400)} sizes="(min-width: 1024px) 1400px, 380px" alt="The Cultureverse" width={1400} height={711}  style={{ aspectRatio: '1400 / 711' }} /></h1>
+            <h1 className={s.h}><img className={s.logo} src="/assets/logo-cultureverse.png" srcSet={srcSet("/assets/logo-cultureverse.png", LOGO_WIDTHS, 1400)} sizes="(min-width: 1024px) 1400px, 380px" alt="The CultureVerse" width={1400} height={711}  style={{ aspectRatio: '1400 / 711' }} /></h1>
             <div className={s.headCopy}>
               <p className={`d ${s.choose}`}>Choose your world</p>
               <p className={s.welcome}>{WELCOME}</p>
@@ -70,7 +70,7 @@ export default function CultureversePage() {
           </div>
 
           <div className={s.comingSec}>
-            <p className={`d8 ${s.rule} ${s.ruleSoft}`}>Coming to the Cultureverse</p>
+            <p className={`d8 ${s.rule} ${s.ruleSoft}`}>Coming to the CultureVerse</p>
             <div className={s.comingGrid}>
               {COMING.map((w) => (
                 <Link key={w.key} className={`${s.world} ${s.worldRow}`} href={w.route}>
@@ -97,7 +97,7 @@ export default function CultureversePage() {
 
         {/* Mobile */}
         <div className={`wrap ${s.wrapM} only-m`}>
-          <h1 className={s.hM}><img className={s.logoM} src="/assets/logo-cultureverse.png" srcSet={srcSet("/assets/logo-cultureverse.png", LOGO_WIDTHS, 1400)} sizes="(min-width: 1024px) 1400px, 220px" alt="The Cultureverse" width={1400} height={711}  style={{ aspectRatio: '1400 / 711' }} /></h1>
+          <h1 className={s.hM}><img className={s.logoM} src="/assets/logo-cultureverse.png" srcSet={srcSet("/assets/logo-cultureverse.png", LOGO_WIDTHS, 1400)} sizes="(min-width: 1024px) 1400px, 220px" alt="The CultureVerse" width={1400} height={711}  style={{ aspectRatio: '1400 / 711' }} /></h1>
           <p className={`d ${s.chooseM}`}>Choose your world</p>
           <p className={s.welcomeM}>{WELCOME}</p>
           <p className={`d8 ${s.laneM}`}>The culture doesn’t just live in one lane, it thrives.</p>

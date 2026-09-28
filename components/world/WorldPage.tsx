@@ -15,7 +15,7 @@ export default function WorldPage({ w }: { w: World }) {
       {/* Desktop */}
       <div className={`wrap ${s.wrap} only-d`}>
         <div className={s.top}>
-          <Link href="/cultureverse" className={`hud ${s.back}`}>Back to the Cultureverse</Link>
+          <Link href="/cultureverse" className={`hud ${s.back}`}>Back to the CultureVerse</Link>
         </div>
         <div className={s.block}>
           <span className={`st st-tba ${s.when}`}>{w.when}</span>
@@ -25,7 +25,7 @@ export default function WorldPage({ w }: { w: World }) {
           <p className={`d8 ${s.sub}`}>{w.sub}</p>
           <div className={s.btns}>
             <Link className="btn btn-white" href="/tap-in">Notify me</Link>
-            <Link className="btn btn-line" href="/cultureverse">Back to the Cultureverse</Link>
+            <Link className="btn btn-line" href="/cultureverse">Back to the CultureVerse</Link>
           </div>
         </div>
         {w.photo && (
@@ -48,7 +48,7 @@ export default function WorldPage({ w }: { w: World }) {
           <p className={s.copyM}>{w.copy}</p>
           <p className={`d8 ${s.subM}`}>{w.sub}</p>
           <Link className={`btn btn-white ${s.full}`} href="/tap-in">Notify me</Link>
-          <Link className={`btn btn-line ${s.full}`} href="/cultureverse">Back to the Cultureverse</Link>
+          <Link className={`btn btn-line ${s.full}`} href="/cultureverse">Back to the CultureVerse</Link>
         </div>
         {w.photo && (
           <Image className={s.photoM} src={w.photo.src} alt={w.photo.alt} width={w.photo.w} height={w.photo.h} sizes="100vw" style={{ objectPosition: w.photo.pos }} />
