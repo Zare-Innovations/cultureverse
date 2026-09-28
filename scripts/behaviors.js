@@ -19,16 +19,18 @@ const { chromium } = require('playwright');
 
   // 2. Hero stones: label follows hover and focus; stones link to world pages.
   const before = await page.evaluate(() => document.querySelector('main .only-d .hud[class*="label"]')?.textContent);
-  await page.hover('main .only-d a[href="/iconhonors"]');
+  // Hover a stone other than the resting one, so this asserts the label follows the pointer
+  // without hardcoding which stone rests.
+  await page.hover('main .only-d a[href="/culturelive"]');
   await page.waitForTimeout(200);
   const afterHover = await page.evaluate(() => document.querySelector('main .only-d .hud[class*="label"]')?.textContent);
-  check('stone label changes on hover', before?.includes('CultureLive') && afterHover?.includes('ICON HONORS'), `${before} -> ${afterHover}`);
+  check('stone label changes on hover', !!before && !before.includes('CultureLive') && !!afterHover?.includes('CultureLive'), `${before} -> ${afterHover}`);
   await page.focus('main .only-d a[href="/biggive"]');
   await page.waitForTimeout(200);
   const afterFocus = await page.evaluate(() => document.querySelector('main .only-d .hud[class*="label"]')?.textContent);
   check('stone label changes on focus', afterFocus?.includes('BIG GIVE'), afterFocus);
   const hrefs = await page.evaluate(() => Array.from(document.querySelectorAll('main .only-d a.door')).map((a) => a.getAttribute('href')));
-  check('stones link to world pages', JSON.stringify(hrefs) === JSON.stringify(['/iconhonors', '/exchnge', '/culturelive', '/cultureexpo', '/biggive']), hrefs.join(','));
+  check('stones link to world pages', JSON.stringify(hrefs) === JSON.stringify(['/culturegames', '/iconhonors', '/culturecoming', '/exchnge', '/culturelive', '/cultureexpo', '/biggive']), hrefs.join(','));
 
   // 3. Parallax responds to the cursor.
   await page.mouse.move(1400, 100);

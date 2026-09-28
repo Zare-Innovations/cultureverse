@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { OPENING_NIGHT_UTC } from '@/lib/site';
 import { useCountdown } from '@/lib/countdown';
 import { HEADLINER, SHARDS_D, SHARDS_M, SUPPORTING } from '@/lib/hero';
-import type { EventKey } from '@/lib/worlds';
+import type { EventKey, WorldKey } from '@/lib/worlds';
 import TicketLink from '@/components/TicketLink';
 import { srcSet, STONE_WIDTHS } from '@/lib/img';
 import s from './hero.module.css';
@@ -16,7 +16,7 @@ const u = (n: number) => `calc(${n} * var(--u))`;
 /** Main.dc.html: desktop hero, scaled from the 1440 x 900 frame. */
 export function DesktopHero() {
   const cd = useCountdown(OPENING_NIGHT_UTC);
-  const [active, setActive] = useState<EventKey>('live');
+  const [active, setActive] = useState<EventKey | WorldKey>('honors');
   const root = useRef<HTMLDivElement>(null);
 
   // Cursor parallax (skipped under prefers-reduced-motion).
@@ -44,6 +44,7 @@ export function DesktopHero() {
     <div ref={root} className={`page ${s.hero} only-d`}>
       <Image className="bgimg" src="/assets/bg-navy-graffiti.webp" alt="" fill priority sizes="100vw" style={{ opacity: 0.55 }} />
       <div aria-hidden="true" className={s.glow} />
+      <div aria-hidden="true" className={s.stars} />
       <div aria-hidden="true" className={`a-field ${s.fieldD}`} />
 
       {/* Everything placed on the 1440 x 900 frame sits on a centered stage; the backgrounds above stay full-bleed. */}

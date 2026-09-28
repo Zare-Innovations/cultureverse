@@ -36,9 +36,36 @@
 .fieldD {
   position: absolute;
   inset: 0;
-  background: #f6003a;
+  background:
+    linear-gradient(rgba(246, 0, 58, 0.74), rgba(246, 0, 58, 0.74)),
+    url('/assets/bg-crowd-red.webp') center / cover no-repeat,
+    #f6003a;
   /* (0, 724) to (1440, 596) on the frame, extended at the same slope across any width. */
   clip-path: polygon(0 calc(660 * var(--u) + 4.4444cqw), 100% calc(660 * var(--u) - 4.4444cqw), 100% 100%, 0 100%);
+}
+/* Star field over the upper hero, behind the stones. Pure CSS: no asset, no request. */
+.stars {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: calc(640 * var(--u));
+  pointer-events: none;
+  opacity: 0.9;
+  background-image:
+    radial-gradient(1.5px 1.5px at 12% 22%, #fff, transparent),
+    radial-gradient(1px 1px at 26% 9%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 38% 46%, #fff, transparent),
+    radial-gradient(1px 1px at 47% 16%, #fff, transparent),
+    radial-gradient(1px 1px at 58% 60%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 66% 28%, #fff, transparent),
+    radial-gradient(1px 1px at 74% 8%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 83% 52%, #fff, transparent),
+    radial-gradient(1px 1px at 91% 33%, #fff, transparent),
+    radial-gradient(1px 1px at 19% 63%, #fff, transparent),
+    radial-gradient(1px 1px at 55% 40%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 96% 14%, #fff, transparent);
+  background-repeat: no-repeat;
 }
 .tagline {
   position: absolute;
