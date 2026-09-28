@@ -94,7 +94,12 @@ p,h1,h2,h3,h4{margin:0}
 .a-field{animation:cb-field 520ms var(--ease-snap) both}
 .a-in{animation:cb-in 400ms linear both;animation-delay:var(--d,1500ms)}
 .a-star{animation:cb-star 900ms var(--ease-out) both;animation-delay:900ms}
+/* Scroll reveal, driven by components/Reveal.tsx: the element lifts into place the
+   first time it enters the viewport, then stays put. */
+.rv{opacity:0;transform:translateY(26px);transition:opacity 700ms var(--ease-out),transform 700ms var(--ease-out);transition-delay:var(--d,0ms)}
+.rv.is-in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
+  .rv,.rv.is-in{opacity:1;transform:none;transition:none}
   .a-assemble,.a-lock,.a-wipe,.a-field,.a-in,.a-star{animation:none}
   .par{transform:none!important;transition:none}
   .door img{transition:filter var(--t-base)}

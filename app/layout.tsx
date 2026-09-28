@@ -26,6 +26,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${golos.variable} ${cormorant.variable}`}>
       <body>
+        {/* Scroll-reveal elements start hidden and are lifted in by components/Reveal.tsx.
+            Without JS nothing would ever reveal them, so flatten the class outright. */}
+        <noscript><style>{`.rv{opacity:1!important;transform:none!important}`}</style></noscript>
         {RELATIVE_PREVIEW && <script dangerouslySetInnerHTML={{ __html: PREVIEW_RUNTIME }} />}
         <a className="skip" href="#main">Skip to content</a>
         <Nav />
