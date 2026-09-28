@@ -31,7 +31,7 @@ export default function CbLogo({
         width={2115}
         height={1023}
       />
-      <img className={className} src="/assets/logo-culturebowl-white.svg" alt={alt} width={2115} height={1023} />
+      <img className={`cb-stack-mark ${className}`} src="/assets/logo-culturebowl-white.svg" alt={alt} width={2115} height={1023} />
     </span>
   );
 }
