@@ -41,7 +41,7 @@ export default function CultureExpoPage() {
         {/* The dark blue stone, right-aligned exactly as on the coming-world pages: same door box,
             same lit glow, plus a halo so the glow reads against the blue ground. */}
         <div aria-hidden="true" className={`door lit ${s.door}`}>
-          <img className={s.stone} src="/assets/stone-blue.webp" srcSet={srcSet("/assets/stone-blue.webp", STONE_WIDTHS, 900)} sizes="(min-width: 1024px) 460px, 250px" alt="" width={900} height={705} style={{ aspectRatio: '900 / 705' }} loading="lazy" />
+          <img className={s.stone} src="/assets/stone-blue.webp" srcSet={srcSet("/assets/stone-blue.webp", STONE_WIDTHS, 900)} sizes="(min-width: 1024px) 460px, 250px" alt="" width={1000} height={696} style={{ aspectRatio: '1000 / 696' }} loading="lazy" />
         </div>
         <div className={e.top}>
           <div className={`hud ${e.topLine}`}>
@@ -69,7 +69,7 @@ export default function CultureExpoPage() {
       {/* Mobile */}
       <div className={`wrap ${s.wrapM} only-m`}>
         <div aria-hidden="true" className={`door lit ${s.doorM}`}>
-          <img className={s.stoneM} src="/assets/stone-blue.webp" srcSet={srcSet("/assets/stone-blue.webp", STONE_WIDTHS)} sizes="250px" alt="" width={900} height={705} style={{ aspectRatio: '900 / 705' }} />
+          <img className={s.stoneM} src="/assets/stone-blue.webp" srcSet={srcSet("/assets/stone-blue.webp", STONE_WIDTHS)} sizes="250px" alt="" width={1000} height={696} style={{ aspectRatio: '1000 / 696' }} />
         </div>
         <p className={`hud ${e.topM}`}>
           Fri Oct 23 to Sun Oct 25, 2026<br /><span>Central Park Atlanta</span>

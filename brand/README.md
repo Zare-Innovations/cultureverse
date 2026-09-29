@@ -53,8 +53,10 @@ one event or two.
 `brand/objects/` are the four that `/iconhonors` now uses; `public/assets/obj-*.webp` are the
 trimmed 700px working copies made from them.
 
-`brand/stones/` are **not** in use. The shipping `public/assets/stone-*.webp` are untouched.
-Held pending further changes.
+`brand/stones/` are mostly **not** in use; the shipping `public/assets/stone-*.webp` are untouched
+except for blue. The old blue working copy was cropped at the image edge, so the lower half of the
+stone was missing wherever it showed; `stone-blue.webp` is now the trimmed master at 1000px and the
+three placements that use it carry its new 1000 x 696 dimensions and a rotation adjusted to match.
 
 ### Why the stones were not swapped
 
