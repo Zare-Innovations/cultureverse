@@ -10,8 +10,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(rgba(246, 0, 58, 0.84), rgba(246, 0, 58, 0.84)),
-    url('/assets/bg-crowd-red.webp') 20% 40% / 170% no-repeat,
+    linear-gradient(rgba(246, 0, 58, 0.58), rgba(246, 0, 58, 0.58)),
+    url('/assets/bg-crowd-red.webp') 30% 45% / 150% no-repeat,
     #f6003a;
   clip-path: polygon(0 0, calc(50% - 20 * var(--u)) 0, calc(50% - 120 * var(--u)) 100%, 0 100%);
 }

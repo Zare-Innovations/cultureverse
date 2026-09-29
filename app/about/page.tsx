@@ -13,22 +13,27 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <section id="about" className={`page ${s.about}`}>
-      <div className={s.band}>
-        <Image className="bgimg" src="/assets/bg-about.webp" alt="" fill priority sizes="100vw" style={{ opacity: 0.9, objectPosition: '50% 30%' }} />
-        {/* Aerial pass over Atlanta, the city the story below is built in; the still above stays as the first paint and the fallback. */}
-        <BgVideo className={`bgimg ${s.video}`} desktop="/assets/video/atlanta-aerial-1280.mp4" mobile="/assets/video/atlanta-aerial-720.mp4" style={{ objectPosition: '50% 30%' }} />
-        <div aria-hidden="true" className={s.shade} />
+      {/* The city band wraps the eyebrow, the mark and the lede, so it always ends just under the
+          copy however tall the lede runs, and the body below starts on the navy. */}
+      <div className={s.hero}>
+        <div className={s.band}>
+          <Image className="bgimg" src="/assets/bg-about.webp" alt="" fill priority sizes="100vw" style={{ opacity: 0.9, objectPosition: '50% 30%' }} />
+          {/* Aerial pass over Atlanta, the city the story below is built in; the still above stays as the first paint and the fallback. */}
+          <BgVideo className={`bgimg ${s.video}`} desktop="/assets/video/atlanta-aerial-1280.mp4" mobile="/assets/video/atlanta-aerial-720.mp4" style={{ objectPosition: '50% 30%' }} />
+          <div aria-hidden="true" className={s.shade} />
+        </div>
+        <div className={`wrap ${s.heroWrap}`}>
+          <p className={`hud ${s.eyebrow}`}>About CultureBowl™</p>
+          <div className={s.intro}>
+            <h1 className={s.h}>
+              <img className={s.logo} src="/assets/logo-culturebowl-white.svg" alt="CultureBowl" width={2115} height={1023} />
+            </h1>
+            <p className={`d ${s.lede}`}>CultureBowl™ is a multi-day experience created with the belief that culture is meant to be shared, celebrated, and honored.</p>
+          </div>
+        </div>
       </div>
 
       <div className={`wrap ${s.wrap}`}>
-        <p className={`hud ${s.eyebrow}`}>About CultureBowl™</p>
-        <div className={s.intro}>
-          <h1 className={s.h}>
-            <img className={s.logo} src="/assets/logo-culturebowl-white.svg" alt="CultureBowl" width={2115} height={1023} />
-          </h1>
-          <p className={`d ${s.lede}`}>CultureBowl™ is a multi-day experience created with the belief that culture is meant to be shared, celebrated, and honored.</p>
-        </div>
-
         {/* Desktop grid */}
         <div className={`${s.grid} only-d`}>
           <div className={s.col}>

@@ -1,6 +1,14 @@
 .live { background: #111821; color: #fff; font-family: var(--f-text); }
 .bgBox { position: absolute; left: 0; top: 0; width: 100%; height: 640px; overflow: hidden; }
 .bg { object-position: 50% 40%; }
+/* Ambient motion: the backdrop drifts a few percent over a minute, so the hero is never quite still. */
+@media (prefers-reduced-motion: no-preference) {
+  .bg { animation: drift 48s ease-in-out infinite alternate; transform-origin: 50% 40%; }
+}
+@keyframes drift {
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to { transform: scale(1.09) translate3d(-1.5%, 1%, 0); }
+}
 .shade {
   position: absolute;
   inset: 0;
@@ -18,7 +26,27 @@
 }
 .talentCol { display: flex; flex-direction: column; gap: 8px; }
 .orange { color: #ff6f00; }
-.headliner { font-size: calc(120 * var(--u)); line-height: 0.85; }
+.headliner { position: relative; font-size: calc(120 * var(--u)); line-height: 0.85; }
+/* A breathing orange glow behind the headliner's name. */
+.pulse {
+  position: absolute;
+  left: -6%;
+  top: -30%;
+  width: 112%;
+  height: 160%;
+  background: radial-gradient(ellipse 50% 50% at 40% 55%, rgba(255, 111, 0, 0.45), transparent 70%);
+  filter: blur(18px);
+  pointer-events: none;
+  z-index: -1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pulse { animation: breathe 4.5s ease-in-out infinite; }
+}
+@keyframes breathe {
+  0%, 100% { opacity: 0.55; transform: scale(0.96); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+.ticker { margin-top: 64px; }
 .plus { font-size: 24px; margin-top: 8px; }
 .pending { opacity: 0.7; font-size: 10px; margin-top: 6px; }
 .dl { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -72,6 +100,7 @@
   .headlinerM { font-size: 64px; line-height: 0.9; }
   .plusM { font-size: 17px; margin-top: 6px; }
   .pendingM { opacity: 0.7; font-size: 9px; }
+  .tickerM { margin: 30px -24px 0; }
   .lineupM { position: relative; margin-top: 34px; }
   .lineupHM { font-size: 30px; }
   .actsM { margin-top: 16px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }

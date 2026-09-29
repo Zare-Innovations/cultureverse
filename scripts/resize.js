@@ -18,7 +18,7 @@ const JOBS = [
   { file: 'logo-iconhonors.png', widths: [400, 800, 1200] },
   { file: 'obj-globe.webp', widths: [600] },
   // Hero backgrounds: phone-sized candidates for next/image's srcset (the custom loader in lib/imageLoader.ts picks them).
-  ...['bg-navy-graffiti', 'bg-about', 'bg-cultureverse', 'bg-culturelive', 'bg-expo', 'bg-exchnge', 'bg-biggive', 'bg-honors', 'bg-cultureunion', 'bg-culturecoming', 'bg-culturegames', 'bg-red-fragments'].map((n) => ({ file: `${n}.webp`, widths: [640, 828, 1200] })),
+  ...['bg-navy-graffiti', 'bg-about', 'bg-cultureverse', 'bg-culturelive', 'bg-expo', 'bg-exchnge', 'bg-biggive', 'bg-honors', 'bg-honors-keyart', 'bg-cultureunion', 'bg-culturecoming', 'bg-culturegames', 'bg-red-fragments'].map((n) => ({ file: `${n}.webp`, widths: [640, 828, 1200] })),
 ];
 
 (async () => {

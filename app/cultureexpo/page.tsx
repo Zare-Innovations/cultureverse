@@ -36,12 +36,13 @@ export default function CultureExpoPage() {
       <EventJsonLd name="CultureExpo™" description={metadata.description as string} path="/cultureexpo" startDate="2026-10-23" endDate="2026-10-25" venue="Central Park Atlanta" ticketed={EXPO_TICKETS_ON_SALE} />
       <Image className="bgimg" src="/assets/bg-expo.webp" alt="" fill priority sizes="100vw" style={{ opacity: 0.8 }} />
       <div aria-hidden="true" className={s.shade} />
-      <div aria-hidden="true" className={`door lit ${s.door}`}>
-        <img className={s.stone} src="/assets/stone-blue.webp" srcSet={srcSet("/assets/stone-blue.webp", STONE_WIDTHS, 900)} sizes="(min-width: 1024px) 400px, 200px" alt="" width={900} height={705} style={{ aspectRatio: '900 / 705' }} />
-      </div>
-
       {/* Desktop */}
       <div className={`wrap ${s.wrap} only-d`}>
+        {/* The dark blue stone, right-aligned exactly as on the coming-world pages: same door box,
+            same lit glow, plus a halo so the glow reads against the blue ground. */}
+        <div aria-hidden="true" className={`door lit ${s.door}`}>
+          <img className={s.stone} src="/assets/stone-blue.webp" srcSet={srcSet("/assets/stone-blue.webp", STONE_WIDTHS, 900)} sizes="(min-width: 1024px) 460px, 250px" alt="" width={900} height={705} style={{ aspectRatio: '900 / 705' }} loading="lazy" />
+        </div>
         <div className={e.top}>
           <div className={`hud ${e.topLine}`}>
             Fri Oct 23 to Sun Oct 25, 2026 <span className={e.sep}>/</span> Central Park Atlanta
@@ -67,6 +68,9 @@ export default function CultureExpoPage() {
 
       {/* Mobile */}
       <div className={`wrap ${s.wrapM} only-m`}>
+        <div aria-hidden="true" className={`door lit ${s.doorM}`}>
+          <img className={s.stoneM} src="/assets/stone-blue.webp" srcSet={srcSet("/assets/stone-blue.webp", STONE_WIDTHS)} sizes="250px" alt="" width={900} height={705} style={{ aspectRatio: '900 / 705' }} />
+        </div>
         <p className={`hud ${e.topM}`}>
           Fri Oct 23 to Sun Oct 25, 2026<br /><span>Central Park Atlanta</span>
         </p>

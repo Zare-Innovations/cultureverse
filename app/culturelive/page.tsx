@@ -6,6 +6,7 @@ import { pageTitle } from '@/lib/site';
 import { HEADLINER, SUPPORTING } from '@/lib/hero';
 import TicketLink from '@/components/TicketLink';
 import Reveal from '@/components/Reveal';
+import Ticker from '@/components/Ticker';
 import EventJsonLd from '@/components/EventJsonLd';
 import { srcSet, LOGO_WIDTHS } from '@/lib/img';
 import e from '@/components/event/event.module.css';
@@ -17,6 +18,9 @@ export const metadata: Metadata = {
 };
 
 const NOTE = 'Tickets on Ticketmaster. Opens in a new tab. Day and weekend options to be announced.';
+
+/** The ticker between the announcement and the lineup: what, when, where, who. */
+const TICKER = ['CultureLive™', 'Sat Oct 24 and Sun Oct 25', 'StarJourney Stage', 'Central Park Atlanta', HEADLINER, SUPPORTING, 'Full lineup to the list first'];
 
 export default function CultureLivePage() {
   return (
@@ -49,7 +53,7 @@ export default function CultureLivePage() {
         <div className={s.talent}>
           <div className={s.talentCol}>
             <span className={`hud ${s.orange}`}>Talent announcement</span>
-            <span className={`d ${s.headliner}`}>{HEADLINER}</span>
+            <span className={`d ${s.headliner}`}><span aria-hidden="true" className={s.pulse} />{HEADLINER}</span>
             <span className={`d8 ${s.plus}`}>Plus {SUPPORTING}</span>
             <span className={`hud ${s.pending}`}>[ARTIST NAMES PENDING CONFIRMATION]</span>
           </div>
@@ -59,6 +63,7 @@ export default function CultureLivePage() {
             <div className={e.dlItem}><dt className="hud">Set times</dt><dd className={e.dd}>To be announced</dd></div>
           </dl>
         </div>
+        <Ticker items={TICKER} className={s.ticker} />
         <Reveal className={s.lineup}>
           <h2 className={`d ${s.lineupH}`}>The lineup</h2>
           <p className={`hud ${s.orange} ${s.lineupNote}`}>Headliner confirmed. The rest of the bill lands soon.</p>
@@ -110,6 +115,7 @@ export default function CultureLivePage() {
           <div className={e.dlItemM}><dt className="hud">Nights</dt><dd className={e.ddM}>Sat and Sun</dd></div>
           <div className={e.dlItemM}><dt className="hud">Set times</dt><dd className={e.ddM}>To be announced</dd></div>
         </dl>
+        <Ticker items={TICKER} className={s.tickerM} />
         <Reveal className={s.lineupM}>
           <h2 className={`d ${s.lineupHM}`}>The lineup</h2>
           <div className={s.actsM}>

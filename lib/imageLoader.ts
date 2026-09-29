@@ -13,6 +13,7 @@ const VARIANTS: Record<string, number[]> = {
   'bg-exchnge': [640, 828, 1200],
   'bg-biggive': [640, 828, 1200],
   'bg-honors': [640, 828, 1200],
+  'bg-honors-keyart': [640, 828, 1200],
   'bg-cultureunion': [640, 828, 1200],
   'bg-culturecoming': [640, 828, 1200],
   'bg-culturegames': [640, 828, 1200],

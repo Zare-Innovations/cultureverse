@@ -59,7 +59,7 @@ export const WORLDS: Record<WorldKey, World> = {
     copy: 'CultuReunion™ brings family, friends, and community together for music, food, games, local vendors, and moments that give back. Part cookout. Part celebration. All love.',
     sub: 'One big family',
     rot: 16,
-    wash: 0.3,
+    wash: 0.42,
   },
   coming: {
     key: 'coming',
@@ -81,7 +81,7 @@ export const WORLDS: Record<WorldKey, World> = {
     copy: 'CultureComing™ brings the spirit of an HBCU homecoming to CultureBowl™ through National Pan-Hellenic Council–led activations, games, and live experiences.',
     sub: 'Rep your school. Celebrate the culture. Be the first to know when dates drop.',
     rot: -14,
-    wash: 0.85,
+    wash: 1,
   },
   games: {
     key: 'games',

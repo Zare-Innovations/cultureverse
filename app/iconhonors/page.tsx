@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import type { CSSProperties } from 'react';
 import { pageTitle } from '@/lib/site';
 import HonorsForm from '@/components/forms/HonorsForm';
 import EventJsonLd from '@/components/EventJsonLd';
 import Reveal from '@/components/Reveal';
-import { srcSet, LOGO_WIDTHS, STONE_WIDTHS, HONORS_WIDTHS } from '@/lib/img';
+import { srcSet, HONORS_WIDTHS } from '@/lib/img';
 import s from './iconhonors.module.css';
 
 export const metadata: Metadata = {
@@ -78,7 +77,7 @@ function Honorees({ mobile }: { mobile?: boolean }) {
     <div className={mobile ? s.honoreesM : s.honorees}>
       {HONOREES.map((h) => (
         <article key={h.name} className={s.honoree}>
-          <div className={s.portrait}><span className={`hud ${s.portraitText}`}>Headshot<br />pending</span></div>
+          <div className={s.portrait}><Image className={s.headshot} src="/assets/honoree-townsend.webp" alt={h.name} width={1000} height={741} sizes="(min-width: 1024px) 200px, 45vw" /></div>
           <p className={`serif ${s.name}`}>{h.name}</p>
           <p className={`hud ${s.honor}`}>{h.honor}</p>
           <p className={s.bio}>{h.bio}</p>
@@ -102,29 +101,9 @@ export default function IconHonorsPage() {
     <section id="honors" className={`page ${s.honors}`}>
       <EventJsonLd name="The Culture's Coldest™ ICON HONORS" description={metadata.description as string} path="/iconhonors" startDate="2026-10-21" venue="Flourish, Atlanta" />
       <div className={s.bgBox}>
-        <Image className="bgimg" src="/assets/bg-honors.webp" alt="" fill priority sizes="100vw" style={{ objectPosition: '50% 0%' }} />
+        <Image className="bgimg" src="/assets/bg-honors-keyart.webp" alt="" fill priority sizes="100vw" style={{ objectPosition: '50% 50%' }} />
       </div>
       <div aria-hidden="true" className={s.fade} />
-      {/* Silver sweeps layered behind the lockup, as in the adjusted direction: three broad
-          metallic arcs drawn inline, so there is no asset and no request. */}
-      <div aria-hidden="true" className={s.silver} />
-      <svg aria-hidden="true" className={s.sweeps} viewBox="0 0 1440 820" preserveAspectRatio="xMidYMid slice" focusable="false">
-        <defs>
-          <linearGradient id="hnSilver" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#e6edf7" stopOpacity="0.85" />
-            <stop offset="0.45" stopColor="#8fa6cc" stopOpacity="0.55" />
-            <stop offset="1" stopColor="#2c4470" stopOpacity="0" />
-          </linearGradient>
-          <linearGradient id="hnSteel" x1="1" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#d5deee" stopOpacity="0.7" />
-            <stop offset="0.5" stopColor="#4069a9" stopOpacity="0.4" />
-            <stop offset="1" stopColor="#07152a" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-        <path d="M-120 620 C 220 240, 620 120, 1180 -80" fill="none" stroke="url(#hnSilver)" strokeWidth="150" strokeLinecap="round" />
-        <path d="M-60 780 C 320 560, 760 500, 1520 540" fill="none" stroke="url(#hnSteel)" strokeWidth="110" strokeLinecap="round" />
-        <path d="M980 900 C 1160 620, 1300 360, 1560 150" fill="none" stroke="url(#hnSilver)" strokeWidth="90" strokeLinecap="round" />
-      </svg>
 
       {/* Desktop */}
       <div className={`wrap ${s.wrap} only-d`}>
@@ -133,12 +112,6 @@ export default function IconHonorsPage() {
           <div className={`hud ${s.topRight}`}>Flourish, Atlanta<br />Part of The Culture&rsquo;s Coldest&trade;</div>
         </div>
         <div className={s.center}>
-          {/* Decorative objects flanking the lockup. Purely ornamental, so they are hidden from
-              assistive tech, lazy, and sit behind the type. a-in is a no-op under reduced motion. */}
-          <img aria-hidden="true" className={`a-in ${s.orb} ${s.orbLattice}`} style={{ '--d': '900ms' } as CSSProperties} src="/assets/obj-lattice.webp" srcSet={srcSet("/assets/obj-lattice.webp", STONE_WIDTHS, 700)} sizes="(min-width: 1024px) 200px, 110px" alt="" width={700} height={697} loading="lazy" />
-          <img aria-hidden="true" className={`a-in ${s.orb} ${s.orbRing}`} style={{ '--d': '1000ms' } as CSSProperties} src="/assets/obj-ring.webp" srcSet={srcSet("/assets/obj-ring.webp", STONE_WIDTHS, 700)} sizes="(min-width: 1024px) 170px, 100px" alt="" width={700} height={514} loading="lazy" />
-          <img aria-hidden="true" className={`a-in ${s.orb} ${s.orbCoil}`} style={{ '--d': '1100ms' } as CSSProperties} src="/assets/obj-coil.webp" srcSet={srcSet("/assets/obj-coil.webp", STONE_WIDTHS, 691)} sizes="(min-width: 1024px) 140px, 90px" alt="" width={691} height={700} loading="lazy" />
-          <img aria-hidden="true" className={`a-in ${s.orb} ${s.orbShell}`} style={{ '--d': '1200ms' } as CSSProperties} src="/assets/obj-shell.webp" srcSet={srcSet("/assets/obj-shell.webp", STONE_WIDTHS, 631)} sizes="(min-width: 1024px) 125px, 80px" alt="" width={631} height={700} loading="lazy" />
           <h1 className={s.h}><img className={s.mark} src="/assets/logo-iconhonors.png" srcSet={srcSet("/assets/logo-iconhonors.png", HONORS_WIDTHS, 2000)} sizes="(min-width: 1024px) 1400px, 900px" alt="The Culture's Coldest ICON HONORS" width={2000} height={355}  style={{ aspectRatio: '2000 / 355' }} /></h1>
           <p className={`hud ${s.hosted}`}>{HOSTED}</p>
           <span className={`st st-invite ${s.invite}`}>Private, by invitation</span>
@@ -147,7 +120,8 @@ export default function IconHonorsPage() {
 
         <div className={s.inner}>
           {/* 1. The evening, explained */}
-          <Reveal className={s.band}>
+          <Reveal className={`${s.band} ${s.intro}`}>
+            <div>
             <p className={`hud ${s.bandHead} ${s.steel}`}>An iconic evening</p>
             <p className={`serif ${s.about}`}>{ABOUT}</p>
             <ul className={s.pillars}>
@@ -160,6 +134,11 @@ export default function IconHonorsPage() {
                 <div key={k}><dt className={`hud ${s.steel}`}>{k}</dt><dd className={`serif ${s.factV}`}>{v}</dd></div>
               ))}
             </dl>
+            </div>
+            <figure className={s.hosts}>
+              <Image className={s.hostsImg} src="/assets/honors-hosts.webp" alt="Marsai Martin and DJ D-NICE" width={1200} height={399} sizes="(min-width: 1024px) 480px, 100vw" />
+              <figcaption className={`hud ${s.hostsCap}`}>Hosted by Marsai Martin, sounds by DJ D-NICE</figcaption>
+            </figure>
           </Reveal>
 
           <Reveal className={s.frameBox} delay={80}>
@@ -208,9 +187,6 @@ export default function IconHonorsPage() {
           <span className={`hud ${s.gold}`}>Wed Oct 21, 2026</span>
           <span className="hud">Flourish, Atlanta</span>
         </div>
-          {/* One object on mobile: measured, the column has one clear region, right of the
-              invite chip between the hosted line and the frame. */}
-          <img aria-hidden="true" className={`a-in ${s.orb} ${s.orbRingM}`} style={{ '--d': '950ms' } as CSSProperties} src="/assets/obj-ring.webp" srcSet={srcSet("/assets/obj-ring.webp", STONE_WIDTHS, 700)} sizes="90px" alt="" width={700} height={514} loading="lazy" />
         <h1 className={s.hM}><img className={s.markM} src="/assets/logo-iconhonors.png" srcSet={srcSet("/assets/logo-iconhonors.png", HONORS_WIDTHS, 2000)} sizes="(min-width: 1024px) 1400px, 342px" alt="The Culture's Coldest ICON HONORS" width={2000} height={355}  style={{ aspectRatio: '2000 / 355' }} /></h1>
         <p className={`hud ${s.hostedM}`}>{HOSTED}</p>
         <div className={s.inviteM}><span className="st st-invite">Private, by invitation</span></div>
@@ -227,6 +203,10 @@ export default function IconHonorsPage() {
             <div key={k}><dt className={`hud ${s.steel}`}>{k}</dt><dd className={`serif ${s.factVM}`}>{v}</dd></div>
           ))}
         </dl>
+        <figure className={s.hostsM}>
+          <Image className={s.hostsImg} src="/assets/honors-hosts.webp" alt="Marsai Martin and DJ D-NICE" width={1200} height={399} sizes="100vw" />
+          <figcaption className={`hud ${s.hostsCap}`}>Hosted by Marsai Martin, sounds by DJ D-NICE</figcaption>
+        </figure>
 
         <div className={s.frameBoxM}>
           <div aria-hidden="true" className={s.frameM} />

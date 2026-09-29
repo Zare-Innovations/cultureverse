@@ -1,17 +1,21 @@
 .world { color: #fff; font-family: var(--f-text); min-height: 900px; }
 .shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(17, 24, 33, 0.55), rgba(17, 24, 33, 0.1)); }
-/* The stone's own glow carried across the right of the backdrop. Screen lifts the photo
-   rather than covering it, so the art underneath stays readable. */
+/* The stone's own glow carried out across the right of the backdrop: a hot core behind the
+   stone, then a broad lift that fades toward the copy. Screen lifts the photo rather than
+   covering it, so the art underneath stays readable. Centred on the door box. */
 .wash {
   position: absolute;
-  right: 0;
-  top: 0;
-  width: 72%;
-  height: 100%;
-  background: radial-gradient(ellipse 58% 52% at 68% 42%, var(--glow) 0%, transparent 72%);
+  inset: 0;
+  background:
+    radial-gradient(ellipse 16% 26% at 80% 47%, var(--glow) 0%, transparent 70%),
+    radial-gradient(ellipse 34% 48% at 79% 47%, var(--glow) 0%, transparent 72%),
+    radial-gradient(ellipse 55% 75% at 76% 46%, var(--glow) 0%, transparent 74%);
   opacity: var(--wash, 0);
   mix-blend-mode: screen;
   pointer-events: none;
+}
+@media (max-width: 1023.98px) {
+  .wash { background: radial-gradient(ellipse 60% 22% at 50% 20%, var(--glow) 0%, transparent 72%); }
 }
 .wrap { padding-top: 48px; padding-bottom: 60px; min-height: 900px; }
 .top { position: relative; display: flex; justify-content: flex-end; }

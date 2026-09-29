@@ -1,5 +1,5 @@
-/* Adjusted creative direction: the blues are muted, the yellow carries names and dates,
-   and silver sweeps sit behind the lockup. Palette taken from the client's swatches. */
+/* Adjusted creative direction: the client's key art is the backdrop, the blues are muted,
+   and the yellow carries names and dates. Palette taken from the client's swatches. */
 .honors {
   --hon-bg: #07152a;
   --hon-deep: #0a0d12;
@@ -11,42 +11,9 @@
   color: #fff;
   font-family: var(--f-text);
 }
-.bgBox { position: absolute; left: 0; top: 0; width: 100%; height: 760px; }
-/* Edit: the colours are muted, so the hero art sits under a navy veil. */
-.bgBox::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(rgba(7, 21, 42, 0.74), rgba(7, 21, 42, 0.86));
-}
-.fade { position: absolute; left: 0; top: 380px; width: 100%; height: 400px; background: linear-gradient(rgba(7, 21, 42, 0), var(--hon-bg)); }
-
-/* Silver sweeps: three soft arcs of steel light behind the lockup. */
-.silver {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 820px;
-  pointer-events: none;
-  opacity: 0.55;
-  background:
-    radial-gradient(ellipse 60% 42% at 18% 26%, rgba(64, 105, 169, 0.5), transparent 70%),
-    radial-gradient(ellipse 52% 38% at 86% 18%, rgba(22, 108, 188, 0.42), transparent 72%),
-    radial-gradient(ellipse 90% 26% at 50% 78%, rgba(53, 87, 140, 0.45), transparent 76%);
-}
-
-.sweeps {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 820px;
-  pointer-events: none;
-  opacity: 0.2;
-  filter: blur(12px);
-  mix-blend-mode: screen;
-}
+.bgBox { position: absolute; left: 0; top: 0; width: 100%; height: 700px; }
+/* The art fades out before the first section, so its chrome never runs under the copy. */
+.fade { position: absolute; left: 0; top: 330px; width: 100%; height: 370px; background: linear-gradient(rgba(7, 21, 42, 0), var(--hon-bg) 80%); }
 
 .gold { color: var(--hon-gold); }
 .steel { color: var(--hon-steel); }
@@ -55,28 +22,26 @@
 .wrap { padding-top: 48px; padding-bottom: 96px; }
 .top { position: relative; display: flex; justify-content: space-between; align-items: flex-start; }
 .topRight { text-align: right; }
-.center { position: relative; margin-top: 40.3px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.center { position: relative; margin-top: 64px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
 .h { margin: 0; }
 .mark { width: 900px; max-width: 100%; height: auto; }
 /* Edit 2: the hosted line replaces the old tagline, directly under the lockup. */
 .hosted { font-size: 14px; letter-spacing: 0.06em; text-align: center; max-width: 720px; line-height: 1.6; }
 .invite { margin-top: 2px; }
 /* Edit 5: Moving Culture Forward, on the centre line under the lockup. */
-.mcf { width: 300px; height: auto; margin-top: 10px; }
+.mcf { width: 300px; height: auto; margin-top: 44px; }
 
-/* Decorative 3D objects around the hero lockup. Ornament only: no pointer target, and they sit
-   behind the type. .inner comes later in the DOM and is positioned, so it paints over them. */
-.orb { position: absolute; height: auto; pointer-events: none; z-index: 0; filter: drop-shadow(0 22px 34px rgba(0, 0, 0, 0.55)); }
-.orbLattice { left: -14px; top: -58px; width: 200px; transform: rotate(-8deg); }
-.orbRing { right: -34px; top: -22px; width: 170px; transform: rotate(9deg); }
-.orbCoil { right: 74px; bottom: -58px; width: 140px; transform: rotate(-5deg); }
-.orbShell { left: 104px; bottom: -64px; width: 125px; transform: rotate(13deg); }
 .h, .hosted, .invite, .mcf { position: relative; z-index: 1; }
 
 /* Edit 3: the four sections run one after another across the full column, each laid out
    horizontally inside itself, rather than the old two-column split. */
 .inner { position: relative; }
 .band { margin-top: 84px; }
+.intro { display: grid; grid-template-columns: minmax(0, 1fr) 480px; gap: 64px; align-items: start; }
+.hosts { margin: 0; }
+.hostsImg { width: 100%; height: auto; display: block; box-shadow: inset 0 0 0 1px rgba(64, 105, 169, 0.5); }
+.hostsCap { margin-top: 10px; color: var(--hon-steel); }
+.headshot { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; border-radius: 50%; display: block; }
 .bandHead { margin-bottom: 14px; }
 .bandTitle { margin: 0 0 26px; font-size: calc(52 * var(--u)); line-height: 1; font-weight: 400; }
 .about { font-size: calc(30 * var(--u)); line-height: 1.35; max-width: 1060px; }
@@ -137,16 +102,11 @@
 
 @media (max-width: 1023.98px) {
   .bgBox { height: 520px; }
-  .fade { top: 280px; height: 240px; }
-  .silver { height: 560px; opacity: 0.5; }
-  .sweeps { height: 560px; opacity: 0.18; }
+  .fade { top: 240px; height: 280px; }
   .wrapM { padding-top: 40px; padding-bottom: 34px; }
   .topM { position: relative; display: flex; justify-content: space-between; }
   .hM { position: relative; margin: 44px 0 0; }
   .markM { width: 100%; height: auto; }
-  /* Only one object on mobile; the desktop set is not rendered at all in that tree. */
-  .orbLattice, .orbRing, .orbCoil, .orbShell { display: none; }
-  .orbRingM { position: absolute; right: -18px; top: 206px; width: 98px; height: auto; transform: rotate(12deg); pointer-events: none; z-index: 0; filter: drop-shadow(0 16px 26px rgba(0, 0, 0, 0.55)); }
   .hostedM { position: relative; font-size: 11px; letter-spacing: 0.05em; line-height: 1.7; margin-top: 18px; }
   .inviteM { position: relative; margin-top: 16px; display: flex; }
   .mcfM { position: relative; display: block; width: 210px; height: auto; margin-top: 20px; }
@@ -159,6 +119,7 @@
   .factsM > div { border-top: 1px solid rgba(64, 105, 169, 0.5); padding-top: 8px; }
   .factVM { margin: 2px 0 0; font-size: 20px; color: var(--hon-gold); }
 
+  .hostsM { position: relative; margin: 30px 0 0; }
   .frameBoxM { position: relative; margin-top: 30px; width: 100%; height: 210px; }
   .frameM { position: absolute; left: 10px; top: 10px; width: 100%; height: 100%; border: 1px solid var(--hon-steel); }
   .renderM { position: relative; width: 100%; height: 210px; object-fit: cover; object-position: 60% 40%; }
@@ -179,5 +140,4 @@
 }
 
 @media (min-width: 1024px) {
-  .orbRingM { display: none; }
 }

@@ -37,8 +37,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(rgba(246, 0, 58, 0.88), rgba(246, 0, 58, 0.88)),
-    url('/assets/bg-crowd-red.webp') center 40% / 190% no-repeat,
+    linear-gradient(rgba(246, 0, 58, 0.58), rgba(246, 0, 58, 0.58)),
+    url('/assets/bg-crowd-red.webp') center 40% / 160% no-repeat,
     #f6003a;
   /* (0, 724) to (1440, 596) on the frame, extended at the same slope across any width. */
   clip-path: polygon(0 calc(660 * var(--u) + 4.4444cqw), 100% calc(660 * var(--u) - 4.4444cqw), 100% 100%, 0 100%);
