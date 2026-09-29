@@ -26,7 +26,7 @@ export default function ExchngePage() {
         <Image className="bgimg" src="/assets/bg-exchnge.webp" alt="" fill priority sizes="100vw" style={{ objectPosition: '50% 40%', opacity: 0.5 }} />
         <div aria-hidden="true" className={s.shade} />
       </div>
-      <img aria-hidden="true" className={s.sat} src="/assets/obj-satellite.webp" srcSet={srcSet("/assets/obj-satellite.webp", STONE_WIDTHS, 900)} sizes="(min-width: 1024px) 1400px, 180px" alt="" width={900} height={530}  style={{ aspectRatio: '900 / 530' }} />
+      <img aria-hidden="true" className={s.sat} src="/assets/obj-orb.webp" srcSet={srcSet("/assets/obj-orb.webp", STONE_WIDTHS, 1000)} sizes="(min-width: 1024px) 340px, 170px" alt="" width={1000} height={1005} style={{ aspectRatio: '1000 / 1005' }} />
 
       {/* Desktop */}
       <div className={`wrap ${s.wrap} only-d`}>

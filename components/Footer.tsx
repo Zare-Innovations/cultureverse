@@ -48,7 +48,7 @@ export default function Footer() {
   return (
     <footer className={s.foot}>
       <div className={s.red}>
-        <Image className="bgimg" src="/assets/bg-red-fragments.webp" alt="" fill sizes="100vw" style={{ objectPosition: '50% 30%', opacity: 0.22 }} />
+        <Image className="bgimg" src="/assets/bg-red-fragments.webp" alt="" fill sizes="100vw" style={{ objectPosition: '50% 30%', opacity: 0.16 }} />
       </div>
       <div className={`wrap ${s.wrap}`}>
         <div className={s.top}>

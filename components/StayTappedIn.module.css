@@ -23,7 +23,7 @@
 }
 .left {
   padding-top: 76px;
-  max-width: 470px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -31,9 +31,9 @@
 /* The stacked CultureBowl, powered by iHeartMedia lock-up, centred in the red field. */
 .lockup { align-self: center; display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 8px; }
 .logo { width: 224px; height: auto; }
-.powered { width: 150px; height: auto; }
-.title { font-size: calc(60 * var(--u)); line-height: 0.9; white-space: nowrap; }
-.copy { font-size: 16px; line-height: 1.5; max-width: 470px; }
+.powered { width: 150px; height: auto; filter: brightness(0) invert(1); } /* full white on the red, the heart included */
+.title { font-size: calc(68 * var(--u)); line-height: 0.9; white-space: nowrap; }
+.copy { font-size: 18px; line-height: 1.5; max-width: 500px; }
 
 .form {
   margin-top: 150px;
@@ -74,8 +74,8 @@
   .lockup { align-self: flex-start; align-items: flex-start; gap: 6px; }
   .logo { width: 170px; }
   .powered { width: 130px; }
-  .title { font-size: 44px; margin-top: 22px; white-space: normal; }
-  .copy { font-size: 16px; margin-top: 12px; max-width: none; }
+  .title { font-size: 48px; margin-top: 22px; white-space: normal; }
+  .copy { font-size: 17px; margin-top: 12px; max-width: none; }
   .form {
     margin-top: 36px;
     margin-left: 0;
