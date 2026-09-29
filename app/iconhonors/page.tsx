@@ -20,6 +20,10 @@ const ABOUT =
 
 const PILLARS = ['Achievement', 'Excellence', 'Impact'];
 
+/** Intrinsic sizes of the two client posters, cut from the deck. */
+const POSTER_T = [586, 764] as const;
+const POSTER_N = [610, 766] as const;
+
 const EVENING = ['Red carpet', 'Honors presentations', 'Performances', 'Cocktail reception', 'The After Glow'];
 
 const FACTS = [
@@ -126,7 +130,7 @@ export default function IconHonorsPage() {
             </dl>
             </div>
             <figure className={s.hosts}>
-              <Image className={s.hostsImg} src="/assets/poster-night.webp" alt="One unforgettable night: hosted by Marsai Martin, sounds by DJ D-NICE" width={623} height={775} sizes="(min-width: 1024px) 420px, 100vw" />
+              <Image className={s.hostsImg} src="/assets/poster-night.webp" alt="One unforgettable night: hosted by Marsai Martin, sounds by DJ D-NICE" width={POSTER_N[0]} height={POSTER_N[1]} sizes="(min-width: 1024px) 420px, 100vw" />
               <figcaption className={`hud ${s.hostsCap}`}>Hosted by Marsai Martin, sounds by DJ D-NICE</figcaption>
             </figure>
           </Reveal>
@@ -154,7 +158,7 @@ export default function IconHonorsPage() {
           <Reveal className={s.band}>
             <h2 className={`serif ${s.bandTitle}`}>Celebrating the Culture&rsquo;s Coldest&trade;</h2>
             <div className={s.feature}>
-              <Image className={s.poster} src="/assets/poster-townsend.webp" alt="Taylor Townsend, Legacy in Motion Honoree" width={607} height={775} sizes="(min-width: 1024px) 460px, 100vw" />
+              <Image className={s.poster} src="/assets/poster-townsend.webp" alt="Taylor Townsend, Legacy in Motion Honoree" width={POSTER_T[0]} height={POSTER_T[1]} sizes="(min-width: 1024px) 460px, 100vw" />
               <div className={s.featureCopy}>
                 <p className={`hud ${s.gold}`}>Wed Oct 21 &middot; #TCCICONS</p>
                 <p className={`d ${s.featureHonor}`}>Legacy in Motion Honoree</p>
@@ -205,7 +209,7 @@ export default function IconHonorsPage() {
           ))}
         </dl>
         <figure className={s.hostsM}>
-          <Image className={s.hostsImg} src="/assets/poster-night.webp" alt="One unforgettable night: hosted by Marsai Martin, sounds by DJ D-NICE" width={623} height={775} sizes="100vw" />
+          <Image className={s.hostsImg} src="/assets/poster-night.webp" alt="One unforgettable night: hosted by Marsai Martin, sounds by DJ D-NICE" width={POSTER_N[0]} height={POSTER_N[1]} sizes="100vw" />
           <figcaption className={`hud ${s.hostsCap}`}>Hosted by Marsai Martin, sounds by DJ D-NICE</figcaption>
         </figure>
 
@@ -226,7 +230,7 @@ export default function IconHonorsPage() {
 
         <h2 className={`serif ${s.bandTitleM}`}>Celebrating the Culture&rsquo;s Coldest&trade;</h2>
         <div className={s.featureM}>
-          <Image className={s.posterM} src="/assets/poster-townsend.webp" alt="Taylor Townsend, Legacy in Motion Honoree" width={607} height={775} sizes="100vw" />
+          <Image className={s.posterM} src="/assets/poster-townsend.webp" alt="Taylor Townsend, Legacy in Motion Honoree" width={POSTER_T[0]} height={POSTER_T[1]} sizes="100vw" />
           <p className={`hud ${s.gold}`}>Wed Oct 21 &middot; #TCCICONS</p>
           <p className={`d ${s.featureHonorM}`}>Legacy in Motion Honoree</p>
           <p className={`d ${s.featureNameM}`}>Taylor Townsend</p>
