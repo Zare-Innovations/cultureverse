@@ -4,7 +4,7 @@ import { pageTitle } from '@/lib/site';
 import HonorsForm from '@/components/forms/HonorsForm';
 import EventJsonLd from '@/components/EventJsonLd';
 import Reveal from '@/components/Reveal';
-import { srcSet, HONORS_WIDTHS } from '@/lib/img';
+import { srcSet, HONORS_WIDTHS, OBJECT_WIDTHS } from '@/lib/img';
 import s from './iconhonors.module.css';
 
 export const metadata: Metadata = {
@@ -21,16 +21,6 @@ const ABOUT =
 const PILLARS = ['Achievement', 'Excellence', 'Impact'];
 
 const EVENING = ['Red carpet', 'Honors presentations', 'Performances', 'Cocktail reception', 'The After Glow'];
-
-/** One confirmed honoree; the rest of the class lands with headshots and bios once approved. */
-const HONOREES = [
-  {
-    name: '[Taylor Townsend]',
-    honor: 'Legacy in Motion Honoree',
-    bio: 'Bio to follow with approval.',
-    note: 'Pending approval',
-  },
-] as const;
 
 const FACTS = [
   ['Date', 'Wed Oct 21, 2026'],
@@ -72,18 +62,9 @@ function Logos({ list, cols, mobile }: { list: readonly (readonly [string, numbe
 
 /** The honoree grid: one approved name and three slots waiting on the class. */
 function Honorees({ mobile }: { mobile?: boolean }) {
-  const slots = mobile ? [0, 1] : [0, 1, 2];
+  const slots = mobile ? [0, 1] : [0, 1, 2, 3];
   return (
     <div className={mobile ? s.honoreesM : s.honorees}>
-      {HONOREES.map((h) => (
-        <article key={h.name} className={s.honoree}>
-          <div className={s.portrait}><Image className={s.headshot} src="/assets/honoree-townsend.webp" alt={h.name} width={1000} height={741} sizes="(min-width: 1024px) 200px, 45vw" /></div>
-          <p className={`serif ${s.name}`}>{h.name}</p>
-          <p className={`hud ${s.honor}`}>{h.honor}</p>
-          <p className={s.bio}>{h.bio}</p>
-          <p className={`hud ${s.muted}`}>{h.note}</p>
-        </article>
-      ))}
       {slots.map((i) => (
         <article key={i} aria-hidden="true" className={s.honoree}>
           <div className={`${s.portrait} ${s.portal}`}><span className={`hud ${s.portalText}`}>To be<br />announced</span></div>
@@ -102,6 +83,15 @@ export default function IconHonorsPage() {
       <EventJsonLd name="The Culture's Coldest™ ICON HONORS" description={metadata.description as string} path="/iconhonors" startDate="2026-10-21" venue="Flourish, Atlanta" />
       <div className={s.bgBox}>
         <Image className="bgimg" src="/assets/bg-honors-keyart.webp" alt="" fill priority sizes="100vw" style={{ objectPosition: '50% 50%' }} />
+        {/* The key art's composition rebuilt from the supplied renders at full resolution: the two
+            chrome blades framing the lockup from the bottom corners, the ring sweeping across the
+            top, and the coil and lattice as small accents. The art underneath is softened so its
+            own baked-in arcs read as glow under these crisp edges. */}
+        <img aria-hidden="true" className={`${s.obj} ${s.shellL}`} src="/assets/obj-shell.webp" srcSet={srcSet('/assets/obj-shell.webp', OBJECT_WIDTHS, 1400)} sizes="(min-width: 1024px) 640px, 300px" alt="" width={1400} height={1555} />
+        <img aria-hidden="true" className={`${s.obj} ${s.shellR}`} src="/assets/obj-shell.webp" srcSet={srcSet('/assets/obj-shell.webp', OBJECT_WIDTHS, 1400)} sizes="(min-width: 1024px) 640px, 300px" alt="" width={1400} height={1555} />
+        <img aria-hidden="true" className={`${s.obj} ${s.ring}`} src="/assets/obj-ring.webp" srcSet={srcSet('/assets/obj-ring.webp', OBJECT_WIDTHS, 1400)} sizes="(min-width: 1024px) 1400px, 900px" alt="" width={1400} height={1028} />
+        <img aria-hidden="true" className={`${s.obj} ${s.coil}`} src="/assets/obj-coil.webp" srcSet={srcSet('/assets/obj-coil.webp', OBJECT_WIDTHS, 1400)} sizes="(min-width: 1024px) 220px, 90px" alt="" width={1400} height={1419} loading="lazy" />
+        <img aria-hidden="true" className={`${s.obj} ${s.lattice}`} src="/assets/obj-lattice.webp" srcSet={srcSet('/assets/obj-lattice.webp', OBJECT_WIDTHS, 1400)} sizes="(min-width: 1024px) 240px, 100px" alt="" width={1400} height={1393} loading="lazy" />
       </div>
       <div aria-hidden="true" className={s.fade} />
 
@@ -136,7 +126,7 @@ export default function IconHonorsPage() {
             </dl>
             </div>
             <figure className={s.hosts}>
-              <Image className={s.hostsImg} src="/assets/honors-hosts.webp" alt="Marsai Martin and DJ D-NICE" width={1200} height={399} sizes="(min-width: 1024px) 480px, 100vw" />
+              <Image className={s.hostsImg} src="/assets/poster-night.webp" alt="One unforgettable night: hosted by Marsai Martin, sounds by DJ D-NICE" width={623} height={775} sizes="(min-width: 1024px) 420px, 100vw" />
               <figcaption className={`hud ${s.hostsCap}`}>Hosted by Marsai Martin, sounds by DJ D-NICE</figcaption>
             </figure>
           </Reveal>
@@ -163,6 +153,17 @@ export default function IconHonorsPage() {
           {/* 3. The class */}
           <Reveal className={s.band}>
             <h2 className={`serif ${s.bandTitle}`}>Celebrating the Culture&rsquo;s Coldest&trade;</h2>
+            <div className={s.feature}>
+              <Image className={s.poster} src="/assets/poster-townsend.webp" alt="Taylor Townsend, Legacy in Motion Honoree" width={607} height={775} sizes="(min-width: 1024px) 460px, 100vw" />
+              <div className={s.featureCopy}>
+                <p className={`hud ${s.gold}`}>Wed Oct 21 &middot; #TCCICONS</p>
+                <p className={`d ${s.featureHonor}`}>Legacy in Motion Honoree</p>
+                <p className={`d ${s.featureName}`}>Taylor Townsend</p>
+                <p className={s.featureBio}>Bio to follow with approval.</p>
+                <p className={`hud ${s.muted}`}>Pending approval</p>
+              </div>
+            </div>
+            <p className={`hud ${s.steel} ${s.classHead}`}>The class</p>
             <Honorees />
             <p className={`serif ${s.more}`}>more to be announced</p>
           </Reveal>
@@ -204,7 +205,7 @@ export default function IconHonorsPage() {
           ))}
         </dl>
         <figure className={s.hostsM}>
-          <Image className={s.hostsImg} src="/assets/honors-hosts.webp" alt="Marsai Martin and DJ D-NICE" width={1200} height={399} sizes="100vw" />
+          <Image className={s.hostsImg} src="/assets/poster-night.webp" alt="One unforgettable night: hosted by Marsai Martin, sounds by DJ D-NICE" width={623} height={775} sizes="100vw" />
           <figcaption className={`hud ${s.hostsCap}`}>Hosted by Marsai Martin, sounds by DJ D-NICE</figcaption>
         </figure>
 
@@ -224,6 +225,14 @@ export default function IconHonorsPage() {
         </ol>
 
         <h2 className={`serif ${s.bandTitleM}`}>Celebrating the Culture&rsquo;s Coldest&trade;</h2>
+        <div className={s.featureM}>
+          <Image className={s.posterM} src="/assets/poster-townsend.webp" alt="Taylor Townsend, Legacy in Motion Honoree" width={607} height={775} sizes="100vw" />
+          <p className={`hud ${s.gold}`}>Wed Oct 21 &middot; #TCCICONS</p>
+          <p className={`d ${s.featureHonorM}`}>Legacy in Motion Honoree</p>
+          <p className={`d ${s.featureNameM}`}>Taylor Townsend</p>
+          <p className={`hud ${s.muted}`}>Pending approval</p>
+        </div>
+        <p className={`hud ${s.steel} ${s.classHeadM}`}>The class</p>
         <Honorees mobile />
         <p className={`serif ${s.moreM}`}>more to be announced</p>
 

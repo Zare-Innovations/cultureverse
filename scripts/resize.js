@@ -12,7 +12,9 @@ const OUT = path.join(SRC, 'r');
 fs.mkdirSync(OUT, { recursive: true });
 
 const JOBS = [
-  ...['stone-ice', 'stone-obsidian', 'stone-blue', 'stone-green', 'stone-red', 'stone-orange', 'stone-purple', 'obj-satellite', 'obj-shell', 'obj-ring', 'obj-coil', 'obj-lattice'].map((n) => ({ file: `${n}.webp`, widths: [260, 520] })),
+  ...['stone-ice', 'stone-obsidian', 'stone-blue', 'stone-green', 'stone-red', 'stone-orange', 'stone-purple', 'obj-satellite'].map((n) => ({ file: `${n}.webp`, widths: [260, 520] })),
+  // The ICON HONORS objects render up to 320 CSS px, so they carry a candidate for 2x displays.
+  ...['obj-shell', 'obj-ring', 'obj-coil', 'obj-lattice'].map((n) => ({ file: `${n}.webp`, widths: [260, 520, 800] })),
   ...['logo-cultureverse', 'logo-culturelive', 'logo-cultureexpo', 'logo-culturegames', 'logo-cultureunion', 'logo-culturecoming', 'logo-exchnge', 'logo-biggive', 'logo-culturebowl-iheart'].map((n) => ({ file: `${n}.png`, widths: [400, 800] })),
   // ICON HONORS is the one mark that renders large (900 CSS px), so it carries an extra candidate.
   { file: 'logo-iconhonors.png', widths: [400, 800, 1200] },
