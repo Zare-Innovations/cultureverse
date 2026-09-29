@@ -28,7 +28,7 @@ export type Shard = {
 
 /** Desktop hero stones (Main.dc.html). Positions are px on the 1440 x 900 frame. */
 export const SHARDS_D: Shard[] = [
-  { id: 'games', src: WORLDS.games.shard, iw: WORLDS.games.shardW, ih: WORLDS.games.shardH, x: -40, y: 44, w: 140, rot: -20, dp: 20, fx: -520, fy: -300, fr: -70, d: 120, glow: WORLDS.games.glow, href: WORLDS.games.route, day: 'Coming 2027', name: WORLDS.games.name, venue: '', status: 'Coming soon', lx: 64, ly: 246 },
+  { id: 'games', src: WORLDS.games.shard, iw: WORLDS.games.shardW, ih: WORLDS.games.shardH, x: -56, y: 96, w: 140, rot: -20, dp: 20, fx: -520, fy: -300, fr: -70, d: 120, glow: WORLDS.games.glow, href: WORLDS.games.route, day: 'Coming 2027', name: WORLDS.games.name, venue: '', status: 'Coming soon', lx: 80, ly: 236 },
   { id: 'honors', src: '/assets/stone-ice.webp', iw: 625, ih: 900, x: 232, y: 132, w: 176, rot: -14, dp: 18, fx: -520, fy: -260, fr: -60, d: 150, glow: '#17A2BE', href: EVENT_HREF.honors, day: 'Wed Oct 21', name: 'ICON HONORS', venue: 'Flourish', status: 'Private, by invitation', lx: 14, ly: 200 },
   { id: 'coming', src: WORLDS.coming.shard, iw: WORLDS.coming.shardW, ih: WORLDS.coming.shardH, x: -10, y: 370, w: 136, rot: 12, dp: 14, fx: -600, fy: 160, fr: 40, d: 300, glow: WORLDS.coming.glow, href: WORLDS.coming.route, day: 'Dates to come', name: WORLDS.coming.name, venue: '', status: 'Coming soon', lx: 130, ly: 40 },
   { id: 'exchnge', src: '/assets/obj-satellite.webp', iw: 900, ih: 530, x: 300, y: 440, w: 112, rot: -8, dp: 10, fx: -640, fy: 120, fr: 20, d: 260, glow: '#3971FF', href: EVENT_HREF.exchnge, day: 'Thu Oct 22', name: 'The Culture EXCHNGE', venue: 'RETREAT by The Gathering Spot', status: 'Request to attend', lx: -40, ly: 74 },
