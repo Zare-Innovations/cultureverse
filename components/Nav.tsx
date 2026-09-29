@@ -115,21 +115,24 @@ export default function Nav() {
                       </div>
                       <div>
                         <p className={`hud ${s.ddHead}`}>2026 Experiences</p>
+                        <Link className={s.dditem} href="/culturelive">
+                          <img src="/assets/logo-culturelive.png" srcSet={srcSet("/assets/logo-culturelive.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={502} loading="lazy"  style={{ aspectRatio: '1000 / 502' }} />
+                          CultureLive™
+                        </Link>
+
                         <Link className={s.dditem} href="/iconhonors">
                           <img src="/assets/logo-iconhonors.png" srcSet={srcSet("/assets/logo-iconhonors.png", LOGO_WIDTHS, 2000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={2000} height={355} loading="lazy"  style={{ aspectRatio: '2000 / 355' }} />
                           The Culture&apos;s Coldest™ ICON HONORS
                         </Link>
+
                         <Link className={s.dditem} href="/exchnge">
                           <img src="/assets/logo-exchnge.png" srcSet={srcSet("/assets/logo-exchnge.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={271} loading="lazy"  style={{ aspectRatio: '1000 / 271' }} />
                           The Culture EXCHNGE™
                         </Link>
-                        <Link className={s.dditem} href="/biggive">
+
+                        <Link className={`${s.dditem} ${s.ddLast}`} href="/biggive">
                           <img src="/assets/logo-biggive.png" srcSet={srcSet("/assets/logo-biggive.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={477} loading="lazy"  style={{ aspectRatio: '1000 / 477' }} />
                           The Culture&apos;s BIG GIVE™
-                        </Link>
-                        <Link className={`${s.dditem} ${s.ddLast}`} href="/culturelive">
-                          <img src="/assets/logo-culturelive.png" srcSet={srcSet("/assets/logo-culturelive.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={1000} height={502} loading="lazy"  style={{ aspectRatio: '1000 / 502' }} />
-                          CultureLive™
                         </Link>
                       </div>
                       <div>
