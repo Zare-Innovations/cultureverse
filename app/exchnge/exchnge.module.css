@@ -7,9 +7,9 @@
 }
 .sat {
   position: absolute;
-  left: calc(50% + 320px);
-  top: 44px;
-  width: 300px;
+  left: calc(50% + 330px);
+  top: 118px;
+  width: 262px;
   height: auto;
   filter: drop-shadow(0 0 40px rgba(57, 113, 255, 0.45)) drop-shadow(0 30px 50px rgba(0, 0, 0, 0.6));
 }
