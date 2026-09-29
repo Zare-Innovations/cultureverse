@@ -30,7 +30,7 @@ const { chromium } = require('playwright');
   const afterFocus = await page.evaluate(() => document.querySelector('main .only-d .hud[class*="label"]')?.textContent);
   check('stone label changes on focus', afterFocus?.includes('BIG GIVE'), afterFocus);
   const hrefs = await page.evaluate(() => Array.from(document.querySelectorAll('main .only-d a.door')).map((a) => a.getAttribute('href')));
-  check('stones link to world pages', JSON.stringify(hrefs) === JSON.stringify(['/culturegames', '/iconhonors', '/culturecoming', '/exchnge', '/culturelive', '/cultureexpo', '/biggive']), hrefs.join(','));
+  check('stones link to world pages', JSON.stringify(hrefs) === JSON.stringify(['/culturegames', '/iconhonors', '/culturecoming', '/exchnge', '/cultureunion', '/culturelive', '/cultureexpo', '/biggive']), hrefs.join(','));
 
   // 3. Parallax responds to the cursor.
   await page.mouse.move(1400, 100);

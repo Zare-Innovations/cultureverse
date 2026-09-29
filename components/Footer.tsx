@@ -53,11 +53,7 @@ export default function Footer() {
       <div className={`wrap ${s.wrap}`}>
         <div className={s.top}>
           <div className={s.head}>
-            <p className={`d ${s.calling}`}>
-              The Culture
-              <br />
-              Is Calling
-            </p>
+            <p className={`d ${s.calling}`}>The Culture Is Calling</p>
             <p className={`hud ${s.tag}`}>A worldwide celebration of culture</p>
           </div>
           <div className={s.ctas}>

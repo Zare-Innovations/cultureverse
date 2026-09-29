@@ -18,10 +18,10 @@
 }
 .wrap { min-height: 640px; }
 .top { position: relative; height: 260px; }
-.head { position: absolute; left: 0; top: 56px; display: flex; flex-direction: column; gap: 14px; }
-.calling { font-size: calc(68 * var(--u)); line-height: 0.88; }
+.head { position: absolute; left: 0; top: 80px; display: flex; flex-direction: column; gap: 14px; }
+.calling { font-size: calc(60 * var(--u)); line-height: 0.9; white-space: nowrap; }
 .tag { font-size: 11px; letter-spacing: 0.12em; }
-.ctas { position: absolute; right: 0; top: 66px; display: flex; gap: 14px; }
+.ctas { position: absolute; right: 0; top: 96px; display: flex; gap: 14px; }
 
 .grid {
   margin-top: 56px;
@@ -67,7 +67,7 @@
   .wrap { min-height: 0; padding-bottom: 29px; }
   .top { height: auto; padding-top: 40px; }
   .head { position: static; gap: 0; }
-  .calling { font-size: 38px; line-height: 0.9; }
+  .calling { font-size: 38px; line-height: 0.9; white-space: normal; }
   .tag { font-size: 9px; margin-top: 15.52px; /* artboard row 140 */ }
   .ctas { position: static; flex-direction: column; gap: 10px; margin-top: 24.5px; /* artboard row 178 */ }
   .ctas > * { width: 100%; }

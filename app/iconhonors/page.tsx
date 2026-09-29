@@ -105,8 +105,26 @@ export default function IconHonorsPage() {
         <Image className="bgimg" src="/assets/bg-honors.webp" alt="" fill priority sizes="100vw" style={{ objectPosition: '50% 0%' }} />
       </div>
       <div aria-hidden="true" className={s.fade} />
-      {/* Silver sweeps layered behind the lockup: pure CSS, no asset and no request. */}
+      {/* Silver sweeps layered behind the lockup, as in the adjusted direction: three broad
+          metallic arcs drawn inline, so there is no asset and no request. */}
       <div aria-hidden="true" className={s.silver} />
+      <svg aria-hidden="true" className={s.sweeps} viewBox="0 0 1440 820" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <defs>
+          <linearGradient id="hnSilver" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stopColor="#e6edf7" stopOpacity="0.85" />
+            <stop offset="0.45" stopColor="#8fa6cc" stopOpacity="0.55" />
+            <stop offset="1" stopColor="#2c4470" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient id="hnSteel" x1="1" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#d5deee" stopOpacity="0.7" />
+            <stop offset="0.5" stopColor="#4069a9" stopOpacity="0.4" />
+            <stop offset="1" stopColor="#07152a" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        <path d="M-120 620 C 220 240, 620 120, 1180 -80" fill="none" stroke="url(#hnSilver)" strokeWidth="150" strokeLinecap="round" />
+        <path d="M-60 780 C 320 560, 760 500, 1520 540" fill="none" stroke="url(#hnSteel)" strokeWidth="110" strokeLinecap="round" />
+        <path d="M980 900 C 1160 620, 1300 360, 1560 150" fill="none" stroke="url(#hnSilver)" strokeWidth="90" strokeLinecap="round" />
+      </svg>
 
       {/* Desktop */}
       <div className={`wrap ${s.wrap} only-d`}>
