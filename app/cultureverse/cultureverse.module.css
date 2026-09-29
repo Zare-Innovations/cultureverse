@@ -40,6 +40,8 @@
 .doorBox { position: relative; height: 150px; display: flex; align-items: center; justify-content: center; }
 .shard { width: 180px; max-width: 100%; height: 150px; object-fit: contain; }
 .mark { width: 200px; max-width: 100%; object-fit: contain; object-position: left center; }
+/* The client wants these two marks flat white on the hub, like the dropdown. */
+.markWhite { filter: brightness(0) invert(1); }
 .when { font-size: 12px; }
 .status { opacity: 0.7; }
 .cta { border-bottom: 2px solid #f6003a; align-self: flex-start; padding-bottom: 3px; }
@@ -48,7 +50,12 @@
 .comingGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 16px; }
 .worldRow { flex-direction: row; align-items: center; gap: 22px; }
 .dormantBox { width: 130px; height: 120px; flex: none; display: flex; align-items: center; justify-content: center; }
-.dormantImg { width: 130px; height: 110px; object-fit: contain; }
+.dormantImg { width: 130px; height: 110px; object-fit: contain; transition: filter var(--t-light) var(--ease-out); }
+/* Hovering a coming-soon card wakes its stone in the world's own colour. */
+.worldRow:hover .dormantImg,
+.worldRow:focus-visible .dormantImg {
+  filter: grayscale(0.25) brightness(0.95) contrast(1.1) drop-shadow(0 0 22px var(--glow)) drop-shadow(0 0 3px var(--glow));
+}
 .comingCopy { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
 .comingMark { height: 40px; width: 200px; max-width: 100%; object-fit: contain; object-position: left center; }
 .comingWhen { opacity: 0.8; }
@@ -94,7 +101,10 @@
   .whenM { font-size: 10px; }
   .ctaM { font-size: 10px; padding-bottom: 2px; }
   .dormantBoxM { width: 84px; height: 74px; flex: none; display: flex; align-items: center; justify-content: center; }
-  .dormantImgM { width: 84px; height: 70px; object-fit: contain; }
+  .dormantImgM { width: 84px; height: 70px; object-fit: contain; transition: filter var(--t-light) var(--ease-out); }
+  .worldM:hover .dormantImgM,
+  .worldM:active .dormantImgM,
+  .worldM:focus-visible .dormantImgM { filter: grayscale(0.25) brightness(0.95) contrast(1.1) drop-shadow(0 0 16px var(--glow)) drop-shadow(0 0 2px var(--glow)); }
   .comingMarkM { height: 30px; width: 170px; max-width: 100%; object-fit: contain; object-position: left center; }
   .comingWhenM { font-size: 10px; opacity: 0.8; }
   .tapM {
