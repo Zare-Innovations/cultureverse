@@ -78,38 +78,3 @@
 .bgM .gtog { padding: 0 16px; }
 .bgTitleM { font-size: 34px; }
 .bgDoneM { font-size: 16px; line-height: 1.5; }
-
-/* ICON HONORS */
-.hnD {
-  position: relative;
-  margin-top: 39px;
-  display: flex;
-  align-items: flex-end;
-  gap: 32px;
-  border-top: 1px solid rgba(82, 127, 155, 0.6);
-  padding-top: 26px;
-  flex-wrap: wrap;
-}
-.hnLabel { font-size: 28px; line-height: 1.15; width: 420px; }
-.hnGrow { flex-grow: 1; }
-.hfield {
-  appearance: none;
-  width: 100%;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid #527f9b;
-  border-radius: 0;
-  color: #fff;
-  padding: 10px 0;
-  font-family: var(--f-serif);
-  font-size: 26px;
-  outline: none;
-}
-.hfield::placeholder { color: #527f9b; }
-.hfield:focus { border-bottom-color: #17a2be; }
-.hnError { width: 100%; }
-.hnDone { font-size: 30px; }
-.hnM { position: relative; margin-top: 34px; display: flex; flex-direction: column; gap: 14px; }
-.hnLabelM { font-size: 24px; line-height: 1.2; }
-.hfieldM { font-size: 24px; }
-.hnDoneM { font-size: 28px; }
