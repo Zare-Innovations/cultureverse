@@ -5,7 +5,7 @@ import type { CSSProperties } from 'react';
 import { pageTitle } from '@/lib/site';
 import ExchngeForm from '@/components/forms/ExchngeForm';
 import EventJsonLd from '@/components/EventJsonLd';
-import { srcSet, LOGO_WIDTHS, STONE_WIDTHS } from '@/lib/img';
+import { srcSet, LOGO_WIDTHS } from '@/lib/img';
 import e from '@/components/event/event.module.css';
 import s from './exchnge.module.css';
 
@@ -26,7 +26,6 @@ export default function ExchngePage() {
         <Image className="bgimg" src="/assets/bg-exchnge.webp" alt="" fill priority sizes="100vw" style={{ objectPosition: '50% 40%', opacity: 0.5 }} />
         <div aria-hidden="true" className={s.shade} />
       </div>
-      <img aria-hidden="true" className={s.sat} src="/assets/obj-orb.webp" srcSet={srcSet("/assets/obj-orb.webp", STONE_WIDTHS, 1000)} sizes="(min-width: 1024px) 340px, 170px" alt="" width={1000} height={1005} style={{ aspectRatio: '1000 / 1005' }} />
 
       {/* Desktop */}
       <div className={`wrap ${s.wrap} only-d`}>
