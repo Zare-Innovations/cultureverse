@@ -27,10 +27,10 @@ const EVENING = ['Red carpet', 'Honors presentations', 'Performances', 'Cocktail
  * row to reveal it. Headshots are the client's 2000px round crops at public/assets/honorees/.
  */
 const HONOREES = [
-  { slug: 'duckett', name: 'Thasunda Duckett', title: 'President and Chief Executive Officer, TIAA', announced: false },
-  { slug: 'moore', name: 'Minyon Moore', title: 'Principal & Managing Partner, Dewey Square Group', announced: false },
-  { slug: 'townsend', name: 'Taylor Townsend', title: '2026 US Open Doubles Champion (U.S.A), Career Grand Slam', announced: false },
-  { slug: 'reynolds', name: 'James Reynolds', title: 'Founder, Chairman, Chief Executive Officer, Loop Capital', announced: false },
+  { slug: 'duckett', name: 'Thasunda Duckett', title: 'President and Chief Executive Officer, TIAA', announced: true },
+  { slug: 'moore', name: 'Minyon Moore', title: 'Principal & Managing Partner, Dewey Square Group', announced: true },
+  { slug: 'townsend', name: 'Taylor Townsend', title: '2026 US Open | Doubles Champion (U.S.A), Career Grand Slam', announced: true },
+  { slug: 'reynolds', name: 'James Reynolds', title: 'Founder, Chairman, Chief Executive Officer, Loop Capital', announced: true },
 ] as const;
 
 const FACTS = [
