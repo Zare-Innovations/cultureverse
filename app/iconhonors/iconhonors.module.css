@@ -74,7 +74,7 @@
 .facts > div { border-top: 1px solid rgba(64, 105, 169, 0.5); padding-top: 10px; }
 .factV { margin: 4px 0 0; font-size: 26px; color: var(--hon-gold); }
 
-.frameBox { position: relative; margin-top: 64px; width: 100%; aspect-ratio: 2 / 1; }
+.frameBox { position: relative; margin-top: 64px; width: 100%; aspect-ratio: 2000 / 994; }
 .frame { position: absolute; left: 18px; top: 18px; width: 100%; height: 100%; border: 1px solid var(--hon-steel); }
 .render { position: relative; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
 
@@ -111,7 +111,7 @@
   justify-content: center;
 }
 .portrait span { text-align: center; line-height: 1.5; }
-.portrait { overflow: hidden; border-color: rgba(64, 105, 169, 0.5); }
+.portrait { overflow: hidden; border: 0; background: none; }
 .portraitText { color: var(--hon-steel); }
 .portal { border-style: dashed; border-width: 1px; border-color: var(--hon-muted); background: rgba(53, 87, 140, 0.12); }
 .portalText { color: var(--hon-muted); }
@@ -159,7 +159,7 @@
   .factVM { margin: 2px 0 0; font-size: 20px; color: var(--hon-gold); }
 
   .hostsM { position: relative; margin: 30px 0 0; }
-  .frameBoxM { position: relative; margin-top: 30px; width: 100%; aspect-ratio: 2 / 1; }
+  .frameBoxM { position: relative; margin-top: 30px; width: 100%; aspect-ratio: 2000 / 994; }
   .frameM { position: absolute; left: 10px; top: 10px; width: 100%; height: 100%; border: 1px solid var(--hon-steel); }
   .renderM { position: relative; width: 100%; height: 100%; object-fit: cover; }
 

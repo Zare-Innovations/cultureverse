@@ -103,7 +103,7 @@ export default function IconHonorsPage() {
           {/* The hosts banner, framed. */}
           <Reveal className={s.frameBox} delay={80}>
             <div aria-hidden="true" className={s.frame} />
-            <Image className={s.render} src="/assets/honors-banner.webp" alt="One unforgettable night: hosted by Marsai Martin, with The Culture's Coldest sounds by DJ D-NICE" width={2000} height={1000} sizes="(min-width: 1024px) 1312px, 100vw" />
+            <Image className={s.render} src="/assets/honors-banner.webp" alt="One unforgettable night: hosted by Marsai Martin, with The Culture's Coldest sounds by DJ D-NICE" width={2000} height={994} sizes="(min-width: 1024px) 1312px, 100vw" />
           </Reveal>
 
           {/* 2. The evening, hour by hour */}
@@ -152,7 +152,7 @@ export default function IconHonorsPage() {
 
         <div className={s.frameBoxM}>
           <div aria-hidden="true" className={s.frameM} />
-          <Image className={s.renderM} src="/assets/honors-banner.webp" alt="One unforgettable night: hosted by Marsai Martin, with The Culture's Coldest sounds by DJ D-NICE" width={2000} height={1000} sizes="100vw" />
+          <Image className={s.renderM} src="/assets/honors-banner.webp" alt="One unforgettable night: hosted by Marsai Martin, with The Culture's Coldest sounds by DJ D-NICE" width={2000} height={994} sizes="100vw" />
         </div>
 
         <p className={`serif ${s.bandTitleM}`}>The evening</p>
