@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { pageTitle } from '@/lib/site';
-import HonorsForm from '@/components/forms/HonorsForm';
 import Reveal from '@/components/Reveal';
 import { srcSet, HONORS_WIDTHS, OBJECT_WIDTHS } from '@/lib/img';
 import s from './iconhonors.module.css';
@@ -78,9 +77,6 @@ export default function IconHonorsPage() {
 
       {/* Desktop */}
       <div className={`wrap ${s.wrap} only-d`}>
-        <div className={s.top}>
-          <div className={`hud ${s.topRight}`}>Part of The Culture&rsquo;s Coldest&trade;</div>
-        </div>
         <div className={s.center}>
           <h1 className={s.h}><img className={s.mark} src="/assets/logo-iconhonors.png" srcSet={srcSet("/assets/logo-iconhonors.png", HONORS_WIDTHS, 2000)} sizes="(min-width: 1024px) 1400px, 900px" alt="The Culture's Coldest ICON HONORS" width={2000} height={350}  style={{ aspectRatio: '2000 / 350' }} /></h1>
           <p className={`hud ${s.hosted}`}>{HOSTED}</p>
@@ -127,17 +123,11 @@ export default function IconHonorsPage() {
             <Honorees />
             <p className={`serif ${s.more}`}>more to be announced</p>
           </Reveal>
-
-
-          <HonorsForm variant="d" />
         </div>
       </div>
 
       {/* Mobile */}
       <div className={`wrap ${s.wrapM} only-m`}>
-        <div className={s.topM}>
-          <span className="hud">Part of The Culture&rsquo;s Coldest&trade;</span>
-        </div>
         <h1 className={s.hM}><img className={s.markM} src="/assets/logo-iconhonors.png" srcSet={srcSet("/assets/logo-iconhonors.png", HONORS_WIDTHS, 2000)} sizes="(min-width: 1024px) 1400px, 342px" alt="The Culture's Coldest ICON HONORS" width={2000} height={350}  style={{ aspectRatio: '2000 / 350' }} /></h1>
         <p className={`hud ${s.hostedM}`}>{HOSTED}</p>
         <div className={s.inviteM}><span className="st st-invite">Private, by invitation</span></div>
@@ -169,8 +159,6 @@ export default function IconHonorsPage() {
         <p className={`hud ${s.steel} ${s.classHeadM}`}>The Class of 2026</p>
         <Honorees mobile />
         <p className={`serif ${s.moreM}`}>more to be announced</p>
-
-        <HonorsForm variant="m" />
       </div>
     </section>
   );

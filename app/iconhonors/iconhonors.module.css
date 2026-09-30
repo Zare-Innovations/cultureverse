@@ -27,8 +27,6 @@
 .muted { color: var(--hon-muted); }
 
 .wrap { padding-top: 48px; padding-bottom: 96px; }
-.top { position: relative; display: flex; justify-content: flex-end; align-items: flex-start; }
-.topRight { text-align: right; }
 .center { position: relative; margin-top: 64px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
 .h { margin: 0; }
 .mark { width: 900px; max-width: 100%; height: auto; }
@@ -143,7 +141,6 @@
   .featureNameM { font-size: 34px; line-height: 1; color: var(--hon-gold); }
   .classHeadM { position: relative; margin: 0 0 12px; }
   .wrapM { padding-top: 40px; padding-bottom: 34px; }
-  .topM { position: relative; display: flex; justify-content: flex-start; }
   .hM { position: relative; margin: 44px 0 0; }
   .markM { width: 100%; height: auto; }
   .hostedM { position: relative; font-size: 11px; letter-spacing: 0.05em; line-height: 1.7; margin-top: 18px; }
