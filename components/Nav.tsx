@@ -121,7 +121,7 @@ export default function Nav() {
                         </Link>
 
                         <Link className={s.dditem} href="/iconhonors">
-                          <img src="/assets/logo-iconhonors.png" srcSet={srcSet("/assets/logo-iconhonors.png", LOGO_WIDTHS, 2000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={2000} height={355} loading="lazy"  style={{ aspectRatio: '2000 / 355' }} />
+                          <img src="/assets/logo-iconhonors.png" srcSet={srcSet("/assets/logo-iconhonors.png", LOGO_WIDTHS, 2000)} sizes="(min-width: 1024px) 1400px, 72px" alt="" width={2000} height={350} loading="lazy"  style={{ aspectRatio: '2000 / 350' }} />
                           The Culture&apos;s Coldest™ ICON HONORS
                         </Link>
 

@@ -27,7 +27,7 @@
 .muted { color: var(--hon-muted); }
 
 .wrap { padding-top: 48px; padding-bottom: 96px; }
-.top { position: relative; display: flex; justify-content: space-between; align-items: flex-start; }
+.top { position: relative; display: flex; justify-content: flex-end; align-items: flex-start; }
 .topRight { text-align: right; }
 .center { position: relative; margin-top: 64px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
 .h { margin: 0; }
@@ -44,7 +44,7 @@
    horizontally inside itself, rather than the old two-column split. */
 .inner { position: relative; }
 .band { margin-top: 84px; }
-.intro { display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 64px; align-items: start; }
+.intro { text-align: center; display: flex; flex-direction: column; align-items: center; }
 .hosts { margin: 0; }
 .hostsImg {
   width: 100%;
@@ -57,7 +57,7 @@
 .headshot { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; border-radius: 50%; display: block; }
 .bandHead { margin-bottom: 14px; }
 .bandTitle { margin: 0 0 26px; font-size: calc(52 * var(--u)); line-height: 1; font-weight: 400; }
-.about { font-size: calc(30 * var(--u)); line-height: 1.35; max-width: 1060px; }
+.about { font-size: calc(26 * var(--u)); line-height: 1.4; max-width: 1100px; }
 .pillars {
   list-style: none;
   margin: 28px 0 0;
@@ -65,17 +65,18 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 0 26px;
 }
-.pillar { font-size: calc(26 * var(--u)); text-transform: uppercase; letter-spacing: 0.04em; color: var(--hon-gold); }
+.pillar { font-size: calc(24 * var(--u)); text-transform: uppercase; letter-spacing: 0.22em; color: var(--hon-steel); }
 .pillar + .pillar::before { content: '|'; color: var(--hon-steel); margin-right: 26px; }
-.facts { margin: 34px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.facts { margin: 34px auto 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; max-width: 420px; width: 100%; }
 .facts > div { border-top: 1px solid rgba(64, 105, 169, 0.5); padding-top: 10px; }
 .factV { margin: 4px 0 0; font-size: 26px; color: var(--hon-gold); }
 
-.frameBox { position: relative; margin-top: 76px; width: 100%; height: 420px; }
+.frameBox { position: relative; margin-top: 64px; width: 100%; aspect-ratio: 2 / 1; }
 .frame { position: absolute; left: 18px; top: 18px; width: 100%; height: 100%; border: 1px solid var(--hon-steel); }
-.render { position: relative; width: 100%; height: 420px; object-fit: cover; object-position: 60% 40%; }
+.render { position: relative; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
 
 .evening { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; }
 .item { border-top: 1px solid rgba(64, 105, 169, 0.5); padding-top: 14px; display: flex; flex-direction: column; gap: 8px; }
@@ -95,7 +96,7 @@
 .featureHonor { font-size: calc(44 * var(--u)); line-height: 0.95; }
 .featureName { font-size: calc(56 * var(--u)); line-height: 0.95; color: var(--hon-gold); }
 .featureBio { font-size: 17px; line-height: 1.5; opacity: 0.85; max-width: 520px; }
-.classHead { margin: 56px 0 14px; }
+.classHead { margin: 0 0 18px; }
 .honorees { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; align-items: start; }
 .honoree { display: flex; flex-direction: column; gap: 10px; }
 .portrait {
@@ -110,21 +111,16 @@
   justify-content: center;
 }
 .portrait span { text-align: center; line-height: 1.5; }
+.portrait { overflow: hidden; border-color: rgba(64, 105, 169, 0.5); }
 .portraitText { color: var(--hon-steel); }
 .portal { border-style: dashed; border-width: 1px; border-color: var(--hon-muted); background: rgba(53, 87, 140, 0.12); }
 .portalText { color: var(--hon-muted); }
-.name { font-size: 24px; line-height: 1.1; color: var(--hon-gold); }
-.nameTba { color: var(--hon-muted); }
-.honor { color: #fff; opacity: 0.85; }
+.name { font-size: 26px; line-height: 1.1; color: var(--hon-gold); }
+.nameTba { color: var(--hon-gold); opacity: 0.55; }
+.honor { color: #fff; opacity: 0.85; letter-spacing: 0.12em; }
 .bio { font-size: 15px; line-height: 1.5; opacity: 0.8; }
 .more { margin-top: 26px; font-size: 24px; font-style: italic; color: var(--hon-steel); }
 
-.partners { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; }
-.partnersHead { margin-bottom: 10px; }
-.logos { display: grid; gap: 8px; }
-.plogo { height: 96px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(64, 105, 169, 0.45); padding: 18px 22px; }
-.plogo img { max-width: 100%; max-height: 52px; width: auto; height: auto; object-fit: contain; }
-.partial { color: var(--hon-muted); margin-top: 18px; }
 
 @media (max-width: 1023.98px) {
   .bgBox { height: 520px; }
@@ -145,9 +141,9 @@
   }
   .featureHonorM { font-size: 26px; line-height: 1; }
   .featureNameM { font-size: 34px; line-height: 1; color: var(--hon-gold); }
-  .classHeadM { position: relative; margin: 30px 0 12px; }
+  .classHeadM { position: relative; margin: 0 0 12px; }
   .wrapM { padding-top: 40px; padding-bottom: 34px; }
-  .topM { position: relative; display: flex; justify-content: space-between; }
+  .topM { position: relative; display: flex; justify-content: flex-start; }
   .hM { position: relative; margin: 44px 0 0; }
   .markM { width: 100%; height: auto; }
   .hostedM { position: relative; font-size: 11px; letter-spacing: 0.05em; line-height: 1.7; margin-top: 18px; }
@@ -156,16 +152,16 @@
 
   .aboutM { position: relative; font-size: 20px; line-height: 1.4; margin-top: 34px; }
   .pillarsM { position: relative; list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 10px; }
-  .pillarM { font-size: 15px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--hon-gold); }
+  .pillarM { font-size: 14px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--hon-steel); }
   .pillarM + .pillarM::before { content: '|'; color: var(--hon-steel); margin-right: 10px; }
   .factsM { position: relative; margin: 24px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
   .factsM > div { border-top: 1px solid rgba(64, 105, 169, 0.5); padding-top: 8px; }
   .factVM { margin: 2px 0 0; font-size: 20px; color: var(--hon-gold); }
 
   .hostsM { position: relative; margin: 30px 0 0; }
-  .frameBoxM { position: relative; margin-top: 30px; width: 100%; height: 210px; }
+  .frameBoxM { position: relative; margin-top: 30px; width: 100%; aspect-ratio: 2 / 1; }
   .frameM { position: absolute; left: 10px; top: 10px; width: 100%; height: 100%; border: 1px solid var(--hon-steel); }
-  .renderM { position: relative; width: 100%; height: 210px; object-fit: cover; object-position: 60% 40%; }
+  .renderM { position: relative; width: 100%; height: 100%; object-fit: cover; }
 
   .bandTitleM { position: relative; margin: 44px 0 16px; font-size: 34px; line-height: 1; font-weight: 400; }
   .eveningM { position: relative; list-style: none; margin: 0; padding: 0; }
@@ -174,12 +170,6 @@
   .honoreesM { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; }
   .nameM { font-size: 18px; line-height: 1.1; }
   .moreM { position: relative; font-size: 20px; font-style: italic; color: var(--hon-steel); margin-top: 18px; }
-  .partnersHeadM { position: relative; margin-top: 40px; }
-  .partnersHeadM2 { position: relative; margin-top: 16px; }
-  .logosM { position: relative; display: grid; gap: 6px; margin-top: 8px; }
-  .plogoM { height: 64px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(64, 105, 169, 0.45); padding: 12px; }
-  .plogoM img { max-width: 100%; max-height: 34px; width: auto; height: auto; object-fit: contain; }
-  .partialM { position: relative; color: var(--hon-muted); margin-top: 10px; }
 }
 
 @media (min-width: 1024px) {
