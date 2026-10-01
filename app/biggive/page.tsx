@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import type { CSSProperties } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { pageTitle } from '@/lib/site';
-import BigGiveForm from '@/components/forms/BigGiveForm';
 import EventJsonLd from '@/components/EventJsonLd';
 import { srcSet, LOGO_WIDTHS } from '@/lib/img';
 import s from './biggive.module.css';
@@ -51,6 +51,10 @@ export default function BigGivePage() {
             <h1 className={s.h}><img className={s.mark} src="/assets/logo-biggive.png" srcSet={srcSet("/assets/logo-biggive.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 440px" alt="The Culture's Big Give" width={1000} height={477}  style={{ aspectRatio: '1000 / 477' }} /></h1>
             <p className={`d ${s.title}`}>When all of us give.<br /><span className={s.grow}>All of us grow<Underline /></span></p>
             <p className={s.copy}>{COPY}</p>
+            <div className={s.cta}>
+              <Link className="btn btn-lime" href="/tap-in">Notify me</Link>
+              <p className={s.note}>Details to be announced. Join the list to hear first.</p>
+            </div>
             <div>
               <p className={`hud ${s.partnersHead}`}>In partnership with</p>
               <div className={s.partners}>
@@ -62,9 +66,6 @@ export default function BigGivePage() {
               </div>
             </div>
           </div>
-          <div className={s.right}>
-            <BigGiveForm variant="d" />
-          </div>
         </div>
       </div>
 
@@ -74,6 +75,10 @@ export default function BigGivePage() {
         <h1 className={s.hM}><img className={s.markM} src="/assets/logo-biggive.png" srcSet={srcSet("/assets/logo-biggive.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 280px" alt="The Culture's Big Give" width={1000} height={477}  style={{ aspectRatio: '1000 / 477' }} /></h1>
         <p className={`d ${s.titleM}`}>When all of us give. <span className={s.grow}>All of us grow<Underline /></span></p>
         <p className={s.copyM}>{COPY}</p>
+        <div className={s.ctaM}>
+          <Link className="btn btn-lime" href="/tap-in">Notify me</Link>
+          <p className={s.noteM}>Details to be announced. Join the list to hear first.</p>
+        </div>
         <p className={`hud ${s.partnersHeadM}`}>In partnership with</p>
         <div className={s.partnersM}>
           {PARTNERS.map((p) => (
@@ -82,7 +87,6 @@ export default function BigGivePage() {
             </div>
           ))}
         </div>
-        <BigGiveForm variant="m" />
       </div>
     </section>
   );
