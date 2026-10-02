@@ -13,7 +13,7 @@
 }
 .exTitle { font-size: 36px; }
 .exActions { display: flex; gap: 16px; align-items: center; margin-top: 4px; }
-.exNote { font-size: 14px; opacity: 0.8; max-width: 200px; }
+.exLead { font-size: 17px; line-height: 1.45; opacity: 0.85; margin-top: -4px; }
 .exDone { font-size: 18px; line-height: 1.5; }
 .exM {
   position: relative;
@@ -26,5 +26,5 @@
 }
 .exTitleM { font-size: 30px; }
 .exBtnM { margin-top: 4px; }
-.exNoteM { font-size: 13px; opacity: 0.8; }
+.exLeadM { font-size: 15px; line-height: 1.45; opacity: 0.85; margin-top: -2px; }
 .exDoneM { font-size: 16px; line-height: 1.5; }

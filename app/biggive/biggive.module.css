@@ -5,7 +5,13 @@
   background: linear-gradient(90deg, rgba(3, 48, 27, 0.92) 0%, rgba(3, 48, 27, 0.86) 46%, rgba(3, 48, 27, 0.2) 72%, rgba(3, 48, 27, 0) 100%);
 }
 .wrap { padding-top: 64px; padding-bottom: 64.406px; /* section height 980 */ }
-.grid { position: relative; max-width: 620px; }
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 620fr) minmax(0, 596fr);
+  gap: 96px;
+  align-items: start;
+}
 .left { display: flex; flex-direction: column; gap: 24px; }
 .eyebrow { font-size: 12px; color: #d7f26a; }
 .h { margin: 0; }
@@ -28,8 +34,25 @@
 .partners { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; width: 100%; max-width: 100%; }
 .plogo { height: 112px; display: flex; align-items: center; justify-content: center; background: #fff; padding: 18px 22px; }
 .plogo img { max-width: 100%; max-height: 72px; width: auto; height: auto; object-fit: contain; }
-.cta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-.note { font-size: 14px; line-height: 1.4; color: rgba(255, 255, 255, 0.72); max-width: 320px; }
+.right { position: relative; }
+/* The save-the-date panel: the same dark card the sign-up form sat in, so the right column stays weighted. */
+.panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: rgba(17, 24, 33, 0.92);
+  padding: 40px 40px 44px;
+  clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+.panelKicker { color: #d7f26a; }
+.panelTitle { font-size: 44px; line-height: 1; }
+.facts { list-style: none; margin: 0; padding: 18px 0 0; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid rgba(255, 255, 255, 0.15); }
+.facts li { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 16px; font-size: 17px; line-height: 1.4; }
+.factKey { color: #d7f26a; padding-top: 3px; }
+.panelBtn { align-self: flex-start; margin-top: 6px; }
+.note { font-size: 14px; line-height: 1.4; color: rgba(255, 255, 255, 0.72); }
 
 @media (max-width: 1023.98px) {
   .shade { background: linear-gradient(rgba(3, 48, 27, 0.9), rgba(3, 48, 27, 0.9)); }
