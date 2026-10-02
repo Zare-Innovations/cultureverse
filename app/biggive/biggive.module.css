@@ -5,13 +5,7 @@
   background: linear-gradient(90deg, rgba(3, 48, 27, 0.92) 0%, rgba(3, 48, 27, 0.86) 46%, rgba(3, 48, 27, 0.2) 72%, rgba(3, 48, 27, 0) 100%);
 }
 .wrap { padding-top: 64px; padding-bottom: 64.406px; /* section height 980 */ }
-.grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 620fr) minmax(0, 596fr);
-  gap: 96px;
-  align-items: start;
-}
+.grid { position: relative; max-width: 620px; }
 .left { display: flex; flex-direction: column; gap: 24px; }
 .eyebrow { font-size: 12px; color: #d7f26a; }
 .h { margin: 0; }
@@ -34,7 +28,8 @@
 .partners { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; width: 100%; max-width: 100%; }
 .plogo { height: 112px; display: flex; align-items: center; justify-content: center; background: #fff; padding: 18px 22px; }
 .plogo img { max-width: 100%; max-height: 72px; width: auto; height: auto; object-fit: contain; }
-.right { position: relative; }
+.cta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.note { font-size: 14px; line-height: 1.4; color: rgba(255, 255, 255, 0.72); max-width: 320px; }
 
 @media (max-width: 1023.98px) {
   .shade { background: linear-gradient(rgba(3, 48, 27, 0.9), rgba(3, 48, 27, 0.9)); }
@@ -44,6 +39,9 @@
   .markM { width: 280px; height: auto; }
   .titleM { position: relative; font-size: 34px; margin-top: 22px; }
   .copyM { position: relative; font-size: 16px; line-height: 1.5; margin-top: 14px; }
+  .ctaM { position: relative; margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .ctaM a { width: 100%; }
+  .noteM { font-size: 14px; line-height: 1.4; color: rgba(255, 255, 255, 0.72); }
   .partnersHeadM { position: relative; margin: 22px 0 8px; color: #d7f26a; }
   .partnersM { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
   .plogoM { height: 82px; display: flex; align-items: center; justify-content: center; background: #fff; padding: 12px; }
