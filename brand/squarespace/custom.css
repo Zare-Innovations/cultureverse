@@ -1,0 +1,352 @@
+/* ============================================================
+   CultureBowl 2026 brand kit for Squarespace 7.1
+   Paste this whole file into: Website > Website Styles (paintbrush) > Custom CSS
+   Then set the site-wide colours and fonts as described in README.md.
+   Everything here is plain CSS. Edit the values in the :root block to tune it.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+  --cb-red: #F6003A;
+  --cb-red-press: #CF0030;
+  --cb-red-deep: #DC0034;
+  --cb-navy: #111821;
+  --cb-navy-2: #0F2655;
+  --cb-grey: #3E404B;
+  --cb-white: #FFFFFF;
+  --cb-lime: #D7F26A;
+  --cb-gold: #FFC23C;
+  --cb-display: 'Golos Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --cb-text: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --cb-serif: 'Cormorant Garamond', 'Times New Roman', serif;
+  /* The cut corner used on every button and card on the main site. */
+  --cb-cut: 16px;
+}
+
+/* ------------------------------------------------------------
+   1. Ground: navy page, white type, antialiased
+   ------------------------------------------------------------ */
+body,
+.page-section,
+.page-section .section-background,
+#siteWrapper {
+  background-color: var(--cb-navy) !important;
+}
+body,
+.page-section,
+p,
+li,
+.sqs-block-html,
+.html-block {
+  color: var(--cb-white);
+  font-family: var(--cb-text);
+  -webkit-font-smoothing: antialiased;
+}
+.section-border { display: none !important; }
+
+/* ------------------------------------------------------------
+   2. Type: shouting display face, quiet body, serif accents
+   ------------------------------------------------------------ */
+h1, h2, h3, h4,
+.sqs-block-html h1, .sqs-block-html h2, .sqs-block-html h3, .sqs-block-html h4 {
+  font-family: var(--cb-display) !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.045em !important;
+  line-height: 0.92 !important;
+  color: var(--cb-white) !important;
+}
+h1, .sqs-block-html h1 { font-size: clamp(44px, 7vw, 96px) !important; }
+h2, .sqs-block-html h2 { font-size: clamp(32px, 4.6vw, 60px) !important; }
+h3, .sqs-block-html h3 { font-size: clamp(22px, 2.6vw, 32px) !important; }
+h4, .sqs-block-html h4 {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  line-height: 1.35 !important;
+}
+/* Use Heading 4 anywhere you want the small "HUD" label the main site uses above sections. */
+h4.cb-red, .cb-red { color: var(--cb-red) !important; }
+.cb-serif, blockquote, .sqs-block-quote-block blockquote span {
+  font-family: var(--cb-serif) !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  line-height: 1.2 !important;
+}
+p, .sqs-block-html p { font-size: 17px; line-height: 1.55; }
+
+/* ------------------------------------------------------------
+   3. Buttons: every Squarespace button becomes the cut-corner red button
+   ------------------------------------------------------------ */
+.sqs-block-button-element,
+.sqs-button-element--primary,
+.sqs-button-element--secondary,
+.sqs-button-element--tertiary,
+.sqs-add-to-cart-button,
+.cart-checkout-button,
+.newsletter-form-button,
+.form-block .button,
+.header-actions .btn,
+.btn.cb-btn {
+  appearance: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 56px !important;
+  padding: 0 28px !important;
+  background: var(--cb-red) !important;
+  color: var(--cb-white) !important;
+  font-family: var(--cb-display) !important;
+  font-weight: 800 !important;
+  font-size: 17px !important;
+  letter-spacing: -0.01em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  white-space: nowrap;
+  clip-path: polygon(0 0, calc(100% - var(--cb-cut)) 0, 100% var(--cb-cut), 100% 100%, var(--cb-cut) 100%, 0 calc(100% - var(--cb-cut)));
+  transition: background 160ms cubic-bezier(.2,.8,.2,1), color 160ms cubic-bezier(.2,.8,.2,1);
+}
+.sqs-block-button-element:hover,
+.sqs-button-element--primary:hover,
+.sqs-add-to-cart-button:hover,
+.cart-checkout-button:hover,
+.btn.cb-btn:hover {
+  background: var(--cb-white) !important;
+  color: var(--cb-navy) !important;
+}
+/* Secondary buttons go white, like the "Get tickets" button in the red band. */
+.sqs-button-element--secondary,
+.btn.cb-btn--white {
+  background: var(--cb-white) !important;
+  color: var(--cb-navy) !important;
+}
+.sqs-button-element--secondary:hover,
+.btn.cb-btn--white:hover { background: var(--cb-red) !important; color: var(--cb-white) !important; }
+/* Tertiary buttons are outlined. */
+.sqs-button-element--tertiary,
+.btn.cb-btn--line {
+  background: transparent !important;
+  box-shadow: inset 0 0 0 2px var(--cb-white) !important;
+}
+.sqs-button-element--tertiary:hover,
+.btn.cb-btn--line:hover { background: var(--cb-white) !important; color: var(--cb-navy) !important; }
+.sqs-add-to-cart-button-inner { font: inherit !important; color: inherit !important; }
+
+/* ------------------------------------------------------------
+   4. Header: dark bar, white uppercase nav, red cart count
+   ------------------------------------------------------------ */
+#header,
+.header,
+.header-announcement-bar-wrapper {
+  background: rgba(17, 24, 33, 0.96) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.header-title-logo img { max-height: 44px !important; width: auto !important; }
+.header-title-text a { font-family: var(--cb-display) !important; font-weight: 900 !important; text-transform: uppercase !important; color: var(--cb-white) !important; }
+.header-nav-item a,
+.header-menu-nav-item a {
+  font-family: var(--cb-display) !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  text-transform: none !important;
+  color: var(--cb-white) !important;
+  text-decoration: none !important;
+}
+.header-nav-item--active a,
+.header-nav-item a:hover {
+  background-image: none !important;
+  box-shadow: inset 0 -2px 0 var(--cb-white);
+}
+.header-menu-nav-item a { font-size: 32px !important; }
+.header-menu-bg { background: var(--cb-navy) !important; }
+.header-actions .icon--cart svg, .header-actions-action--cart svg { stroke: var(--cb-white) !important; }
+.icon-cart-quantity, .header-cart-count {
+  background: var(--cb-red) !important;
+  color: var(--cb-white) !important;
+  font-family: var(--cb-display) !important;
+  font-weight: 700 !important;
+}
+/* Announcement bar: the red strip at the very top. */
+.sqs-announcement-bar { background: var(--cb-red-deep) !important; }
+.sqs-announcement-bar-text,
+.sqs-announcement-bar-text p,
+.sqs-announcement-bar-text a {
+  color: var(--cb-white) !important;
+  font-family: var(--cb-display) !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+}
+
+/* ------------------------------------------------------------
+   5. Product grid: white cut-corner tiles, display-face titles, red prices
+   ------------------------------------------------------------ */
+.products.collection-content-wrapper .grid-item,
+.sqs-block-summary-v2 .summary-item {
+  background: transparent !important;
+}
+.products .grid-image-wrapper,
+.products .grid-image-wrapper .grid-item-image,
+.sqs-block-summary-v2 .summary-thumbnail {
+  background: var(--cb-white);
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  transition: transform 240ms cubic-bezier(.16,1,.3,1);
+}
+.products .grid-item:hover .grid-image-wrapper { transform: translateY(-4px); }
+.products .grid-title,
+.sqs-block-summary-v2 .summary-title {
+  font-family: var(--cb-display) !important;
+  font-weight: 800 !important;
+  font-size: 18px !important;
+  letter-spacing: -0.02em !important;
+  text-transform: uppercase !important;
+  color: var(--cb-white) !important;
+  margin-top: 14px !important;
+}
+.products .grid-prices,
+.products .product-price,
+.sqs-block-summary-v2 .summary-metadata-item {
+  font-family: var(--cb-display) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.04em !important;
+  color: var(--cb-red) !important;
+}
+.products .product-price .original-price { color: rgba(255, 255, 255, 0.5) !important; }
+/* Sale and sold-out badges */
+.product-mark,
+.products .product-mark.sold-out,
+.products .product-mark.sale {
+  background: var(--cb-red) !important;
+  color: var(--cb-white) !important;
+  font-family: var(--cb-display) !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  padding: 6px 10px !important;
+}
+.products .product-mark.sold-out { background: var(--cb-grey) !important; }
+/* Category filter links above the grid */
+.nested-category-tree-wrapper a,
+.category-filter-list a,
+.product-category-link {
+  font-family: var(--cb-display) !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: var(--cb-white) !important;
+}
+.nested-category-tree-wrapper a.active,
+.category-filter-list a.active { color: var(--cb-red) !important; }
+
+/* ------------------------------------------------------------
+   6. Product page: big title, red price, quiet description, dark pickers
+   ------------------------------------------------------------ */
+.ProductItem-details-title,
+.ProductItem .ProductItem-details h1 {
+  font-size: clamp(34px, 4vw, 56px) !important;
+}
+.ProductItem-details .product-price {
+  font-family: var(--cb-display) !important;
+  font-weight: 700 !important;
+  font-size: 22px !important;
+  color: var(--cb-red) !important;
+}
+.ProductItem-details-excerpt,
+.ProductItem-details-excerpt p {
+  font-family: var(--cb-text) !important;
+  font-size: 17px !important;
+  line-height: 1.55 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+.ProductItem-gallery-slides-item img { background: var(--cb-white); }
+.product-variants .variant-select-wrapper select,
+.product-variants .variant-select-wrapper,
+.ProductItem-quantity-input,
+.quantity-input,
+.sqs-block-form .field-element,
+.form-item input, .form-item textarea, .form-item select {
+  background: transparent !important;
+  color: var(--cb-white) !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+  border-radius: 0 !important;
+  font-family: var(--cb-text) !important;
+  font-size: 16px !important;
+}
+.product-variants .variant-select-wrapper select option { color: var(--cb-navy); }
+.product-variants .variant-select-wrapper label,
+.ProductItem-quantity-label,
+.form-item label, .title {
+  font-family: var(--cb-display) !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: var(--cb-white) !important;
+}
+.ProductItem-additional { border-top: 1px solid rgba(255, 255, 255, 0.12); }
+
+/* ------------------------------------------------------------
+   7. Cart and checkout entry
+   ------------------------------------------------------------ */
+.cart-container, .cart-container * { color: var(--cb-white); }
+.cart-title { font-family: var(--cb-display) !important; font-weight: 900 !important; text-transform: uppercase !important; letter-spacing: -0.045em !important; }
+.cart-container .item-title, .cart-container .cart-subtotal, .cart-container .cart-subtotal-price {
+  font-family: var(--cb-display) !important;
+  font-weight: 700 !important;
+}
+.cart-container .cart-subtotal-price { color: var(--cb-red) !important; }
+.cart-container .cart-row { border-color: rgba(255, 255, 255, 0.12) !important; }
+.cart-container .remove-item svg { stroke: var(--cb-white) !important; }
+
+/* ------------------------------------------------------------
+   8. Footer: red "fragments" band, like the main site
+   Upload bg-red-fragments.webp in Custom CSS > Manage Custom Files and paste its URL below.
+   ------------------------------------------------------------ */
+#footer-sections,
+#footer-sections .page-section,
+#footer-sections .page-section .section-background {
+  background-color: var(--cb-red-deep) !important;
+}
+#footer-sections .page-section .section-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* background-image: url('PASTE-YOUR-UPLOADED-bg-red-fragments.webp-URL-HERE'); */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.16;
+  pointer-events: none;
+}
+#footer-sections, #footer-sections p, #footer-sections a {
+  color: var(--cb-white) !important;
+  font-family: var(--cb-display) !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+}
+#footer-sections h2, #footer-sections h3 { font-size: 40px !important; }
+#footer-sections .sqs-block-button-element { background: var(--cb-white) !important; color: var(--cb-navy) !important; }
+#footer-sections .sqs-block-button-element:hover { background: var(--cb-navy) !important; color: var(--cb-white) !important; }
+
+/* ------------------------------------------------------------
+   9. Links and small things
+   ------------------------------------------------------------ */
+a { color: var(--cb-white); }
+.sqs-block-html a:not(.sqs-block-button-element) { text-decoration: none; box-shadow: inset 0 -2px 0 var(--cb-red); }
+::selection { background: var(--cb-red); color: var(--cb-white); }
+.sqs-block-image .image-block-outer-wrapper img,
+.sqs-block-video .sqs-video-wrapper {
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+}
+hr, .sqs-block-horizontalrule hr { background: rgba(255, 255, 255, 0.16) !important; border: 0 !important; height: 1px !important; }

@@ -1,0 +1,29 @@
+<!--
+  "The Culture is Calling" band from the main site. Add a Code block to the bottom of any page,
+  above the footer, and paste this in. Upload bg-red-fragments.webp and paste its URL below.
+-->
+<style>
+  .cb-band { position: relative; overflow: hidden; background: #DC0034; color: #fff; padding: 72px 24px; font-family: 'Golos Text', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+  .cb-band::before { content: ''; position: absolute; inset: 0; background-image: url('PASTE-bg-red-fragments.webp-URL-HERE'); background-size: cover; background-position: center; opacity: 0.16; pointer-events: none; }
+  .cb-band .cb-inner { position: relative; max-width: 1312px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .cb-band h2 { margin: 0; font-size: clamp(40px, 6vw, 80px); font-weight: 900; line-height: 0.92; letter-spacing: -0.045em; text-transform: uppercase; }
+  .cb-band .cb-tag { margin: 12px 0 0; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  .cb-band .cb-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .cb-band .cb-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 0 28px; background: #fff; color: #111821; font-weight: 800; font-size: 17px; letter-spacing: -0.01em; text-transform: uppercase; text-decoration: none; clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px)); transition: background 160ms, color 160ms; }
+  .cb-band .cb-btn:hover { background: #111821; color: #fff; }
+  .cb-band .cb-btn--dark { background: #111821; color: #fff; }
+  .cb-band .cb-btn--dark:hover { background: #fff; color: #111821; }
+  @media (max-width: 760px) { .cb-band .cb-actions, .cb-band .cb-btn { width: 100%; } }
+</style>
+<section class="cb-band">
+  <div class="cb-inner">
+    <div>
+      <h2>The culture is calling</h2>
+      <p class="cb-tag">A worldwide celebration of culture</p>
+    </div>
+    <div class="cb-actions">
+      <a class="cb-btn" href="https://allthingsculturebowl.com/">Get tickets</a>
+      <a class="cb-btn cb-btn--dark" href="https://allthingsculturebowl.com/tap-in">Tap in</a>
+    </div>
+  </div>
+</section>
