@@ -12,6 +12,7 @@
   --cb-red-deep: #DC0034;
   --cb-navy: #111821;
   --cb-navy-tile: #161E2A;
+  --cb-tile: #FFFFFF; /* product tiles and gallery: white, because some Printful photos are JPGs on white */
   --cb-navy-2: #0F2655;
   --cb-grey: #3E404B;
   --cb-white: #FFFFFF;
@@ -186,13 +187,13 @@ blockquote, .sqs-block-quote-block blockquote span, .cb-serif {
 .product-list-item { background: transparent !important; }
 .product-list-item-link { text-decoration: none !important; display: block; }
 .product-list-image-wrapper, .product-list-item-image, .product-list-item .grid-image-wrapper {
-  background: var(--cb-navy-tile) !important;
+  background: var(--cb-tile) !important;
   clip-path: polygon(0 0, calc(100% - var(--cb-cut-lg)) 0, 100% var(--cb-cut-lg), 100% 100%, var(--cb-cut-lg) 100%, 0 calc(100% - var(--cb-cut-lg)));
   box-shadow: inset 0 0 0 1px var(--cb-line);
   transition: transform 240ms cubic-bezier(.16,1,.3,1);
 }
 .product-list-item:hover .product-list-image-wrapper { transform: translateY(-4px); box-shadow: inset 0 0 0 1px rgba(246, 0, 58, 0.6); }
-.product-list-item .grid-item-image { padding: 6%; box-sizing: border-box; }
+.product-list-item .grid-item-image { padding: 4%; box-sizing: border-box; background: var(--cb-tile); }
 /* The hover crossfade to each product's second photo is Squarespace's own and keeps working:
    .grid-image-hover sits on top of .grid-image-cover and fades in. These lines only make it
    snappier (420ms instead of 1s) and give it the site's easing. The second photo in each
@@ -264,7 +265,7 @@ blockquote, .sqs-block-quote-block blockquote span, .cb-serif {
 }
 .product-description strong { font-weight: 700; color: var(--cb-white); }
 .product-gallery-slides-item-image, .product-gallery-slides-item {
-  background: var(--cb-navy-tile) !important;
+  background: var(--cb-tile) !important;
   clip-path: polygon(0 0, calc(100% - var(--cb-cut-lg)) 0, 100% var(--cb-cut-lg), 100% 100%, var(--cb-cut-lg) 100%, 0 calc(100% - var(--cb-cut-lg)));
 }
 .product-gallery-thumbnails-item { opacity: 0.6; }
@@ -302,7 +303,7 @@ select.variant-select option { color: var(--cb-navy); background: var(--cb-white
    ------------------------------------------------------------ */
 .cart-title { font-size: clamp(32px, 4vw, 48px) !important; }
 .cart-row { border-bottom: 1px solid var(--cb-line) !important; }
-.cart-row-img { background: var(--cb-navy-tile); clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); }
+.cart-row-img { background: var(--cb-tile); clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); }
 .cart-row-title, a.cart-row-title {
   font-family: var(--cb-display) !important;
   font-weight: 800 !important;
