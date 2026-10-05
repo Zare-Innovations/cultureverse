@@ -2,11 +2,11 @@
  * Product catalog for /shop, read from the Squarespace store at build time.
  *
  * Squarespace publishes every collection as JSON at <store>/<collection>?format=json, with the
- * products, prices, variants, images and descriptions the storefront itself renders. The site is a
- * static export, so the catalog is fetched once per build and baked into the HTML. Prices and new
- * products are therefore as fresh as the last deploy: .github/workflows/rebuild-shop.yml pings the
- * Vercel deploy hook nightly so the shop never drifts more than a day, and a manual redeploy picks
- * up a change immediately.
+ * products, prices, variants, images and descriptions the storefront itself renders. On Vercel the
+ * shop pages are cached and re-read from the store once a copy is older than SHOP_REVALIDATE
+ * seconds, so an edit in Squarespace shows here within minutes with no deploy. If the store cannot
+ * be reached, the last good copy keeps being served. A STATIC_EXPORT build (the preview, the local
+ * checks) reads the catalog once and bakes it in.
  *
  * Squarespace has no way for another site to fill its cart, so buying happens on the store: every
  * product here links to its own page there, and checkout, shipping and Printful stay as they are.
@@ -14,6 +14,9 @@
 
 /** The Squarespace store. Its collections are read at build time and its product pages take the sale. */
 export const SHOP_STORE_URL = (process.env.NEXT_PUBLIC_SHOP_STORE_URL || 'https://www.shopallthingsculturebowl.com').replace(/\/+$/, '');
+/** How long a cached copy of the catalog is served before it is re-read from the store, in seconds. */
+export const SHOP_REVALIDATE = 300;
+const STATIC_EXPORT = process.env.STATIC_EXPORT === 'true';
 /** The collection slugs to read, in the order they appear on /shop. */
 export const SHOP_COLLECTIONS = (process.env.NEXT_PUBLIC_SHOP_COLLECTIONS || 'apparel,hats').split(',').map((c) => c.trim()).filter(Boolean);
 
@@ -146,12 +149,12 @@ function toProduct(item: SqsItem, collection: string, collectionTitle: string): 
   };
 }
 
-let cache: Promise<ShopCollection[]> | null = null;
-
-/** Every collection with its products, in SHOP_COLLECTIONS order. Fetched once per build. */
+/**
+ * Every collection with its products, in SHOP_COLLECTIONS order. Next's fetch cache dedupes the
+ * reads within a render and holds them for SHOP_REVALIDATE seconds between renders.
+ */
 export function getCollections(): Promise<ShopCollection[]> {
-  if (!cache) cache = loadCollections();
-  return cache;
+  return loadCollections();
 }
 
 /** Every product across the collections. */
@@ -167,9 +170,9 @@ async function loadCollections(): Promise<ShopCollection[]> {
   const out: ShopCollection[] = [];
   for (const slug of SHOP_COLLECTIONS) {
     const url = `${SHOP_STORE_URL}/${slug}?format=json`;
-    const res = await fetch(url, { headers: { accept: 'application/json' }, cache: 'force-cache' });
-    // A failed read must fail the build: a static export with an empty shop would otherwise go live
-    // and stay live until someone noticed. Vercel keeps the previous deploy when a build fails.
+    const res = await fetch(url, { headers: { accept: 'application/json' }, next: { revalidate: STATIC_EXPORT ? false : SHOP_REVALIDATE } });
+    // A failed read throws: at build time that fails the build (Vercel keeps the previous deploy);
+    // at refresh time Next keeps serving the last good copy and tries again later.
     if (!res.ok) throw new Error(`Shop: ${url} answered ${res.status}. The store may be down or the collection renamed; set NEXT_PUBLIC_SHOP_COLLECTIONS to the current slugs.`);
     const page = (await res.json()) as SqsCollectionPage;
     const title = titleCase(page.collection?.title || slug);

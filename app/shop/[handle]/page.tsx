@@ -6,7 +6,8 @@ import { cdnSrc, cdnSrcSet, formatPrice, getCatalog, getProduct } from '@/lib/sh
 import Gallery from '@/components/shop/Gallery';
 import s from './product.module.css';
 
-export const dynamicParams = false;
+// dynamicParams is left at its default (true): on Vercel a product added to the store after the
+// last build renders on its first visit; the static export, which cannot do that, needs it unset.
 
 export async function generateStaticParams() {
   return (await getCatalog()).map((p) => ({ handle: p.handle }));

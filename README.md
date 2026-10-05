@@ -33,7 +33,7 @@ does not read, run the build with `NODE_USE_ENV_PROXY=1`.
 | `NEXT_PUBLIC_EXPO_TICKETS_ON_SALE` | `true` once CultureExpo tickets go on sale: the Expo page swaps "Notify me" for "Get weekend tickets", adds ticket offers to its Event schema, and the Expo is labelled "Ticketed" instead of "Coming soon" on its page, the Cultureverse hub and the home stones. Default off. |
 | `NEXT_PUBLIC_GA_ID` | GA4 measurement ID. `components/Analytics.tsx` renders the tag only when this is set. |
 
-All of these are read at build time, so a change needs a new build. The shop catalog is read at build time too, so `.github/workflows/rebuild-shop.yml` pings the Vercel deploy hook nightly (secret `VERCEL_DEPLOY_HOOK`); a manual redeploy picks up a store change immediately.
+All of these are read at build time, so a change needs a new build. The shop catalog is not: on Vercel the shop pages re-read the store once a cached copy is five minutes old, so a product edit in Squarespace shows within minutes with no deploy. `npm run build:static` writes the fully static `out/` the preview and the verification scripts use.
 
 ## Launch files
 
