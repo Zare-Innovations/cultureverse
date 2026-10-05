@@ -66,6 +66,9 @@ for (const file of walk(SRC)) {
     html = html.replace(/"\/(_next|assets|favicon\.ico|icon\.png|apple-icon\.png|og-image\.png)/g, '"$1');
     html = html.replace(/,\s*\/(assets|_next)\//g, ', $1/');
     html = html.replace(/<script[^>]*polyfills-[a-f0-9]+\.js"[^>]*><\/script>/, '');
+    // Pages in a folder (shop/<product>.html) resolve their relative assets and the runtime's page links from the root.
+    const depth = rel.split(path.sep).length - 1;
+    if (depth > 0) html = html.replace(/<head([^>]*)>/i, `<head$1><base href="${'../'.repeat(depth)}">`);
     if (rel === 'index.html' || rel === 'index-announced.html') html = html.replace('</body>', heroSwitch(rel) + '</body>');
     fs.writeFileSync(dest, html);
   } else if (rel.endsWith('.js') && rel.includes('_next' + path.sep + 'static' + path.sep + 'chunks')) {

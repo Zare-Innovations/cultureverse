@@ -26,12 +26,14 @@ does not read, run the build with `NODE_USE_ENV_PROXY=1`.
 |---|---|
 | `NEXT_PUBLIC_TICKETMASTER_URL` | Every "Get tickets" / "Tickets" button opens this in a new tab. Defaults to the `[CULTUREBOWL EVENT URL]` placeholder. |
 | `NEXT_PUBLIC_FORM_ENDPOINT` | Receives the four forms as JSON `POST` bodies with a `form` field: `tap-in`, `exchnge`, `biggive`, `iconhonors`. Unset: the forms show their error line instead of a false success. |
-| `NEXT_PUBLIC_SHOP_URL` | Shop links. Defaults to the Squarespace shop. |
+| `NEXT_PUBLIC_SHOP_URL` | Where the Shop links go. Defaults to `/shop`, the built-in shop. An absolute URL sends every Shop link to an external store instead. |
+| `NEXT_PUBLIC_SHOP_STORE_URL` | The Squarespace store that feeds `/shop` at build time and takes the sale (`lib/shop.ts`). Defaults to `https://www.shopallthingsculturebowl.com`. |
+| `NEXT_PUBLIC_SHOP_COLLECTIONS` | The store's collection slugs to read, in order. Defaults to `apparel,hats`. |
 | `NEXT_PUBLIC_HEADLINER_ANNOUNCED` | `true` switches the desktop Home hero to the announced variant (02-Home-Announced). Default off. |
 | `NEXT_PUBLIC_EXPO_TICKETS_ON_SALE` | `true` once CultureExpo tickets go on sale: the Expo page swaps "Notify me" for "Get weekend tickets", adds ticket offers to its Event schema, and the Expo is labelled "Ticketed" instead of "Coming soon" on its page, the Cultureverse hub and the home stones. Default off. |
 | `NEXT_PUBLIC_GA_ID` | GA4 measurement ID. `components/Analytics.tsx` renders the tag only when this is set. |
 
-All six are read at build time, so a change needs a new build.
+All of these are read at build time, so a change needs a new build. The shop catalog is read at build time too, so `.github/workflows/rebuild-shop.yml` pings the Vercel deploy hook nightly (secret `VERCEL_DEPLOY_HOOK`); a manual redeploy picks up a store change immediately.
 
 ## Launch files
 

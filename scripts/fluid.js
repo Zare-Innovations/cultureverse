@@ -2,7 +2,7 @@
 const { chromium } = require('playwright');
 (async () => {
   const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
-  const routes = ['/', '/about', '/cultureverse', '/culturelive', '/cultureexpo', '/exchnge', '/biggive', '/iconhonors', '/cultureunion', '/culturecoming', '/culturegames', '/tap-in'];
+  const routes = ['/', '/about', '/cultureverse', '/culturelive', '/cultureexpo', '/exchnge', '/biggive', '/iconhonors', '/cultureunion', '/culturecoming', '/culturegames', '/tap-in', '/shop'];
   const widths = [320, 360, 390, 480, 600, 768, 900, 1023, 1024, 1100, 1200, 1366, 1440, 1600, 1920];
   const bad = [];
   for (const w of widths) {

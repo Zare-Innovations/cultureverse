@@ -39,7 +39,8 @@ const csp = [
   `script-src 'self' 'unsafe-inline'${ga ? ' https://www.googletagmanager.com' : ''}`,
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' https://fonts.gstatic.com data:",
-  `img-src 'self' data:${ga ? ' https://www.google-analytics.com https://www.googletagmanager.com' : ''}`,
+  // Product images on /shop come off the Squarespace store's CDN (lib/shop.ts).
+  `img-src 'self' data: https://images.squarespace-cdn.com${ga ? ' https://www.google-analytics.com https://www.googletagmanager.com' : ''}`,
   `connect-src 'self'${formOrigin ? ' ' + formOrigin : ''}${ga ? ' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net' : ''}`,
   "object-src 'none'",
   "base-uri 'self'",

@@ -79,7 +79,7 @@ const { chromium } = require('playwright');
   // 7. Mobile: ticket bar fixed at the bottom on every page; menu opens, traps focus, closes with Escape and restores focus.
   ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
   page = await ctx.newPage();
-  for (const route of ['/', '/about', '/cultureverse', '/culturelive', '/cultureexpo', '/exchnge', '/biggive', '/iconhonors', '/cultureunion', '/culturecoming', '/culturegames', '/tap-in']) {
+  for (const route of ['/', '/about', '/cultureverse', '/culturelive', '/cultureexpo', '/exchnge', '/biggive', '/iconhonors', '/cultureunion', '/culturecoming', '/culturegames', '/tap-in', '/shop']) {
     await page.goto(`http://localhost:4200${route}`, { waitUntil: 'networkidle' });
     await page.evaluate(() => window.scrollTo(0, 600));
     await page.waitForTimeout(100);
@@ -116,7 +116,7 @@ const { chromium } = require('playwright');
   // 8. Metadata on every route.
   ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
   page = await ctx.newPage();
-  for (const route of ['/', '/about', '/cultureverse', '/culturelive', '/cultureexpo', '/exchnge', '/biggive', '/iconhonors', '/cultureunion', '/culturecoming', '/culturegames', '/tap-in']) {
+  for (const route of ['/', '/about', '/cultureverse', '/culturelive', '/cultureexpo', '/exchnge', '/biggive', '/iconhonors', '/cultureunion', '/culturecoming', '/culturegames', '/tap-in', '/shop']) {
     await page.goto(`http://localhost:4200${route}`, { waitUntil: 'domcontentloaded' });
     const meta = await page.evaluate(() => ({ title: document.title, desc: document.querySelector('meta[name="description"]')?.content, og: document.querySelector('meta[property="og:image"]')?.content, h1: document.querySelectorAll('h1').length }));
     check(`metadata ${route}`, /— All Things CultureBowl™$/.test(meta.title) && !!meta.desc && /og-image\.png$/.test(meta.og || ''), `${meta.title} | h1s=${meta.h1}`);

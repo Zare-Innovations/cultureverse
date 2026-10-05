@@ -4,7 +4,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import CbLogo from '@/components/CbLogo';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { OPENING_NIGHT_UTC, SHOP_URL } from '@/lib/site';
+import { OPENING_NIGHT_UTC } from '@/lib/site';
+import ShopLink from '@/components/ShopLink';
 import { useCountdownShort } from '@/lib/countdown';
 import TicketLink from './TicketLink';
 import MobileMenu from './MobileMenu';
@@ -158,9 +159,7 @@ export default function Nav() {
                   </div>
                 </div>
               </div>
-              <a className="navlink" href={SHOP_URL}>
-                Shop
-              </a>
+              <ShopLink className="navlink">Shop</ShopLink>
             </div>
             <div className={s.grow} />
             <div className={`hud ${s.cd}`}>

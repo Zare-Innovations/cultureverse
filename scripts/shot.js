@@ -24,6 +24,20 @@ async function newPage(browser, { width, height, reducedMotion = 'no-preference'
     const name = route.request().url().split('/').pop();
     route.fulfill({ status: 200, contentType: 'font/woff2', body: fs.readFileSync(path.join(FONT_DIR, 'files', name)) });
   });
+  // Hosts the browser cannot reach directly in the cloud environment (it ignores the proxy env) are
+  // fetched by Node instead: SHOT_PROXY_HOSTS=images.squarespace-cdn.com,other.host
+  const proxied = (process.env.SHOT_PROXY_HOSTS || '').split(',').map((h) => h.trim()).filter(Boolean);
+  if (proxied.length) {
+    await ctx.route((url) => proxied.includes(url.hostname), async (route) => {
+      try {
+        const res = await fetch(route.request().url(), { headers: { accept: 'image/*,*/*' } });
+        const body = Buffer.from(await res.arrayBuffer());
+        route.fulfill({ status: res.status, contentType: res.headers.get('content-type') || 'application/octet-stream', body });
+      } catch (e) {
+        route.abort();
+      }
+    });
+  }
   if (artboard) {
     await ctx.route(/\/support\.js$/, (route) =>
       route.fulfill({ status: 200, contentType: 'application/javascript', body: fs.readFileSync(path.join(__dirname, 'support.js'), 'utf8') }));

@@ -1,0 +1,66 @@
+.shop { background: var(--navy); color: #fff; font-family: var(--f-text); }
+.wrap { padding-top: 56px; padding-bottom: 96px; }
+
+.head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px 48px; flex-wrap: wrap; }
+.eyebrow { color: var(--red); }
+.title { font-size: calc(72 * var(--u)); margin-top: 10px; max-width: 720px; }
+.lede { font-family: var(--f-serif); font-size: 24px; line-height: 1.25; max-width: 360px; margin: 0; opacity: 0.9; }
+
+.collection { margin-top: 64px; }
+.collectionHead { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.14); }
+.collectionTitle { font-size: 26px; }
+.count { opacity: 0.6; }
+
+.grid {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 36px 24px;
+}
+.cell { min-width: 0; }
+.card { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+
+/* White square frame with the brand's cut corner: Printful's mockups come as transparent PNGs and as
+   JPGs on white, and the white frame suits both. */
+.shot {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  background: #fff;
+  overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+  transition: transform var(--t-base) var(--ease-out);
+}
+.card:hover .shot { transform: translateY(-4px); }
+.img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 4%; box-sizing: border-box; background: #fff; transition: opacity var(--t-light) var(--ease-out); }
+/* The second photo fades in on hover, the way the store does it. */
+.imgHover { opacity: 0; }
+.card:hover .imgHover, .card:focus-visible .imgHover { opacity: 1; }
+.noshot { position: absolute; inset: 0; background: repeating-linear-gradient(135deg, #f3f3f3 0 14px, #fff 14px 28px); }
+.tag { position: absolute; left: 12px; top: 12px; background: var(--red); color: #fff; }
+
+.name { font-size: 17px; margin-top: 14px; text-transform: uppercase; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
+.card:hover .name { color: var(--red); }
+.price { color: var(--red); margin-top: 6px; }
+
+.empty { margin-top: 56px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; max-width: 560px; }
+.emptyHead { font-size: 32px; }
+.emptyCopy { font-size: 17px; line-height: 1.5; margin: 0; }
+
+.note { margin: 64px 0 0; font-size: 14px; line-height: 1.5; opacity: 0.7; }
+.note a { color: #fff; }
+
+@media (max-width: 1023.98px) {
+  .wrap { padding-top: 32px; padding-bottom: 64px; }
+  .title { font-size: calc(44 * var(--um)); }
+  .lede { font-size: 20px; }
+  .collection { margin-top: 44px; }
+  .collectionTitle { font-size: 22px; }
+  .grid { margin-top: 20px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; }
+  .shot { clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px)); }
+  .name { font-size: 14px; }
+  .emptyHead { font-size: 26px; }
+  .note { margin-top: 40px; }
+}
