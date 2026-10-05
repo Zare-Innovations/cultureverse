@@ -191,8 +191,17 @@ blockquote, .sqs-block-quote-block blockquote span, .cb-serif {
   box-shadow: inset 0 0 0 1px var(--cb-line);
   transition: transform 240ms cubic-bezier(.16,1,.3,1);
 }
-.product-list-item:hover .product-list-image-wrapper { transform: translateY(-4px); }
+.product-list-item:hover .product-list-image-wrapper { transform: translateY(-4px); box-shadow: inset 0 0 0 1px rgba(246, 0, 58, 0.6); }
 .product-list-item .grid-item-image { padding: 6%; box-sizing: border-box; }
+/* The hover crossfade to each product's second photo is Squarespace's own and keeps working:
+   .grid-image-hover sits on top of .grid-image-cover and fades in. These lines only make it
+   snappier (420ms instead of 1s) and give it the site's easing. The second photo in each
+   product's gallery is the one that shows, so order the photos with that in mind. */
+.product-list-item .grid-image-wrapper.has-hover-img .grid-image-hover,
+.product-list-item .grid-image-wrapper.has-hover-img .grid-image-cover {
+  transition: opacity 420ms cubic-bezier(.16,1,.3,1), transform 420ms cubic-bezier(.16,1,.3,1) !important;
+}
+.product-list-item .grid-image-wrapper.has-hover-img:hover .grid-image-hover { opacity: 1; }
 .product-list-item-meta { padding-top: 14px; text-align: left !important; }
 .product-list-item-title {
   font-family: var(--cb-display) !important;
