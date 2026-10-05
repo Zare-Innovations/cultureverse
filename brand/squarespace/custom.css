@@ -1,55 +1,47 @@
 /* ============================================================
-   CultureBowl 2026 brand kit for Squarespace 7.1
-   Paste this whole file into: Website > Website Styles (paintbrush) > Custom CSS
-   Then set the site-wide colours and fonts as described in README.md.
-   Everything here is plain CSS. Edit the values in the :root block to tune it.
+   CultureBowl 2026 brand kit for shopallthingsculturebowl.com (Squarespace 7.1)
+   Paste this whole file into: Website > Website Styles (paintbrush) > Custom CSS.
+   Written against the class names the store uses today (audited 5 Oct 2026).
+   Tune anything by editing the values in the :root block.
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
 
 :root {
   --cb-red: #F6003A;
-  --cb-red-press: #CF0030;
   --cb-red-deep: #DC0034;
   --cb-navy: #111821;
+  --cb-navy-tile: #161E2A;
   --cb-navy-2: #0F2655;
   --cb-grey: #3E404B;
   --cb-white: #FFFFFF;
-  --cb-lime: #D7F26A;
-  --cb-gold: #FFC23C;
+  --cb-line: rgba(255, 255, 255, 0.12);
   --cb-display: 'Golos Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --cb-text: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --cb-serif: 'Cormorant Garamond', 'Times New Roman', serif;
-  /* The cut corner used on every button and card on the main site. */
-  --cb-cut: 16px;
+  --cb-cut: 16px;   /* the cut corner on buttons */
+  --cb-cut-lg: 22px; /* the cut corner on product tiles and images */
 }
 
 /* ------------------------------------------------------------
-   1. Ground: navy page, white type, antialiased
+   1. Ground. Every section goes navy with white type; the red moves to accents and bands.
    ------------------------------------------------------------ */
-body,
-.page-section,
-.page-section .section-background,
-#siteWrapper {
+body, #siteWrapper, .page-section, .page-section .section-background,
+.page-section.white, .page-section.bright, .page-section.dark, .page-section.black,
+.product-detail-section, .cart-container, #cart {
   background-color: var(--cb-navy) !important;
 }
-body,
-.page-section,
-p,
-li,
-.sqs-block-html,
-.html-block {
+body, .page-section, p, li, .sqs-block-html, .html-block, .cart-container, .cart-container * {
   color: var(--cb-white);
   font-family: var(--cb-text);
   -webkit-font-smoothing: antialiased;
 }
-.section-border { display: none !important; }
+.section-border, .section-divider-display { display: none !important; }
 
 /* ------------------------------------------------------------
-   2. Type: shouting display face, quiet body, serif accents
+   2. Type. Golos Text replaces headline-gothic-atf; Helvetica replaces Epilogue for body.
    ------------------------------------------------------------ */
-h1, h2, h3, h4,
-.sqs-block-html h1, .sqs-block-html h2, .sqs-block-html h3, .sqs-block-html h4 {
+h1, h2, h3, .product-title, .cart-title, .sqs-block-html h1, .sqs-block-html h2, .sqs-block-html h3 {
   font-family: var(--cb-display) !important;
   font-weight: 900 !important;
   text-transform: uppercase !important;
@@ -60,25 +52,27 @@ h1, h2, h3, h4,
 h1, .sqs-block-html h1 { font-size: clamp(44px, 7vw, 96px) !important; }
 h2, .sqs-block-html h2 { font-size: clamp(32px, 4.6vw, 60px) !important; }
 h3, .sqs-block-html h3 { font-size: clamp(22px, 2.6vw, 32px) !important; }
+/* Heading 4 becomes the small uppercase label the main site uses above sections. */
 h4, .sqs-block-html h4 {
-  font-size: 11px !important;
+  font-family: var(--cb-display) !important;
   font-weight: 600 !important;
+  font-size: 11px !important;
   letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
   line-height: 1.35 !important;
+  color: var(--cb-red) !important;
 }
-/* Use Heading 4 anywhere you want the small "HUD" label the main site uses above sections. */
-h4.cb-red, .cb-red { color: var(--cb-red) !important; }
-.cb-serif, blockquote, .sqs-block-quote-block blockquote span {
+p, .sqs-block-html p { font-size: 17px; line-height: 1.55; font-weight: 400 !important; }
+blockquote, .sqs-block-quote-block blockquote span, .cb-serif {
   font-family: var(--cb-serif) !important;
   font-weight: 400 !important;
   text-transform: none !important;
   letter-spacing: 0 !important;
   line-height: 1.2 !important;
 }
-p, .sqs-block-html p { font-size: 17px; line-height: 1.55; }
 
 /* ------------------------------------------------------------
-   3. Buttons: every Squarespace button becomes the cut-corner red button
+   3. Buttons. Every Squarespace button becomes the red cut-corner button.
    ------------------------------------------------------------ */
 .sqs-block-button-element,
 .sqs-button-element--primary,
@@ -87,12 +81,11 @@ p, .sqs-block-html p { font-size: 17px; line-height: 1.55; }
 .sqs-add-to-cart-button,
 .cart-checkout-button,
 .newsletter-form-button,
-.form-block .button,
-.header-actions .btn,
-.btn.cb-btn {
+.form-block .button {
   appearance: none !important;
   border: 0 !important;
   border-radius: 0 !important;
+  box-shadow: none !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -110,71 +103,60 @@ p, .sqs-block-html p { font-size: 17px; line-height: 1.55; }
   clip-path: polygon(0 0, calc(100% - var(--cb-cut)) 0, 100% var(--cb-cut), 100% 100%, var(--cb-cut) 100%, 0 calc(100% - var(--cb-cut)));
   transition: background 160ms cubic-bezier(.2,.8,.2,1), color 160ms cubic-bezier(.2,.8,.2,1);
 }
-.sqs-block-button-element:hover,
-.sqs-button-element--primary:hover,
-.sqs-add-to-cart-button:hover,
-.cart-checkout-button:hover,
-.btn.cb-btn:hover {
+.sqs-block-button-element:hover, .sqs-button-element--primary:hover,
+.sqs-add-to-cart-button:hover, .cart-checkout-button:hover {
   background: var(--cb-white) !important;
   color: var(--cb-navy) !important;
 }
-/* Secondary buttons go white, like the "Get tickets" button in the red band. */
-.sqs-button-element--secondary,
-.btn.cb-btn--white {
-  background: var(--cb-white) !important;
-  color: var(--cb-navy) !important;
-}
-.sqs-button-element--secondary:hover,
-.btn.cb-btn--white:hover { background: var(--cb-red) !important; color: var(--cb-white) !important; }
-/* Tertiary buttons are outlined. */
-.sqs-button-element--tertiary,
-.btn.cb-btn--line {
-  background: transparent !important;
-  box-shadow: inset 0 0 0 2px var(--cb-white) !important;
-}
-.sqs-button-element--tertiary:hover,
-.btn.cb-btn--line:hover { background: var(--cb-white) !important; color: var(--cb-navy) !important; }
-.sqs-add-to-cart-button-inner { font: inherit !important; color: inherit !important; }
+.sqs-button-element--secondary { background: var(--cb-white) !important; color: var(--cb-navy) !important; }
+.sqs-button-element--secondary:hover { background: var(--cb-red) !important; color: var(--cb-white) !important; }
+.sqs-button-element--tertiary { background: transparent !important; box-shadow: inset 0 0 0 2px var(--cb-white) !important; }
+.sqs-button-element--tertiary:hover { background: var(--cb-white) !important; color: var(--cb-navy) !important; }
+.sqs-add-to-cart-button-inner, .cart-checkout-button * { font: inherit !important; color: inherit !important; }
 
 /* ------------------------------------------------------------
-   4. Header: dark bar, white uppercase nav, red cart count
+   4. Header. Navy bar, white nav, red cart count. Replace the text title with the white logo (see README).
    ------------------------------------------------------------ */
-#header,
-.header,
-.header-announcement-bar-wrapper {
+#header, .header, .header-announcement-bar-wrapper, .header-inner, .header-background, .header-background-solid {
   background: rgba(17, 24, 33, 0.96) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  --solidHeaderBackgroundColor: var(--cb-navy) !important;
 }
-.header-title-logo img { max-height: 44px !important; width: auto !important; }
-.header-title-text a { font-family: var(--cb-display) !important; font-weight: 900 !important; text-transform: uppercase !important; color: var(--cb-white) !important; }
-.header-nav-item a,
-.header-menu-nav-item a {
+#header { border-bottom: 1px solid var(--cb-line); }
+.header-title-text a, .header-title-text a:visited {
   font-family: var(--cb-display) !important;
-  font-weight: 700 !important;
-  font-size: 15px !important;
-  text-transform: none !important;
+  font-weight: 900 !important;
+  font-size: 18px !important;
+  letter-spacing: -0.03em !important;
+  text-transform: uppercase !important;
   color: var(--cb-white) !important;
   text-decoration: none !important;
 }
-.header-nav-item--active a,
-.header-nav-item a:hover {
+.header-title-logo img { max-height: 44px !important; width: auto !important; }
+.header-nav-item a, .header-menu-nav-item a {
+  font-family: var(--cb-display) !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: var(--cb-white) !important;
+  text-decoration: none !important;
   background-image: none !important;
-  box-shadow: inset 0 -2px 0 var(--cb-white);
 }
-.header-menu-nav-item a { font-size: 32px !important; }
-.header-menu-bg { background: var(--cb-navy) !important; }
-.header-actions .icon--cart svg, .header-actions-action--cart svg { stroke: var(--cb-white) !important; }
+.header-nav-item--active a, .header-nav-item a:hover { box-shadow: inset 0 -2px 0 var(--cb-white); }
+.header-menu-nav-item a { font-size: 32px !important; font-weight: 900 !important; text-transform: uppercase !important; }
+.header-menu-bg, .header-menu { background: var(--cb-navy) !important; }
+.header-actions-action--cart, .header-actions-action--cart a, .icon--cart { color: var(--cb-white) !important; }
+.header-actions-action--cart svg, .icon--cart svg { stroke: var(--cb-white) !important; fill: var(--cb-white) !important; }
 .icon-cart-quantity, .header-cart-count {
   background: var(--cb-red) !important;
   color: var(--cb-white) !important;
   font-family: var(--cb-display) !important;
   font-weight: 700 !important;
 }
-/* Announcement bar: the red strip at the very top. */
+.header-burger .burger-inner div, .burger-box div { background: var(--cb-white) !important; }
+/* Announcement bar, if you switch it on: the thin red strip. */
 .sqs-announcement-bar { background: var(--cb-red-deep) !important; }
-.sqs-announcement-bar-text,
-.sqs-announcement-bar-text p,
-.sqs-announcement-bar-text a {
+.sqs-announcement-bar-text, .sqs-announcement-bar-text p, .sqs-announcement-bar-text a {
   color: var(--cb-white) !important;
   font-family: var(--cb-display) !important;
   font-weight: 600 !important;
@@ -184,44 +166,53 @@ p, .sqs-block-html p { font-size: 17px; line-height: 1.55; }
 }
 
 /* ------------------------------------------------------------
-   5. Product grid: white cut-corner tiles, display-face titles, red prices
+   5. Scrolling text strips ("SHOP ALL THINGS CULTURE BOWL"). Red band, white display type, like the site's ticker.
    ------------------------------------------------------------ */
-.products.collection-content-wrapper .grid-item,
-.sqs-block-summary-v2 .summary-item {
-  background: transparent !important;
+.marquee-block, .sqs-block-marquee, .page-section:has(> .marquee-block) .section-background {
+  background: var(--cb-red-deep) !important;
 }
-.products .grid-image-wrapper,
-.products .grid-image-wrapper .grid-item-image,
-.sqs-block-summary-v2 .summary-thumbnail {
-  background: var(--cb-white);
-  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+.marquee-block .marquee-content, .marquee-block .marquee-text, .marquee-block span {
+  font-family: var(--cb-display) !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.03em !important;
+  color: var(--cb-white) !important;
+}
+
+/* ------------------------------------------------------------
+   6. Product grid (Apparel and Hats pages). Navy tiles with a cut corner, display titles, red prices.
+   ------------------------------------------------------------ */
+.product-list { gap: 24px !important; }
+.product-list-item { background: transparent !important; }
+.product-list-item-link { text-decoration: none !important; display: block; }
+.product-list-image-wrapper, .product-list-item-image, .product-list-item .grid-image-wrapper {
+  background: var(--cb-navy-tile) !important;
+  clip-path: polygon(0 0, calc(100% - var(--cb-cut-lg)) 0, 100% var(--cb-cut-lg), 100% 100%, var(--cb-cut-lg) 100%, 0 calc(100% - var(--cb-cut-lg)));
+  box-shadow: inset 0 0 0 1px var(--cb-line);
   transition: transform 240ms cubic-bezier(.16,1,.3,1);
 }
-.products .grid-item:hover .grid-image-wrapper { transform: translateY(-4px); }
-.products .grid-title,
-.sqs-block-summary-v2 .summary-title {
+.product-list-item:hover .product-list-image-wrapper { transform: translateY(-4px); }
+.product-list-item .grid-item-image { padding: 6%; box-sizing: border-box; }
+.product-list-item-meta { padding-top: 14px; text-align: left !important; }
+.product-list-item-title {
   font-family: var(--cb-display) !important;
   font-weight: 800 !important;
-  font-size: 18px !important;
+  font-size: 16px !important;
+  line-height: 1.15 !important;
   letter-spacing: -0.02em !important;
   text-transform: uppercase !important;
   color: var(--cb-white) !important;
-  margin-top: 14px !important;
 }
-.products .grid-prices,
-.products .product-price,
-.sqs-block-summary-v2 .summary-metadata-item {
+.product-list-item-price {
   font-family: var(--cb-display) !important;
   font-weight: 600 !important;
-  font-size: 13px !important;
-  letter-spacing: 0.04em !important;
+  font-size: 12px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
   color: var(--cb-red) !important;
+  margin-top: 6px !important;
 }
-.products .product-price .original-price { color: rgba(255, 255, 255, 0.5) !important; }
-/* Sale and sold-out badges */
-.product-mark,
-.products .product-mark.sold-out,
-.products .product-mark.sale {
+.product-mark, .product-scarcity {
   background: var(--cb-red) !important;
   color: var(--cb-white) !important;
   font-family: var(--cb-display) !important;
@@ -231,11 +222,9 @@ p, .sqs-block-html p { font-size: 17px; line-height: 1.55; }
   text-transform: uppercase !important;
   padding: 6px 10px !important;
 }
-.products .product-mark.sold-out { background: var(--cb-grey) !important; }
-/* Category filter links above the grid */
-.nested-category-tree-wrapper a,
-.category-filter-list a,
-.product-category-link {
+.product-mark.sold-out { background: var(--cb-grey) !important; }
+/* The "HATS" page heading and any filter controls */
+.nested-category-tree-wrapper a, .category-filter-list a, .product-category-link, .product-filter a, .collection-type-products .filter-button {
   font-family: var(--cb-display) !important;
   font-weight: 600 !important;
   font-size: 11px !important;
@@ -243,77 +232,92 @@ p, .sqs-block-html p { font-size: 17px; line-height: 1.55; }
   text-transform: uppercase !important;
   color: var(--cb-white) !important;
 }
-.nested-category-tree-wrapper a.active,
-.category-filter-list a.active { color: var(--cb-red) !important; }
+.nested-category-tree-wrapper a.active, .category-filter-list a.active { color: var(--cb-red) !important; }
 
 /* ------------------------------------------------------------
-   6. Product page: big title, red price, quiet description, dark pickers
+   7. Product page. Big title, red price, quiet description, dark form controls, red Add to Cart.
    ------------------------------------------------------------ */
-.ProductItem-details-title,
-.ProductItem .ProductItem-details h1 {
-  font-size: clamp(34px, 4vw, 56px) !important;
-}
-.ProductItem-details .product-price {
+.product-detail .product-title, h1.product-title { font-size: clamp(34px, 4vw, 56px) !important; margin-bottom: 14px !important; }
+.product-price, .product-price .product-price-value {
   font-family: var(--cb-display) !important;
   font-weight: 700 !important;
   font-size: 22px !important;
+  letter-spacing: -0.01em !important;
+  text-transform: uppercase !important;
   color: var(--cb-red) !important;
 }
-.ProductItem-details-excerpt,
-.ProductItem-details-excerpt p {
+.product-description, .product-description p, .product-description li {
   font-family: var(--cb-text) !important;
-  font-size: 17px !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
   line-height: 1.55 !important;
   color: rgba(255, 255, 255, 0.85) !important;
 }
-.ProductItem-gallery-slides-item img { background: var(--cb-white); }
-.product-variants .variant-select-wrapper select,
-.product-variants .variant-select-wrapper,
-.ProductItem-quantity-input,
-.quantity-input,
-.sqs-block-form .field-element,
-.form-item input, .form-item textarea, .form-item select {
+.product-description strong { font-weight: 700; color: var(--cb-white); }
+.product-gallery-slides-item-image, .product-gallery-slides-item {
+  background: var(--cb-navy-tile) !important;
+  clip-path: polygon(0 0, calc(100% - var(--cb-cut-lg)) 0, 100% var(--cb-cut-lg), 100% 100%, var(--cb-cut-lg) 100%, 0 calc(100% - var(--cb-cut-lg)));
+}
+.product-gallery-thumbnails-item { opacity: 0.6; }
+.product-gallery-thumbnails-item.active, .product-gallery-thumbnails-item:hover { opacity: 1; }
+.variant-option-title, .product-quantity-input label, .product-quantity-input-label, .cart-row-variant {
+  font-family: var(--cb-display) !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: var(--cb-white) !important;
+}
+.variant-select-wrapper, .variant-select-wrapper select, select.variant-select,
+.product-quantity-input, .product-quantity-input input, .quantity-input,
+.form-item input, .form-item textarea, .form-item select, .sqs-block-form .field-element {
   background: transparent !important;
   color: var(--cb-white) !important;
-  border: 0 !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
   border-radius: 0 !important;
   font-family: var(--cb-text) !important;
   font-size: 16px !important;
 }
-.product-variants .variant-select-wrapper select option { color: var(--cb-navy); }
-.product-variants .variant-select-wrapper label,
-.ProductItem-quantity-label,
-.form-item label, .title {
+.variant-select-wrapper select, select.variant-select { border: 0 !important; }
+.variant-select-wrapper::after, .variant-select-wrapper svg { color: var(--cb-white) !important; stroke: var(--cb-white) !important; }
+select.variant-select option { color: var(--cb-navy); background: var(--cb-white); }
+.product-quantity-input button, .product-quantity-input .quantity-increment, .product-quantity-input .quantity-decrement { color: var(--cb-white) !important; background: transparent !important; border: 0 !important; }
+.product-quantity-input input { border: 0 !important; text-align: center; font-family: var(--cb-display) !important; font-weight: 700 !important; }
+.product-purchase-controls-wrapper { margin-top: 20px; }
+.product-add-to-cart-button-wrapper { flex: 1; }
+.sqs-add-to-cart-button { width: 100% !important; }
+.product-additional-fields, .product-detail .related-products, .product-detail .reviews-section { border-top: 1px solid var(--cb-line); }
+
+/* ------------------------------------------------------------
+   8. Cart. Dark page, display title, red subtotal, red checkout button.
+   ------------------------------------------------------------ */
+.cart-title { font-size: clamp(32px, 4vw, 48px) !important; }
+.cart-row { border-bottom: 1px solid var(--cb-line) !important; }
+.cart-row-img { background: var(--cb-navy-tile); clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); }
+.cart-row-title, a.cart-row-title {
   font-family: var(--cb-display) !important;
-  font-weight: 600 !important;
-  font-size: 11px !important;
-  letter-spacing: 0.06em !important;
+  font-weight: 800 !important;
+  font-size: 16px !important;
+  letter-spacing: -0.02em !important;
   text-transform: uppercase !important;
   color: var(--cb-white) !important;
+  text-decoration: none !important;
 }
-.ProductItem-additional { border-top: 1px solid rgba(255, 255, 255, 0.12); }
+.cart-row-variant { color: rgba(255, 255, 255, 0.7) !important; }
+.cart-row-price, p.cart-row-price { font-family: var(--cb-display) !important; font-weight: 700 !important; color: var(--cb-white) !important; }
+.cart-row-qty { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4); }
+.cart-row-qty button, .cart-row-qty-dec, .cart-row-qty-inc, .cart-row-remove { color: var(--cb-white) !important; background: transparent !important; border: 0 !important; }
+.cart-row-qty-input { background: transparent !important; color: var(--cb-white) !important; border: 0 !important; font-family: var(--cb-display) !important; font-weight: 700 !important; }
+.cart-row-remove svg { stroke: var(--cb-white) !important; }
+.cart-subtotal-label { font-family: var(--cb-display) !important; font-weight: 600 !important; font-size: 11px !important; letter-spacing: 0.06em !important; text-transform: uppercase !important; }
+.cart-subtotal-price { font-family: var(--cb-display) !important; font-weight: 900 !important; font-size: 28px !important; color: var(--cb-red) !important; }
+.cart-checkout-button { width: 100% !important; min-height: 64px !important; font-size: 20px !important; }
+.empty-message, .cart-container .empty-message { font-family: var(--cb-serif) !important; font-size: 26px !important; }
 
 /* ------------------------------------------------------------
-   7. Cart and checkout entry
+   9. Footer. Red "fragments" band like the main site. Upload bg-red-fragments.webp and paste its URL below.
    ------------------------------------------------------------ */
-.cart-container, .cart-container * { color: var(--cb-white); }
-.cart-title { font-family: var(--cb-display) !important; font-weight: 900 !important; text-transform: uppercase !important; letter-spacing: -0.045em !important; }
-.cart-container .item-title, .cart-container .cart-subtotal, .cart-container .cart-subtotal-price {
-  font-family: var(--cb-display) !important;
-  font-weight: 700 !important;
-}
-.cart-container .cart-subtotal-price { color: var(--cb-red) !important; }
-.cart-container .cart-row { border-color: rgba(255, 255, 255, 0.12) !important; }
-.cart-container .remove-item svg { stroke: var(--cb-white) !important; }
-
-/* ------------------------------------------------------------
-   8. Footer: red "fragments" band, like the main site
-   Upload bg-red-fragments.webp in Custom CSS > Manage Custom Files and paste its URL below.
-   ------------------------------------------------------------ */
-#footer-sections,
-#footer-sections .page-section,
-#footer-sections .page-section .section-background {
+#footer-sections, #footer-sections .page-section, #footer-sections .page-section .section-background {
   background-color: var(--cb-red-deep) !important;
 }
 #footer-sections .page-section .section-background::after {
@@ -340,13 +344,15 @@ p, .sqs-block-html p { font-size: 17px; line-height: 1.55; }
 #footer-sections .sqs-block-button-element:hover { background: var(--cb-navy) !important; color: var(--cb-white) !important; }
 
 /* ------------------------------------------------------------
-   9. Links and small things
+   10. Small things
    ------------------------------------------------------------ */
 a { color: var(--cb-white); }
 .sqs-block-html a:not(.sqs-block-button-element) { text-decoration: none; box-shadow: inset 0 -2px 0 var(--cb-red); }
 ::selection { background: var(--cb-red); color: var(--cb-white); }
-.sqs-block-image .image-block-outer-wrapper img,
-.sqs-block-video .sqs-video-wrapper {
-  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+.sqs-block-image .image-block-outer-wrapper img, .sqs-block-video .sqs-video-wrapper {
+  clip-path: polygon(0 0, calc(100% - var(--cb-cut-lg)) 0, 100% var(--cb-cut-lg), 100% 100%, var(--cb-cut-lg) 100%, 0 calc(100% - var(--cb-cut-lg)));
 }
-hr, .sqs-block-horizontalrule hr { background: rgba(255, 255, 255, 0.16) !important; border: 0 !important; height: 1px !important; }
+hr, .sqs-block-horizontalrule hr { background: var(--cb-line) !important; border: 0 !important; height: 1px !important; }
+/* Shape blocks (the home page "SHOP" circle) go red with white text. */
+.sqs-block-shape .sqs-shape, .sqs-shape-block-container .sqs-shape { background-color: var(--cb-red) !important; }
+.sqs-block-shape .sqs-shape-block-text, .sqs-shape-block-text * { color: var(--cb-white) !important; font-family: var(--cb-display) !important; font-weight: 900 !important; text-transform: uppercase !important; }
