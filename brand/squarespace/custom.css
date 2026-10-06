@@ -1,7 +1,8 @@
 /* ============================================================
    CultureBowl 2026 brand kit for shopallthingsculturebowl.com (Squarespace 7.1)
    Paste this whole file into: Website > Website Styles (paintbrush) > Custom CSS.
-   Written against the class names the store uses today (audited 5 Oct 2026).
+   Written against the class names the store uses today (audited 5 Oct 2026, re-checked 6 Oct 2026
+   after the Merch collection, the filter bar and the contact form were added).
    Tune anything by editing the values in the :root block.
    ============================================================ */
 
@@ -181,7 +182,7 @@ blockquote, .sqs-block-quote-block blockquote span, .cb-serif {
 }
 
 /* ------------------------------------------------------------
-   6. Product grid (Apparel and Hats pages). Navy tiles with a cut corner, display titles, red prices.
+   6. Product grid (Merch, Apparel and Hats pages). Navy tiles with a cut corner, display titles, red prices.
    ------------------------------------------------------------ */
 .product-list { gap: 24px !important; }
 .product-list-item { background: transparent !important; }
@@ -245,6 +246,95 @@ blockquote, .sqs-block-quote-block blockquote span, .cb-serif {
 .nested-category-tree-wrapper a.active, .category-filter-list a.active { color: var(--cb-red) !important; }
 
 /* ------------------------------------------------------------
+   6b. The bar above each grid (the "Filter" button, result count, "Clear filters") and the page
+   heading ("MERCH", "APPAREL", "HATS"). The filter buttons use Squarespace's primary button class,
+   so these lines turn them back into small outlined controls instead of big red ones.
+   ------------------------------------------------------------ */
+.product-list-header { margin-bottom: 18px; }
+.nested-category-title, .product-list-title, .product-list-header h1 {
+  font-family: var(--cb-display) !important;
+  font-weight: 900 !important;
+  font-size: clamp(32px, 4.6vw, 60px) !important;
+  letter-spacing: -0.045em !important;
+  text-transform: uppercase !important;
+  color: var(--cb-white) !important;
+}
+.product-list-filters-drawer-open-button.sqs-button-element--primary,
+.product-list-filter-button.sqs-button-element--primary,
+.product-list-clear-filters-button {
+  min-height: 44px !important;
+  padding: 0 18px !important;
+  background: transparent !important;
+  color: var(--cb-white) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45) !important;
+  clip-path: none !important;
+  font-family: var(--cb-display) !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+}
+.product-list-filters-drawer-open-button.sqs-button-element--primary:hover,
+.product-list-filter-button.sqs-button-element--primary:hover,
+.product-list-clear-filters-button:hover { background: var(--cb-white) !important; color: var(--cb-navy) !important; }
+.product-list-filters-drawer-open-button-icon svg { stroke: currentColor !important; }
+.product-list-result-count, .product-list-applied-filter-count {
+  font-family: var(--cb-display) !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+/* The filter drawer that slides in */
+.product-list-filters, .product-list-filters-container, .product-list-filters-drawer-header { background: var(--cb-navy) !important; color: var(--cb-white) !important; }
+.product-list-filters-drawer-overlay { background: rgba(17, 24, 33, 0.7) !important; }
+.product-list-filters-drawer-title { font-family: var(--cb-display) !important; font-weight: 900 !important; text-transform: uppercase !important; letter-spacing: -0.03em !important; color: var(--cb-white) !important; }
+.product-list-filters-drawer-close-button { color: var(--cb-white) !important; background: transparent !important; }
+.product-list-filters a, .product-list-filters label, .product-list-filters button { color: var(--cb-white) !important; }
+.product-list-category-select-container select { background: transparent !important; color: var(--cb-white) !important; border: 1px solid rgba(255, 255, 255, 0.5) !important; border-radius: 0 !important; }
+/* "Sold out" and similar tags on a tile */
+.product-list-item-status {
+  display: inline-block;
+  background: var(--cb-grey) !important;
+  color: var(--cb-white) !important;
+  font-family: var(--cb-display) !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  padding: 6px 10px !important;
+  margin-top: 8px;
+}
+
+/* ------------------------------------------------------------
+   6c. The sections around a grid: the "Shop the Collection" intro and the "Have Questions?" form
+   on the Merch page. Headings and copy are covered above; this styles the form and its labels.
+   ------------------------------------------------------------ */
+.sqs-block-form .form-wrapper, .sqs-block-form .field-list { color: var(--cb-white) !important; }
+.sqs-block-form .title, .sqs-block-form .field-list .title, .sqs-block-form .caption-text, .sqs-block-form .description, .form-item .title, .form-item label {
+  font-family: var(--cb-display) !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: var(--cb-white) !important;
+}
+.sqs-block-form .field-element, .sqs-block-form input, .sqs-block-form textarea, .sqs-block-form select {
+  background: transparent !important;
+  color: var(--cb-white) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  border-radius: 0 !important;
+  font-family: var(--cb-text) !important;
+  font-size: 16px !important;
+}
+.sqs-block-form .field-element::placeholder { color: rgba(255, 255, 255, 0.5) !important; }
+.sqs-block-form .form-submission-text, .sqs-block-form .form-submission-html { color: var(--cb-white) !important; }
+.sqs-block-form .form-button-wrapper .button, .sqs-block-form .form-button-wrapper input[type="submit"] { width: 100%; }
+/* The home page's black logo PNG would vanish on navy: this flips it to white until it is swapped for the white SVG. */
+.sqs-block-image img[data-src*="Logo+Black"], .sqs-block-image img[src*="Logo+Black"], .sqs-block-image img[data-src*="Logo%2BBlack"] { filter: invert(1) !important; }
+
+/* ------------------------------------------------------------
    7. Product page. Big title, red price, quiet description, dark form controls, red Add to Cart.
    ------------------------------------------------------------ */
 .product-detail .product-title, h1.product-title { font-size: clamp(34px, 4vw, 56px) !important; margin-bottom: 14px !important; }
@@ -297,6 +387,20 @@ select.variant-select option { color: var(--cb-navy); background: var(--cb-white
 .product-add-to-cart-button-wrapper { flex: 1; }
 .sqs-add-to-cart-button { width: 100% !important; }
 .product-additional-fields, .product-detail .related-products, .product-detail .reviews-section { border-top: 1px solid var(--cb-line); }
+
+/* The breadcrumb ("MERCH ›") above the title and the photo carousel controls */
+.product-nav, .product-nav a, .product-nav-breadcrumb-link {
+  font-family: var(--cb-display) !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: var(--cb-red) !important;
+  text-decoration: none !important;
+}
+.product-gallery-carousel-control { color: var(--cb-white) !important; background: rgba(17, 24, 33, 0.6) !important; border-radius: 0 !important; }
+.product-gallery-carousel-control svg { stroke: var(--cb-white) !important; }
+.product-gallery-current-slide-indicator { font-family: var(--cb-display) !important; font-size: 11px !important; letter-spacing: 0.06em !important; color: rgba(255, 255, 255, 0.7) !important; }
 
 /* ------------------------------------------------------------
    8. Cart. Dark page, display title, red subtotal, red checkout button.
