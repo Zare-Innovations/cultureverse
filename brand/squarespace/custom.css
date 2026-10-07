@@ -186,6 +186,7 @@ blockquote, .sqs-block-quote-block blockquote span, .cb-serif {
   -webkit-text-stroke: 0 !important;
   -webkit-text-fill-color: @cb-white !important;
 }
+.marquee-block .Marquee-svg-text, .marquee-block .Marquee-svg-text * { fill: @cb-white !important; stroke: none !important; }
 .marquee-block .Marquee, .marquee-block .Marquee-display, .marquee-block .sqs-block-content { background-color: @cb-red-deep !important; }
 
 /* ------------------------------------------------------------
