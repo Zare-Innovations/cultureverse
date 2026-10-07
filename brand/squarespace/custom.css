@@ -174,13 +174,19 @@ blockquote, .sqs-block-quote-block blockquote span, .cb-serif {
 .page-section:has(.sqs-block-marquee) .section-background, .page-section:has(> .marquee-block) .section-background {
   background: @cb-red-deep !important;
 }
-.marquee-block .marquee-content, .marquee-block .marquee-text, .marquee-block span {
+/* The strip is a Squarespace web component (.Marquee) that builds its own markup, so every
+   descendant is covered. The text takes the section's Heading 1 style, which is why it came out black. */
+.marquee-block .marquee-content, .marquee-block .marquee-text, .marquee-block span,
+.marquee-block .Marquee, .marquee-block .Marquee *, .sqs-block-marquee .Marquee * {
   font-family: @cb-display !important;
   font-weight: 900 !important;
   text-transform: uppercase !important;
   letter-spacing: -0.03em !important;
   color: @cb-white !important;
+  -webkit-text-stroke: 0 !important;
+  -webkit-text-fill-color: @cb-white !important;
 }
+.marquee-block .Marquee, .marquee-block .Marquee-display, .marquee-block .sqs-block-content { background-color: @cb-red-deep !important; }
 
 /* ------------------------------------------------------------
    6. Product grid (Merch, Apparel and Hats pages). Navy tiles with a cut corner, display titles, red prices.
