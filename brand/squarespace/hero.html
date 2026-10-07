@@ -1,20 +1,23 @@
 <!--
   CultureBowl shop hero. Add a Code block to the top of the Shop page and paste this in.
   Replace the two image URLs with the files uploaded under Custom CSS > Manage Custom Files.
-  It carries its own styles, so it works even before custom.css is in place.
+  It carries its own styles, so it works even before custom.css is in place. Give the section it
+  sits in zero top and bottom padding, or Squarespace leaves a gap above and below it.
 -->
 <style>
   .cb-hero { position: relative; overflow: hidden; background: #111821; color: #fff; padding: 72px 24px 64px; text-align: center; font-family: 'Golos Text', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
   .cb-hero::before { content: ''; position: absolute; inset: -20% -10%; background: radial-gradient(60% 50% at 50% 0%, rgba(246, 0, 58, 0.55), transparent 70%); pointer-events: none; }
   .cb-hero > * { position: relative; }
-  .cb-hero .cb-kicker { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #F6003A; margin: 0 0 22px; }
+  /* Every text rule carries !important so Squarespace's own heading and paragraph styles cannot override it. */
+  .cb-hero .cb-kicker { font-family: 'Golos Text', 'Helvetica Neue', Helvetica, Arial, sans-serif !important; font-size: 11px !important; font-weight: 600 !important; letter-spacing: 0.06em !important; text-transform: uppercase !important; line-height: 1.35 !important; color: #F6003A !important; margin: 0 0 22px !important; }
   .cb-hero .cb-logo { display: block; margin: 0 auto 26px; width: min(360px, 70vw); height: auto; }
-  .cb-hero h1 { margin: 0; font-size: clamp(40px, 7vw, 88px); font-weight: 900; line-height: 0.92; letter-spacing: -0.045em; text-transform: uppercase; }
-  .cb-hero h1 em { font-style: normal; color: #F6003A; }
-  .cb-hero .cb-sub { max-width: 560px; margin: 20px auto 0; font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-size: clamp(20px, 2.4vw, 28px); line-height: 1.25; }
+  .cb-hero h1 { margin: 0 !important; font-family: 'Golos Text', 'Helvetica Neue', Helvetica, Arial, sans-serif !important; font-size: clamp(40px, 7vw, 88px) !important; font-weight: 900 !important; line-height: 0.92 !important; letter-spacing: -0.045em !important; text-transform: uppercase !important; color: #fff !important; }
+  .cb-hero h1 em { font-style: normal !important; color: #F6003A !important; }
+  .cb-hero .cb-sub { max-width: 560px; margin: 20px auto 0 !important; font-family: 'Cormorant Garamond', 'Times New Roman', serif !important; font-size: clamp(20px, 2.4vw, 28px) !important; font-weight: 400 !important; line-height: 1.25 !important; letter-spacing: 0 !important; text-transform: none !important; color: #fff !important; }
   .cb-hero .cb-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+  .cb-hero .cb-btn, .cb-hero a.cb-btn { font-family: 'Golos Text', 'Helvetica Neue', Helvetica, Arial, sans-serif !important; font-size: 17px !important; font-weight: 800 !important; letter-spacing: -0.01em !important; text-transform: uppercase !important; text-decoration: none !important; line-height: 1 !important; color: #fff !important; }
   .cb-hero .cb-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 0 28px; background: #F6003A; color: #fff; font-weight: 800; font-size: 17px; letter-spacing: -0.01em; text-transform: uppercase; text-decoration: none; clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px)); transition: background 160ms, color 160ms; }
-  .cb-hero .cb-btn:hover { background: #fff; color: #111821; }
+  .cb-hero .cb-btn:hover, .cb-hero a.cb-btn:hover { background: #fff !important; color: #111821 !important; }
   .cb-hero .cb-btn--line { background: transparent; box-shadow: inset 0 0 0 2px #fff; }
   .cb-hero .cb-btn--line:hover { background: #fff; color: #111821; }
   .cb-hero .cb-mcf { display: block; margin: 40px auto 0; width: min(260px, 60vw); height: auto; opacity: 0.9; }

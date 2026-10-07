@@ -1,18 +1,22 @@
 <!--
   "The Culture is Calling" band from the main site. Add a Code block to the bottom of any page,
   above the footer, and paste this in. Upload bg-red-fragments.webp and paste its URL below.
+  Give the section zero top and bottom padding so the band runs edge to edge.
 -->
 <style>
   .cb-band { position: relative; overflow: hidden; background: #DC0034; color: #fff; padding: 72px 24px; font-family: 'Golos Text', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
   .cb-band::before { content: ''; position: absolute; inset: 0; background-image: url('PASTE-bg-red-fragments.webp-URL-HERE'); background-size: cover; background-position: center; opacity: 0.16; pointer-events: none; }
   .cb-band .cb-inner { position: relative; max-width: 1312px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
-  .cb-band h2 { margin: 0; font-size: clamp(40px, 6vw, 80px); font-weight: 900; line-height: 0.92; letter-spacing: -0.045em; text-transform: uppercase; }
-  .cb-band .cb-tag { margin: 12px 0 0; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  /* Every text rule carries !important so Squarespace's own heading and paragraph styles cannot override it. */
+  .cb-band h2 { margin: 0 !important; font-family: 'Golos Text', 'Helvetica Neue', Helvetica, Arial, sans-serif !important; font-size: clamp(40px, 6vw, 80px) !important; font-weight: 900 !important; line-height: 0.92 !important; letter-spacing: -0.045em !important; text-transform: uppercase !important; color: #fff !important; }
+  .cb-band .cb-tag { margin: 12px 0 0 !important; font-family: 'Golos Text', 'Helvetica Neue', Helvetica, Arial, sans-serif !important; font-size: 11px !important; font-weight: 600 !important; letter-spacing: 0.06em !important; text-transform: uppercase !important; line-height: 1.35 !important; color: #fff !important; }
   .cb-band .cb-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .cb-band .cb-btn, .cb-band a.cb-btn { font-family: 'Golos Text', 'Helvetica Neue', Helvetica, Arial, sans-serif !important; font-size: 17px !important; font-weight: 800 !important; letter-spacing: -0.01em !important; text-transform: uppercase !important; text-decoration: none !important; line-height: 1 !important; }
   .cb-band .cb-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 0 28px; background: #fff; color: #111821; font-weight: 800; font-size: 17px; letter-spacing: -0.01em; text-transform: uppercase; text-decoration: none; clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px)); transition: background 160ms, color 160ms; }
-  .cb-band .cb-btn:hover { background: #111821; color: #fff; }
-  .cb-band .cb-btn--dark { background: #111821; color: #fff; }
-  .cb-band .cb-btn--dark:hover { background: #fff; color: #111821; }
+  .cb-band .cb-btn, .cb-band a.cb-btn { color: #111821 !important; }
+  .cb-band .cb-btn:hover, .cb-band a.cb-btn:hover { background: #111821 !important; color: #fff !important; }
+  .cb-band .cb-btn--dark, .cb-band a.cb-btn--dark { background: #111821; color: #fff !important; }
+  .cb-band .cb-btn--dark:hover, .cb-band a.cb-btn--dark:hover { background: #fff !important; color: #111821 !important; }
   @media (max-width: 760px) { .cb-band .cb-actions, .cb-band .cb-btn { width: 100%; } }
 </style>
 <section class="cb-band">
