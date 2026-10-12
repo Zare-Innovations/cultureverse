@@ -31,6 +31,7 @@ const HONOREES = [
   { slug: 'moore', name: 'Minyon Moore', title: 'Principal & Managing Partner, Dewey Square Group', announced: true },
   { slug: 'townsend', name: 'Taylor Townsend', title: '2026 US Open | Doubles Champion (U.S.A), Career Grand Slam', announced: true },
   { slug: 'reynolds', name: 'James Reynolds', title: 'Founder, Chairman, Chief Executive Officer, Loop Capital', announced: true },
+  { slug: 'chainz', name: '2 Chainz', title: 'Grammy-winning rapper, songwriter, author, and actor', announced: true },
 ] as const;
 
 const FACTS = [

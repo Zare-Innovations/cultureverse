@@ -95,7 +95,7 @@
 .featureName { font-size: calc(56 * var(--u)); line-height: 0.95; color: var(--hon-gold); }
 .featureBio { font-size: 17px; line-height: 1.5; opacity: 0.85; max-width: 520px; }
 .classHead { margin: 0 0 18px; }
-.honorees { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.honorees { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; align-items: start; }
 .honoree { display: flex; flex-direction: column; gap: 10px; }
 .portrait {
   width: 100%;
