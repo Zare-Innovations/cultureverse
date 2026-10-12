@@ -87,9 +87,6 @@ export default function MobileMenu({ countdown, onClose }: { countdown: string; 
             <Link className={s.sub} href="/biggive" onClick={onClose}>
               <img src="/assets/logo-biggive.png" srcSet={srcSet("/assets/logo-biggive.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 52px" alt="" width={1000} height={477}  style={{ aspectRatio: '1000 / 477' }} />The Culture&apos;s BIG GIVE™
             </Link>
-            <Link className={s.sub} href="/culturelive" onClick={onClose}>
-              <img src="/assets/logo-culturelive.png" srcSet={srcSet("/assets/logo-culturelive.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 52px" alt="" width={1000} height={502}  style={{ aspectRatio: '1000 / 502' }} />CultureLive™
-            </Link>
             <Link className={s.sub} href="/cultureunion" onClick={onClose}>
               <img src="/assets/logo-cultureunion.png" srcSet={srcSet("/assets/logo-cultureunion.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 52px" alt="" width={1000} height={216}  style={{ aspectRatio: '1000 / 216' }} />CultuReunion™
             </Link>
@@ -98,6 +95,9 @@ export default function MobileMenu({ countdown, onClose }: { countdown: string; 
             </Link>
             <Link className={s.sub} href="/culturegames" onClick={onClose}>
               <img src="/assets/logo-culturegames.png" srcSet={srcSet("/assets/logo-culturegames.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 52px" alt="" width={1000} height={567}  style={{ aspectRatio: '1000 / 567' }} />CultureGames™
+            </Link>
+            <Link className={s.sub} href="/culturelive" onClick={onClose}>
+              <img src="/assets/logo-culturelive.png" srcSet={srcSet("/assets/logo-culturelive.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 52px" alt="" width={1000} height={502}  style={{ aspectRatio: '1000 / 502' }} />CultureLive™
             </Link>
           </div>
         </div>

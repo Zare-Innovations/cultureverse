@@ -4,10 +4,8 @@ import Link from 'next/link';
 import type { CSSProperties } from 'react';
 import { pageTitle } from '@/lib/site';
 import { HEADLINER, SUPPORTING } from '@/lib/hero';
-import TicketLink from '@/components/TicketLink';
 import Reveal from '@/components/Reveal';
 import Ticker from '@/components/Ticker';
-import EventJsonLd from '@/components/EventJsonLd';
 import { srcSet, LOGO_WIDTHS } from '@/lib/img';
 import e from '@/components/event/event.module.css';
 import s from './culturelive.module.css';
@@ -17,15 +15,14 @@ export const metadata: Metadata = {
   description: 'CultureLive™ is where the energy lives. We bring the icons, the sound, and unforgettable performances.',
 };
 
-const NOTE = 'Tickets on Ticketmaster. Opens in a new tab. Day and weekend options to be announced.';
+const NOTE = 'Dates and tickets to be announced. Join the list to hear first.';
 
 /** The ticker between the announcement and the lineup: what, when, where, who. */
-const TICKER = ['CultureLive™', 'Sat Oct 24 and Sun Oct 25', 'StarJourney Stage', 'Central Park Atlanta', HEADLINER, SUPPORTING, 'Full lineup to the list first'];
+const TICKER = ['CultureLive™', 'Dates to come', 'StarJourney Stage', 'Central Park Atlanta', HEADLINER, SUPPORTING, 'Full lineup to the list first'];
 
 export default function CultureLivePage() {
   return (
     <section id="live" className={`page ${s.live}`} style={{ '--accent': '#FF6F00' } as CSSProperties}>
-      <EventJsonLd name="CultureLive™" description={metadata.description as string} path="/culturelive" startDate="2026-10-24" endDate="2026-10-25" venue="StarJourney Stage, Central Park Atlanta" ticketed />
       <div className={s.bgBox}>
         <Image className={`bgimg ${s.bg}`} src="/assets/bg-culturelive.webp" alt="" fill priority sizes="100vw" />
         <div aria-hidden="true" className={s.shade} />
@@ -35,8 +32,8 @@ export default function CultureLivePage() {
       <div className={`wrap ${s.wrap} only-d`}>
         <div className={e.top}>
           <div className={`hud ${e.topLine}`}>
-            Sat Oct 24 and Sun Oct 25, 2026 <span className={e.sep}>/</span> StarJourney Stage, Central Park Atlanta <span className={e.sep}>/</span>{' '}
-            <span className="st st-ticket">Ticketed</span>
+            Dates to come <span className={e.sep}>/</span> StarJourney Stage, Central Park Atlanta <span className={e.sep}>/</span>{' '}
+            <span className="st st-tba">Coming soon</span>
           </div>
           <Link href="/cultureverse" className={`hud ${e.back}`}>Back to the CultureVerse</Link>
         </div>
@@ -46,7 +43,7 @@ export default function CultureLivePage() {
           <p className={`a-in ${e.copy}`} style={{ '--d': '700ms' } as CSSProperties}>CultureLive™ is where the energy lives. We bring the icons, the sound, and unforgettable performances.</p>
           <p className={`a-in ${e.copy}`} style={{ '--d': '840ms' } as CSSProperties}>Don’t follow the moment--let’s make it.</p>
           <div className={e.ctaRow}>
-            <TicketLink className="btn btn-red">Get tickets</TicketLink>
+            <Link className="btn btn-red" href="/tap-in">Notify me</Link>
             <span className={`hud ${e.ctaNote}`}>{NOTE}</span>
           </div>
         </div>
@@ -58,7 +55,7 @@ export default function CultureLivePage() {
             <span className={`hud ${s.pending}`}>[ARTIST NAMES PENDING CONFIRMATION]</span>
           </div>
           <dl className={`${e.dl} ${s.dl}`}>
-            <div className={e.dlItem}><dt className="hud">Nights</dt><dd className={e.dd}>Saturday and Sunday</dd></div>
+            <div className={e.dlItem}><dt className="hud">Dates</dt><dd className={e.dd}>To be announced</dd></div>
             <div className={e.dlItem}><dt className="hud">Stage</dt><dd className={e.dd}>StarJourney Stage</dd></div>
             <div className={e.dlItem}><dt className="hud">Set times</dt><dd className={e.dd}>To be announced</dd></div>
           </dl>
@@ -98,11 +95,11 @@ export default function CultureLivePage() {
       {/* Mobile */}
       <div className={`wrap ${s.wrapM} only-m`}>
         <p className={`hud ${e.topM}`}>
-          Sat Oct 24 and Sun Oct 25, 2026<br /><span>StarJourney Stage, Central Park Atlanta</span>
+          Dates to come<br /><span>StarJourney Stage, Central Park Atlanta</span>
         </p>
         <h1 className={s.hM}><img className={e.markM} src="/assets/logo-culturelive.png" srcSet={srcSet("/assets/logo-culturelive.png", LOGO_WIDTHS, 1000)} sizes="(min-width: 1024px) 1400px, 260px" alt="Culture Live" width={1000} height={502}  style={{ aspectRatio: '1000 / 502' }} /></h1>
         <p className={`d ${s.titleM}`}>The culture goes live</p>
-        <div className={e.tag}><span className="st st-ticket">Ticketed</span></div>
+        <div className={e.tag}><span className="st st-tba">Coming soon</span></div>
         <p className={`${e.copyM} ${s.copyM1}`}>CultureLive™ is where the energy lives. We bring the icons, the sound, and unforgettable performances.</p>
         <p className={`${e.copyM} ${s.copyM2}`}>Don’t follow the moment--let’s make it.</p>
         <div className={s.talentM}>
@@ -112,7 +109,7 @@ export default function CultureLivePage() {
           <span className={`hud ${s.pendingM}`}>[ARTIST NAMES PENDING CONFIRMATION]</span>
         </div>
         <dl className={e.dlM}>
-          <div className={e.dlItemM}><dt className="hud">Nights</dt><dd className={e.ddM}>Sat and Sun</dd></div>
+          <div className={e.dlItemM}><dt className="hud">Dates</dt><dd className={e.ddM}>To be announced</dd></div>
           <div className={e.dlItemM}><dt className="hud">Set times</dt><dd className={e.ddM}>To be announced</dd></div>
         </dl>
         <Ticker items={TICKER} className={s.tickerM} />
@@ -141,7 +138,7 @@ export default function CultureLivePage() {
           <Image src="/assets/photo-live-2.webp" alt="Performer on stage" width={1276} height={1800} sizes="50vw" style={{ objectPosition: '50% 30%' }} />
         </Reveal>
         <div className={e.ctaM}>
-          <TicketLink className={`btn btn-red ${e.btn}`}>Get tickets</TicketLink>
+          <Link className={`btn btn-red ${e.btn}`} href="/tap-in">Notify me</Link>
           <p className={`hud ${e.noteM}`}>{NOTE}</p>
           <Link href="/cultureverse" className={`hud ${e.back} ${e.backM}`}>Back to the CultureVerse</Link>
         </div>

@@ -4,11 +4,11 @@ export const SITE_URL = 'https://www.allthingsculturebowl.com';
 export const TICKET_URL =
   process.env.NEXT_PUBLIC_TICKETMASTER_URL || 'https://www.ticketmaster.com/[CULTUREBOWL EVENT URL]';
 /**
- * The shop is a route on this site, fed by the Squarespace store (see lib/shop.ts). Setting
- * NEXT_PUBLIC_SHOP_URL to an absolute URL points every Shop link at an external store instead, which
- * is the way back to linking straight out if the built-in shop ever has to be switched off.
+ * Where every Shop link goes. For now that is the live Squarespace store itself. The site also has
+ * its own /shop route fed by that store (see lib/shop.ts); set NEXT_PUBLIC_SHOP_URL to "/shop" to
+ * switch the links back to it.
  */
-export const SHOP_URL = process.env.NEXT_PUBLIC_SHOP_URL || '/shop';
+export const SHOP_URL = process.env.NEXT_PUBLIC_SHOP_URL || 'https://www.shopallthingsculturebowl.com';
 export const SHOP_IS_EXTERNAL = /^https?:\/\//i.test(SHOP_URL);
 export const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT || '';
 export const HEADLINER_ANNOUNCED = process.env.NEXT_PUBLIC_HEADLINER_ANNOUNCED === 'true';

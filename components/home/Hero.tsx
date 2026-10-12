@@ -78,7 +78,7 @@ export function DesktopHero() {
             <div aria-hidden="true" className={s.divider} />
             <div className={s.liveBlock}>
               <span className={`d ${s.liveName}`}>CultureLive™</span>
-              <span className={`d8 ${s.liveDate}`}>Sat Oct 24 and Sun Oct 25</span>
+              <span className={`d8 ${s.liveDate}`}>Coming soon</span>
             </div>
             <TicketLink className={`btn btn-red btn-sm ${s.bandBtn}`}>Get tickets</TicketLink>
           </div>
@@ -205,7 +205,7 @@ export function MobileHero() {
           <div aria-hidden="true" className={s.dividerM} />
           <div className={s.liveBlockM}>
             <span className={`d ${s.liveNameM}`}>CultureLive™</span>
-            <span className={`d8 ${s.liveDateM}`}>Sat Oct 24, Sun Oct 25</span>
+            <span className={`d8 ${s.liveDateM}`}>Coming soon</span>
           </div>
         </div>
       </div>

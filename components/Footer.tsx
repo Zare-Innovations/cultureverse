@@ -7,18 +7,18 @@ import s from './Footer.module.css';
 
 const CV_LINKS = [
   ['/cultureverse', 'About the CultureVerse™'],
-  ['/culturelive', 'CultureLive™'],
   ['/iconhonors', "The Culture's Coldest™ ICON HONORS"],
   ['/exchnge', 'The Culture EXCHNGE™'],
   ['/biggive', "The Culture's BIG GIVE™"],
 ] as const;
 
-/** Everything without a fixed 2026 date, CultureExpo included. */
+/** Everything without a fixed 2026 date, CultureExpo and CultureLive included. */
 const COMING_LINKS = [
   ['/cultureexpo', 'CultureExpo™'],
   ['/cultureunion', 'CultuReunion™'],
   ['/culturecoming', 'CultureComing™'],
   ['/culturegames', 'CultureGames™'],
+  ['/culturelive', 'CultureLive™'],
 ] as const;
 
 function Legal({ className }: { className?: string }) {
